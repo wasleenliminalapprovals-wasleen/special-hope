@@ -35,6 +35,8 @@ interface FAQBlockProps {
   items: FAQItem[];
   /** Additional Tailwind classes */
   className?: string;
+  /** Set false when FAQPage schema is provided externally (e.g., via approvalSchemaStack) */
+  includeSchema?: boolean;
 }
 
 /**
@@ -61,6 +63,7 @@ export default function FAQBlock({
   subtitle,
   items,
   className = "",
+  includeSchema = true,
 }: FAQBlockProps) {
   if (!items || items.length === 0) return null;
 
@@ -72,13 +75,15 @@ export default function FAQBlock({
 
   return (
     <section className={`bg-white ${className}`.trim()}>
-      {/* FAQPage JSON-LD Schema */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(faqPageSchema(items)),
-        }}
-      />
+      {/* FAQPage JSON-LD Schema (optional — disable when provided externally) */}
+      {includeSchema && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(faqPageSchema(items)),
+          }}
+        />
+      )}
 
       <div className="max-w-6xl mx-auto px-4 py-12 md:px-8 md:py-16">
         <div className="max-w-3xl mx-auto">

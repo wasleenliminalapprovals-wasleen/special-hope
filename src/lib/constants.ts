@@ -32,5 +32,28 @@ export const SOCIAL = {
   twitter: "https://twitter.com/wasleenapprovals",
 } as const;
 
+export const LOCALE = {
+  default: "en-AE",
+  alternatives: ["ar-AE"] as const,
+} as const;
+
+/** Hub page slugs for building breadcrumbs and internal links */
+export const HUB_SLUGS = {
+  approvals: "/approvals",
+  guides: "/guides",
+  services: "/services",
+  aboutUs: "/about-us",
+  contactUs: "/contact-us",
+} as const;
+
+/** Default SEO metadata used as fallback for pages without custom values */
+export const DEFAULT_SEO = {
+  title: "Dubai Approvals Expert | DM, DDA, DEWA & DCD | Wasleen",
+  description:
+    "Expert Dubai approvals consultancy — DM, DDA, DEWA, DCD & more. Fast-track your project approvals with Wasleen Approvals. Contact us today.",
+  ogImage: `${SITE.url}/og-image.png`,
+  twitterHandle: "@wasleenapprovals",
+} as const;
+
 export const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || "G-SJF4WHM8QJ";
 export const GTM_ID = process.env.NEXT_PUBLIC_GTM_ID || "";
