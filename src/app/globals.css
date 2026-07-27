@@ -1,0 +1,122 @@
+@import "tailwindcss";
+
+/* ============================================================
+   DESIGN TOKENS — Tailwind CSS v4 Theme Configuration
+   Reference: .roo/rules/02-DESIGN-TOKEN-SYSTEM.md
+   ============================================================ */
+
+@theme {
+  /* ---- Brand Colors ---- */
+  --color-brand-blue: #004080;
+  --color-brand-blue-hover: #003366;
+  --color-uae-red: #C8102E;
+  --color-uae-green: #00843D;
+  --color-brand-black: #000000;
+  --color-cta-amber: #F5A623;
+  --color-cta-amber-hover: #D68910;
+
+  /* ---- Neutral / Background Colors ---- */
+  --color-light-bg: #f8fafc;
+  --color-card-bg: #EAF1FB;
+  --color-body-text: #1A2233;
+  --color-heading-text: #004080;
+  --color-link-blue: #0466C8;
+  --color-success-green: #2E9E5B;
+  --color-border-light: #D6E4F0;
+
+  /* ---- Typography Scale ---- */
+  --font-family-montserrat: "Montserrat", system-ui, sans-serif;
+  --font-family-roboto: "Roboto", system-ui, sans-serif;
+  --font-family-roboto-mono: "Roboto Mono", monospace;
+
+  --text-h1: 2.5rem;
+  --text-h1--line-height: 1.2;
+  --text-h1--font-weight: 700;
+
+  --text-h2: 2rem;
+  --text-h2--line-height: 1.25;
+  --text-h2--font-weight: 700;
+
+  --text-h3: 1.5rem;
+  --text-h3--line-height: 1.3;
+  --text-h3--font-weight: 700;
+
+  --text-h4: 1.25rem;
+  --text-h4--line-height: 1.4;
+  --text-h4--font-weight: 700;
+
+  --text-body-lg: 1.125rem;
+  --text-body-lg--line-height: 1.6;
+  --text-body-lg--font-weight: 400;
+
+  --text-body: 1rem;
+  --text-body--line-height: 1.6;
+  --text-body--font-weight: 400;
+
+  --text-body-sm: 0.875rem;
+  --text-body-sm--line-height: 1.5;
+  --text-body-sm--font-weight: 400;
+
+  --text-caption: 0.75rem;
+  --text-caption--line-height: 1.4;
+  --text-caption--font-weight: 500;
+
+  /* ---- Border Radius ---- */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+
+  /* ---- Shadows ---- */
+  --shadow-card: 0 2px 8px rgba(0, 0, 0, 0.08);
+  --shadow-dropdown: 0 4px 16px rgba(0, 0, 0, 0.12);
+  --shadow-sticky: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* ============================================================
+   BASE LAYERS
+   ============================================================ */
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    font-family: var(--font-family-roboto);
+    color: var(--color-body-text);
+    background-color: #ffffff;
+  }
+}
+
+/* ============================================================
+   UTILITY: Visually hidden (for screen readers only)
+   ============================================================ */
+
+@utility sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* ============================================================
+   RESPECT PREFERS-REDUCED-MOTION
+   ============================================================ */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
