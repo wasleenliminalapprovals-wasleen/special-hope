@@ -8,13 +8,10 @@ import {
   Mail,
   MapPin,
   ExternalLink,
-  Facebook,
-  Instagram,
-  Linkedin,
-  Twitter,
 } from "lucide-react";
 import WasleenIcon from "@/components/logo/WasleenIcon";
-import { NAP, SOCIAL, SITE } from "@/lib/constants";
+import SocialIconsRow from "@/components/sections/SocialIconsRow";
+import { NAP, SITE } from "@/lib/constants";
 
 /* ============================================================
    Footer — 5-column on desktop, single-column accordion on mobile
@@ -56,14 +53,6 @@ const FITOUT_APPROVALS = [
   { label: "Ejari Registration", href: "/approvals/ejari-registration" },
   { label: "Commercial Approval", href: "/approvals/commercial-approval" },
   { label: "Building Completion Cert.", href: "/approvals/dubai-municipality-completion-certificate" },
-];
-
-/* ── Social links ── */
-const SOCIAL_LINKS = [
-  { label: "Facebook", href: SOCIAL.facebook, icon: Facebook },
-  { label: "Instagram", href: SOCIAL.instagram, icon: Instagram },
-  { label: "LinkedIn", href: SOCIAL.linkedin, icon: Linkedin },
-  { label: "Twitter / X", href: SOCIAL.twitter, icon: Twitter },
 ];
 
 export default function Footer() {
@@ -194,20 +183,7 @@ function FooterCompanyColumn() {
         across Dubai Municipality, DDA, DEWA, DCD, and all free zone authorities
         — saving you time, cost, and compliance risk.
       </p>
-      <div className="flex items-center gap-3">
-        {SOCIAL_LINKS.map((social) => (
-          <a
-            key={social.label}
-            href={social.href}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center justify-center w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 text-white/80 hover:text-white transition-colors"
-            aria-label={`Follow us on ${social.label}`}
-          >
-            <social.icon size={16} strokeWidth={1.75} />
-          </a>
-        ))}
-      </div>
+      <SocialIconsRow variant="footer" />
     </div>
   );
 }

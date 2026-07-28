@@ -28,10 +28,15 @@ export const NAP = {
 } as const;
 
 export const SOCIAL = {
-  facebook: "https://facebook.com/wasleenapprovals",
-  instagram: "https://instagram.com/wasleenapprovals",
-  linkedin: "https://linkedin.com/company/wasleenapprovals",
-  twitter: "https://twitter.com/wasleenapprovals",
+  instagram: "https://www.instagram.com/approvalsindubai",
+  facebook: "https://www.facebook.com/profile.php?id=61592746433830",
+  threads: "https://www.threads.com/@approvalsindubai",
+  linkedin: "https://www.linkedin.com/in/wasleen-approvals-64038b425/",
+  pinterest: "https://www.pinterest.com/wasleenliminalapprovals/",
+  youtube: "https://www.youtube.com/channel/UC0nmieMmOpL4pvzRL98a-2w",
+  tiktok: "https://www.tiktok.com/@approvals.in.dubai",
+  reddit: "https://www.reddit.com/user/Dubai-Approvals-Team/",
+  quora: "https://www.quora.com/profile/Wasleen-Liminal-Approvals",
 } as const;
 
 export const LOCALE = {

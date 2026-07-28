@@ -11,6 +11,7 @@ import type { Metadata } from "next";
 import { SITE, NAP } from "@/lib/constants";
 import { Phone, MessageCircle, Mail, MapPin, Clock } from "lucide-react";
 import WhatsAppButton from "@/components/sections/WhatsAppButton";
+import SocialIconsRow from "@/components/sections/SocialIconsRow";
 
 /* ============================================================
    Metadata
@@ -158,6 +159,14 @@ export default function ContactUsPage() {
                   <Phone size={20} strokeWidth={1.75} />
                   Call Now
                 </a>
+              </div>
+
+              {/* ===== Social Media ===== */}
+              <div className="mt-10">
+                <h3 className="text-h4 font-montserrat text-heading-text mb-4">
+                  Follow Us
+                </h3>
+                <SocialIconsRow variant="contact" />
               </div>
             </div>
 
