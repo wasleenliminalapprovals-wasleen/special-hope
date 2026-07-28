@@ -118,7 +118,7 @@ export default function ServicesHubPage() {
                 <Link
                   key={service.slug}
                   href={`/services/${service.slug}`}
-                  className="group flex flex-col gap-4 p-6 rounded-md bg-white border border-border-light border-l-2 border-l-transparent shadow-card transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-lg hover:border-brand-blue/40 hover:border-l-4 hover:border-l-brand-blue hover:bg-gradient-to-br hover:from-white hover:to-card-bg"
+                  className="group flex flex-col gap-4 p-6 rounded-md bg-gradient-to-br from-white to-card-bg/30 border border-border-light border-l-2 border-l-transparent shadow-card transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-lg hover:border-brand-blue/40 hover:border-l-4 hover:border-l-brand-blue hover:bg-gradient-to-br hover:from-white hover:to-card-bg"
                 >
                   {/* Header with icon + title + arrow */}
                   <div className="flex items-start justify-between gap-3">
@@ -201,7 +201,7 @@ export default function ServicesHubPage() {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               <Link
                 href="/approvals"
-                className="flex items-start gap-4 p-6 rounded-md bg-white border border-border-light shadow-card transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-lg hover:border-brand-blue/40 group"
+                className="flex items-start gap-4 p-6 rounded-md bg-gradient-to-br from-white to-card-bg/30 border border-border-light shadow-card transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-lg hover:border-brand-blue/40 group"
               >
                 <div className="flex items-center justify-center w-12 h-12 rounded-md bg-card-bg text-brand-blue shrink-0">
                   <ShieldCheck size={24} strokeWidth={1.75} />
@@ -220,7 +220,7 @@ export default function ServicesHubPage() {
               </Link>
               <Link
                 href="/guides"
-                className="flex items-start gap-4 p-6 rounded-md bg-white border border-border-light shadow-card transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-lg hover:border-brand-blue/40 group"
+                className="flex items-start gap-4 p-6 rounded-md bg-gradient-to-br from-white to-card-bg/30 border border-border-light shadow-card transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-lg hover:border-brand-blue/40 group"
               >
                 <div className="flex items-center justify-center w-12 h-12 rounded-md bg-card-bg text-brand-blue shrink-0">
                   <BookOpen size={24} strokeWidth={1.75} />

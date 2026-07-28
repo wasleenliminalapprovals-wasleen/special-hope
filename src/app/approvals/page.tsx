@@ -154,7 +154,7 @@ export default function ApprovalsHubPage() {
                   <Link
                     key={approval.slug}
                     href={`/approvals/${approval.slug}`}
-                    className="group flex flex-col gap-3 p-5 rounded-md bg-white border border-border-light border-l-2 border-l-transparent shadow-card transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-lg hover:border-brand-blue/40 hover:border-l-4 hover:border-l-brand-blue hover:bg-gradient-to-br hover:from-white hover:to-card-bg"
+                    className="group flex flex-col gap-3 p-5 rounded-md bg-gradient-to-br from-white to-card-bg/30 border border-border-light border-l-2 border-l-transparent shadow-card transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-lg hover:border-brand-blue/40 hover:border-l-4 hover:border-l-brand-blue hover:bg-gradient-to-br hover:from-white hover:to-card-bg"
                   >
                     <div className="flex items-start justify-between gap-3">
                       <h3 className="text-h4 font-montserrat font-bold text-heading-text group-hover:text-link-blue transition-colors">
@@ -207,7 +207,7 @@ export default function ApprovalsHubPage() {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               <Link
                 href="/guides"
-                className="flex items-start gap-4 p-6 rounded-md bg-white border border-border-light shadow-card transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-lg hover:border-brand-blue/40 group"
+                className="flex items-start gap-4 p-6 rounded-md bg-gradient-to-br from-white to-card-bg/30 border border-border-light shadow-card transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-lg hover:border-brand-blue/40 group"
               >
                 <div className="flex items-center justify-center w-12 h-12 rounded-md bg-card-bg text-brand-blue shrink-0">
                   <BookOpen size={24} strokeWidth={1.75} />
@@ -226,7 +226,7 @@ export default function ApprovalsHubPage() {
               </Link>
               <Link
                 href="/services"
-                className="flex items-start gap-4 p-6 rounded-md bg-white border border-border-light shadow-card transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-lg hover:border-brand-blue/40 group"
+                className="flex items-start gap-4 p-6 rounded-md bg-gradient-to-br from-white to-card-bg/30 border border-border-light shadow-card transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-lg hover:border-brand-blue/40 group"
               >
                 <div className="flex items-center justify-center w-12 h-12 rounded-md bg-card-bg text-brand-blue shrink-0">
                   <PenTool size={24} strokeWidth={1.75} />

@@ -50,7 +50,7 @@ export default function WhyChooseUs({
               return (
                 <div
                   key={index}
-                  className="flex items-start gap-3 p-4 rounded-md bg-white border border-border-light shadow-card"
+                  className="flex items-start gap-3 p-4 rounded-md bg-gradient-to-br from-white to-card-bg/30 border border-border-light shadow-card"
                 >
                   <div className="flex items-center justify-center w-10 h-10 rounded-full bg-card-bg text-brand-blue shrink-0">
                     <Icon size={20} strokeWidth={1.75} />
