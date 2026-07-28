@@ -119,19 +119,44 @@ export default function Footer() {
           <MobileAccordionSection title="Company & Contact" isContactSection />
         </div>
 
-        {/* ── Map embed ── */}
-        <div className="mt-10 rounded-lg overflow-hidden border border-white/20">
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3610.178!2d55.2708!3d25.2048!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjXCsDEyJzE3LjMiTiA1NcKwMTYnMTQuOSJF!5e0!3m2!1sen!2sae!4v1"
-            width="100%"
-            height="200"
-            style={{ border: 0 }}
-            allowFullScreen
-            loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
-            title="Wasleen Approvals — Dubai location"
-            aria-label="Google Map showing Wasleen Approvals office location in Dubai"
-          />
+        {/* ── Maps section ── */}
+        <div className="mt-10">
+          <p className="text-caption font-medium text-white/70 uppercase tracking-wider mb-3">
+            Our Locations
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {/* Map 1 — Main Office */}
+            <div className="rounded-lg overflow-hidden border border-white/20">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3608.447891748681!2d55.299419775383804!3d25.255514377673393!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f436925673a6f%3A0xdd525a8229093985!2sWasleen%20Technical%20Services%20%E2%80%93%20Pergola%20%26%20Car%20Parking%20Solutions%20in%20Dubai!5e0!3m2!1sen!2sae!4v1785229567827!5m2!1sen!2sae"
+                width="100%"
+                height="180"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="strict-origin-when-cross-origin"
+                title="Wasleen Technical Services — Main Office"
+                aria-label="Google Map showing Wasleen Technical Services — Main Office"
+                className="md:h-[180px] h-[160px]"
+              />
+            </div>
+
+            {/* Map 2 — Showroom */}
+            <div className="rounded-lg overflow-hidden border border-white/20">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3608.1380597540597!2d55.38031657538407!3d25.265940777666803!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xa1176f7006181aff%3A0x734697b9bc64aefe!2sWasleen%20Pergolas%20%26%20CinemaxSky!5e0!3m2!1sen!2sae!4v1785229637998!5m2!1sen!2sae"
+                width="100%"
+                height="180"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="strict-origin-when-cross-origin"
+                title="Wasleen Pergolas & CinemaxSky — Showroom"
+                aria-label="Google Map showing Wasleen Pergolas & CinemaxSky Showroom"
+                className="md:h-[180px] h-[160px]"
+              />
+            </div>
+          </div>
         </div>
       </div>
 

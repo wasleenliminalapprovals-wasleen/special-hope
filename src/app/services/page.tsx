@@ -116,7 +116,7 @@ export default function ServicesHubPage() {
                 <Link
                   key={service.slug}
                   href={`/services/${service.slug}`}
-                  className="group flex flex-col gap-4 p-6 rounded-md bg-white border border-border-light shadow-card transition-all duration-200 hover:shadow-dropdown hover:border-brand-blue/30"
+                  className="group flex flex-col gap-4 p-6 rounded-md bg-white border border-border-light border-l-2 border-l-transparent shadow-card transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-lg hover:border-brand-blue/40 hover:border-l-4 hover:border-l-brand-blue hover:bg-gradient-to-br hover:from-white hover:to-card-bg"
                 >
                   {/* Header with icon + title + arrow */}
                   <div className="flex items-start justify-between gap-3">

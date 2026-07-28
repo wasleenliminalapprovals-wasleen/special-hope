@@ -161,25 +161,56 @@ export default function ContactUsPage() {
               </div>
             </div>
 
-            {/* ===== Right: Map & Info ===== */}
-            <div>
-              <div className="rounded-md overflow-hidden border border-border-light mb-6">
-                {/* Google Map Embed — lazy-loaded */}
-                <div className="aspect-[4/3] bg-card-bg relative">
-                  <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d462563.03244084715!2d54.89801245!3d25.07565885!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f43496ad9c645%3A0xb66fad5a8ef7e2e2!2sDubai%20-%20United%20Arab%20Emirates!5e0!3m2!1sen!2s!4v1!5m2!1sen!2s"
-                    width="100%"
-                    height="100%"
-                    className="absolute inset-0"
-                    style={{ border: 0 }}
-                    allowFullScreen
-                    loading="lazy"
-                    referrerPolicy="no-referrer-when-downgrade"
-                    title="Wasleen Approvals — Dubai Office Location"
-                    aria-label="Google Map showing Dubai, United Arab Emirates"
-                  />
+            {/* ===== Right: Maps & Info ===== */}
+            <div className="space-y-6">
+              {/* Map 1 — Main Office */}
+              <div>
+                <h3 className="text-h4 font-montserrat text-heading-text mb-3 flex items-center gap-2">
+                  <MapPin size={18} strokeWidth={1.75} className="text-brand-blue shrink-0" />
+                  Our Main Office
+                </h3>
+                <div className="rounded-md overflow-hidden border border-border-light">
+                  <div className="aspect-[4/3] bg-card-bg relative">
+                    <iframe
+                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3608.447891748681!2d55.299419775383804!3d25.255514377673393!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f436925673a6f%3A0xdd525a8229093985!2sWasleen%20Technical%20Services%20%E2%80%93%20Pergola%20%26%20Car%20Parking%20Solutions%20in%20Dubai!5e0!3m2!1sen!2sae!4v1785229567827!5m2!1sen!2sae"
+                      width="100%"
+                      height="100%"
+                      className="absolute inset-0"
+                      style={{ border: 0 }}
+                      allowFullScreen
+                      loading="lazy"
+                      referrerPolicy="strict-origin-when-cross-origin"
+                      title="Wasleen Technical Services — Main Office Location"
+                      aria-label="Google Map showing Wasleen Technical Services — Pergola & Car Parking Solutions"
+                    />
+                  </div>
                 </div>
               </div>
+
+              {/* Map 2 — Showroom */}
+              <div>
+                <h3 className="text-h4 font-montserrat text-heading-text mb-3 flex items-center gap-2">
+                  <MapPin size={18} strokeWidth={1.75} className="text-brand-blue shrink-0" />
+                  Our Showroom
+                </h3>
+                <div className="rounded-md overflow-hidden border border-border-light">
+                  <div className="aspect-[4/3] bg-card-bg relative">
+                    <iframe
+                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3608.1380597540597!2d55.38031657538407!3d25.265940777666803!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xa1176f7006181aff%3A0x734697b9bc64aefe!2sWasleen%20Pergolas%20%26%20CinemaxSky!5e0!3m2!1sen!2sae!4v1785229637998!5m2!1sen!2sae"
+                      width="100%"
+                      height="100%"
+                      className="absolute inset-0"
+                      style={{ border: 0 }}
+                      allowFullScreen
+                      loading="lazy"
+                      referrerPolicy="strict-origin-when-cross-origin"
+                      title="Wasleen Pergolas & CinemaxSky — Showroom Location"
+                      aria-label="Google Map showing Wasleen Pergolas & CinemaxSky Showroom"
+                    />
+                  </div>
+                </div>
+              </div>
+
 
               {/* ===== Business Hours ===== */}
               <div className="p-6 rounded-md bg-card-bg">

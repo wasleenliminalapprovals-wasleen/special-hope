@@ -115,7 +115,7 @@ export default function GuidesHubPage() {
                 <Link
                   key={guide.slug}
                   href={`/guides/${guide.slug}`}
-                  className="group flex flex-col gap-3 p-6 rounded-md bg-white border border-border-light shadow-card transition-all duration-200 hover:shadow-dropdown hover:border-brand-blue/30"
+                  className="group flex flex-col gap-3 p-6 rounded-md bg-card-bg border border-border-light border-l-2 border-l-transparent shadow-card transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-lg hover:border-brand-blue/40 hover:border-l-4 hover:border-l-brand-blue hover:bg-gradient-to-br hover:from-white hover:to-card-bg"
                 >
                   <div className="flex items-start justify-between gap-3">
                     <h3 className="text-h4 font-montserrat font-bold text-heading-text group-hover:text-link-blue transition-colors">
@@ -174,7 +174,7 @@ export default function GuidesHubPage() {
               <Link
                 key={guide.slug}
                 href={`/guides/${guide.slug}`}
-                className="group flex flex-col gap-3 p-5 rounded-md bg-white border border-border-light shadow-card transition-all duration-200 hover:shadow-dropdown hover:border-brand-blue/30"
+                className="group flex flex-col gap-3 p-5 rounded-md bg-card-bg border border-border-light border-l-2 border-l-transparent shadow-card transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-lg hover:border-brand-blue/40 hover:border-l-4 hover:border-l-brand-blue hover:bg-gradient-to-br hover:from-white hover:to-card-bg"
               >
                 <div className="flex items-start justify-between gap-3">
                   <h3 className="text-h4 font-montserrat font-bold text-heading-text group-hover:text-link-blue transition-colors line-clamp-2">

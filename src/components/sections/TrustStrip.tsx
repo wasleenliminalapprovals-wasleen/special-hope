@@ -77,7 +77,7 @@ const secondaryAuthorities: AuthorityLogo[] = [
 function AuthorityImage({ auth }: { auth: AuthorityLogo }) {
   return (
     <div
-      className="flex items-center justify-center grayscale hover:grayscale-0 transition-all duration-300"
+      className="flex items-center justify-center"
       title={auth.name}
     >
       <Image

@@ -18,6 +18,8 @@ import type { ReactNode } from "react";
 interface CardProps {
   /** Optional icon component (Lucide icon) */
   icon?: ReactNode;
+  /** Optional secondary icon (authority logo, rendered beside main icon) */
+  secondaryIcon?: ReactNode;
   /** Card title */
   title: string;
   /** Short description */
@@ -33,6 +35,7 @@ interface CardProps {
 
 export default function Card({
   icon,
+  secondaryIcon,
   title,
   description,
   href,
@@ -42,9 +45,18 @@ export default function Card({
 }: CardProps) {
   const content = (
     <>
-      {icon && (
-        <div className="flex items-center justify-center w-12 h-12 rounded-md bg-card-bg text-brand-blue shrink-0">
-          {icon}
+      {(icon || secondaryIcon) && (
+        <div className="flex items-center gap-2">
+          {icon && (
+            <div className="flex items-center justify-center w-12 h-12 rounded-md bg-card-bg text-brand-blue shrink-0">
+              {icon}
+            </div>
+          )}
+          {secondaryIcon && (
+            <div className="flex items-center justify-center w-10 h-10 rounded-md bg-white border border-border-light shrink-0 p-1.5">
+              {secondaryIcon}
+            </div>
+          )}
         </div>
       )}
 
@@ -54,7 +66,7 @@ export default function Card({
         </span>
       )}
 
-      <h3 className="text-h4 font-montserrat text-heading-text">{title}</h3>
+      <h3 className="text-h4 font-montserrat text-heading-text group-hover:text-link-blue transition-colors duration-300">{title}</h3>
 
       {description && <p className="text-body-sm text-body-text">{description}</p>}
 
@@ -62,7 +74,7 @@ export default function Card({
     </>
   );
 
-  const cardClasses = `flex flex-col gap-3 p-6 rounded-md bg-white border border-border-light shadow-card transition-shadow duration-200 hover:shadow-dropdown ${className}`.trim();
+  const cardClasses = `flex flex-col gap-3 p-6 rounded-md bg-white border border-border-light border-l-2 border-l-transparent shadow-card transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-lg hover:border-brand-blue/40 hover:border-l-4 hover:border-l-brand-blue hover:bg-gradient-to-br hover:from-white hover:to-card-bg ${className}`.trim();
 
   if (href) {
     const isExternal =
@@ -74,7 +86,7 @@ export default function Card({
     return (
       <Link
         href={href}
-        className={`${cardClasses} cursor-pointer hover:border-brand-blue/30`}
+        className={`${cardClasses} group cursor-pointer`}
         {...linkProps}
       >
         {content}
@@ -82,5 +94,5 @@ export default function Card({
     );
   }
 
-  return <div className={cardClasses}>{content}</div>;
+  return <div className={`${cardClasses} group`}>{content}</div>;
 }

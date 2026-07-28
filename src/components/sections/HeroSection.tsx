@@ -63,7 +63,7 @@ export default function HeroSection() {
               <Button
                 variant="outline"
                 href="/approvals"
-                className="text-body px-8 py-4 border-white text-white hover:bg-white hover:text-brand-blue"
+                className="text-body px-8 py-4 border-white text-white hover:bg-cta-amber hover:text-brand-black hover:border-cta-amber"
                 aria-label="Browse all approval services"
               >
                 View All Approvals

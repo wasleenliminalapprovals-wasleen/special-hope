@@ -42,7 +42,7 @@ const steps = [
 
 export default function ProcessOverview() {
   return (
-    <section className="bg-light-bg">
+    <section className="bg-white">
       <div className="max-w-6xl mx-auto px-4 py-12 md:px-8 md:py-16">
         <div className="text-center mb-10">
           <h2 className="text-h2 font-montserrat text-heading-text mb-3">
@@ -58,7 +58,7 @@ export default function ProcessOverview() {
           {steps.map((step) => {
             const Icon = step.icon;
             return (
-              <div key={step.step} className="relative flex flex-col items-center text-center p-6">
+              <div key={step.step} className="relative flex flex-col items-center text-center p-6 bg-card-bg rounded-md border border-border-light shadow-card transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-lg hover:border-brand-blue/40 hover:border-l-4 hover:border-l-brand-blue hover:bg-gradient-to-br hover:from-white hover:to-card-bg group">
                 {/* Step number circle */}
                 <div className="absolute -top-2 -left-2 w-8 h-8 rounded-full bg-brand-blue text-white flex items-center justify-center text-caption font-montserrat font-bold">
                   {step.step}

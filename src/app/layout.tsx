@@ -1,11 +1,12 @@
 import type { Metadata, Viewport } from "next";
 import { Montserrat, Roboto, Roboto_Mono } from "next/font/google";
 import { GoogleTagManager } from "@next/third-parties/google";
+import { Suspense } from "react";
 import { SITE, NAP, GTM_ID } from "@/lib/constants";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
+import FloatingWhatsApp from "@/components/sections/FloatingWhatsApp";
 import PageViewTracker from "@/components/analytics/PageViewTracker";
-import { Suspense } from "react";
 import "./globals.css";
 
 /* ============================================================
@@ -136,6 +137,9 @@ export default function RootLayout({
         <Suspense fallback={null}>
           <PageViewTracker />
         </Suspense>
+
+        {/* Global floating WhatsApp button */}
+        <FloatingWhatsApp />
 
         {/* Google Tag Manager (noscript fallback + head script) */}
         {GTM_ID && <GoogleTagManager gtmId={GTM_ID} />}
