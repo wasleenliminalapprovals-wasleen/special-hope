@@ -512,7 +512,7 @@ export function ApprovalStamp({
 
   return (
     <g
-      className={`${animated ? "animate-stamp-press" : ""} ${className}`}
+      className={`${animated ? "animate-stamp-loop" : ""} ${className}`}
       style={{ ...style, opacity: animated ? 0 : 1 }}
     >
       {/* Outer circle */}
@@ -521,7 +521,7 @@ export function ApprovalStamp({
         cy={y + half}
         r={half - 2}
         fill="none"
-        stroke="#C8102E"
+        stroke="#66BB6A"
         strokeWidth="2.5"
         opacity={0.85}
       />
@@ -532,7 +532,7 @@ export function ApprovalStamp({
         cy={y + half}
         r={innerR}
         fill="none"
-        stroke="#C8102E"
+        stroke="#66BB6A"
         strokeWidth="1"
         opacity={0.4}
       />
@@ -543,7 +543,7 @@ export function ApprovalStamp({
         y={y + half - 4}
         textAnchor="middle"
         dominantBaseline="middle"
-        fill="#C8102E"
+        fill="#66BB6A"
         fontSize={size * 0.16}
         fontWeight="bold"
         fontFamily="var(--font-family-roboto-mono), monospace"
@@ -557,7 +557,7 @@ export function ApprovalStamp({
         x={x + half}
         y={y + half + 12}
         textAnchor="middle"
-        fill="#C8102E"
+        fill="#66BB6A"
         fontSize={size * 0.1}
         fontFamily="var(--font-family-roboto-mono), monospace"
         opacity={0.7}
@@ -571,7 +571,7 @@ export function ApprovalStamp({
         y={y + half + 3}
         textAnchor="middle"
         dominantBaseline="middle"
-        fill="#C8102E"
+        fill="#66BB6A"
         fontSize={10}
         opacity={0.6}
       >
@@ -582,7 +582,7 @@ export function ApprovalStamp({
         y={y + half + 3}
         textAnchor="middle"
         dominantBaseline="middle"
-        fill="#C8102E"
+        fill="#66BB6A"
         fontSize={10}
         opacity={0.6}
       >

@@ -132,89 +132,88 @@ export default function SceneA_FloorPlan({ className = "" }: SceneAProps) {
         <rect x="0" y="0" width="800" height="640" fill={`url(#${uid}-major)`} />
 
         {/* ============================================================
-           OUTER WALLS — drawn sequentially (delay: 0s)
+           WALL GROUP — all walls with draw animation, then infinite glow
            ============================================================ */}
-        {outerWalls.map((wall, i) => {
-          const segLen = Math.sqrt((wall.x2 - wall.x1) ** 2 + (wall.y2 - wall.y1) ** 2);
-          return (
-            <line
-              key={`${uid}-outer-${i}`}
-              x1={wall.x1}
-              y1={wall.y1}
-              x2={wall.x2}
-              y2={wall.y2}
-              stroke="currentColor"
-              strokeWidth="4"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              className="animate-draw-line"
-              style={
-                {
-                  "--draw-length": segLen * 2,
-                  "--draw-duration": `${1.5 * (segLen / totalWallLength) + 0.3}s`,
-                  animationDelay: `${0.3 + i * 0.08}s`,
-                  strokeDasharray: segLen * 2,
-                } as React.CSSProperties
-              }
-            />
-          );
-        })}
+        <g className="animate-wall-glow-loop">
+          {/* OUTER WALLS — drawn sequentially (delay: 0s) */}
+          {outerWalls.map((wall, i) => {
+            const segLen = Math.sqrt((wall.x2 - wall.x1) ** 2 + (wall.y2 - wall.y1) ** 2);
+            return (
+              <line
+                key={`${uid}-outer-${i}`}
+                x1={wall.x1}
+                y1={wall.y1}
+                x2={wall.x2}
+                y2={wall.y2}
+                stroke="currentColor"
+                strokeWidth="4"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="animate-draw-line"
+                style={
+                  {
+                    "--draw-length": segLen * 2,
+                    "--draw-duration": `${1.5 * (segLen / totalWallLength) + 0.3}s`,
+                    animationDelay: `${0.3 + i * 0.08}s`,
+                    strokeDasharray: segLen * 2,
+                  } as React.CSSProperties
+                }
+              />
+            );
+          })}
 
-        {/* ============================================================
-           INTERIOR WALLS — drawn second (delay: 0.8s)
-           ============================================================ */}
-        {interiorWalls.map((wall, i) => {
-          const segLen = Math.sqrt((wall.x2 - wall.x1) ** 2 + (wall.y2 - wall.y1) ** 2);
-          return (
-            <line
-              key={`${uid}-inner-${i}`}
-              x1={wall.x1}
-              y1={wall.y1}
-              x2={wall.x2}
-              y2={wall.y2}
-              stroke="currentColor"
-              strokeWidth="3"
-              strokeLinecap="round"
-              className="animate-draw-line"
-              style={
-                {
-                  "--draw-length": segLen * 2,
-                  "--draw-duration": "0.8s",
-                  animationDelay: `${0.8 + i * 0.12}s`,
-                  strokeDasharray: segLen * 2,
-                } as React.CSSProperties
-              }
-            />
-          );
-        })}
+          {/* INTERIOR WALLS — drawn second (delay: 0.8s) */}
+          {interiorWalls.map((wall, i) => {
+            const segLen = Math.sqrt((wall.x2 - wall.x1) ** 2 + (wall.y2 - wall.y1) ** 2);
+            return (
+              <line
+                key={`${uid}-inner-${i}`}
+                x1={wall.x1}
+                y1={wall.y1}
+                x2={wall.x2}
+                y2={wall.y2}
+                stroke="currentColor"
+                strokeWidth="3"
+                strokeLinecap="round"
+                className="animate-draw-line"
+                style={
+                  {
+                    "--draw-length": segLen * 2,
+                    "--draw-duration": "0.8s",
+                    animationDelay: `${0.8 + i * 0.12}s`,
+                    strokeDasharray: segLen * 2,
+                  } as React.CSSProperties
+                }
+              />
+            );
+          })}
 
-        {/* ============================================================
-           STUB WALLS — drawn third (delay: 1.2s)
-           ============================================================ */}
-        {stubWalls.map((wall, i) => {
-          const segLen = Math.sqrt((wall.x2 - wall.x1) ** 2 + (wall.y2 - wall.y1) ** 2);
-          return (
-            <line
-              key={`${uid}-stub-${i}`}
-              x1={wall.x1}
-              y1={wall.y1}
-              x2={wall.x2}
-              y2={wall.y2}
-              stroke="currentColor"
-              strokeWidth="3"
-              strokeLinecap="round"
-              className="animate-draw-line"
-              style={
-                {
-                  "--draw-length": segLen * 2,
-                  "--draw-duration": "0.6s",
-                  animationDelay: `${1.2 + i * 0.1}s`,
-                  strokeDasharray: segLen * 2,
-                } as React.CSSProperties
-              }
-            />
-          );
-        })}
+          {/* STUB WALLS — drawn third (delay: 1.2s) */}
+          {stubWalls.map((wall, i) => {
+            const segLen = Math.sqrt((wall.x2 - wall.x1) ** 2 + (wall.y2 - wall.y1) ** 2);
+            return (
+              <line
+                key={`${uid}-stub-${i}`}
+                x1={wall.x1}
+                y1={wall.y1}
+                x2={wall.x2}
+                y2={wall.y2}
+                stroke="currentColor"
+                strokeWidth="3"
+                strokeLinecap="round"
+                className="animate-draw-line"
+                style={
+                  {
+                    "--draw-length": segLen * 2,
+                    "--draw-duration": "0.6s",
+                    animationDelay: `${1.2 + i * 0.1}s`,
+                    strokeDasharray: segLen * 2,
+                  } as React.CSSProperties
+                }
+              />
+            );
+          })}
+        </g>
 
         {/* ============================================================
            DOORS — with swing arcs (delay: 1.8s)
@@ -361,12 +360,12 @@ export default function SceneA_FloorPlan({ className = "" }: SceneAProps) {
         />
 
         {/* ============================================================
-           APPROVAL STAMP — stamp press animation (delay: 5.5s)
+           APPROVAL STAMP — looping stamp press animation (delay: 5.5s)
            ============================================================ */}
         <ApprovalStamp
-          x={OUTER.x1 + 90}
-          y={OUTER.y2 - 100}
-          size={80}
+          x={OUTER.x1 + 60}
+          y={OUTER.y2 - 115}
+          size={120}
           text="APPROVED"
           delay={5.5}
         />

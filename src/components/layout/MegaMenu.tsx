@@ -52,10 +52,10 @@ const APPROVAL_CATEGORIES: ApprovalCategory[] = [
     title: "Government & Regulatory",
     icon: Landmark,
     items: [
-      { label: "Dubai Municipality", href: "/approvals/dubai-municipality-approval" },
+      { label: "Dubai Municipality", href: "/approvals/dubai-municipality-building-permit" },
       { label: "Dubai Civil Defense (DCD)", href: "/approvals/dubai-civil-defense-approval" },
       { label: "DED Approval", href: "/approvals/ded-approval" },
-      { label: "RERA Approval", href: "/approvals/rera-approval" },
+      { label: "RERA Approval", href: "/approvals/rera-permit" },
       { label: "DEWA Approval", href: "/approvals/dewa-approval" },
       { label: "RTA Approval", href: "/approvals/rta-approval" },
       { label: "DDA Approval", href: "/approvals/dda-approval" },
@@ -66,12 +66,12 @@ const APPROVAL_CATEGORIES: ApprovalCategory[] = [
     title: "Free Zone Approvals",
     icon: Building2,
     items: [
-      { label: "JAFZA Approval", href: "/approvals/jafza-approval" },
-      { label: "Dubai Silicon Oasis (DSO)", href: "/approvals/dso-approval" },
+      { label: "JAFZA Approval", href: "/approvals/jebel-ali-free-zone-approval" },
+      { label: "Dubai Silicon Oasis (DSO)", href: "/approvals/dubai-silicon-oasis-approval" },
       { label: "DMCC Approval", href: "/approvals/dmcc-approval" },
       { label: "Dubai South", href: "/approvals/dubai-south-approval" },
       { label: "DIFC Approval", href: "/approvals/difc-approval" },
-      { label: "DAFZA Approval", href: "/approvals/dafza-approval" },
+      { label: "DAFZA Approval", href: "/approvals/dubai-airport-freezone-approval" },
       { label: "Dubai Production City", href: "/approvals/impz-approval" },
     ],
   },
@@ -79,9 +79,9 @@ const APPROVAL_CATEGORIES: ApprovalCategory[] = [
     title: "Developer & Community",
     icon: Users,
     items: [
-      { label: "Emaar Approval", href: "/approvals/emaar-approval" },
-      { label: "Nakheel Approval", href: "/approvals/nakheel-approval" },
-      { label: "DAMAC Approval", href: "/approvals/damac-approval" },
+      { label: "Emaar Approval", href: "/approvals/emaar-community-approval" },
+      { label: "Nakheel Approval", href: "/approvals/nakheel-developer-approval" },
+      { label: "DAMAC Approval", href: "/approvals/damac-properties-approval" },
       { label: "Dubai Holding", href: "/approvals/dubai-holding-approval" },
       { label: "Community / OA", href: "/approvals/community-approval" },
     ],
@@ -91,7 +91,7 @@ const APPROVAL_CATEGORIES: ApprovalCategory[] = [
     icon: FileCheck,
     items: [
       { label: "Ejari Registration", href: "/approvals/ejari-registration" },
-      { label: "Building Completion Cert.", href: "/approvals/building-completion-certificate" },
+      { label: "Building Completion Cert.", href: "/approvals/dubai-municipality-completion-certificate" },
       { label: "Al Sa'fat Green Building", href: "/approvals/al-safat-green-building-approval" },
     ],
   },
@@ -109,7 +109,7 @@ const APPROVAL_CATEGORIES: ApprovalCategory[] = [
     title: "Trade, Food & Hospitality",
     icon: Utensils,
     items: [
-      { label: "DM Food Approval", href: "/approvals/dm-food-approval" },
+      { label: "DM Food Approval", href: "/approvals/food-control-department-approval" },
       { label: "Restaurant Works", href: "/approvals/restaurant-works-approval" },
     ],
   },
@@ -118,7 +118,7 @@ const APPROVAL_CATEGORIES: ApprovalCategory[] = [
     icon: Sofa,
     items: [
       { label: "Interior Works", href: "/approvals/interior-works-approval" },
-      { label: "Fit-Out Works", href: "/approvals/fit-out-works-approval" },
+      { label: "Fit-Out Works", href: "/approvals/interior-fit-out-approval" },
       { label: "Commercial Approval", href: "/approvals/commercial-approval" },
       { label: "Residential Approval", href: "/approvals/residential-approval" },
       { label: "Project Approval", href: "/approvals/project-approval" },
@@ -128,7 +128,7 @@ const APPROVAL_CATEGORIES: ApprovalCategory[] = [
     title: "Drawing & Documentation",
     icon: PencilRuler,
     items: [
-      { label: "2D & 3D Drawings", href: "/approvals/2d-3d-drawings-for-approvals" },
+      { label: "2D & 3D Drawings", href: "/approvals/2d-drawing-submission" },
     ],
   },
 ];
@@ -145,8 +145,8 @@ interface ServiceItem {
 
 const SERVICES: ServiceItem[] = [
   { label: "2D Drawings", href: "/services/2d-drawings" },
-  { label: "3D Designs", href: "/services/3d-designs" },
-  { label: "CAD Drawings", href: "/services/cad-drawings" },
+  { label: "3D Designs", href: "/services/3d-design-visualization" },
+  { label: "CAD Drawings", href: "/services/cad-documentation" },
   { label: "Project Management", href: "/services/project-management" },
   { label: "Fit-Outs", href: "/services/fit-outs" },
   { label: "Interior (Wasleen)", href: "https://wasleen.com", isExternal: true },

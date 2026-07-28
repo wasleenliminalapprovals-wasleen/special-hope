@@ -38,8 +38,8 @@ export default function HeroSection() {
 
       <div className="relative max-w-6xl mx-auto px-4 py-12 md:px-8 md:py-20 lg:py-28">
         <div className="grid gap-8 md:grid-cols-2 md:gap-12 items-center">
-          {/* ===== Text Content ===== */}
-          <div className="text-center md:text-left">
+          {/* ===== Text Content (z-10 on mobile to sit above drawing) ===== */}
+          <div className="relative z-10 text-center md:text-left">
             <h1 className="text-h1 font-montserrat text-white leading-tight mb-4">
               {SITE.tagline}
             </h1>
@@ -88,8 +88,16 @@ export default function HeroSection() {
           </div>
 
           {/* ===== Animated SVG Floor Plan Drawing ===== */}
+          {/*
+            Mobile: absolutely positioned background overlay behind text
+            Desktop: side-by-side grid column (md: overrides absolute)
+          */}
           <div
-            className="hidden md:block w-full max-w-md aspect-square text-white"
+            className="
+              absolute inset-0 z-0 opacity-15 pointer-events-none overflow-hidden
+              md:relative md:inset-auto md:z-auto md:opacity-100 md:pointer-events-auto
+              md:block md:w-full md:max-w-lg text-white
+            "
             aria-hidden="true"
           >
             <SceneA_FloorPlan />

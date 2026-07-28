@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useRef } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { X, Phone } from "lucide-react";
@@ -26,6 +26,7 @@ const NAV_LINKS = [
 export default function MobileNav({ isOpen, onClose }: MobileNavProps) {
   const pathname = usePathname();
   const drawerRef = useRef<HTMLDivElement>(null);
+  const [openMenu, setOpenMenu] = useState<"approvals" | "services" | null>(null);
 
   /* ── Trap focus inside drawer when open ── */
   useEffect(() => {
@@ -121,8 +122,16 @@ export default function MobileNav({ isOpen, onClose }: MobileNavProps) {
           ))}
 
           {/* Mega menu sections (Approvals, Services) */}
-          <MegaMenuSection type="approvals" />
-          <MegaMenuSection type="services" />
+          <MegaMenuSection
+            type="approvals"
+            isOpen={openMenu === "approvals"}
+            onToggle={() => setOpenMenu((prev) => (prev === "approvals" ? null : "approvals"))}
+          />
+          <MegaMenuSection
+            type="services"
+            isOpen={openMenu === "services"}
+            onToggle={() => setOpenMenu((prev) => (prev === "services" ? null : "services"))}
+          />
 
           {/* CTA Button */}
           <div className="px-4 mt-4">
@@ -145,11 +154,21 @@ export default function MobileNav({ isOpen, onClose }: MobileNavProps) {
    Sub-component: Accordion wrapper for MegaMenu in mobile
    ============================================================ */
 
-function MegaMenuSection({ type }: { type: "approvals" | "services" }) {
+function MegaMenuSection({
+  type,
+  isOpen,
+  onToggle,
+}: {
+  type: "approvals" | "services";
+  isOpen: boolean;
+  onToggle: () => void;
+}) {
   return (
     <MegaMenu
       type={type}
       forceMobile
+      isOpen={isOpen}
+      onToggle={onToggle}
     />
   );
 }

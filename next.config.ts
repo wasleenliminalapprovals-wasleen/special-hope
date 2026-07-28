@@ -14,6 +14,8 @@ const nextConfig: NextConfig = {
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
     // Optimize for static export + sharp (included in devDependencies)
     unoptimized: false,
+    // Allow SVG logos for authority badges
+    dangerouslyAllowSVG: true,
   },
 
   /* ── HTTP Headers for security and caching ── */

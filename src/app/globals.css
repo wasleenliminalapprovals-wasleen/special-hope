@@ -162,6 +162,29 @@
   }
 }
 
+/* Stamp loop: press once, hold for 6s, then repeat */
+@keyframes stamp-loop {
+  0% {
+    opacity: 0;
+    transform: scale(3) rotate(-10deg);
+  }
+  8% {
+    opacity: 1;
+    transform: scale(0.95) rotate(-2deg);
+  }
+  11% {
+    transform: scale(1.05) rotate(1deg);
+  }
+  14% {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+  }
+}
+
 /* Pulse: gentle opacity oscillation for attention */
 @keyframes pulse-opacity {
   0%, 100% {
@@ -235,6 +258,33 @@
 
 .animate-glow-pulse {
   animation: glow-pulse 2s ease-in-out 1;
+}
+
+/* Wall glow loop: initial draw completes, then infinite subtle glow starts after 7s */
+.animate-wall-glow-loop {
+  animation: glow-pulse 3s ease-in-out 7s infinite;
+}
+
+/* Stamp loop: press animation with 6s pause between repeats */
+.animate-stamp-loop {
+  animation: stamp-loop 6.8s cubic-bezier(0.34, 1.56, 0.64, 1) 5.5s infinite;
+}
+
+/* ============================================================
+   MARQUEE ANIMATIONS — Authority logo carousels
+   ============================================================ */
+
+@keyframes marquee-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.animate-marquee-left {
+  animation: marquee-left 40s linear infinite;
 }
 
 /* ============================================================

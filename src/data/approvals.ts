@@ -31,6 +31,9 @@ function categorySlugs(category: string, exclude: string): string[] {
       "dubai-municipality-preliminary-building-permit",
       "dubai-municipality-demolition-permit",
       "dubai-municipality-excavation-permit",
+      "ded-approval",
+      "dda-approval",
+      "dubai-police-approval",
     ],
     "free-zone": [
       "dubai-silicon-oasis-approval",
@@ -41,6 +44,8 @@ function categorySlugs(category: string, exclude: string): string[] {
       "dubai-knowledge-park-approval",
       "dmcc-approval",
       "dubai-science-park-approval",
+      "difc-approval",
+      "impz-approval",
     ],
     "developer-community": [
       "emaar-community-approval",
@@ -49,12 +54,15 @@ function categorySlugs(category: string, exclude: string): string[] {
       "damac-properties-approval",
       "meraas-holding-approval",
       "sobha-realty-approval",
+      "dubai-holding-approval",
+      "community-approval",
     ],
     "property-registration": [
       "dubai-land-department-registration",
       "ejari-registration",
       "title-deed-registration",
       "rera-permit",
+      "al-safat-green-building-approval",
     ],
     "technical-utility": [
       "dewa-approval",
@@ -64,6 +72,9 @@ function categorySlugs(category: string, exclude: string): string[] {
       "dewa-load-enhancement",
       "telecom-connection-approval",
       "dewa-temporary-power-connection",
+      "sewerage-drainage-approval",
+      "electrical-works-approval",
+      "mezzanine-floor-approval",
     ],
     "trade-food-hospitality": [
       "food-control-department-approval",
@@ -71,6 +82,7 @@ function categorySlugs(category: string, exclude: string): string[] {
       "dubai-health-authority-approval",
       "public-health-approval",
       "entertainment-license-approval",
+      "restaurant-works-approval",
     ],
     "fit-out-construction": [
       "interior-fit-out-approval",
@@ -79,6 +91,10 @@ function categorySlugs(category: string, exclude: string): string[] {
       "refurbishment-permit",
       "partition-ceiling-approval",
       "mep-approval",
+      "interior-works-approval",
+      "commercial-approval",
+      "residential-approval",
+      "project-approval",
     ],
     "drawing-documentation": [
       "2d-drawing-submission",
@@ -4642,6 +4658,1320 @@ export const approvals: ApprovalData[] = [
       { question: "What happens if as-built drawings are rejected?", answer: "Rejection typically requires correcting the identified issues and resubmitting. Common fixes include adding missing revision clouds, correcting dimensional discrepancies, or obtaining consultant certification." },
     ],
     relatedSlugs: categorySlugs("drawing-documentation", "as-built-drawing-approval"),
+    lastUpdated: "2026-07-01",
+  },
+
+  // ========================================================================
+  // NEW ENTRY: DED Approval (Department of Economic Development)
+  // ========================================================================
+  {
+    slug: "ded-approval",
+    name: "DED Approval (Dubai Economy & Tourism)",
+    shortName: "DED Approval",
+    authorityFull: "Dubai Economy & Tourism (formerly DED)",
+    authorityAbbr: "DET",
+    category: "government-regulatory",
+    primaryKeyword: "DED approval Dubai",
+    secondaryKeywords: [
+      "Dubai Economy and Tourism approval",
+      "DED trade license approval",
+      "economic department approval Dubai",
+    ],
+    typicalTimeline: "3–7 business days",
+    typicalCostRange: "AED 1,000 – 5,000",
+    directAnswer:
+      "DED (Department of Economic Development) Approval, now under Dubai Economy & Tourism, is required for trade license issuance, economic activity registration, and commercial business setup in Dubai. The department regulates all commercial, industrial, and professional businesses in the emirate. Processing typically takes 3–7 business days.",
+    stats: [
+      { label: "Authority", value: "Dubai Economy & Tourism" },
+      { label: "Timeline", value: "3–7 business days" },
+      { label: "Mandatory for", value: "All business licensing" },
+      { label: "Scope", value: "Trade licenses, activities" },
+    ],
+    description:
+      "DED (Department of Economic Development) Approval is the foundational business registration required to operate any commercial, industrial, or professional activity in Dubai mainland. Now operating under Dubai Economy & Tourism (DET), the department handles business license issuance, economic activity classification, company registration, and commercial permits. All mainland businesses in Dubai must obtain DED approval before commencing operations. The approval process involves selecting the appropriate legal structure, determining approved business activities, submitting required documentation, and paying the prescribed fees. DED approval is also required for branch registration, activity amendments, and license renewal.",
+    whoNeedsIt: [
+      "Entrepreneurs starting a new business in Dubai mainland",
+      "Companies adding new business activities to existing license",
+      "Foreign investors establishing a mainland company",
+      "Businesses requiring trade name reservation and initial approval",
+      "Any entity requiring a Dubai trade license",
+    ],
+    documents: [
+      { document: "DED initial approval application", mandatory: true },
+      { document: "Passport copies of shareholders and manager", mandatory: true },
+      { document: "Business plan (for certain activities)", mandatory: false },
+      { document: "Tenancy contract (Ejari) for physical office", mandatory: true },
+      { document: "NOC from existing sponsor (if applicable)", mandatory: false },
+      { document: "Trade name reservation certificate", mandatory: true },
+    ],
+    process: [
+      { step: 1, title: "Business Activity Selection", description: "Determine the precise business activities per DED's activity classification list." },
+      { step: 2, title: "Legal Structure & Trade Name", description: "Choose legal structure (LLC, Sole Establishment, etc.) and reserve trade name." },
+      { step: 3, title: "Initial Approval", description: "Submit initial approval application to verify business activity eligibility." },
+      { step: 4, title: "Office Tenancy Confirmation", description: "Provide valid Ejari tenancy contract for physical office space." },
+      { step: 5, title: "Final License Issuance", description: "Upon DED approval, pay fees and receive trade license." },
+    ],
+    timelineTable: [
+      { stage: "Activity selection and name reservation", duration: "1 business day", cost: "AED 620 – 1,200", notes: "Name reservation fee" },
+      { stage: "Initial approval processing", duration: "1–3 business days", cost: "AED 120 – 500", notes: "Activity-dependent" },
+      { stage: "Office tenancy & Ejari", duration: "2–5 business days", cost: "Varies", notes: "Rental contract dependent" },
+      { stage: "Final license issuance", duration: "1–2 business days", cost: "AED 1,000 – 5,000", notes: "Activity-dependent fees" },
+    ],
+    rejectionReasons: [
+      { reason: "Business activity requires special approval from another authority", solution: "Certain activities (healthcare, education, financial services) require NOC from the relevant authority before DED approval." },
+      { reason: "Trade name rejected due to similarity or restriction", solution: "Check name availability before applying. Certain names and religious references are restricted." },
+      { reason: "Incomplete shareholder documentation", solution: "Ensure all shareholder passport copies and Emirates ID (if residents) are included." },
+    ],
+    caseStudy: {
+      projectType: "E-commerce trading license setup in Bur Dubai",
+      authority: "Dubai Economy & Tourism",
+      timeline: "5 business days",
+      challenge: "Client wanted to register 15+ business activities including e-commerce, which required additional approvals from Dubai Municipality for certain product categories.",
+      outcome: "Secured DED initial approval with all required activities. Coordinated DM NOC for food-related e-commerce activities.",
+    },
+    whyChooseUs: [
+      "Expert knowledge of DED activity classification and restrictions",
+      "Complete business license setup service from name reservation to final license",
+      "Coordination with other authorities for special-approval activities",
+    ],
+    faqs: [
+      { question: "What is DED Approval?", answer: "DED (Department of Economic Development) Approval, now under Dubai Economy & Tourism, is the approval required to obtain a trade license for operating a business in Dubai mainland." },
+      { question: "How long does DED approval take?", answer: "Standard DED approval takes 3–7 business days, depending on the business activities and completeness of documentation." },
+      { question: "Can I get DED approval without a physical office?", answer: "Certain business activities and legal structures may qualify for virtual office or flexi-desk arrangements. Check DED's latest policies." },
+    ],
+    relatedSlugs: categorySlugs("government-regulatory", "ded-approval"),
+    lastUpdated: "2026-07-01",
+  },
+
+  // ========================================================================
+  // NEW ENTRY: DDA Approval (Dubai Development Authority)
+  // ========================================================================
+  {
+    slug: "dda-approval",
+    name: "DDA Approval (Dubai Development Authority)",
+    shortName: "DDA Approval",
+    authorityFull: "Dubai Development Authority",
+    authorityAbbr: "DDA",
+    category: "government-regulatory",
+    primaryKeyword: "DDA approval Dubai",
+    secondaryKeywords: [
+      "Dubai Development Authority permit",
+      "DDA building approval",
+      "DDA master community approval",
+    ],
+    typicalTimeline: "5–10 business days",
+    typicalCostRange: "AED 2,000 – 10,000",
+    directAnswer:
+      "DDA (Dubai Development Authority) is the regulatory body overseeing development projects in Dubai's master-planned communities including Dubai Silicon Oasis, Dubai South, and other DDA-jurisdiction areas. DDA approval is required for building permits, construction works, and community development within these zones. Processing typically takes 5–10 business days.",
+    stats: [
+      { label: "Authority", value: "Dubai Development Authority" },
+      { label: "Timeline", value: "5–10 business days" },
+      { label: "Mandatory for", value: "Works in DDA zones" },
+      { label: "Jurisdiction", value: "Select master communities" },
+    ],
+    description:
+      "DDA (Dubai Development Authority) Approval covers building permits, renovation approvals, and community development permissions within areas under DDA jurisdiction. DDA was established to oversee the planning, development, and regulation of designated development zones in Dubai. Properties and businesses located within DDA areas must obtain DDA approval for construction, renovation, fit-out, and change of use. DDA operates its own building permit system that parallels Dubai Municipality's process, with additional community-specific requirements. DDA approval is often required alongside DM approval or may supersede DM in certain jurisdictions.",
+    whoNeedsIt: [
+      "Property owners within DDA-jurisdiction communities",
+      "Contractors performing construction in DDA areas",
+      "Businesses setting up in DDA zones",
+      "Residents renovating properties in DDA communities",
+      "Developers planning projects in designated development zones",
+    ],
+    documents: [
+      { document: "DDA building permit application", mandatory: true },
+      { document: "Title deed or proof of ownership", mandatory: true },
+      { document: "Architectural, structural, and MEP drawings", mandatory: true },
+      { document: "NOC from master developer (if applicable)", mandatory: true },
+      { document: "Contractor registration documents", mandatory: true },
+    ],
+    process: [
+      { step: 1, title: "Jurisdiction Confirmation", description: "Confirm property is within DDA jurisdiction and identify specific DDA requirements." },
+      { step: 2, title: "Design & Drawing Preparation", description: "Prepare drawings per DDA guidelines which may differ from DM standards." },
+      { step: 3, title: "DDA Application Submission", description: "Submit application through DDA's permit system with all required documents." },
+      { step: 4, title: "DDA Technical Review", description: "DDA reviews submission for compliance with community guidelines and building codes." },
+      { step: 5, title: "Permit Issuance", description: "DDA approval issued. Works can commence under DDA supervision." },
+    ],
+    timelineTable: [
+      { stage: "Design and drawing preparation", duration: "5–10 business days", cost: "By consultant", notes: "Per DDA guidelines" },
+      { stage: "DDA application review", duration: "5–10 business days", cost: "AED 1,000 – 5,000", notes: "Based on project value" },
+      { stage: "Revisions (if required)", duration: "2–5 business days", cost: "Varies", notes: "Additional fees may apply" },
+    ],
+    rejectionReasons: [
+      { reason: "Proposed works violate DDA community design guidelines", solution: "Review DDA's specific design guidelines for the community before preparing drawings." },
+      { reason: "Missing NOC from master developer", solution: "Obtain NOC from the master developer before submitting to DDA." },
+      { reason: "Incomplete drawing set per DDA requirements", solution: "DDA may have specific drawing requirements different from DM. Check DDA submission checklist." },
+    ],
+    caseStudy: {
+      projectType: "Villa renovation in Dubai Silicon Oasis (DSO)",
+      authority: "Dubai Development Authority",
+      timeline: "8 business days",
+      challenge: "Client wanted to add a room extension which required both DDA architectural review and structural approval.",
+      outcome: "Prepared complete submission per DDA guidelines. Approved with one revision cycle addressing setback requirements.",
+    },
+    whyChooseUs: [
+      "In-depth knowledge of DDA building permit requirements and processes",
+      "Experience across multiple DDA-jurisdiction communities",
+      "Complete submission management including drawings and documentation",
+    ],
+    faqs: [
+      { question: "What is DDA Approval?", answer: "DDA (Dubai Development Authority) Approval is the permit required for construction, renovation, and development within DDA-jurisdiction communities in Dubai." },
+      { question: "Do I need DDA approval or DM approval?", answer: "Properties within DDA jurisdiction require DDA approval. In some cases, both DDA and DM approval may be needed. Check with us to confirm." },
+      { question: "How long does DDA approval take?", answer: "Standard DDA approval processing takes 5–10 business days, depending on project complexity and submission completeness." },
+    ],
+    relatedSlugs: categorySlugs("government-regulatory", "dda-approval"),
+    lastUpdated: "2026-07-01",
+  },
+
+  // ========================================================================
+  // NEW ENTRY: Dubai Police Approval
+  // ========================================================================
+  {
+    slug: "dubai-police-approval",
+    name: "Dubai Police Approval (Security Systems)",
+    shortName: "Dubai Police Approval",
+    authorityFull: "Dubai Police HQ — Security Industry Department",
+    authorityAbbr: "Dubai Police",
+    category: "government-regulatory",
+    primaryKeyword: "Dubai Police approval security systems",
+    secondaryKeywords: [
+      "Dubai Police CCTV approval",
+      "security system permit Dubai",
+      "Dubai Police alarm system approval",
+      "Dubai security industry department",
+    ],
+    typicalTimeline: "3–10 business days",
+    typicalCostRange: "AED 500 – 3,000",
+    directAnswer:
+      "Dubai Police Approval is required for the installation of security systems including CCTV cameras, alarm systems, access control, and surveillance equipment in commercial and residential properties in Dubai. The Security Industry Department (SID) regulates all security system installations. Processing typically takes 3–10 business days.",
+    stats: [
+      { label: "Authority", value: "Dubai Police SID" },
+      { label: "Timeline", value: "3–10 business days" },
+      { label: "Mandatory for", value: "Commercial security systems" },
+      { label: "Scope", value: "CCTV, alarms, access control" },
+    ],
+    description:
+      "Dubai Police Approval from the Security Industry Department (SID) is mandatory for the installation, operation, and maintenance of security and surveillance systems across Dubai. This includes CCTV camera systems, intruder alarm systems, access control systems, and other electronic security equipment. Commercial properties such as retail stores, offices, warehouses, hotels, and banks are required to have approved security systems that meet Dubai Police standards. Residential villas and apartments may also require security system approval in certain communities. Security companies must be SID-approved and all installations must comply with Dubai Police technical standards and data protection regulations.",
+    whoNeedsIt: [
+      "Commercial properties requiring CCTV and security systems",
+      "Retail stores, banks, and jewelry shops with mandatory security requirements",
+      "Property owners installing alarm systems connected to Dubai Police",
+      "Security companies installing surveillance equipment",
+      "Villa owners in communities requiring SID-approved security systems",
+    ],
+    documents: [
+      { document: "Security system design and layout plan", mandatory: true },
+      { document: "Equipment specification sheets", mandatory: true },
+      { document: "SID-approved security company credentials", mandatory: true },
+      { document: "NOC from building owner (if tenant)", mandatory: true },
+      { document: "Connection to Dubai Police alarm system approval", mandatory: false },
+    ],
+    process: [
+      { step: 1, title: "Security System Design", description: "Design security system per Dubai Police SID technical standards and property requirements." },
+      { step: 2, title: "SID-Approved Contractor Engagement", description: "Engage a Dubai Police-approved security systems company for installation." },
+      { step: 3, title: "Application Submission", description: "Submit security system plan and equipment specifications to Dubai Police SID." },
+      { step: 4, title: "SID Technical Review", description: "Dubai Police reviews system design for compliance with security standards." },
+      { step: 5, title: "Approval & Installation", description: "Upon approval, install the system. Post-installation inspection may be required for alarm connection." },
+    ],
+    timelineTable: [
+      { stage: "System design and contractor engagement", duration: "2–5 business days", cost: "By contractor", notes: "SID-approved contractor" },
+      { stage: "Dubai Police SID review", duration: "3–7 business days", cost: "AED 200 – 1,000", notes: "System-dependent" },
+      { stage: "Installation and inspection", duration: "2–5 business days", cost: "By contractor", notes: "Inspection if connected to police" },
+    ],
+    rejectionReasons: [
+      { reason: "Security system does not meet SID technical standards", solution: "Ensure equipment is SID-approved and system design follows Dubai Police technical specifications." },
+      { reason: "Installing company not SID-approved", solution: "Only engage security companies that are registered and approved by Dubai Police Security Industry Department." },
+      { reason: "CCTV placement violates privacy regulations", solution: "Ensure cameras do not capture adjacent properties or public areas without justification." },
+    ],
+    caseStudy: {
+      projectType: "CCTV system installation for retail store in Al Barsha",
+      authority: "Dubai Police SID",
+      timeline: "7 business days",
+      challenge: "Store required 16 cameras with remote monitoring and direct alarm connection to Dubai Police operations room.",
+      outcome: "Designed SID-compliant system with proper camera coverage and alarm integration. Approved with alarm connection setup.",
+    },
+    whyChooseUs: [
+      "Coordination with SID-approved security contractors for installation",
+      "Complete security system design review and compliance check",
+      "End-to-end permit management including alarm connection to Dubai Police",
+    ],
+    faqs: [
+      { question: "When is Dubai Police approval required?", answer: "Dubai Police approval is required for all commercial security systems including CCTV, alarms, and access control. Certain residential properties may also require approval." },
+      { question: "Can I install CCTV without Dubai Police approval?", answer: "Commercial properties must have SID-approved security systems. Unapproved installations may result in fines or system disconnection." },
+      { question: "How long does Dubai Police security approval take?", answer: "Standard processing takes 3–10 business days depending on system complexity and whether alarm connection to Dubai Police is required." },
+    ],
+    relatedSlugs: categorySlugs("government-regulatory", "dubai-police-approval"),
+    lastUpdated: "2026-07-01",
+  },
+
+  // ========================================================================
+  // NEW ENTRY: DIFC Approval
+  // ========================================================================
+  {
+    slug: "difc-approval",
+    name: "DIFC Approval (Dubai International Financial Centre)",
+    shortName: "DIFC Approval",
+    authorityFull: "Dubai International Financial Centre Authority",
+    authorityAbbr: "DIFC",
+    category: "free-zone",
+    primaryKeyword: "DIFC approval Dubai",
+    secondaryKeywords: [
+      "DIFC fit-out approval",
+      "DIFC building permit",
+      "DIFC tenancy registration",
+      "Dubai International Financial Centre permit",
+    ],
+    typicalTimeline: "5–10 business days",
+    typicalCostRange: "AED 2,000 – 8,000",
+    directAnswer:
+      "DIFC (Dubai International Financial Centre) Approval is required for all fit-out, renovation, and construction works within DIFC premises. DIFC operates its own building permit and approval system separate from Dubai Municipality. Processing typically takes 5–10 business days.",
+    stats: [
+      { label: "Authority", value: "DIFC Authority" },
+      { label: "Timeline", value: "5–10 business days" },
+      { label: "Mandatory for", value: "All works in DIFC" },
+      { label: "Scope", value: "Fit-out, renovation, construction" },
+    ],
+    description:
+      "DIFC (Dubai International Financial Centre) Approval is required for any fit-out, renovation, alteration, or construction activity within the DIFC jurisdiction. As an independent free zone with its own legal and regulatory framework, DIFC operates a separate building permit and approval system. All tenants, contractors, and property owners within DIFC must obtain DIFC approval before commencing any works. DIFC has its own design guidelines, safety standards, and submission requirements that differ from Dubai Municipality. This includes office fit-outs, retail unit fit-outs, common area modifications, and infrastructure works within the DIFC master plan.",
+    whoNeedsIt: [
+      "Tenants fitting out office spaces in DIFC",
+      "Retail businesses setting up in DIFC premises",
+      "Contractors performing works in DIFC buildings",
+      "Property owners modifying units within DIFC",
+      "Any party undertaking construction in DIFC jurisdiction",
+    ],
+    documents: [
+      { document: "DIFC works permit application", mandatory: true },
+      { document: "Design and fit-out drawings", mandatory: true },
+      { document: "MEP drawings and calculations", mandatory: true },
+      { document: "Structural drawings (if modifications involved)", mandatory: true },
+      { document: "Contractor registration with DIFC", mandatory: true },
+      { document: "NOC from DIFC landlord", mandatory: true },
+      { document: "Insurance certificates (public liability, workers comp)", mandatory: true },
+    ],
+    process: [
+      { step: 1, title: "DIFC Contractor Registration", description: "Ensure contractor is registered and approved by DIFC for works within the centre." },
+      { step: 2, title: "Design & Drawing Preparation", description: "Prepare drawings per DIFC design guidelines and technical standards." },
+      { step: 3, title: "NOC from Landlord", description: "Obtain NOC from DIFC property management or landlord." },
+      { step: 4, title: "DIFC Permit Application", description: "Submit complete permit application through DIFC portal." },
+      { step: 5, title: "DIFC Technical Review", description: "DIFC reviews submission for compliance with centre regulations." },
+      { step: 6, title: "Permit Issuance", description: "Works permit issued. Works can commence under DIFC supervision." },
+    ],
+    timelineTable: [
+      { stage: "Design preparation", duration: "5–10 business days", cost: "By consultant", notes: "Per DIFC standards" },
+      { stage: "Contractor registration", duration: "2–5 business days", cost: "AED 500 – 1,000", notes: "If not already registered" },
+      { stage: "DIFC review and approval", duration: "5–10 business days", cost: "AED 1,000 – 5,000", notes: "Based on project scope" },
+    ],
+    rejectionReasons: [
+      { reason: "Design does not comply with DIFC design guidelines", solution: "Review DIFC Design Manual before preparing drawings. Each building within DIFC may have specific guidelines." },
+      { reason: "Contractor not registered with DIFC", solution: "Only DIFC-registered contractors can perform works. Register contractor before submitting application." },
+      { reason: "Missing landlord NOC or incomplete documentation", solution: "Obtain written NOC from DIFC property management before submitting permit application." },
+    ],
+    caseStudy: {
+      projectType: "Law firm office fit-out in Gate Village, DIFC",
+      authority: "DIFC Authority",
+      timeline: "10 business days",
+      challenge: "Office required advanced security system integration and separate partner offices with fire-rated glass partitions.",
+      outcome: "Prepared complete DIFC-compliant submission. Approved with conditions on fire-rated glass specification.",
+    },
+    whyChooseUs: [
+      "Deep knowledge of DIFC design guidelines and permit processes",
+      "Experience with multiple DIFC buildings each with unique requirements",
+      "Complete submission management from contractor registration to permit issuance",
+    ],
+    faqs: [
+      { question: "What is DIFC Approval?", answer: "DIFC Approval is the permit required for all fit-out, renovation, and construction activities within the Dubai International Financial Centre jurisdiction." },
+      { question: "Do I need DM approval or DIFC approval?", answer: "Works within DIFC are governed by DIFC's own regulations. DIFC approval is typically sufficient and DM approval is not required for works within DIFC premises." },
+      { question: "How long does DIFC approval take?", answer: "Standard DIFC permit processing takes 5–10 business days after complete submission." },
+    ],
+    relatedSlugs: categorySlugs("free-zone", "difc-approval"),
+    lastUpdated: "2026-07-01",
+  },
+
+  // ========================================================================
+  // NEW ENTRY: Dubai Production City (IMPZ) Approval
+  // ========================================================================
+  {
+    slug: "impz-approval",
+    name: "Dubai Production City (IMPZ) Approval",
+    shortName: "IMPZ Approval",
+    authorityFull: "Dubai Production City (IMPZ) — TECOM",
+    authorityAbbr: "IMPZ",
+    category: "free-zone",
+    primaryKeyword: "Dubai Production City approval",
+    secondaryKeywords: [
+      "IMPZ approval",
+      "International Media Production Zone permit",
+      "Dubai Production City fit-out",
+      "TECOM production city approval",
+    ],
+    typicalTimeline: "5–10 business days",
+    typicalCostRange: "AED 1,000 – 5,000",
+    directAnswer:
+      "Dubai Production City (IMPZ) Approval is required for fit-out, construction, and operational permits within the Dubai Production City free zone, part of the TECOM group. The approval covers building permits, tenancy coordination, and operational licensing. Processing typically takes 5–10 business days.",
+    stats: [
+      { label: "Authority", value: "Dubai Production City / TECOM" },
+      { label: "Timeline", value: "5–10 business days" },
+      { label: "Mandatory for", value: "All works in IMPZ" },
+      { label: "Scope", value: "Fit-out, construction, licensing" },
+    ],
+    description:
+      "Dubai Production City (IMPZ — International Media Production Zone) Approval is required for all construction, fit-out, and operational activities within the free zone. As part of the TECOM group, Dubai Production City has its own approval processes for building permits, tenancy fit-outs, and business licensing. The zone is designed for media, production, publishing, and related industries with specific design and operational guidelines. All tenants, contractors, and property owners within IMPZ must obtain approval before commencing any works or modifications to their units.",
+    whoNeedsIt: [
+      "Media and production companies setting up in IMPZ",
+      "Tenants fitting out office or studio spaces",
+      "Contractors performing works in IMPZ buildings",
+      "Businesses requiring TECOM operational permits",
+      "Any party undertaking fit-out in Dubai Production City",
+    ],
+    documents: [
+      { document: "IMPZ works permit application", mandatory: true },
+      { document: "Fit-out design and layout drawings", mandatory: true },
+      { document: "MEP drawings (if modifications involved)", mandatory: true },
+      { document: "Contractor registration with TECOM", mandatory: true },
+      { document: "NOC from building management", mandatory: true },
+      { document: "Insurance certificates", mandatory: true },
+    ],
+    process: [
+      { step: 1, title: "Design Preparation", description: "Prepare fit-out design per TECOM/IMPZ design guidelines and building-specific requirements." },
+      { step: 2, title: "Contractor Registration", description: "Ensure contractor is registered with TECOM for works within IMPZ." },
+      { step: 3, title: "NOC Collection", description: "Obtain NOC from building management and/or landlord." },
+      { step: 4, title: "IMPZ Application Submission", description: "Submit complete application to IMPZ/TECOM approval portal." },
+      { step: 5, title: "Approval & Works Commencement", description: "Upon IMPZ approval, works can proceed. Post-completion inspection may be required." },
+    ],
+    timelineTable: [
+      { stage: "Design preparation", duration: "5–7 business days", cost: "By consultant", notes: "Per TECOM guidelines" },
+      { stage: "Contractor registration", duration: "2–3 business days", cost: "AED 300 – 500", notes: "If not registered" },
+      { stage: "IMPZ review and approval", duration: "5–7 business days", cost: "AED 500 – 2,000", notes: "Based on scope" },
+    ],
+    rejectionReasons: [
+      { reason: "Design violates TECOM/IMPZ design guidelines", solution: "Review TECOM design manual and building-specific guidelines before submitting." },
+      { reason: "Unregistered contractor", solution: "Only TECOM-registered contractors may perform works within IMPZ." },
+      { reason: "Missing building management NOC", solution: "Obtain NOC from building management/landlord before applying." },
+    ],
+    caseStudy: {
+      projectType: "Media production studio fit-out in Dubai Production City",
+      authority: "IMPZ / TECOM",
+      timeline: "8 business days",
+      challenge: "Studio required specialized acoustic treatment and soundproofing which needed additional fire safety review.",
+      outcome: "Coordinated with TECOM and DCD for fire-rated acoustic materials. IMPZ approved with DCD concurrence.",
+    },
+    whyChooseUs: [
+      "Expert knowledge of TECOM group approval processes across all member zones",
+      "Experience with media and production facility requirements",
+      "Complete submission management including contractor coordination",
+    ],
+    faqs: [
+      { question: "What is IMPZ/Dubai Production City Approval?", answer: "It is the approval required for all fit-out, construction, and operational activities within Dubai Production City (IMPZ) free zone under TECOM." },
+      { question: "Do I need separate DM approval for works in IMPZ?", answer: "Works within IMPZ are governed by TECOM's own approval system. DM approval is typically not required for internal fit-outs." },
+      { question: "How long does IMPZ approval take?", answer: "Standard IMPZ approval takes 5–10 business days depending on project scope." },
+    ],
+    relatedSlugs: categorySlugs("free-zone", "impz-approval"),
+    lastUpdated: "2026-07-01",
+  },
+
+  // ========================================================================
+  // NEW ENTRY: Dubai Holding Approval
+  // ========================================================================
+  {
+    slug: "dubai-holding-approval",
+    name: "Dubai Holding Approval",
+    shortName: "Dubai Holding Approval",
+    authorityFull: "Dubai Holding / Relevant Community Management",
+    authorityAbbr: "Dubai Holding",
+    category: "developer-community",
+    primaryKeyword: "Dubai Holding approval",
+    secondaryKeywords: [
+      "Dubai Holding community approval",
+      "Dubai Holding NOC",
+      "Dubai Holding renovation permit",
+    ],
+    typicalTimeline: "5–10 business days",
+    typicalCostRange: "AED 1,000 – 5,000",
+    directAnswer:
+      "Dubai Holding Approval is required for construction, renovation, and fit-out works within communities developed and managed by Dubai Holding. This includes Jumeirah Islands, Jumeirah Village, and other Dubai Holding master-planned communities. Processing typically takes 5–10 business days.",
+    stats: [
+      { label: "Authority", value: "Dubai Holding" },
+      { label: "Timeline", value: "5–10 business days" },
+      { label: "Mandatory for", value: "Works in DH communities" },
+      { label: "Scope", value: "Renovation, construction, fit-out" },
+    ],
+    description:
+      "Dubai Holding Approval is the community-level permit required for any construction, renovation, or modification works within Dubai Holding's master-planned communities. This includes villa extensions, modifications, landscape changes, and fit-out works. Dubai Holding communities have specific design guidelines, setback requirements, material standards, and color palettes that must be followed. Property owners must obtain community management approval in addition to any required Dubai Municipality permits. The approval process ensures architectural consistency and community standards across Dubai Holding developments.",
+    whoNeedsIt: [
+      "Property owners in Dubai Holding communities planning renovations",
+      "Contractors performing works in Dubai Holding areas",
+      "Residents modifying villa exteriors or landscapes",
+      "Tenants undertaking fit-out in Dubai Holding commercial properties",
+      "Any party modifying property within Dubai Holding jurisdiction",
+    ],
+    documents: [
+      { document: "Dubai Holding community approval application", mandatory: true },
+      { document: "Design drawings and specifications", mandatory: true },
+      { document: "Title deed or ownership proof", mandatory: true },
+      { document: "Contractor license and insurance", mandatory: true },
+      { document: "Dubai Municipality permit (if applicable)", mandatory: true },
+      { document: "Material and color specifications", mandatory: true },
+    ],
+    process: [
+      { step: 1, title: "Community Guidelines Review", description: "Review specific design guidelines for the Dubai Holding community." },
+      { step: 2, title: "Design Preparation", description: "Prepare design and drawings per community guidelines and DM standards." },
+      { step: 3, title: "Submit to Community Management", description: "Submit approval application to Dubai Holding community management." },
+      { step: 4, title: "Community Review", description: "Community management reviews for compliance with design guidelines." },
+      { step: 5, title: "DM Coordination (if needed)", description: "For structural works, coordinate DM building permit alongside community approval." },
+    ],
+    timelineTable: [
+      { stage: "Guidelines review and design", duration: "3–7 business days", cost: "By consultant", notes: "Per community rules" },
+      { stage: "Community management review", duration: "5–7 business days", cost: "AED 500 – 2,000", notes: "Community-dependent" },
+      { stage: "DM coordination (if needed)", duration: "5–10 business days", cost: "Additional", notes: "For structural works" },
+    ],
+    rejectionReasons: [
+      { reason: "Design violates community architectural guidelines", solution: "Obtain and review the specific Dubai Holding community design guidelines before designing." },
+      { reason: "Proposed materials or colors not in approved palette", solution: "Select materials and colors from the community's approved palette." },
+      { reason: "Missing DM building permit for structural works", solution: "For structural modifications, obtain DM building permit before or alongside community approval." },
+    ],
+    caseStudy: {
+      projectType: "Villa extension in Jumeirah Islands",
+      authority: "Dubai Holding Community Management",
+      timeline: "12 business days (including DM coordination)",
+      challenge: "Extension required both Dubai Holding community approval and DM building permit. Setback requirements differed between the two.",
+      outcome: "Coordinated between Dubai Holding and DM to align setback requirements. Dual approval obtained.",
+    },
+    whyChooseUs: [
+      "Comprehensive knowledge of Dubai Holding community guidelines across all developments",
+      "Coordination between community management and Dubai Municipality",
+      "Complete submission management including design and documentation",
+    ],
+    faqs: [
+      { question: "What is Dubai Holding Approval?", answer: "It is the community-level approval required for construction, renovation, and modification works within Dubai Holding master-planned communities." },
+      { question: "Do I need both Dubai Holding and DM approval?", answer: "For structural works, both Dubai Holding community approval and DM building permit are typically required. For cosmetic changes, only community approval may be needed." },
+      { question: "How long does Dubai Holding approval take?", answer: "Community management review typically takes 5–7 business days. Additional time is needed if DM coordination is required." },
+    ],
+    relatedSlugs: categorySlugs("developer-community", "dubai-holding-approval"),
+    lastUpdated: "2026-07-01",
+  },
+
+  // ========================================================================
+  // NEW ENTRY: Community / Owners Association Approval
+  // ========================================================================
+  {
+    slug: "community-approval",
+    name: "Community / Owners Association Approval",
+    shortName: "Community Approval",
+    authorityFull: "Community Management / Owners Association",
+    authorityAbbr: "OA / Community",
+    category: "developer-community",
+    primaryKeyword: "community approval Dubai",
+    secondaryKeywords: [
+      "owners association approval Dubai",
+      "community management NOC",
+      "residential community permit Dubai",
+      "OA approval Dubai",
+    ],
+    typicalTimeline: "3–7 business days",
+    typicalCostRange: "AED 500 – 2,000",
+    directAnswer:
+      "Community / Owners Association (OA) Approval is required for any modification, renovation, or construction works within residential communities governed by an Owners Association in Dubai. The OA or community management must approve all works to ensure compliance with community rules. Processing typically takes 3–7 business days.",
+    stats: [
+      { label: "Authority", value: "OA / Community Management" },
+      { label: "Timeline", value: "3–7 business days" },
+      { label: "Mandatory for", value: "Works in OA communities" },
+      { label: "Scope", value: "Modifications, renovations" },
+    ],
+    description:
+      "Community / Owners Association (OA) Approval is required for any works within residential communities that are governed by a registered Owners Association. Under Dubai Law No. 6 of 2019 (Jointly Owned Properties Law), OA communities have established rules for property modifications including exterior changes, structural alterations, landscape modifications, and service connections. Property owners must obtain written approval from the OA or community management before commencing any works. The OA ensures that modifications comply with community bylaws, maintain architectural harmony, and do not adversely affect common areas or other properties.",
+    whoNeedsIt: [
+      "Property owners in OA-governed communities planning modifications",
+      "Residents installing external fixtures (awnings, AC units, satellite dishes)",
+      "Contractors performing works in OA communities",
+      "Property investors modifying villas for rental purposes",
+      "Any party undertaking external alterations in OA communities",
+    ],
+    documents: [
+      { document: "OA community approval application form", mandatory: true },
+      { document: "Detailed description of proposed works", mandatory: true },
+      { document: "Design drawings or sketches", mandatory: true },
+      { document: "Title deed or tenancy contract", mandatory: true },
+      { document: "Contractor details and license", mandatory: true },
+      { document: "DM building permit (for structural works)", mandatory: true },
+    ],
+    process: [
+      { step: 1, title: "Community Rules Review", description: "Review OA community bylaws and modification guidelines." },
+      { step: 2, title: "Application Preparation", description: "Prepare application with detailed scope of works and supporting drawings." },
+      { step: 3, title: "Submit to OA Management", description: "Submit application to OA or community management for review." },
+      { step: 4, title: "OA Review & Decision", description: "OA reviews application and issues approval or rejection with reasons." },
+      { step: 5, title: "DM Coordination", description: "For structural or building permit-level works, obtain DM permit referencing OA approval." },
+    ],
+    timelineTable: [
+      { stage: "Application preparation", duration: "1–3 business days", cost: "Included", notes: "Based on scope" },
+      { stage: "OA review process", duration: "3–7 business days", cost: "AED 200 – 1,000", notes: "Community-dependent" },
+      { stage: "DM permit coordination", duration: "5–10 business days", cost: "Additional", notes: "If structural works" },
+    ],
+    rejectionReasons: [
+      { reason: "Proposed works violate OA community bylaws", solution: "Review OA bylaws carefully before submitting. Some communities have strict rules on external modifications." },
+      { reason: "Missing DM building permit for structural changes", solution: "For structural modifications, obtain DM building permit as primary approval with OA as secondary." },
+      { reason: "Works affect common areas without proper authorization", solution: "Any impact on common areas requires separate OA approval. Submit common area impact assessment." },
+    ],
+    caseStudy: {
+      projectType: "Villa landscape modification in The Springs",
+      authority: "Community Owners Association",
+      timeline: "5 business days",
+      challenge: "Homeowner wanted to widen driveway and add hard landscaping which affected common area setback.",
+      outcome: "Revised design to stay within property boundary. OA approved with conditions on material selection.",
+    },
+    whyChooseUs: [
+      "Experience with OA approval processes across various Dubai communities",
+      "Knowledge of jointly owned property law requirements",
+      "Coordination between OA and DM for comprehensive approval",
+    ],
+    faqs: [
+      { question: "What is Community/OA Approval?", answer: "It is the approval from the Owners Association or community management required for any modification works within jointly-owned residential communities in Dubai." },
+      { question: "Can I start work before OA approval?", answer: "No. Starting works without OA approval may result in fines, stop-work orders, and requirement to restore the property to original condition." },
+      { question: "How long does OA approval take?", answer: "Standard OA review takes 3–7 business days. Complex modifications or those affecting common areas may take longer." },
+    ],
+    relatedSlugs: categorySlugs("developer-community", "community-approval"),
+    lastUpdated: "2026-07-01",
+  },
+
+  // ========================================================================
+  // NEW ENTRY: Al Sa'fat Green Building Approval
+  // ========================================================================
+  {
+    slug: "al-safat-green-building-approval",
+    name: "Al Sa'fat Green Building Approval (Dubai)",
+    shortName: "Al Sa'fat Approval",
+    authorityFull: "Dubai Municipality — Al Sa'fat Department",
+    authorityAbbr: "DM Al Sa'fat",
+    category: "property-registration",
+    primaryKeyword: "Al Sa'fat green building approval Dubai",
+    secondaryKeywords: [
+      "Dubai Green Building Regulations",
+      "Al Sa'fat compliance Dubai",
+      "green building certification Dubai",
+      "sustainability approval Dubai Municipality",
+    ],
+    typicalTimeline: "5–15 business days",
+    typicalCostRange: "AED 3,000 – 15,000",
+    directAnswer:
+      "Al Sa'fat Green Building Approval is Dubai Municipality's mandatory green building rating system that all new buildings and major renovations in Dubai must comply with. The system sets sustainability requirements for energy efficiency, water conservation, materials, and indoor environmental quality. Processing typically takes 5–15 business days.",
+    stats: [
+      { label: "Authority", value: "Dubai Municipality" },
+      { label: "Timeline", value: "5–15 business days" },
+      { label: "Mandatory for", value: "All new buildings in Dubai" },
+      { label: "Scope", value: "Energy, water, materials, IEQ" },
+    ],
+    description:
+      "Al Sa'fat (formerly known as Dubai Green Building Regulations) is Dubai Municipality's mandatory green building rating system that applies to all new buildings and major renovation projects in the emirate. The system evaluates buildings across several categories including energy efficiency, water conservation, sustainable materials, indoor environmental quality, and innovation. Compliance with Al Sa'fat is mandatory for obtaining a building permit from Dubai Municipality. Projects must submit an Al Sa'fat compliance report prepared by a registered green building consultant as part of the building permit application. The system has different rating levels (Bronze, Silver, Gold, Platinum) depending on the level of sustainability achieved.",
+    whoNeedsIt: [
+      "Developers of new buildings in Dubai",
+      "Property owners undertaking major renovations",
+      "Architects and engineers designing new buildings",
+      "Project managers requiring building permit approval",
+      "Any project requiring DM building permit for new construction",
+    ],
+    documents: [
+      { document: "Al Sa'fat compliance report", mandatory: true },
+      { document: "Energy model and simulation results", mandatory: true },
+      { document: "Water efficiency calculations", mandatory: true },
+      { document: "Material sustainability specification sheet", mandatory: true },
+      { document: "Indoor environmental quality compliance report", mandatory: true },
+      { document: "Green building consultant credentials", mandatory: true },
+    ],
+    process: [
+      { step: 1, title: "Al Sa'fat Compliance Assessment", description: "Engage registered green building consultant to assess project against Al Sa'fat requirements." },
+      { step: 2, title: "Design Integration", description: "Integrate sustainability measures into architectural and MEP design per Al Sa'fat credits." },
+      { step: 3, title: "Compliance Report Preparation", description: "Consultant prepares detailed Al Sa'fat compliance report with supporting calculations." },
+      { step: 4, title: "Submit with Building Permit", description: "Submit Al Sa'fat compliance report as part of DM building permit application." },
+      { step: 5, title: "DM Review & Approval", description: "DM Al Sa'fat department reviews compliance report and issues approval." },
+    ],
+    timelineTable: [
+      { stage: "Compliance assessment and design integration", duration: "10–20 business days", cost: "By consultant", notes: "Project-dependent" },
+      { stage: "Compliance report preparation", duration: "5–10 business days", cost: "AED 5,000 – 15,000", notes: "Consultant fees" },
+      { stage: "DM Al Sa'fat review", duration: "5–10 business days", cost: "Included in building permit", notes: "Reviewed with full submission" },
+    ],
+    rejectionReasons: [
+      { reason: "Energy performance does not meet minimum Al Sa'fat requirements", solution: "Enhance building envelope insulation, glazing performance, and HVAC efficiency to meet energy targets." },
+      { reason: "Incomplete or incorrect compliance calculations", solution: "Ensure all calculations are prepared by a registered green building consultant per DM standards." },
+      { reason: "Missing documentation for specific credit categories", solution: "Use Al Sa'fat compliance checklist to ensure all required credit categories are addressed." },
+    ],
+    caseStudy: {
+      projectType: "New G+2 commercial building in Al Quoz",
+      authority: "DM Al Sa'fat Department",
+      timeline: "12 business days",
+      challenge: "Initial energy model showed compliance at Bronze level only. Client wanted Silver rating for marketing purposes.",
+      outcome: "Upgraded HVAC system specification and added solar-ready infrastructure. Achieved Silver rating.",
+    },
+    whyChooseUs: [
+      "Registered Al Sa'fat green building consultants on staff",
+      "Complete compliance report preparation and submission management",
+      "Proven track record of achieving target Al Sa'fat ratings",
+    ],
+    faqs: [
+      { question: "What is Al Sa'fat Green Building Approval?", answer: "It is Dubai Municipality's mandatory green building rating system requiring all new buildings and major renovations to meet sustainability standards." },
+      { question: "Is Al Sa'fat mandatory for all buildings?", answer: "Yes, Al Sa'fat compliance is mandatory for all new buildings and major renovations in Dubai. The requirement level depends on building type and size." },
+      { question: "How long does Al Sa'fat approval take?", answer: "DM review of Al Sa'fat compliance takes 5–10 business days as part of the building permit process. The full compliance process including design integration may take several weeks." },
+    ],
+    relatedSlugs: categorySlugs("property-registration", "al-safat-green-building-approval"),
+    lastUpdated: "2026-07-01",
+  },
+
+  // ========================================================================
+  // NEW ENTRY: Sewerage & Drainage Approval
+  // ========================================================================
+  {
+    slug: "sewerage-drainage-approval",
+    name: "Sewerage & Drainage Approval (Dubai)",
+    shortName: "Sewerage Approval",
+    authorityFull: "Dubai Municipality — Drainage Department",
+    authorityAbbr: "DM Drainage",
+    category: "technical-utility",
+    primaryKeyword: "sewerage drainage approval Dubai",
+    secondaryKeywords: [
+      "Dubai Municipality drainage permit",
+      "sewer connection approval Dubai",
+      "stormwater drainage permit",
+      "DM drainage NOC",
+    ],
+    typicalTimeline: "5–10 business days",
+    typicalCostRange: "AED 1,000 – 5,000",
+    directAnswer:
+      "Sewerage & Drainage Approval from Dubai Municipality is required for all new connections to Dubai's sewerage and stormwater drainage systems, as well as modifications to existing drainage infrastructure. The approval ensures proper wastewater management and flood prevention. Processing typically takes 5–10 business days.",
+    stats: [
+      { label: "Authority", value: "DM Drainage Department" },
+      { label: "Timeline", value: "5–10 business days" },
+      { label: "Mandatory for", value: "New sewer connections" },
+      { label: "Scope", value: "Sewer, stormwater, drainage" },
+    ],
+    description:
+      "Sewerage & Drainage Approval from Dubai Municipality's Drainage Department is required for any new connection to Dubai's sewerage network, modifications to existing drainage systems, stormwater drainage design, and wastewater management plans. The approval ensures that all drainage designs comply with DM's drainage standards, Dubai Building Code requirements, and environmental protection regulations. This includes sanitary sewer connections, stormwater drainage systems, grease trap installations, and sewage pumping stations. The submission requires detailed drainage design drawings, hydraulic calculations, and connection point coordination with existing DM infrastructure.",
+    whoNeedsIt: [
+      "New building construction requiring sewer connection",
+      "Property owners modifying existing drainage systems",
+      "Developers requiring stormwater management plans",
+      "Commercial kitchens requiring grease trap approval",
+      "Any project connecting to DM sewerage network",
+    ],
+    documents: [
+      { document: "Drainage design drawings and calculations", mandatory: true },
+      { document: "Site plan showing proposed drainage network", mandatory: true },
+      { document: "Connection point coordinates", mandatory: true },
+      { document: "Hydraulic load calculations", mandatory: true },
+      { document: "Grease trap design (for food establishments)", mandatory: false },
+      { document: "Stormwater management plan", mandatory: true },
+    ],
+    process: [
+      { step: 1, title: "Drainage Design", description: "Design drainage system per DM standards including sewer, stormwater, and grease waste." },
+      { step: 2, title: "Connection Point Coordination", description: "Coordinate with DM to identify approved connection points to main sewer lines." },
+      { step: 3, title: "Hydraulic Calculations", description: "Prepare hydraulic load calculations for sewer and stormwater systems." },
+      { step: 4, title: "Submit to DM Drainage", description: "Submit complete drainage design package to DM Drainage Department." },
+      { step: 5, title: "Approval Issuance", description: "DM reviews and issues drainage approval enabling connection to network." },
+    ],
+    timelineTable: [
+      { stage: "Drainage design and calculations", duration: "5–10 business days", cost: "By consultant", notes: "Per DM standards" },
+      { stage: "Connection point coordination", duration: "3–5 business days", cost: "AED 200 – 500", notes: "DM coordination" },
+      { stage: "DM Drainage review", duration: "5–7 business days", cost: "AED 500 – 2,000", notes: "Based on project size" },
+    ],
+    rejectionReasons: [
+      { reason: "Drainage design does not meet DM standards", solution: "Ensure design follows DM Drainage Design Manual and Dubai Building Code Section 7." },
+      { reason: "Incorrect connection point coordinates", solution: "Coordinate with DM to verify proposed connection point before submission." },
+      { reason: "Hydraulic calculations insufficient or incorrect", solution: "Have calculations reviewed by registered civil engineer before submission." },
+    ],
+    caseStudy: {
+      projectType: "New restaurant connection in Jumeirah 1",
+      authority: "DM Drainage Department",
+      timeline: "7 business days",
+      challenge: "Restaurant required both sanitary sewer connection and large grease trap due to high-volume cooking operations.",
+      outcome: "Designed dual-chamber grease trap and coordinated connection point with DM. Approval obtained.",
+    },
+    whyChooseUs: [
+      "Expertise in DM drainage design standards and submission requirements",
+      "Complete drainage design and calculation service",
+      "Coordination with DM for connection point approval",
+    ],
+    faqs: [
+      { question: "What is Sewerage & Drainage Approval?", answer: "It is DM approval required for any new connection or modification to Dubai's sewerage and stormwater drainage network." },
+      { question: "Do I need drainage approval for building permit?", answer: "Yes, drainage design approval is a prerequisite for obtaining a DM building permit for new construction." },
+      { question: "How long does drainage approval take?", answer: "Standard DM drainage review takes 5–7 business days. Complex projects with pumping stations may take longer." },
+    ],
+    relatedSlugs: categorySlugs("technical-utility", "sewerage-drainage-approval"),
+    lastUpdated: "2026-07-01",
+  },
+
+  // ========================================================================
+  // NEW ENTRY: Electrical Works Approval
+  // ========================================================================
+  {
+    slug: "electrical-works-approval",
+    name: "Electrical Works Approval (Dubai)",
+    shortName: "Electrical Approval",
+    authorityFull: "DEWA / Dubai Municipality",
+    authorityAbbr: "DEWA / DM",
+    category: "technical-utility",
+    primaryKeyword: "electrical works approval Dubai",
+    secondaryKeywords: [
+      "DEWA electrical permit",
+      "electrical installation approval Dubai",
+      "DM electrical approval",
+      "electrical connection permit Dubai",
+    ],
+    typicalTimeline: "5–10 business days",
+    typicalCostRange: "AED 1,000 – 5,000",
+    directAnswer:
+      "Electrical Works Approval covers the design, installation, and modification of electrical systems in Dubai buildings. Depending on the scope, approval may be required from DEWA (for utility connections) and/or Dubai Municipality (for internal electrical installations). Processing typically takes 5–10 business days.",
+    stats: [
+      { label: "Authority", value: "DEWA / DM" },
+      { label: "Timeline", value: "5–10 business days" },
+      { label: "Mandatory for", value: "All electrical installations" },
+      { label: "Scope", value: "Power, lighting, LV systems" },
+    ],
+    description:
+      "Electrical Works Approval is required for all electrical installations, modifications, and connections in Dubai. The approval process involves two main authorities: DEWA for utility connections, meter installations, and load enhancements; and Dubai Municipality for internal electrical designs submitted as part of the building permit. Electrical designs must comply with DEWA's Standards for Electrical Installations, DM building codes, and the UAE Fire and Life Safety Code. All electrical drawings must be prepared and stamped by registered electrical engineering consultants. The scope covers power distribution, lighting systems, low voltage systems, and emergency power systems.",
+    whoNeedsIt: [
+      "New building construction requiring electrical infrastructure",
+      "Property owners upgrading electrical capacity",
+      "Fit-out projects modifying electrical systems",
+      "Facility managers installing backup power systems",
+      "DEWA connection applicants requiring load approval",
+    ],
+    documents: [
+      { document: "Electrical single-line diagram", mandatory: true },
+      { document: "Load schedule and calculations", mandatory: true },
+      { document: "Electrical layout drawings", mandatory: true },
+      { document: "Lighting design and calculations", mandatory: true },
+      { document: "Emergency/standby power system design", mandatory: true },
+      { document: "Drawings stamped by registered electrical engineer", mandatory: true },
+    ],
+    process: [
+      { step: 1, title: "Electrical Design", description: "Engineers design electrical system per DEWA and DM standards including load calculations." },
+      { step: 2, title: "DEWA Pre-Approval (if needed)", description: "For new connections or load enhancements, obtain DEWA preliminary approval." },
+      { step: 3, title: "DM Electrical Submission", description: "Submit electrical drawings as part of DM building permit application." },
+      { step: 4, title: "Multi-Authority Review", description: "DM coordinates electrical review with DEWA as needed." },
+      { step: 5, title: "Approval & Connection", description: "Upon approval, installation proceeds. DEWA connection after inspection." },
+    ],
+    timelineTable: [
+      { stage: "Electrical design and calculations", duration: "5–10 business days", cost: "By consultant", notes: "Per DEWA/DM standards" },
+      { stage: "DEWA preliminary approval", duration: "3–7 business days", cost: "AED 200 – 1,000", notes: "For new connections" },
+      { stage: "DM electrical review", duration: "5–7 business days", cost: "Included in building permit", notes: "Reviewed with full submission" },
+    ],
+    rejectionReasons: [
+      { reason: "Electrical design does not comply with DEWA standards", solution: "Ensure design follows DEWA's Standards for Electrical Installations, 11th Edition or latest." },
+      { reason: "Load calculations exceed available capacity", solution: "Verify available capacity from DEWA and design load accordingly. Apply for load enhancement if needed." },
+      { reason: "Single-line diagram incomplete or non-compliant", solution: "Ensure single-line diagram includes all protective devices, cable sizes, and load ratings per DEWA format." },
+    ],
+    caseStudy: {
+      projectType: "Commercial office electrical upgrade in Business Bay",
+      authority: "DEWA / DM",
+      timeline: "8 business days",
+      challenge: "Existing electrical capacity insufficient for new office equipment. Required DEWA load enhancement from 100A to 200A.",
+      outcome: "Coordinated with DEWA for load enhancement approval. DM approved revised electrical drawings.",
+    },
+    whyChooseUs: [
+      "Registered electrical engineers for design and submissions",
+      "Coordination between DEWA and DM for comprehensive electrical approval",
+      "Expertise in load calculations and capacity planning",
+    ],
+    faqs: [
+      { question: "What is Electrical Works Approval?", answer: "It is the approval required for all electrical installations and modifications in Dubai, involving DEWA for utility connections and DM for internal electrical designs." },
+      { question: "Do I need DEWA approval or DM approval?", answer: "For utility connections (new connections, upgrades), DEWA approval is needed. For internal electrical designs as part of building permit, DM approval is required. Some projects need both." },
+      { question: "How long does electrical approval take?", answer: "Standard review takes 5–7 business days per authority. Combined DEWA + DM process may take 10–15 business days." },
+    ],
+    relatedSlugs: categorySlugs("technical-utility", "electrical-works-approval"),
+    lastUpdated: "2026-07-01",
+  },
+
+  // ========================================================================
+  // NEW ENTRY: Mezzanine Floor Approval
+  // ========================================================================
+  {
+    slug: "mezzanine-floor-approval",
+    name: "Mezzanine Floor Approval (Dubai)",
+    shortName: "Mezzanine Approval",
+    authorityFull: "Dubai Municipality — Building Department",
+    authorityAbbr: "DM Building",
+    category: "technical-utility",
+    primaryKeyword: "mezzanine floor approval Dubai",
+    secondaryKeywords: [
+      "mezzanine permit Dubai Municipality",
+      "warehouse mezzanine approval Dubai",
+      "mezzanine structural approval",
+      "DM mezzanine building permit",
+    ],
+    typicalTimeline: "5–10 business days",
+    typicalCostRange: "AED 2,000 – 8,000",
+    directAnswer:
+      "Mezzanine Floor Approval from Dubai Municipality is required for the installation of mezzanine floors in warehouses, showrooms, industrial facilities, and commercial spaces. The approval covers structural design, fire safety compliance, and building code adherence. Processing typically takes 5–10 business days.",
+    stats: [
+      { label: "Authority", value: "Dubai Municipality" },
+      { label: "Timeline", value: "5–10 business days" },
+      { label: "Mandatory for", value: "All mezzanine installations" },
+      { label: "Scope", value: "Structural, fire safety, access" },
+    ],
+    description:
+      "Mezzanine Floor Approval from Dubai Municipality is required for the design and installation of intermediate floors (mezzanines) within existing buildings. Mezzanines are commonly installed in warehouses, industrial facilities, showrooms, and commercial spaces to maximize usable floor area. DM requires a structural design prepared and stamped by a registered structural engineer, fire safety compliance documentation, and proof that the mezzanine does not violate building code limitations on floor area ratio, height restrictions, or occupancy loads. The approval process ensures that the mezzanine structure is safe, properly designed for the intended load, and integrated with the building's fire protection and egress systems.",
+    whoNeedsIt: [
+      "Warehouse operators adding mezzanine storage space",
+      "Industrial facility managers maximizing floor space",
+      "Showroom owners creating display mezzanines",
+      "Commercial tenants adding office mezzanine in warehouse",
+      "Any property owner installing an intermediate floor structure",
+    ],
+    documents: [
+      { document: "Mezzanine structural design and calculations", mandatory: true },
+      { document: "Architectural layout showing mezzanine plan", mandatory: true },
+      { document: "Fire safety compliance report", mandatory: true },
+      { document: "Structural engineer stamp and registration", mandatory: true },
+      { document: "Load calculation report (dead load, live load)", mandatory: true },
+      { document: "NOC from building owner (if tenant)", mandatory: true },
+    ],
+    process: [
+      { step: 1, title: "Structural Design", description: "Structural engineer designs mezzanine system including columns, beams, decking, and connections." },
+      { step: 2, title: "Load Calculations", description: "Prepare dead load, live load, and point load calculations per DM building code requirements." },
+      { step: 3, title: "Fire Safety Review", description: "Assess fire protection requirements including sprinkler coverage under mezzanine and egress paths." },
+      { step: 4, title: "DM Submission", description: "Submit structural drawings, calculations, and fire safety report to DM for building permit." },
+      { step: 5, title: "Permit Issuance", description: "Upon DM approval, mezzanine installation can proceed per approved design." },
+    ],
+    timelineTable: [
+      { stage: "Structural design and calculations", duration: "5–10 business days", cost: "By structural engineer", notes: "Per DM standards" },
+      { stage: "Fire safety assessment", duration: "2–3 business days", cost: "Included", notes: "Coordinate with DCD" },
+      { stage: "DM building permit review", duration: "5–7 business days", cost: "AED 1,000 – 3,000", notes: "Based on mezzanine size" },
+    ],
+    rejectionReasons: [
+      { reason: "Mezzanine exceeds allowable floor area ratio or height limit", solution: "Verify zoning regulations and building code limits for mezzanine area before designing." },
+      { reason: "Structural calculations inadequate or unstamped", solution: "Ensure structural calculations are prepared and stamped by a Dubai-registered structural engineer." },
+      { reason: "Fire safety non-compliance (sprinkler coverage, egress)", solution: "Ensure sprinkler system is designed to cover area under mezzanine and egress paths comply with DM code." },
+    ],
+    caseStudy: {
+      projectType: "Warehouse mezzanine addition in Al Quoz Industrial Area",
+      authority: "DM Building Department",
+      timeline: "8 business days",
+      challenge: "Existing warehouse had limited headroom. Required structural assessment to confirm minimum clearance above and below mezzanine.",
+      outcome: "Designed low-profile mezzanine system with optimized beam depth. DM approved with sprinkler modification condition.",
+    },
+    whyChooseUs: [
+      "Registered structural engineers for mezzanine design and approval",
+      "Complete structural, fire safety, and permitting service",
+      "Experience with mezzanine installations across various building types and zones",
+    ],
+    faqs: [
+      { question: "What is Mezzanine Floor Approval?", answer: "It is Dubai Municipality approval required for installing intermediate floor structures (mezzanines) within existing buildings for additional floor space." },
+      { question: "Do I need a building permit for a mezzanine?", answer: "Yes, mezzanine installation requires a DM building permit as it involves structural modifications to the building." },
+      { question: "How long does mezzanine approval take?", answer: "Standard DM review takes 5–7 business days. Total process including design typically takes 2–3 weeks." },
+    ],
+    relatedSlugs: categorySlugs("technical-utility", "mezzanine-floor-approval"),
+    lastUpdated: "2026-07-01",
+  },
+
+  // ========================================================================
+  // NEW ENTRY: Restaurant Works Approval
+  // ========================================================================
+  {
+    slug: "restaurant-works-approval",
+    name: "Restaurant Works Approval (Dubai)",
+    shortName: "Restaurant Works",
+    authorityFull: "Dubai Municipality / Various Authorities",
+    authorityAbbr: "Various",
+    category: "trade-food-hospitality",
+    primaryKeyword: "restaurant works approval Dubai",
+    secondaryKeywords: [
+      "restaurant fit-out permit Dubai",
+      "restaurant kitchen approval Dubai",
+      "DM food establishment permit",
+      "restaurant renovation approval Dubai",
+    ],
+    typicalTimeline: "10–20 business days",
+    typicalCostRange: "AED 5,000 – 20,000",
+    directAnswer:
+      "Restaurant Works Approval in Dubai requires coordination with multiple authorities including Dubai Municipality (Food Control Department), Dubai Civil Defense, DEWA, and the relevant developer or community management. The approval covers kitchen design, dining area fit-out, ventilation, fire safety, and sanitation compliance. Processing typically takes 10–20 business days.",
+    stats: [
+      { label: "Authority", value: "DM / DCD / DEWA / Developer" },
+      { label: "Timeline", value: "10–20 business days" },
+      { label: "Mandatory for", value: "All new restaurant setups" },
+      { label: "Scope", value: "Kitchen, dining, ventilation, fire" },
+    ],
+    description:
+      "Restaurant Works Approval is a multi-authority approval process required for setting up or significantly renovating a restaurant, cafe, or food establishment in Dubai. The process involves: (1) DM Food Control Department approval for kitchen design, sanitation, and food safety compliance; (2) Dubai Civil Defense approval for fire safety systems including kitchen hood fire suppression; (3) DEWA approval for enhanced electrical and gas connections; (4) Developer or community management NOC for the specific location. The fit-out must comply with DM Food Code, UAE Fire and Life Safety Code, DEWA standards, and local municipality requirements. Proper ventilation, grease traps, fire-rated kitchen separations, and accessible sanitation facilities are key requirements.",
+    whoNeedsIt: [
+      "Restaurateurs opening new dining establishments",
+      "Cafe owners setting up food preparation facilities",
+      "Existing restaurants undergoing major renovation",
+      "Hotel F&B outlet development",
+      "Cloud kitchen / delivery-only kitchen setup",
+    ],
+    documents: [
+      { document: "Restaurant layout and kitchen design drawings", mandatory: true },
+      { document: "Kitchen ventilation and hood system design", mandatory: true },
+      { document: "Fire suppression system design (kitchen hood)", mandatory: true },
+      { document: "Grease trap and drainage design", mandatory: true },
+      { document: "DM Food Code compliance checklist", mandatory: true },
+      { document: "DCD fire safety compliance report", mandatory: true },
+      { document: "DEWA electrical and gas connection applications", mandatory: true },
+      { document: "Developer/community NOC", mandatory: true },
+    ],
+    process: [
+      { step: 1, title: "Restaurant Design & Layout", description: "Design kitchen, dining, and service areas per DM Food Code and DCD requirements." },
+      { step: 2, title: "Multi-Authority NOC Collection", description: "Obtain NOCs from developer, community management, and building owner." },
+      { step: 3, title: "Kitchen & Fire Safety Design", description: "Detailed kitchen design with ventilation, fire suppression, and grease trap systems." },
+      { step: 4, title: "DM Food Control Approval", description: "Submit to DM Food Control Department for kitchen and food safety compliance approval." },
+      { step: 5, title: "DCD Fire Safety Approval", description: "Submit for DCD approval of fire suppression systems and overall fire safety." },
+      { step: 6, title: "DEWA Connection", description: "Submit DEWA applications for enhanced power supply and gas connection." },
+    ],
+    timelineTable: [
+      { stage: "Restaurant design and kitchen planning", duration: "5–10 business days", cost: "By consultant", notes: "Per DM Food Code" },
+      { stage: "NOC collection", duration: "3–7 business days", cost: "AED 500 – 2,000", notes: "Developer/community dependent" },
+      { stage: "DM Food Control review", duration: "5–7 business days", cost: "AED 1,000 – 3,000", notes: "Kitchen compliance" },
+      { stage: "DCD fire safety review", duration: "5–7 business days", cost: "AED 500 – 2,000", notes: "Fire suppression system" },
+    ],
+    rejectionReasons: [
+      { reason: "Kitchen design does not meet DM Food Code sanitation requirements", solution: "Ensure proper separation of raw and cooked food areas, adequate hand-washing stations, and proper material finishes per DM Food Code." },
+      { reason: "Kitchen hood fire suppression system not DCD-approved", solution: "Only DCD-approved kitchen hood fire suppression systems are acceptable. Ensure equipment is certified." },
+      { reason: "Inadequate ventilation for cooking equipment", solution: "Calculate required exhaust rates per DM Food Code and UAE Fire Code. Commercial kitchens require mechanical ventilation with appropriate filtration." },
+    ],
+    caseStudy: {
+      projectType: "Mid-range restaurant setup in Al Barsha",
+      authority: "DM Food Control / DCD / DEWA",
+      timeline: "18 business days",
+      challenge: "Restaurant required high-capacity kitchen with charcoal grill which needed specialized hood fire suppression and enhanced ventilation.",
+      outcome: "Designed complete kitchen with DM-compliant layout and DCD-approved Ansul fire suppression system. Multi-authority approval obtained.",
+    },
+    whyChooseUs: [
+      "Complete multi-authority coordination for restaurant approvals",
+      "Expertise in DM Food Code compliance and kitchen design standards",
+      "End-to-end management from design to final permit issuance",
+    ],
+    faqs: [
+      { question: "What is Restaurant Works Approval?", answer: "It is a multi-authority approval process covering kitchen design, fire safety, ventilation, and sanitation for new restaurant setups and major renovations in Dubai." },
+      { question: "How many authorities are involved in restaurant approval?", answer: "Typically 3–4 authorities: DM Food Control, DCD, DEWA, and the relevant developer or community management." },
+      { question: "How long does restaurant approval take?", answer: "The complete process typically takes 10–20 business days depending on the number of authorities involved and submission completeness." },
+    ],
+    relatedSlugs: categorySlugs("trade-food-hospitality", "restaurant-works-approval"),
+    lastUpdated: "2026-07-01",
+  },
+
+  // ========================================================================
+  // NEW ENTRY: Interior Works Approval
+  // ========================================================================
+  {
+    slug: "interior-works-approval",
+    name: "Interior Works Approval (Dubai)",
+    shortName: "Interior Works",
+    authorityFull: "Dubai Municipality / Relevant Authority",
+    authorityAbbr: "DM / Various",
+    category: "fit-out-construction",
+    primaryKeyword: "interior works approval Dubai",
+    secondaryKeywords: [
+      "interior fit-out permit Dubai",
+      "interior renovation approval",
+      "interior modification permit",
+      "interior works DM approval",
+    ],
+    typicalTimeline: "3–7 business days",
+    typicalCostRange: "AED 500 – 3,000",
+    directAnswer:
+      "Interior Works Approval is required for non-structural interior modifications and renovations in Dubai buildings. This covers painting, flooring replacement, ceiling repairs, cabinetry installation, and other cosmetic interior changes that do not affect structural elements or MEP systems. Processing typically takes 3–7 business days.",
+    stats: [
+      { label: "Authority", value: "DM / Developer / OA" },
+      { label: "Timeline", value: "3–7 business days" },
+      { label: "Mandatory for", value: "Non-structural interior works" },
+      { label: "Scope", value: "Cosmetic renovations" },
+    ],
+    description:
+      "Interior Works Approval covers non-structural interior renovations and cosmetic modifications that do not affect the building's structural integrity or MEP systems. This includes activities such as painting, wallpaper installation, flooring replacement (like-for-like), cabinet and joinery installation, ceiling repairs, and decorative modifications. While these works are minor, many authorities in Dubai require approval to ensure they are properly documented and do not inadvertently affect fire safety systems, egress paths, or building services. The level of approval required depends on the property location and the scope of works — ranging from community management NOC for minor works to DM building permit for more extensive interior alterations.",
+    whoNeedsIt: [
+      "Homeowners undertaking cosmetic interior renovations",
+      "Commercial tenants refreshing office interiors",
+      "Retail stores updating interior finishes",
+      "Property owners refurbishing interiors for new tenants",
+      "Any party undertaking non-structural interior modifications",
+    ],
+    documents: [
+      { document: "Interior works application form", mandatory: true },
+      { document: "Scope of works description", mandatory: true },
+      { document: "Layout drawing showing proposed changes", mandatory: true },
+      { document: "NOC from building owner (if tenant)", mandatory: true },
+      { document: "Contractor details (if applicable)", mandatory: false },
+    ],
+    process: [
+      { step: 1, title: "Scope Definition", description: "Define the full scope of interior works and identify the level of approval required." },
+      { step: 2, title: "Landlord/OA NOC", description: "Obtain NOC from building owner, landlord, or community management as applicable." },
+      { step: 3, title: "Application Submission", description: "Submit interior works application to the relevant authority (DM, developer, or OA)." },
+      { step: 4, title: "Approval Issuance", description: "Authority reviews and approves. Works can commence per approved scope." },
+    ],
+    timelineTable: [
+      { stage: "Scope definition and documentation", duration: "1–3 business days", cost: "Included", notes: "Based on scope" },
+      { stage: "NOC collection", duration: "2–5 business days", cost: "Varies", notes: "Landlord/community dependent" },
+      { stage: "Authority review", duration: "3–5 business days", cost: "AED 200 – 1,000", notes: "Based on authority" },
+    ],
+    rejectionReasons: [
+      { reason: "Scope of works classified as structural requiring full building permit", solution: "If works involve structural changes or MEP modifications, apply for the appropriate permit level." },
+      { reason: "Missing NOC from building owner or landlord", solution: "Obtain written NOC from property owner before submitting interior works application." },
+      { reason: "Works affect common areas without authorization", solution: "Any impact on common areas requires additional approvals. Define scope carefully." },
+    ],
+    caseStudy: {
+      projectType: "Office interior refresh in TECOM",
+      authority: "TECOM / Building Management",
+      timeline: "5 business days",
+      challenge: "Refresh included new carpet, painting, and cabinetry adjustment. Building management required detailed scope approval.",
+      outcome: "Submitted clear scope with before/after plans. NOC from building management obtained. TECOM approved.",
+    },
+    whyChooseUs: [
+      "Clear guidance on when interior works need DM vs. community approval",
+      "Complete documentation and submission management",
+      "Fast turnaround for standard interior works approvals",
+    ],
+    faqs: [
+      { question: "What is Interior Works Approval?", answer: "It is the approval required for non-structural interior renovations and cosmetic modifications in Dubai properties." },
+      { question: "Do I need approval for painting or flooring?", answer: "Minor cosmetic works may only need building owner NOC. Check with community management or DM for specific requirements." },
+      { question: "How long does interior works approval take?", answer: "Standard approval takes 3–7 business days for non-structural works." },
+    ],
+    relatedSlugs: categorySlugs("fit-out-construction", "interior-works-approval"),
+    lastUpdated: "2026-07-01",
+  },
+
+  // ========================================================================
+  // NEW ENTRY: Commercial Approval
+  // ========================================================================
+  {
+    slug: "commercial-approval",
+    name: "Commercial Fit-Out Approval (Dubai)",
+    shortName: "Commercial Approval",
+    authorityFull: "Dubai Municipality / Relevant Authority",
+    authorityAbbr: "Various",
+    category: "fit-out-construction",
+    primaryKeyword: "commercial fit-out approval Dubai",
+    secondaryKeywords: [
+      "commercial interior permit Dubai",
+      "office fit-out approval",
+      "retail fit-out permit Dubai",
+      "commercial renovation approval",
+    ],
+    typicalTimeline: "5–10 business days",
+    typicalCostRange: "AED 1,000 – 5,000",
+    directAnswer:
+      "Commercial Fit-Out Approval is required for the fit-out, renovation, or modification of commercial spaces in Dubai including offices, retail stores, clinics, and other commercial premises. The approval covers interior design, MEP modifications, fire safety, and accessibility compliance. Processing typically takes 5–10 business days.",
+    stats: [
+      { label: "Authority", value: "DM / Free Zone / Developer" },
+      { label: "Timeline", value: "5–10 business days" },
+      { label: "Mandatory for", value: "All commercial fit-outs" },
+      { label: "Scope", value: "Office, retail, clinic fit-outs" },
+    ],
+    description:
+      "Commercial Fit-Out Approval is required for fitting out, renovating, or modifying commercial premises in Dubai. This includes office spaces, retail stores, showrooms, clinics, gyms, and other commercial establishments. The approval process varies depending on the location: Dubai Municipality for mainland properties, free zone authority for free zone premises, or developer for community-based commercial spaces. Commercial fit-outs typically involve mechanical, electrical, and plumbing modifications, interior partitioning, ceiling systems, flooring, and sometimes structural changes. The approval ensures compliance with Dubai Building Code, fire safety regulations, DEWA standards, and accessibility requirements.",
+    whoNeedsIt: [
+      "Businesses setting up new office spaces",
+      "Retail stores requiring interior fit-out",
+      "Medical clinics and healthcare facility fit-outs",
+      "Commercial tenants renovating leased premises",
+      "Gym and fitness center interior setup",
+    ],
+    documents: [
+      { document: "Commercial fit-out permit application", mandatory: true },
+      { document: "Architectural layout drawings", mandatory: true },
+      { document: "MEP drawings (if modifications involved)", mandatory: true },
+      { document: "Fire safety compliance report", mandatory: true },
+      { document: "NOC from landlord or building management", mandatory: true },
+      { document: "Contractor trade license and insurance", mandatory: true },
+    ],
+    process: [
+      { step: 1, title: "Commercial Space Assessment", description: "Assess existing conditions and define fit-out requirements including MEP and fire safety needs." },
+      { step: 2, title: "Design & Drawing Preparation", description: "Prepare complete design and drawings for the commercial fit-out." },
+      { step: 3, title: "Landlord/Authority NOC", description: "Obtain NOC from landlord, building management, or developer." },
+      { step: 4, title: "Permit Application", description: "Submit complete application to the relevant authority." },
+      { step: 5, title: "Technical Review & Approval", description: "Authority reviews for code compliance and issues permit." },
+    ],
+    timelineTable: [
+      { stage: "Design and drawing preparation", duration: "5–10 business days", cost: "By consultant", notes: "Per authority standards" },
+      { stage: "NOC collection", duration: "2–5 business days", cost: "AED 200 – 1,000", notes: "Varies by landlord/developer" },
+      { stage: "Authority review", duration: "5–7 business days", cost: "AED 500 – 2,000", notes: "Based on project scope" },
+    ],
+    rejectionReasons: [
+      { reason: "Fit-out design violates authority-specific guidelines", solution: "Review the specific guidelines of the relevant authority (DM, free zone, or developer) before designing." },
+      { reason: "MEP modifications not compliant with DEWA or DM standards", solution: "Ensure all MEP designs comply with the latest DEWA and DM standards." },
+      { reason: "Fire safety plan incomplete or non-compliant", solution: "Coordinate fire safety design with DCD requirements before submission." },
+    ],
+    caseStudy: {
+      projectType: "Medical clinic fit-out in JLT",
+      authority: "DM / JLT Master Community",
+      timeline: "12 business days",
+      challenge: "Clinic required specialized medical gas systems and enhanced ventilation which needed additional DHA and DM approvals.",
+      outcome: "Coordinated multi-authority submission including DHA, DM, and JLT management. All approvals obtained.",
+    },
+    whyChooseUs: [
+      "Expertise across all commercial fit-out authority types (DM, free zone, developer)",
+      "Complete design and submission management service",
+      "Multi-authority coordination for complex commercial fit-outs",
+    ],
+    faqs: [
+      { question: "What is Commercial Fit-Out Approval?", answer: "It is the permit required for fitting out, renovating, or modifying commercial premises in Dubai including offices, retail, clinics, and other commercial spaces." },
+      { question: "Which authority do I need approval from?", answer: "It depends on location: DM for mainland, free zone authority for free zones, developer for community-based commercial spaces." },
+      { question: "How long does commercial approval take?", answer: "Standard approval takes 5–10 business days. Complex projects with multiple authorities may take longer." },
+    ],
+    relatedSlugs: categorySlugs("fit-out-construction", "commercial-approval"),
+    lastUpdated: "2026-07-01",
+  },
+
+  // ========================================================================
+  // NEW ENTRY: Residential Approval
+  // ========================================================================
+  {
+    slug: "residential-approval",
+    name: "Residential Fit-Out Approval (Dubai)",
+    shortName: "Residential Approval",
+    authorityFull: "Dubai Municipality / Developer / OA",
+    authorityAbbr: "Various",
+    category: "fit-out-construction",
+    primaryKeyword: "residential fit-out approval Dubai",
+    secondaryKeywords: [
+      "home renovation permit Dubai",
+      "villa renovation approval",
+      "apartment fit-out permit Dubai",
+      "residential interior approval",
+    ],
+    typicalTimeline: "3–7 business days",
+    typicalCostRange: "AED 500 – 3,000",
+    directAnswer:
+      "Residential Fit-Out Approval is required for interior renovation and fit-out works in residential properties in Dubai including apartments and villas. The level of approval depends on the scope of works and property location. Processing typically takes 3–7 business days.",
+    stats: [
+      { label: "Authority", value: "DM / Developer / OA" },
+      { label: "Timeline", value: "3–7 business days" },
+      { label: "Mandatory for", value: "Residential renovations" },
+      { label: "Scope", value: "Apartments, villas, townhouses" },
+    ],
+    description:
+      "Residential Fit-Out Approval covers interior renovation and fit-out works in residential properties across Dubai including apartments, villas, and townhouses. The approval requirements vary significantly by property type and location: apartments in buildings typically require NOC from building management and possibly DM approval; villas in master-planned communities require developer or community management approval; and freehold properties may have additional requirements from the relevant authority. The scope covers interior modifications such as partition changes, flooring replacement, kitchen and bathroom renovation, and MEP modifications. Structural changes and external alterations typically require additional approvals.",
+    whoNeedsIt: [
+      "Apartment owners renovating interiors",
+      "Villa owners undertaking renovation works",
+      "Tenants modifying rental properties (with landlord consent)",
+      "Property investors renovating before sale or rental",
+      "New homeowners customizing interior finishes",
+    ],
+    documents: [
+      { document: "Residential fit-out application", mandatory: true },
+      { document: "Layout drawing showing proposed changes", mandatory: true },
+      { document: "Title deed or tenancy contract", mandatory: true },
+      { document: "NOC from building owner or OA", mandatory: true },
+      { document: "Contractor details (if applicable)", mandatory: false },
+    ],
+    process: [
+      { step: 1, title: "Property Type & Jurisdiction Check", description: "Identify property type (apartment/villa) and determine the relevant approving authority." },
+      { step: 2, title: "Scope Definition", description: "Define renovation scope and identify if structural or MEP changes are involved." },
+      { step: 3, title: "NOC Collection", description: "Obtain NOC from building management, developer, or OA as applicable." },
+      { step: 4, title: "Authority Submission", description: "Submit application to the relevant authority (DM, developer, or OA)." },
+      { step: 5, title: "Approval Issuance", description: "Authority approves works. Renovation can proceed." },
+    ],
+    timelineTable: [
+      { stage: "Property jurisdiction check", duration: "1–2 business days", cost: "Included", notes: "Free consultation" },
+      { stage: "NOC collection", duration: "3–7 business days", cost: "AED 200 – 1,000", notes: "Depends on property" },
+      { stage: "Authority review", duration: "3–5 business days", cost: "AED 200 – 1,000", notes: "Based on scope" },
+    ],
+    rejectionReasons: [
+      { reason: "Proposed works require developer/OA approval that was not obtained", solution: "Always check with developer or OA first. Many communities have specific rules for residential modifications." },
+      { reason: "Structural modifications proposed without engineering design", solution: "Structural changes require registered engineer design and DM building permit." },
+      { reason: "Scope exceeds what is permitted under minor works", solution: "If works involve MEP or structural changes, apply for full building permit instead of minor works approval." },
+    ],
+    caseStudy: {
+      projectType: "Apartment renovation in Dubai Marina",
+      authority: "DM / Building Management",
+      timeline: "6 business days",
+      challenge: "Renovation included kitchen and bathroom relocation requiring MEP modifications and additional approvals.",
+      outcome: "Obtained building management NOC and DM approval with MEP design. Renovation completed within permit scope.",
+    },
+    whyChooseUs: [
+      "Clear guidance on approval requirements for different property types and locations",
+      "Complete NOC and permit management service",
+      "Fast processing for standard residential renovations",
+    ],
+    faqs: [
+      { question: "What is Residential Fit-Out Approval?", answer: "It is the approval required for interior renovation and fit-out works in residential properties in Dubai including apartments and villas." },
+      { question: "Do I need approval to renovate my apartment?", answer: "Yes, most apartment buildings require building management NOC at minimum. Structural or MEP changes may require DM approval." },
+      { question: "How long does residential approval take?", answer: "Standard residential approval takes 3–7 business days depending on the scope and authority involved." },
+    ],
+    relatedSlugs: categorySlugs("fit-out-construction", "residential-approval"),
+    lastUpdated: "2026-07-01",
+  },
+
+  // ========================================================================
+  // NEW ENTRY: Project Approval
+  // ========================================================================
+  {
+    slug: "project-approval",
+    name: "Project Approval (Dubai) — Comprehensive Permit",
+    shortName: "Project Approval",
+    authorityFull: "Dubai Municipality / Relevant Authority",
+    authorityAbbr: "DM / Various",
+    category: "fit-out-construction",
+    primaryKeyword: "project approval Dubai",
+    secondaryKeywords: [
+      "comprehensive building permit Dubai",
+      "full project permit Dubai",
+      "major works approval",
+      "integrated project approval Dubai",
+    ],
+    typicalTimeline: "10–20 business days",
+    typicalCostRange: "AED 5,000 – 25,000",
+    directAnswer:
+      "Project Approval is a comprehensive building permit covering major construction, fit-out, or renovation projects in Dubai that involve multiple disciplines (architectural, structural, MEP, fire safety). This integrated approval streamlines the process for complex projects requiring coordination across multiple authorities. Processing typically takes 10–20 business days.",
+    stats: [
+      { label: "Authority", value: "DM / Multiple" },
+      { label: "Timeline", value: "10–20 business days" },
+      { label: "Mandatory for", value: "Major/complex projects" },
+      { label: "Scope", value: "Multi-disciplinary works" },
+    ],
+    description:
+      "Project Approval is a comprehensive, integrated building permit for major construction, fit-out, or renovation projects in Dubai that span multiple disciplines. This approval type is designed for complex projects involving architectural modifications, structural changes, MEP system overhauls, fire safety upgrades, and sustainability compliance — all coordinated under a single permit application. The integrated approach reduces the administrative burden of separate approvals from multiple departments and authorities. Project Approval is suitable for large-scale commercial fit-outs, building conversions, major villa renovations, and any project that requires coordinated review across DM's Building, Structural, MEP, and Fire Safety departments.",
+    whoNeedsIt: [
+      "Major commercial fit-out projects crossing multiple disciplines",
+      "Building conversion projects (e.g., commercial to residential)",
+      "Large-scale villa renovations involving structural changes",
+      "Industrial facility modifications with complex MEP requirements",
+      "Any project requiring coordinated multi-department DM approval",
+    ],
+    documents: [
+      { document: "Comprehensive project approval application", mandatory: true },
+      { document: "Complete architectural drawing set", mandatory: true },
+      { document: "Structural design and calculations", mandatory: true },
+      { document: "Full MEP design package", mandatory: true },
+      { document: "Fire safety and DCD compliance report", mandatory: true },
+      { document: "Al Sa'fat green building compliance (if applicable)", mandatory: true },
+      { document: "All drawings stamped by registered engineers", mandatory: true },
+      { document: "NOCs from all relevant parties", mandatory: true },
+    ],
+    process: [
+      { step: 1, title: "Project Scoping", description: "Define full project scope across all disciplines and identify all required approvals." },
+      { step: 2, title: "Multi-Disciplinary Design", description: "Architectural, structural, MEP, and fire safety designs prepared in coordination." },
+      { step: 3, title: "NOC Collection", description: "Obtain all required NOCs from developer, community, DEWA, etc." },
+      { step: 4, title: "Integrated Submission", description: "Submit complete project package to DM as a comprehensive application." },
+      { step: 5, title: "Multi-Department Review", description: "DM coordinates review across all relevant departments simultaneously." },
+      { step: 6, title: "Integrated Approval", description: "Single integrated permit issued covering all aspects of the project." },
+    ],
+    timelineTable: [
+      { stage: "Project scoping and design", duration: "10–20 business days", cost: "By consultant", notes: "Multi-disciplinary" },
+      { stage: "NOC collection", duration: "5–10 business days", cost: "AED 500 – 3,000", notes: "Multiple parties" },
+      { stage: "DM integrated review", duration: "10–15 business days", cost: "AED 3,000 – 10,000", notes: "Based on project value" },
+    ],
+    rejectionReasons: [
+      { reason: "Incomplete submission across one or more disciplines", solution: "Ensure all disciplines (architectural, structural, MEP, fire safety) have complete submissions before applying." },
+      { reason: "Cross-disciplinary coordination issues", solution: "Ensure designs are coordinated — e.g., MEP routing does not conflict with structural elements." },
+      { reason: "Missing NOC from key authority or stakeholder", solution: "Identify all required NOCs during the scoping phase and obtain before submission." },
+    ],
+    caseStudy: {
+      projectType: "G+1 warehouse conversion to showroom and office",
+      authority: "DM Building / Structural / MEP / DCD",
+      timeline: "15 business days",
+      challenge: "Project required complete redesign of existing warehouse including new mezzanine, MEP systems overhaul, and fire safety upgrade.",
+      outcome: "Managed integrated submission covering all disciplines. DM issued single project approval covering all works.",
+    },
+    whyChooseUs: [
+      "Comprehensive project management for multi-disciplinary submissions",
+      "Coordination across all DM departments for streamlined approval",
+      "Proven track record of complex project approvals",
+    ],
+    faqs: [
+      { question: "What is Project Approval?", answer: "It is a comprehensive, integrated building permit for major projects involving multiple disciplines (architectural, structural, MEP, fire safety) under a single application." },
+      { question: "When do I need Project Approval vs. standard permits?", answer: "Project Approval is suitable for complex projects that would otherwise require multiple separate permits. It streamlines the process into a single application." },
+      { question: "How long does Project Approval take?", answer: "The integrated DM review takes 10–15 business days. Total project timeline including design and NOCs is typically 3–6 weeks." },
+    ],
+    relatedSlugs: categorySlugs("fit-out-construction", "project-approval"),
     lastUpdated: "2026-07-01",
   },
 ];

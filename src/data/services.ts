@@ -230,4 +230,97 @@ export const services: ServiceData[] = [
     relatedSlugs: ["approval-management", "cad-documentation"],
     lastUpdated: "2026-07-01",
   },
+
+  /* ------------------------------------------------------------------
+     Project Management
+     ------------------------------------------------------------------ */
+  {
+    slug: "project-management",
+    name: "Project Management",
+    tagline: "End-to-end approval project management for Dubai construction & fit-out projects",
+    primaryKeyword: "approval project management Dubai",
+    secondaryKeywords: [
+      "construction approval management Dubai",
+      "permit project management",
+      "approval coordination service Dubai",
+      "Dubai permit management service",
+    ],
+    directAnswer:
+      "Our Project Management service provides end-to-end coordination of all approvals for your Dubai construction or fit-out project. From initial feasibility assessment through final completion certificate, we manage every permit, NOC, and submission across all relevant authorities. Typical project timeline: 4–12 weeks depending on scope.",
+    description:
+      "Our Project Management service takes the complexity out of Dubai's multi-authority approval landscape. We act as your single point of contact for all approval-related activities across your project lifecycle. From initial feasibility assessment and authority coordination through design review, permit submissions, inspection scheduling, and final completion, our experienced project managers ensure every milestone is met on time and within budget. We coordinate across Dubai Municipality, Dubai Civil Defense, DEWA, RTA, Dubai Police, free zone authorities, developer communities, and all other relevant stakeholders. Our project management service is ideal for complex fit-outs, new building construction, and multi-phase development projects where coordination between multiple authorities and consultants is critical.",
+    features: [
+      "Full project lifecycle management from feasibility to completion certificate",
+      "Multi-authority coordination across DM, DCD, DEWA, RTA, Dubai Police, and others",
+      "Permit milestone planning and critical path management",
+      "Design review coordination between architects, engineers, and authorities",
+      "Inspection scheduling and site visit coordination",
+      "Document management and version control for all submissions",
+      "Regular progress reporting and status updates",
+      "Issue resolution and escalation management",
+    ],
+    process: [
+      { step: 1, title: "Initial Assessment", description: "We review your project scope, identify all required permits and NOCs, and develop a comprehensive approval roadmap." },
+      { step: 2, title: "Feasibility & Authority Review", description: "Our team conducts preliminary authority checks to identify potential issues before design finalization." },
+      { step: 3, title: "Design Coordination", description: "We coordinate with your design team to ensure drawings meet authority requirements before submission." },
+      { step: 4, title: "Permit Submission Management", description: "We manage all permit applications, NOC requests, and submissions across all relevant authorities." },
+      { step: 5, title: "Inspection Coordination", description: "Schedule and coordinate all authority inspections throughout construction." },
+      { step: 6, title: "Completion & Handover", description: "Manage final inspections, completion certificate applications, and project handover documentation." },
+    ],
+    faqs: [
+      { question: "What does approval project management include?", answer: "Our service covers the full scope of approval management: feasibility assessment, authority coordination, permit application management, inspection scheduling, and completion certificate processing." },
+      { question: "How many authorities do you coordinate with?", answer: "We coordinate with all relevant Dubai authorities including Dubai Municipality, Dubai Civil Defense, DEWA, RTA, Dubai Police, Dubai Economy & Tourism, free zone authorities, and developer community management." },
+      { question: "Do you work with our existing consultants and contractors?", answer: "Yes, we integrate seamlessly with your existing project team including architects, structural engineers, MEP consultants, and main contractors." },
+      { question: "How long does a typical project take?", answer: "Project timelines vary based on scope. A standard commercial fit-out approval process takes 4–8 weeks. Complex new building projects may take 8–16 weeks." },
+    ],
+    relatedSlugs: ["approval-management", "document-clearing"],
+    lastUpdated: "2026-07-01",
+  },
+
+  /* ------------------------------------------------------------------
+     Fit-Outs
+     ------------------------------------------------------------------ */
+  {
+    slug: "fit-outs",
+    name: "Fit-Out Approval Services",
+    tagline: "Complete fit-out permit management for commercial & residential spaces in Dubai",
+    primaryKeyword: "fit-out approval Dubai",
+    secondaryKeywords: [
+      "commercial fit-out permit Dubai",
+      "office fit-out approval",
+      "retail fit-out permit",
+      "fit-out NOC Dubai",
+      "interior fit-out approval services",
+    ],
+    directAnswer:
+      "Our Fit-Out Approval service manages the complete permit process for commercial and residential fit-out projects in Dubai. We handle everything from initial NOC collection through building permit application to final inspection coordination. Typical timeline: 2–6 weeks depending on project scope.",
+    description:
+      "Our Fit-Out Approval service is a specialized end-to-end solution for obtaining all permits and approvals required for fit-out projects in Dubai. Whether you're setting up a new office, opening a retail store, renovating a villa, or building out a restaurant, we manage the complete approval process. Our service covers all fit-out types including commercial offices, retail spaces, medical clinics, educational facilities, F&B outlets, and residential properties. We work across all jurisdictions — Dubai Municipality mainland, free zones (TECOM, DIFC, DMCC, JAFZA, etc.), and developer communities (Emaar, Nakheel, Dubai Holding, etc.). Our team coordinates with all relevant authorities to ensure your fit-out is approved quickly and without unnecessary delays.",
+    features: [
+      "Complete NOC collection from landlords, developers, and community management",
+      "DM building permit application for fit-out works",
+      "DCD fire safety approval for fit-out fire protection systems",
+      "DEWA electrical and plumbing connection coordination",
+      "Free zone fit-out permit management (TECOM, DIFC, DMCC, JAFZA, etc.)",
+      "Developer community approval (Emaar, Nakheel, Dubai Holding, etc.)",
+      "Restaurant and F&B fit-out permit coordination with DM Food Control",
+      "Post-completion inspection scheduling and follow-up",
+    ],
+    process: [
+      { step: 1, title: "Fit-Out Assessment", description: "We assess your fit-out scope, identify jurisdiction and authority requirements, and provide a clear permit roadmap." },
+      { step: 2, title: "NOC Collection", description: "We collect all required NOCs from landlord, building management, developer, or community management." },
+      { step: 3, title: "Drawing & Design Coordination", description: "We review your fit-out drawings against authority requirements and coordinate any necessary revisions." },
+      { step: 4, title: "Permit Application", description: "We submit complete permit applications to all relevant authorities simultaneously." },
+      { step: 5, title: "Approval Management", description: "We track applications, respond to queries, and manage revisions until all permits are issued." },
+      { step: 6, title: "Inspection & Completion", description: "We schedule and coordinate final inspections and manage completion certificate applications." },
+    ],
+    faqs: [
+      { question: "What types of fit-outs do you handle?", answer: "We handle all fit-out types: commercial offices, retail stores, restaurants and cafes, medical clinics and healthcare facilities, educational institutions, warehouses and industrial spaces, and residential villas and apartments." },
+      { question: "Do you work with free zone fit-outs?", answer: "Yes, we manage fit-out permits for all major free zones including TECOM (DSO, IMPZ, Dubai Knowledge Park), DIFC, DMCC, JAFZA, Dubai South, and others." },
+      { question: "How long does fit-out approval take?", answer: "Standard fit-out approval takes 2–4 weeks for simple projects. Complex fit-outs with multiple authority requirements may take 4–6 weeks." },
+      { question: "What documents do I need to provide?", answer: "Basic requirements include your fit-out design drawings, tenancy contract or title deed, and contractor details. We handle the rest including applications, NOCs, and coordination." },
+    ],
+    relatedSlugs: ["approval-management", "project-management"],
+    lastUpdated: "2026-07-01",
+  },
 ];

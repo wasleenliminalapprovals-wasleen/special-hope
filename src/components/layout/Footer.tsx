@@ -33,7 +33,7 @@ const SERVICES = [
 
 /* ── Approval categories for footer columns ── */
 const GOV_APPROVALS = [
-  { label: "Dubai Municipality", href: "/approvals/dubai-municipality-approval" },
+  { label: "Dubai Municipality", href: "/approvals/dubai-municipality-building-permit" },
   { label: "Dubai Civil Defense (DCD)", href: "/approvals/dubai-civil-defense-approval" },
   { label: "DEWA Approval", href: "/approvals/dewa-approval" },
   { label: "DDA Approval", href: "/approvals/dda-approval" },
@@ -42,20 +42,20 @@ const GOV_APPROVALS = [
 ];
 
 const FREE_ZONE_APPROVALS = [
-  { label: "JAFZA Approval", href: "/approvals/jafza-approval" },
+  { label: "JAFZA Approval", href: "/approvals/jebel-ali-free-zone-approval" },
   { label: "DMCC Approval", href: "/approvals/dmcc-approval" },
   { label: "Dubai South", href: "/approvals/dubai-south-approval" },
   { label: "DIFC Approval", href: "/approvals/difc-approval" },
-  { label: "DSO Approval", href: "/approvals/dso-approval" },
-  { label: "DAFZA Approval", href: "/approvals/dafza-approval" },
+  { label: "DSO Approval", href: "/approvals/dubai-silicon-oasis-approval" },
+  { label: "DAFZA Approval", href: "/approvals/dubai-airport-freezone-approval" },
 ];
 
 const FITOUT_APPROVALS = [
   { label: "Interior Works", href: "/approvals/interior-works-approval" },
-  { label: "Fit-Out Works", href: "/approvals/fit-out-works-approval" },
+  { label: "Fit-Out Works", href: "/approvals/interior-fit-out-approval" },
   { label: "Ejari Registration", href: "/approvals/ejari-registration" },
   { label: "Commercial Approval", href: "/approvals/commercial-approval" },
-  { label: "Building Completion Cert.", href: "/approvals/building-completion-certificate" },
+  { label: "Building Completion Cert.", href: "/approvals/dubai-municipality-completion-certificate" },
 ];
 
 /* ── Social links ── */
