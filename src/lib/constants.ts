@@ -7,7 +7,7 @@ export const SITE = {
   url: process.env.NEXT_PUBLIC_SITE_URL || "https://www.dubaiapprovalconsultants.com",
   name: "Wasleen Approvals",
   fullName: "Wasleen Liminal Approval Consultants",
-  tagline: "Dubai Approvals Made Simple",
+  tagline: "Dubai Approval Consultant Experts",
   description:
     "Expert Dubai approvals consultancy — DM, DDA, DEWA, DCD & more. Fast-track your project approvals with Wasleen Approvals.",
 } as const;
@@ -18,9 +18,11 @@ export const NAP = {
   whatsapp: "+971542330837",
   email: "approvals@wasleen.com",
   address: {
-    locality: "Dubai",
-    region: "Dubai",
-    country: "AE",
+    streetAddress: "Office 401, Darwish Building",
+    addressLocality: "Al Qusais",
+    addressRegion: "Dubai",
+    addressCountry: "AE",
+    postalCode: "",
   },
   areaServed: "Dubai",
 } as const;

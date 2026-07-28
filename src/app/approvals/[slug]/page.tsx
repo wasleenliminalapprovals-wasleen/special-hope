@@ -16,8 +16,10 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Clock, DollarSign } from "lucide-react";
 import { approvals } from "@/data/approvals";
+import { guides } from "@/data/guides";
 import { SITE, HUB_SLUGS } from "@/lib/constants";
 import { approvalSchemaStack } from "@/lib/schema";
+import { renderDescription } from "@/lib/content";
 import { APPROVAL_CATEGORIES } from "@/types";
 
 /* ── Section Components ─────────────────────────────────── */
@@ -30,6 +32,7 @@ import CaseStudyBlock from "@/components/sections/CaseStudyBlock";
 import WhyChooseUs from "@/components/sections/WhyChooseUs";
 import FAQBlock from "@/components/sections/FAQBlock";
 import RelatedApprovals from "@/components/sections/RelatedApprovals";
+import RelatedGuides from "@/components/sections/RelatedGuides";
 import CTASection from "@/components/sections/CTASection";
 import Badge from "@/components/ui/Badge";
 
@@ -94,6 +97,11 @@ export default async function ApprovalPage({ params }: { params: Promise<{ slug:
   if (!approval) notFound();
 
   const canonical = `${SITE.url}/approvals/${approval.slug}`;
+
+  /* ── Compute related guides dynamically ────────────────── */
+  const relatedGuideSlugs = guides
+    .filter((g) => g.parentApprovalSlug === approval.slug)
+    .map((g) => g.slug);
 
   /* ── Schema ─────────────────────────────────────────────── */
 
@@ -192,11 +200,10 @@ export default async function ApprovalPage({ params }: { params: Promise<{ slug:
             <h2 className="text-h2 font-montserrat text-heading-text mb-4">
               What is {approval.shortName}?
             </h2>
-            <div className="text-body text-body-text leading-relaxed space-y-4">
-              {approval.description.split("\n").map((paragraph, i) => (
-                <p key={i}>{paragraph}</p>
-              ))}
-            </div>
+            <div
+              className="text-body text-body-text leading-relaxed"
+              dangerouslySetInnerHTML={{ __html: renderDescription(approval.description) }}
+            />
           </div>
         </div>
       </section>
@@ -282,6 +289,13 @@ export default async function ApprovalPage({ params }: { params: Promise<{ slug:
           SECTION 12 — Related Approvals (Internal Linking)
           ============================================================ */}
       <RelatedApprovals slugs={approval.relatedSlugs} />
+
+      {/* ============================================================
+          SECTION 12b — Related Guides & Resources (Cross-Linking)
+          ============================================================ */}
+      {relatedGuideSlugs.length > 0 && (
+        <RelatedGuides slugs={relatedGuideSlugs} />
+      )}
 
       {/* ============================================================
           SECTION 13 — Call to Action

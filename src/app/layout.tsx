@@ -3,6 +3,7 @@ import { Montserrat, Roboto, Roboto_Mono } from "next/font/google";
 import { GoogleTagManager } from "@next/third-parties/google";
 import { Suspense } from "react";
 import { SITE, NAP, GTM_ID } from "@/lib/constants";
+import { organizationSchema, websiteSchema } from "@/lib/schema";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import FloatingWhatsApp from "@/components/sections/FloatingWhatsApp";
@@ -143,6 +144,26 @@ export default function RootLayout({
 
         {/* Google Tag Manager (noscript fallback + head script) */}
         {GTM_ID && <GoogleTagManager gtmId={GTM_ID} />}
+
+        {/* ============================================================
+           Sitewide JSON-LD Schema — injected once in root layout
+           ============================================================ */}
+
+        {/* Organization Schema — references #organization */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(organizationSchema()),
+          }}
+        />
+
+        {/* WebSite Schema — references #website */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(websiteSchema()),
+          }}
+        />
       </body>
     </html>
   );

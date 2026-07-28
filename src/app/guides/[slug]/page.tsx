@@ -18,7 +18,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowLeft, HelpCircle, BookOpen } from "lucide-react";
+import { ArrowLeft, HelpCircle, BookOpen, ArrowRight } from "lucide-react";
 import { guides } from "@/data/guides";
 import { approvals } from "@/data/approvals";
 import { SITE, HUB_SLUGS } from "@/lib/constants";
@@ -91,6 +91,30 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
 
   const canonical = `${SITE.url}/guides/${guide.slug}`;
   const parentApproval = getParentApproval(guide.parentApprovalSlug);
+
+  /* ── Compute related approvals ─────────────────────────── */
+  const relatedApprovalEntries = (() => {
+    // Start with parent approval if it exists
+    const entries: { name: string; slug: string }[] = [];
+    if (parentApproval) {
+      entries.push(parentApproval);
+    }
+    // Add 2-3 additional approvals from the same category as the parent
+    if (guide.parentApprovalSlug) {
+      const parent = approvals.find((a) => a.slug === guide.parentApprovalSlug);
+      if (parent) {
+        const sameCategory = approvals.filter(
+          (a) => a.category === parent.category && a.slug !== parent.slug
+        );
+        sameCategory.slice(0, 3).forEach((a) => {
+          if (!entries.find((e) => e.slug === a.slug)) {
+            entries.push({ name: a.name, slug: a.slug });
+          }
+        });
+      }
+    }
+    return entries;
+  })();
 
   /* ── Schema ─────────────────────────────────────────────── */
 
@@ -214,6 +238,49 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
               <div className="text-body text-body-text leading-relaxed space-y-5">
                 {guide.content.map((paragraph, i) => (
                   <p key={i}>{paragraph}</p>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* ============================================================
+          SECTION 3b — Related Approvals (Cross-Linking)
+          ============================================================ */}
+      {relatedApprovalEntries.length > 0 && (
+        <section className="bg-light-bg">
+          <div className="max-w-6xl mx-auto px-4 py-12 md:px-8 md:py-16">
+            <div className="max-w-4xl mx-auto">
+              <h2 className="text-h2 font-montserrat text-heading-text mb-3">
+                Related Approvals
+              </h2>
+              <p className="text-body-lg text-body-text mb-8 max-w-3xl">
+                Explore the approval pages related to this guide for detailed
+                submission requirements, documents, and timelines.
+              </p>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                {relatedApprovalEntries.map((entry) => (
+                  <Link
+                    key={entry.slug}
+                    href={`/approvals/${entry.slug}`}
+                    className="flex items-start gap-3 p-4 rounded-md bg-white border border-border-light shadow-card hover:border-brand-blue/30 hover:shadow-dropdown transition-all duration-200 group"
+                  >
+                    <div className="flex-1 min-w-0">
+                      <h3 className="text-body font-montserrat font-bold text-heading-text mb-0.5 group-hover:text-brand-blue-hover transition-colors">
+                        {entry.name}
+                      </h3>
+                      <p className="text-body-sm text-body-text/70">
+                        View approval requirements &rarr;
+                      </p>
+                    </div>
+                    <ArrowRight
+                      size={16}
+                      strokeWidth={1.75}
+                      className="text-body-text/30 group-hover:text-brand-blue shrink-0 mt-1 transition-colors"
+                    />
+                  </Link>
                 ))}
               </div>
             </div>

@@ -48,3 +48,6 @@ npm-debug.log*
 # ============================================================
 reference details/
 .roo/
+"temp-*"  
+"check_slugs_temp.txt"  
+"src/data/guides-backup.ts" 

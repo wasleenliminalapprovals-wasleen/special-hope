@@ -63,7 +63,7 @@ const contactMethods = [
   {
     icon: MapPin,
     title: "Location",
-    value: "Dubai, United Arab Emirates",
+    value: `${NAP.address.streetAddress}, ${NAP.address.addressLocality}, ${NAP.address.addressRegion}`,
     href: null,
     description: "Servicing all areas of Dubai",
     ariaLabel: null,

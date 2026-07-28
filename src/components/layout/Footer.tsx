@@ -277,7 +277,7 @@ function FooterContactColumn() {
         </li>
         <li>
           <Link href="/guides" className="text-body-sm text-white/70 hover:text-white transition-colors">
-            Guides
+            Guides & Q&A
           </Link>
         </li>
         <li>
@@ -304,7 +304,7 @@ function FooterContactColumn() {
           <div className="flex items-start gap-2 text-body-sm text-white/70">
             <MapPin size={14} strokeWidth={1.75} className="shrink-0 mt-0.5" />
             <span>
-              Dubai, United Arab Emirates
+              {NAP.address.streetAddress}, {NAP.address.addressLocality}, {NAP.address.addressRegion}
             </span>
           </div>
         </li>

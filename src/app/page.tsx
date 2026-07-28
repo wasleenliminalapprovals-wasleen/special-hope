@@ -18,7 +18,9 @@ import HeroSection from "@/components/sections/HeroSection";
 import TrustStrip from "@/components/sections/TrustStrip";
 import ServiceCategories from "@/components/sections/ServiceCategories";
 import ProcessOverview from "@/components/sections/ProcessOverview";
+import GeoContentSection from "@/components/sections/GeoContentSection";
 import FAQBlock from "@/components/sections/FAQBlock";
+import AuthorityUpdates from "@/components/sections/AuthorityUpdates";
 import CTASection from "@/components/sections/CTASection";
 
 /* ============================================================
@@ -26,16 +28,16 @@ import CTASection from "@/components/sections/CTASection";
    ============================================================ */
 
 export const metadata: Metadata = {
-  title: "Dubai Approvals Expert | DM, DDA, DEWA & DCD | Wasleen",
+  title: "Fast-Track Dubai Project Approvals | DM, DDA, DEWA & DCD | Wasleen",
   description:
-    "Need fast engineering and safety approvals in Dubai? Wasleen manages DM, DDA, DEWA, and DCD permits. Contact our experts today!",
+    "Wasleen Approval Consultants in Al Qusais, Dubai — expert DM, DDA, DEWA & DCD approvals for Business Bay, JLT & all UAE hubs. Contact us today.",
   alternates: {
     canonical: SITE.url,
   },
   openGraph: {
-    title: "Dubai Approvals Expert | DM, DDA, DEWA & DCD | Wasleen",
+    title: "Fast-Track Dubai Project Approvals | DM, DDA, DEWA & DCD | Wasleen",
     description:
-      "Need fast engineering and safety approvals in Dubai? Wasleen manages DM, DDA, DEWA, and DCD permits. Contact our experts today!",
+      "Wasleen Approval Consultants in Al Qusais, Dubai — expert DM, DDA, DEWA & DCD approvals for Business Bay, JLT & all UAE hubs. Contact us today.",
     url: SITE.url,
   },
 };
@@ -96,13 +98,19 @@ export default function HomePage() {
       {/* ===== 4. Process Overview ===== */}
       <ProcessOverview />
 
-      {/* ===== 5. FAQ Block ===== */}
+      {/* ===== 5. SEO/GEO Anchoring Content ===== */}
+      <GeoContentSection />
+
+      {/* ===== 6. FAQ Block ===== */}
       <FAQBlock
         title="Frequently Asked Questions About Dubai Approvals"
         items={faqItems}
       />
 
-      {/* ===== 6. CTA Section ===== */}
+      {/* ===== 7. Authority Updates ===== */}
+      <AuthorityUpdates />
+
+      {/* ===== 8. CTA Section ===== */}
       <CTASection service_slug="homepage" />
 
       {/* ============================================================
@@ -116,9 +124,9 @@ export default function HomePage() {
             "@type": "WebPage",
             "@id": `${SITE.url}/#webpage`,
             url: SITE.url,
-            name: "Dubai Approvals Expert | DM, DDA, DEWA & DCD | Wasleen",
+            name: "Fast-Track Dubai Project Approvals | DM, DDA, DEWA & DCD | Wasleen",
             description:
-              "Need fast engineering and safety approvals in Dubai? Wasleen manages DM, DDA, DEWA, and DCD permits. Contact our experts today!",
+              "Wasleen Approval Consultants in Al Qusais, Dubai — expert DM, DDA, DEWA & DCD approvals for Business Bay, JLT & all UAE hubs. Contact us today.",
             isPartOf: {
               "@id": `${SITE.url}/#website`,
             },

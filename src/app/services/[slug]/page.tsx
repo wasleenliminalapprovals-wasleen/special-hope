@@ -18,8 +18,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { CheckCircle2, ArrowRight } from "lucide-react";
+import { CheckCircle2, ArrowRight, ShieldCheck } from "lucide-react";
 import { services } from "@/data/services";
+import { approvals } from "@/data/approvals";
 import { SITE, HUB_SLUGS } from "@/lib/constants";
 import { serviceSchemaStack } from "@/lib/schema";
 
@@ -104,6 +105,20 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
   const relatedServices = service.relatedSlugs
     .map((s) => services.find((svc) => svc.slug === s))
     .filter((s): s is (typeof services)[number] => s !== undefined);
+
+  /* ── Compute related approvals ─────────────────────────── */
+  // Map service slugs to relevant approval categories
+  const serviceApprovalCategories: Record<string, string[]> = {
+    "2d-drawings": ["drawing-documentation", "government-regulatory"],
+    "3d-design-visualization": ["drawing-documentation", "developer-community"],
+    "cad-documentation": ["drawing-documentation", "technical-utility"],
+    "approval-management": ["government-regulatory", "free-zone", "fit-out-construction"],
+    "document-clearing": ["government-regulatory", "free-zone", "property-registration"],
+  };
+  const relevantCategories = serviceApprovalCategories[service.slug] ?? ["government-regulatory"];
+  const relatedApprovalEntries = approvals
+    .filter((a) => relevantCategories.includes(a.category))
+    .slice(0, 4);
 
   return (
     <>
@@ -264,6 +279,61 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
                     />
                   </Link>
                 ))}
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* ============================================================
+          SECTION 6b — Related Approvals (Cross-Linking)
+          ============================================================ */}
+      {relatedApprovalEntries.length > 0 && (
+        <section className="bg-light-bg">
+          <div className="max-w-6xl mx-auto px-4 py-12 md:px-8 md:py-16">
+            <div className="max-w-4xl mx-auto">
+              <h2 className="text-h2 font-montserrat text-heading-text mb-3">
+                Related Approvals
+              </h2>
+              <p className="text-body-lg text-body-text mb-8 max-w-3xl">
+                These approval pages are closely related to our {service.name.toLowerCase()} service.
+                View the specific requirements, documents, and submission processes.
+              </p>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                {relatedApprovalEntries.map((entry) => (
+                  <Link
+                    key={entry.slug}
+                    href={`/approvals/${entry.slug}`}
+                    className="flex items-start gap-3 p-4 rounded-md bg-white border border-border-light shadow-card hover:border-brand-blue/30 hover:shadow-dropdown transition-all duration-200 group"
+                  >
+                    <div className="flex items-center justify-center w-10 h-10 rounded-md bg-card-bg text-brand-blue shrink-0">
+                      <ShieldCheck size={20} strokeWidth={1.75} />
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <h3 className="text-body-sm font-montserrat font-bold text-heading-text mb-0.5 group-hover:text-brand-blue-hover transition-colors line-clamp-2">
+                        {entry.name}
+                      </h3>
+                      <p className="text-caption text-body-text/80">
+                        {entry.authorityAbbr} &middot; {entry.typicalTimeline}
+                      </p>
+                    </div>
+                    <ArrowRight
+                      size={16}
+                      strokeWidth={1.75}
+                      className="text-body-text/30 group-hover:text-brand-blue shrink-0 mt-1 transition-colors"
+                    />
+                  </Link>
+                ))}
+              </div>
+
+              <div className="mt-6">
+                <Link
+                  href="/approvals"
+                  className="inline-flex items-center gap-1.5 text-link-blue font-semibold hover:underline"
+                >
+                  View all 52+ approval types &rarr;
+                </Link>
               </div>
             </div>
           </div>

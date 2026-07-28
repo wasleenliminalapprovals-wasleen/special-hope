@@ -179,6 +179,9 @@ export interface ApprovalData {
   /** Section 12: Related approval slugs for internal linking */
   relatedSlugs: string[];
 
+  /** Related guide slugs for cross-linking approval pages to relevant guides */
+  relatedGuideSlugs?: string[];
+
   /** Last updated date (ISO string, e.g., "2026-03-15") */
   lastUpdated: string;
 }

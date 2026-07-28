@@ -41,13 +41,14 @@ export default function HeroSection() {
           {/* ===== Text Content (z-10 on mobile to sit above drawing) ===== */}
           <div className="relative z-10 text-center md:text-left">
             <h1 className="text-h1 font-montserrat text-white leading-tight mb-4">
-              {SITE.tagline}
+              Fast-Track Dubai Municipality, DDA, DEWA & DCD Project Approvals in UAE
             </h1>
 
             <p className="text-body-lg text-white/90 max-w-xl mb-8 leading-relaxed">
-              Expert guidance through Dubai's approval landscape &mdash; DM,
-              DDA, DEWA, DCD & more. Fast-track your project with
-              Wasleen Approvals.
+              Expert approval consultants serving Business Bay, Downtown Dubai, JLT, Sheikh Zayed
+              Road, JAFZA, Meydan, Al Quoz, and all Dubai free zones. We manage DM building permits,
+              DCD civil defense NOCs, DEWA connections, DDA fit-out approvals, and 48+ other
+              government and developer permits across the UAE.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">

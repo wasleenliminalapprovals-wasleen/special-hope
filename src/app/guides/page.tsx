@@ -13,7 +13,7 @@
 
 import type { Metadata } from "next";
 import Link from "next/link";
-import { BookOpen, HelpCircle, ArrowRight } from "lucide-react";
+import { BookOpen, HelpCircle, ShieldCheck, PenTool, ArrowRight } from "lucide-react";
 import { guides } from "@/data/guides";
 import { SITE, HUB_SLUGS } from "@/lib/constants";
 import { breadcrumbList, webPageSchema } from "@/lib/schema";
@@ -201,6 +201,60 @@ export default function GuidesHubPage() {
                 </div>
               </Link>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ===== Cross-Hub Links ===== */}
+      <section className="bg-light-bg">
+        <div className="mx-auto max-w-7xl px-4 py-12 md:px-8 md:py-16">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-h2 font-montserrat text-heading-text mb-4">
+              Explore Approvals & Services
+            </h2>
+            <p className="text-body-lg text-body-text mb-8">
+              Complement your research with our full directory of Dubai approvals and professional service offerings.
+            </p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <Link
+                href="/approvals"
+                className="flex items-start gap-4 p-6 rounded-md bg-white border border-border-light shadow-card transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-lg hover:border-brand-blue/40 group"
+              >
+                <div className="flex items-center justify-center w-12 h-12 rounded-md bg-card-bg text-brand-blue shrink-0">
+                  <ShieldCheck size={24} strokeWidth={1.75} />
+                </div>
+                <div>
+                  <h3 className="text-h4 font-montserrat font-bold text-heading-text group-hover:text-link-blue transition-colors mb-1">
+                    All 52+ Approval Types
+                  </h3>
+                  <p className="text-body-sm text-body-text">
+                    Browse our complete directory of DM, DCD, DEWA, DDA, free zone, and developer approvals required in Dubai.
+                  </p>
+                  <span className="inline-flex items-center gap-1 text-body-sm font-medium text-link-blue mt-2 group-hover:text-link-blue/80 transition-colors">
+                    View all approvals <ArrowRight size={14} strokeWidth={1.75} />
+                  </span>
+                </div>
+              </Link>
+              <Link
+                href="/services"
+                className="flex items-start gap-4 p-6 rounded-md bg-white border border-border-light shadow-card transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-lg hover:border-brand-blue/40 group"
+              >
+                <div className="flex items-center justify-center w-12 h-12 rounded-md bg-card-bg text-brand-blue shrink-0">
+                  <PenTool size={24} strokeWidth={1.75} />
+                </div>
+                <div>
+                  <h3 className="text-h4 font-montserrat font-bold text-heading-text group-hover:text-link-blue transition-colors mb-1">
+                    Drawing & Documentation Services
+                  </h3>
+                  <p className="text-body-sm text-body-text">
+                    Need technical drawings or approval management? Explore our full range of professional services.
+                  </p>
+                  <span className="inline-flex items-center gap-1 text-body-sm font-medium text-link-blue mt-2 group-hover:text-link-blue/80 transition-colors">
+                    Explore services <ArrowRight size={14} strokeWidth={1.75} />
+                  </span>
+                </div>
+              </Link>
+            </div>
           </div>
         </div>
       </section>

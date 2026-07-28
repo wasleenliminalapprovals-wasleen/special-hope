@@ -185,8 +185,9 @@ export default function AboutUsPage() {
               regulatory authorities.
             </p>
             <p>
-              <strong>Registered Address:</strong> Dubai, United Arab
-              Emirates
+              <strong>Registered Address:</strong>{" "}
+              {NAP.address.streetAddress}, {NAP.address.addressLocality},{" "}
+              {NAP.address.addressRegion}
             </p>
             <p>
               <strong>License:</strong> Professional consultancy — details

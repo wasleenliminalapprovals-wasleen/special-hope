@@ -22,6 +22,7 @@ import {
   Hammer,
   PenTool,
   ShieldCheck,
+  BookOpen,
   ArrowRight,
 } from "lucide-react";
 import { approvals } from "@/data/approvals";
@@ -192,6 +193,60 @@ export default function ApprovalsHubPage() {
           </section>
         );
       })}
+
+      {/* ===== Cross-Hub Links ===== */}
+      <section className="bg-light-bg">
+        <div className="mx-auto max-w-7xl px-4 py-12 md:px-8 md:py-16">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-h2 font-montserrat text-heading-text mb-4">
+              More Resources for Your Project
+            </h2>
+            <p className="text-body-lg text-body-text mb-8">
+              Beyond approvals, we offer comprehensive resources and services to support every stage of your project.
+            </p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <Link
+                href="/guides"
+                className="flex items-start gap-4 p-6 rounded-md bg-white border border-border-light shadow-card transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-lg hover:border-brand-blue/40 group"
+              >
+                <div className="flex items-center justify-center w-12 h-12 rounded-md bg-card-bg text-brand-blue shrink-0">
+                  <BookOpen size={24} strokeWidth={1.75} />
+                </div>
+                <div>
+                  <h3 className="text-h4 font-montserrat font-bold text-heading-text group-hover:text-link-blue transition-colors mb-1">
+                    Expert Guides & Q&A
+                  </h3>
+                  <p className="text-body-sm text-body-text">
+                    Browse our 30+ expert guides and Q&A resources covering Dubai approval processes, timelines, and requirements.
+                  </p>
+                  <span className="inline-flex items-center gap-1 text-body-sm font-medium text-link-blue mt-2 group-hover:text-link-blue/80 transition-colors">
+                    Browse guides <ArrowRight size={14} strokeWidth={1.75} />
+                  </span>
+                </div>
+              </Link>
+              <Link
+                href="/services"
+                className="flex items-start gap-4 p-6 rounded-md bg-white border border-border-light shadow-card transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-lg hover:border-brand-blue/40 group"
+              >
+                <div className="flex items-center justify-center w-12 h-12 rounded-md bg-card-bg text-brand-blue shrink-0">
+                  <PenTool size={24} strokeWidth={1.75} />
+                </div>
+                <div>
+                  <h3 className="text-h4 font-montserrat font-bold text-heading-text group-hover:text-link-blue transition-colors mb-1">
+                    Drawing & Documentation Services
+                  </h3>
+                  <p className="text-body-sm text-body-text">
+                    Explore our 2D drawings, 3D visualization, CAD documentation, and approval management services.
+                  </p>
+                  <span className="inline-flex items-center gap-1 text-body-sm font-medium text-link-blue mt-2 group-hover:text-link-blue/80 transition-colors">
+                    Explore services <ArrowRight size={14} strokeWidth={1.75} />
+                  </span>
+                </div>
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* ===== CTA Section ===== */}
       <CTASection service_slug="approvals-hub" />
