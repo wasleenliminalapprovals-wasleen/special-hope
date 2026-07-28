@@ -6,13 +6,31 @@
  * - Desktop: side-by-side (text left, drawing right)
  * - Drawing uses SceneA_FloorPlan (animated SVG)
  *
+ * Tracks WhatsApp clicks via GTM analytics.
+ *
  * @see /plans/complete-build-plan.md (Phase 6.1 — Homepage Hero)
  */
 
+"use client";
+
 import Button from "@/components/ui/Button";
-import { SITE, NAP } from "@/lib/constants";
+import SceneA_FloorPlan from "@/components/drawings/SceneA_FloorPlan";
+import { SITE, NAP, WHATSAPP_MESSAGE } from "@/lib/constants";
+import { trackEvent } from "@/lib/analytics";
 
 export default function HeroSection() {
+  const whatsappUrl = `https://wa.me/${NAP.whatsapp}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`;
+
+  const handleWhatsAppClick = () => {
+    trackEvent({
+      action: "contact_click",
+      category: "contact",
+      method: "whatsapp",
+      service_slug: "homepage",
+    });
+    window.open(whatsappUrl, "_blank");
+  };
+
   return (
     <section className="relative bg-brand-blue overflow-hidden">
       {/* Background pattern / subtle overlay */}
@@ -27,7 +45,7 @@ export default function HeroSection() {
             </h1>
 
             <p className="text-body-lg text-white/90 max-w-xl mb-8 leading-relaxed">
-              Expert guidance through Dubai's approval landscape — DM,
+              Expert guidance through Dubai's approval landscape &mdash; DM,
               DDA, DEWA, DCD & more. Fast-track your project with
               Wasleen Approvals.
             </p>
@@ -35,8 +53,7 @@ export default function HeroSection() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
               <Button
                 variant="cta"
-                href={`https://wa.me/${NAP.whatsapp}`}
-                external
+                onClick={handleWhatsAppClick}
                 className="text-body font-semibold px-8 py-4"
                 aria-label="Get a free consultation via WhatsApp"
               >
@@ -70,32 +87,12 @@ export default function HeroSection() {
             </div>
           </div>
 
-          {/* ===== Animated SVG Drawing Placeholder ===== */}
-          <div className="hidden md:flex justify-center items-center" aria-hidden="true">
-            <div className="w-full max-w-md aspect-square rounded-xl bg-white/10 border border-white/20 flex items-center justify-center">
-              <div className="text-center p-8">
-                <div className="w-16 h-16 mx-auto mb-4 rounded-lg bg-white/20 flex items-center justify-center">
-                  <svg
-                    width="40"
-                    height="40"
-                    viewBox="0 0 200 200"
-                    fill="none"
-                    className="text-white"
-                  >
-                    {/* Simplified floor plan icon */}
-                    <rect x="20" y="20" width="160" height="160" stroke="currentColor" strokeWidth="4" fill="none" />
-                    <line x1="100" y1="20" x2="100" y2="100" stroke="currentColor" strokeWidth="3" />
-                    <line x1="100" y1="100" x2="180" y2="100" stroke="currentColor" strokeWidth="3" />
-                    <rect x="30" y="110" width="60" height="50" stroke="currentColor" strokeWidth="2" fill="none" />
-                    <line x1="60" y1="110" x2="60" y2="130" stroke="currentColor" strokeWidth="2" />
-                    <circle cx="60" cy="140" r="3" fill="currentColor" />
-                  </svg>
-                </div>
-                <p className="text-body-sm text-white/60">
-                  Animated floor plan scene coming in Phase 12
-                </p>
-              </div>
-            </div>
+          {/* ===== Animated SVG Floor Plan Drawing ===== */}
+          <div
+            className="hidden md:block w-full max-w-md aspect-square text-white"
+            aria-hidden="true"
+          >
+            <SceneA_FloorPlan />
           </div>
         </div>
       </div>

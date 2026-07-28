@@ -111,10 +111,11 @@ export interface ServiceSchemaInput {
 /**
  * Service schema — used on approval service pages and service pages.
  */
-export function serviceSchema(data: ServiceSchemaInput) {
+export function serviceSchema(data: ServiceSchemaInput & { serviceId?: string }) {
   return {
     "@context": "https://schema.org",
     "@type": "Service",
+    ...(data.serviceId ? { "@id": `${BASE}${data.serviceId}` } : {}),
     name: data.name,
     description: data.description,
     provider: { "@id": `${BASE}/#organization` },
@@ -234,6 +235,7 @@ export function approvalSchemaStack(input: ApprovalSchemaStackInput) {
       name: input.serviceName,
       description: input.serviceDescription,
       category: input.serviceCategory,
+      serviceId,
     }),
     webPageSchema({
       url: input.url,
@@ -307,17 +309,19 @@ export interface ServiceSchemaStackInput {
  *   WebPage + Service + (FAQPage?) + (HowTo?) + BreadcrumbList
  */
 export function serviceSchemaStack(input: ServiceSchemaStackInput) {
+  const serviceId = `#service-${input.serviceName.toLowerCase().replace(/\s+/g, "-")}`;
   const schemas: Record<string, unknown>[] = [
     serviceSchema({
       name: input.serviceName,
       description: input.serviceDescription,
+      serviceId,
     }),
     webPageSchema({
       url: input.url,
       title: input.title,
       description: input.description,
       dateModified: input.dateModified,
-      aboutRef: `#service-${input.serviceName.toLowerCase().replace(/\s+/g, "-")}`,
+      aboutRef: serviceId,
     }),
     breadcrumbList(input.breadcrumbs),
   ];

@@ -60,31 +60,31 @@ export default function CaseStudyBlock({
                 <div className="flex items-start gap-3">
                   <Building2 size={18} strokeWidth={1.75} className="text-brand-blue shrink-0 mt-0.5" />
                   <div>
-                    <p className="text-caption font-medium text-body-text/60 uppercase tracking-wide">Authority</p>
+                    <p className="text-caption font-medium text-body-text/80 uppercase tracking-wide">Authority</p>
                     <p className="text-body-sm font-medium text-body-text">{study.authority}</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
                   <Calendar size={18} strokeWidth={1.75} className="text-brand-blue shrink-0 mt-0.5" />
                   <div>
-                    <p className="text-caption font-medium text-body-text/60 uppercase tracking-wide">Timeline</p>
+                    <p className="text-caption font-medium text-body-text/80 uppercase tracking-wide">Timeline</p>
                     <p className="text-body-sm font-medium text-body-text">{study.timeline}</p>
                   </div>
                 </div>
               </div>
 
               <div className="flex items-start gap-3">
-                <AlertTriangle size={18} strokeWidth={1.75} className="text-cta-amber shrink-0 mt-0.5" />
+                <AlertTriangle size={18} strokeWidth={1.75} className="text-brand-black shrink-0 mt-0.5" />
                 <div>
-                  <p className="text-caption font-medium text-body-text/60 uppercase tracking-wide">Challenge</p>
+                  <p className="text-caption font-medium text-body-text/80 uppercase tracking-wide">Challenge</p>
                   <p className="text-body-sm text-body-text">{study.challenge}</p>
                 </div>
               </div>
 
               <div className="flex items-start gap-3">
-                <Target size={18} strokeWidth={1.75} className="text-success-green shrink-0 mt-0.5" />
+                <Target size={18} strokeWidth={1.75} className="text-brand-black shrink-0 mt-0.5" />
                 <div>
-                  <p className="text-caption font-medium text-body-text/60 uppercase tracking-wide">Outcome</p>
+                  <p className="text-caption font-medium text-body-text/80 uppercase tracking-wide">Outcome</p>
                   <p className="text-body-sm text-body-text">{study.outcome}</p>
                 </div>
               </div>

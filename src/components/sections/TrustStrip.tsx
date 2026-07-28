@@ -38,7 +38,7 @@ export default function TrustStrip() {
   return (
     <section className="bg-light-bg border-y border-border-light">
       <div className="max-w-6xl mx-auto px-4 py-8 md:px-8 md:py-10">
-        <p className="text-caption font-medium text-body-text/60 text-center uppercase tracking-wider mb-6">
+        <p className="text-caption font-medium text-body-text/80 text-center uppercase tracking-wider mb-6">
           Approved by Dubai's Leading Authorities
         </p>
 
@@ -46,7 +46,7 @@ export default function TrustStrip() {
           {authorities.map((authority) => (
             <div
               key={authority.abbr}
-              className="flex items-center gap-2 px-4 py-2 rounded-md bg-white border border-border-light opacity-60 grayscale hover:opacity-100 hover:grayscale-0 transition-all duration-300"
+              className="flex items-center gap-2 px-4 py-2 rounded-md bg-white border border-border-light grayscale hover:grayscale-0 transition-all duration-300"
             >
               {/* Authority badge placeholder — actual logo images in Phase 12 */}
               <div className="w-8 h-8 rounded bg-card-bg flex items-center justify-center shrink-0">

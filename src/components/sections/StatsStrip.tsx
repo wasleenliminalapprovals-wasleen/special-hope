@@ -76,7 +76,7 @@ export default function StatsStrip({ stats, className = "" }: StatsStripProps) {
                   <Icon size={20} strokeWidth={1.75} />
                 </div>
                 <div className="min-w-0">
-                  <p className="text-caption font-medium text-body-text/60 uppercase tracking-wide mb-0.5">
+                  <p className="text-caption font-medium text-body-text/80 uppercase tracking-wide mb-0.5">
                     {stat.label}
                   </p>
                   <p className="text-body font-montserrat font-bold text-heading-text leading-tight">

@@ -43,7 +43,7 @@ function categorySlugs(category: string, exclude: string): string[] {
       "dubai-science-park-approval",
     ],
     "developer-community": [
-      "emaan-community-approval",
+      "emaar-community-approval",
       "nakheel-developer-approval",
       "dubai-properties-approval",
       "damac-properties-approval",
@@ -1854,38 +1854,38 @@ export const approvals: ApprovalData[] = [
   // CATEGORY 3: Developer & Community (6)
   // ========================================================================
   {
-    slug: "emaan-community-approval",
-    name: "Emaan Community Approval",
-    shortName: "Emaan Approval",
-    authorityFull: "Emaan (Master Community Management)",
-    authorityAbbr: "Emaan",
+    slug: "emaar-community-approval",
+    name: "Emaar Community Approval",
+    shortName: "Emaar Approval",
+    authorityFull: "Emaar (Community Management)",
+    authorityAbbr: "Emaar",
     category: "developer-community",
-    primaryKeyword: "Emaan community approval Dubai",
+    primaryKeyword: "Emaar community approval Dubai",
     secondaryKeywords: [
-      "Emaan NOC Dubai",
-      "Emaan fit-out approval",
-      "Emaan community permit",
+      "Emaar NOC Dubai",
+      "Emaar fit-out approval",
+      "Emaar community permit",
     ],
     typicalTimeline: "5–10 business days",
     typicalCostRange: "AED 1,000 – 3,000",
     directAnswer:
-      "Emaan Community Approval is required for any construction, fit-out, or renovation project within an Emaan-managed community in Dubai. Emaan (formerly Emaar Community Management) manages many of Dubai's most prominent residential and mixed-use communities. Processing typically takes 5–10 business days.",
+      "Emaar Community Approval is required for any construction, fit-out, or renovation project within an Emaar-managed community in Dubai. Emaar Community Management manages many of Dubai's most prominent residential and mixed-use communities. Processing typically takes 5–10 business days.",
     stats: [
-      { label: "Authority", value: "Emaan (Emaar Community Mgmt)" },
+      { label: "Authority", value: "Emaar (Community Management)" },
       { label: "Timeline", value: "5–10 business days" },
-      { label: "Mandatory for", value: "All projects in Emaan communities" },
+      { label: "Mandatory for", value: "All projects in Emaar communities" },
       { label: "Communities", value: "Dubai Marina, Arabian Ranches, etc." },
     ],
     description:
-      "Emaan (Emaar Community Management) is the master community management authority for many of Dubai's most prestigious developments including Dubai Marina, Arabian Ranches, Emirates Hills, The Springs, The Meadows, The Greens, and Downtown Dubai. Any construction, renovation, or fit-out project within an Emaan-managed community requires approval from Emaan in addition to Dubai Municipality. Emaan reviews proposals for compliance with community design guidelines, architectural standards, and community-specific rules. Emaan approval must typically be obtained before applying for the DM building permit.",
+      "Emaar (Community Management) is the master community management authority for many of Dubai's most prestigious developments including Dubai Marina, Arabian Ranches, Emirates Hills, The Springs, The Meadows, The Greens, and Downtown Dubai. Any construction, renovation, or fit-out project within an Emaar-managed community requires approval from Emaar in addition to Dubai Municipality. Emaar reviews proposals for compliance with community design guidelines, architectural standards, and community-specific rules. Emaar approval must typically be obtained before applying for the DM building permit.",
     whoNeedsIt: [
-      "Homeowners in Emaan-managed communities (Arabian Ranches, Emirates Hills, etc.)",
+      "Homeowners in Emaar-managed communities (Arabian Ranches, Emirates Hills, etc.)",
       "Tenants and owners in Dubai Marina requiring fit-out permits",
-      "Any property owner planning renovation or extension in an Emaan community",
-      "Contractors executing works within Emaan-managed developments",
+      "Any property owner planning renovation or extension in an Emaar community",
+      "Contractors executing works within Emaar-managed developments",
     ],
     documents: [
-      { document: "Emaan community NOC application form", mandatory: true },
+      { document: "Emaar community NOC application form", mandatory: true },
       { document: "Title deed or ownership proof", mandatory: true },
       { document: "Architectural drawings of proposed works", mandatory: true },
       { document: "Community design guideline compliance statement", mandatory: true },
@@ -1894,49 +1894,49 @@ export const approvals: ApprovalData[] = [
       { document: "Landlord NOC (if tenant)", mandatory: true },
     ],
     process: [
-      { step: 1, title: "Community Guidelines Review", description: "Review design against the specific Emaan community's design guidelines (each community has different rules)." },
+      { step: 1, title: "Community Guidelines Review", description: "Review design against the specific Emaar community's design guidelines (each community has different rules)." },
       { step: 2, title: "Document Preparation", description: "Prepare all community-specific forms, drawings, and supporting documents." },
-      { step: 3, title: "Submit to Emaan", description: "Submit application through Emaan's online portal with applicable fee." },
-      { step: 4, title: "Emaan Review", description: "Emaan reviews the proposal for community guideline compliance." },
-      { step: 5, title: "NOC Issuance", description: "Emaan issues NOC. This NOC is then submitted with the DM building permit application." },
+      { step: 3, title: "Submit to Emaar", description: "Submit application through Emaar's online portal with applicable fee." },
+      { step: 4, title: "Emaar Review", description: "Emaar reviews the proposal for community guideline compliance." },
+      { step: 5, title: "NOC Issuance", description: "Emaar issues NOC. This NOC is then submitted with the DM building permit application." },
     ],
     timelineTable: [
       { stage: "Guideline review and preparation", duration: "2–4 business days", cost: "Included in service fee", notes: "Community-specific rules applied" },
-      { stage: "Emaan review", duration: "3–7 business days", cost: "AED 500 – 1,500", notes: "Fee varies by community" },
+      { stage: "Emaar review", duration: "3–7 business days", cost: "AED 500 – 1,500", notes: "Fee varies by community" },
       { stage: "NOC issuance", duration: "1–2 business days", cost: "AED 100 – 500", notes: "Digital NOC" },
     ],
     rejectionReasons: [
-      { reason: "Design violates community-specific architectural guidelines", solution: "Each Emaan community has specific guidelines for facades, colors, materials, and setbacks. Review these carefully before design." },
-      { reason: "Proposed extension exceeds community height or boundary limits", solution: "Emaan communities have strict limits on extensions, floor additions, and boundary encroachments." },
+      { reason: "Design violates community-specific architectural guidelines", solution: "Each Emaar community has specific guidelines for facades, colors, materials, and setbacks. Review these carefully before design." },
+      { reason: "Proposed extension exceeds community height or boundary limits", solution: "Emaar communities have strict limits on extensions, floor additions, and boundary encroachments." },
       { reason: "Missing landlord NOC (for tenants)", solution: "If you are a tenant, obtain written NOC from the property owner before applying." },
     ],
     caseStudy: {
       projectType: "Villa extension in Arabian Ranches",
-      authority: "Emaan Community Management",
+      authority: "Emaar Community Management",
       timeline: "7 business days",
       challenge: "Proposed extension exceeded the maximum allowable GFA for the specific villa type in Arabian Ranches.",
-      outcome: "Redesigned extension to meet GFA limits. Emaan approved on resubmission. DM building permit followed within 5 days.",
+      outcome: "Redesigned extension to meet GFA limits. Emaar approved on resubmission. DM building permit followed within 5 days.",
     },
     whyChooseUs: [
-      "Deep knowledge of design guidelines across all Emaan-managed communities",
+      "Deep knowledge of design guidelines across all Emaar-managed communities",
       "Pre-submission community compliance review",
-      "Coordination between Emaan NOC and DM building permit process",
+      "Coordination between Emaar NOC and DM building permit process",
     ],
     faqs: [
       {
-        question: "What is Emaan Community Approval?",
-        answer: "It is the NOC required from Emaan (Emaar Community Management) for any construction, renovation, or fit-out in Emaan-managed communities like Dubai Marina, Arabian Ranches, and Emirates Hills."
+        question: "What is Emaar Community Approval?",
+        answer: "It is the NOC required from Emaar (Community Management) for any construction, renovation, or fit-out in Emaar-managed communities like Dubai Marina, Arabian Ranches, and Emirates Hills."
       },
       {
-        question: "Do I need Emaan approval before DM?",
-        answer: "Yes. In most cases, you need Emaan NOC before applying for the Dubai Municipality building permit. Emaan approval confirms community guideline compliance."
+        question: "Do I need Emaar approval before DM?",
+        answer: "Yes. In most cases, you need Emaar NOC before applying for the Dubai Municipality building permit. Emaar approval confirms community guideline compliance."
       },
       {
-        question: "Are guidelines different for each Emaan community?",
+        question: "Are guidelines different for each Emaar community?",
         answer: "Yes, each community has specific design guidelines. Arabian Ranches has different rules than Dubai Marina or Emirates Hills. We ensure the correct guidelines are applied."
       },
     ],
-    relatedSlugs: categorySlugs("developer-community", "emaan-community-approval"),
+    relatedSlugs: categorySlugs("developer-community", "emaar-community-approval"),
     lastUpdated: "2026-03-15",
   },
   {

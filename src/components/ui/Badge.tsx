@@ -26,8 +26,8 @@ interface BadgeProps {
 
 const variantClasses: Record<BadgeVariant, string> = {
   default: "bg-card-bg text-brand-blue",
-  success: "bg-success-green/10 text-success-green",
-  warning: "bg-cta-amber/10 text-cta-amber",
+  success: "bg-success-green/10 text-body-text",
+  warning: "bg-cta-amber/10 text-brand-black",
   outline: "border border-border-light text-body-text",
 };
 

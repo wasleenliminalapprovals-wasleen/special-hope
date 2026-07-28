@@ -23,10 +23,10 @@ import { NAP, SOCIAL, SITE } from "@/lib/constants";
 /* ── Service links (mirrors header Services mega menu) ── */
 const SERVICES = [
   { label: "2D Drawings", href: "/services/2d-drawings" },
-  { label: "3D Designs", href: "/services/3d-designs" },
-  { label: "CAD Drawings", href: "/services/cad-drawings" },
-  { label: "Project Management", href: "/services/project-management" },
-  { label: "Fit-Outs", href: "/services/fit-outs" },
+  { label: "3D Design & Visualization", href: "/services/3d-design-visualization" },
+  { label: "CAD Documentation", href: "/services/cad-documentation" },
+  { label: "Approval Management", href: "/services/approval-management" },
+  { label: "Document Clearing", href: "/services/document-clearing" },
   { label: "Interior (Wasleen)", href: "https://wasleen.com", isExternal: true },
   { label: "Pergolas", href: "https://www.pergolas.wasleen.com", isExternal: true },
 ];
@@ -157,7 +157,7 @@ function FooterCompanyColumn() {
         <WasleenIcon size={40} />
         <div>
           <p className="text-body-sm font-bold text-white leading-tight">
-            WASLEEN <span className="text-uae-red">LIMINAL</span>
+            WASLEEN <span className="text-red-300">LIMINAL</span>
           </p>
           <p className="text-caption text-white/70 leading-tight -tracking-tight">
             APPROVAL CONSULTANTS
@@ -224,7 +224,7 @@ function FooterLinksColumn({ title, links, viewAllHref }: FooterLinksColumnProps
           <li>
             <Link
               href={viewAllHref}
-              className="text-body-sm font-semibold text-cta-amber hover:text-cta-amber-hover transition-colors"
+              className="text-body-sm font-semibold text-white/80 hover:text-white transition-colors"
             >
               View All &rarr;
             </Link>
@@ -356,7 +356,7 @@ function MobileAccordionSection({
                 <li>
                   <Link
                     href={viewAllHref}
-                    className="inline-block text-body-sm font-semibold text-cta-amber hover:text-cta-amber-hover transition-colors py-1"
+                    className="inline-block text-body-sm font-semibold text-white/80 hover:text-white transition-colors py-1"
                   >
                     View All &rarr;
                   </Link>

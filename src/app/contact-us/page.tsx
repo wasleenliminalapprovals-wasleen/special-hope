@@ -10,14 +10,14 @@
 import type { Metadata } from "next";
 import { SITE, NAP } from "@/lib/constants";
 import { Phone, MessageCircle, Mail, MapPin, Clock } from "lucide-react";
-import Button from "@/components/ui/Button";
+import WhatsAppButton from "@/components/sections/WhatsAppButton";
 
 /* ============================================================
    Metadata
    ============================================================ */
 
 export const metadata: Metadata = {
-  title: "Contact Us",
+  title: "Contact Wasleen Approvals | Dubai Approval Consultants",
   description:
     "Get in touch with Wasleen Approvals for a free consultation. Call +971542330837, WhatsApp us, or email approvals@wasleen.com. We respond within 2 hours.",
   alternates: {
@@ -50,6 +50,7 @@ const contactMethods = [
     href: `https://wa.me/${NAP.whatsapp}`,
     description: "Fastest response — typically within 30 minutes",
     ariaLabel: "Contact us via WhatsApp",
+    isWhatsApp: true,
   },
   {
     icon: Mail,
@@ -111,7 +112,7 @@ export default function ContactUsPage() {
                         <Icon size={22} strokeWidth={1.75} />
                       </div>
                       <div className="flex-1 min-w-0">
-                        <p className="text-body-sm font-medium text-body-text/60 uppercase tracking-wide">
+                        <p className="text-body-sm font-medium text-body-text/80 uppercase tracking-wide">
                           {method.title}
                         </p>
                         {method.href ? (
@@ -144,26 +145,19 @@ export default function ContactUsPage() {
 
               {/* ===== CTA Buttons ===== */}
               <div className="mt-8 flex flex-col sm:flex-row gap-4">
-                <Button
-                  variant="cta"
-                  href={`https://wa.me/${NAP.whatsapp}`}
-                  external
+                <WhatsAppButton
+                  service_slug="contact-us"
                   className="flex-1 text-body font-semibold px-8 py-4"
-                  aria-label="Contact us via WhatsApp"
-                >
-                  <MessageCircle size={20} strokeWidth={1.75} />
-                  WhatsApp Us
-                </Button>
+                />
 
-                <Button
-                  variant="primary"
+                <a
                   href={`tel:${NAP.phone}`}
-                  className="flex-1 text-body font-semibold px-8 py-4"
+                  className="inline-flex items-center justify-center gap-2 px-6 py-3 text-body font-medium rounded-md transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 flex-1 text-body font-semibold px-8 py-4 bg-brand-blue text-white hover:bg-brand-blue-hover focus-visible:ring-brand-blue"
                   aria-label={`Call us at ${NAP.phone}`}
                 >
                   <Phone size={20} strokeWidth={1.75} />
                   Call Now
-                </Button>
+                </a>
               </div>
             </div>
 
@@ -209,7 +203,7 @@ export default function ContactUsPage() {
                     <span className="font-medium">Closed</span>
                   </div>
                 </div>
-                <p className="text-caption text-body-text/60 mt-4 italic">
+                <p className="text-caption text-body-text/80 mt-4 italic">
                   WhatsApp queries are monitored outside business hours.
                 </p>
               </div>

@@ -37,6 +37,14 @@ export const LOCALE = {
   alternatives: ["ar-AE"] as const,
 } as const;
 
+/**
+ * Pre-filled WhatsApp message sent when users click any WhatsApp CTA.
+ * URL-encoded automatically when constructing the wa.me link.
+ * Keep professional and action-oriented.
+ */
+export const WHATSAPP_MESSAGE =
+  "Hello Wasleen Liminal Approval Consultants, I have an approval enquiry for my project. Could you please share the next steps?";
+
 /** Hub page slugs for building breadcrumbs and internal links */
 export const HUB_SLUGS = {
   approvals: "/approvals",

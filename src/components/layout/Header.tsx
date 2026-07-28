@@ -181,7 +181,7 @@ export default function Header() {
             <div className="hidden lg:flex items-center gap-3">
               <a
                 href={`tel:${NAP.phone}`}
-                className="flex items-center gap-2 bg-cta-amber hover:bg-cta-amber-hover text-white font-bold text-body-sm py-2.5 px-5 rounded-md transition-colors shadow-sm whitespace-nowrap"
+                className="flex items-center gap-2 bg-cta-amber hover:bg-cta-amber-hover text-brand-black font-bold text-body-sm py-2.5 px-5 rounded-md transition-colors shadow-sm whitespace-nowrap"
                 aria-label={`Call us at ${NAP.phone}`}
               >
                 <Phone size={16} strokeWidth={1.75} />
@@ -194,7 +194,7 @@ export default function Header() {
               {/* Mobile CTA (phone icon) */}
               <a
                 href={`tel:${NAP.phone}`}
-                className="flex items-center justify-center w-10 h-10 rounded-md bg-cta-amber hover:bg-cta-amber-hover text-white transition-colors"
+                className="flex items-center justify-center w-10 h-10 rounded-md bg-cta-amber hover:bg-cta-amber-hover text-brand-black transition-colors"
                 aria-label={`Call us at ${NAP.phone}`}
               >
                 <Phone size={18} strokeWidth={1.75} />

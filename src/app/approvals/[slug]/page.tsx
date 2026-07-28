@@ -51,17 +51,17 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const approval = approvals.find((a) => a.slug === slug);
   if (!approval) return {};
 
-  const title = approval.primaryKeyword;
+  const seoTitle = `${approval.primaryKeyword} | ${SITE.name}`.substring(0, 60);
   const description = `${approval.directAnswer.substring(0, 150)} Contact us today for expert assistance.`;
 
   const canonical = `${SITE.url}/approvals/${approval.slug}`;
 
   return {
-    title,
+    title: seoTitle,
     description,
     alternates: { canonical },
     openGraph: {
-      title: `${title} | ${SITE.name}`.substring(0, 60),
+      title: seoTitle,
       description: description.substring(0, 160),
       url: canonical,
       type: "website",
@@ -69,7 +69,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     },
     twitter: {
       card: "summary_large_image",
-      title: `${title} | ${SITE.name}`.substring(0, 60),
+      title: seoTitle,
       description: description.substring(0, 160),
     },
   };
@@ -134,7 +134,7 @@ export default async function ApprovalPage({ params }: { params: Promise<{ slug:
         <div className="max-w-6xl mx-auto px-4 py-10 md:px-8 md:py-16">
           {/* Breadcrumbs (visible for UX) */}
           <nav aria-label="Breadcrumb" className="mb-6">
-            <ol className="flex flex-wrap items-center gap-2 text-caption text-body-text/60">
+            <ol className="flex flex-wrap items-center gap-2 text-caption text-body-text/80">
               <li>
                 <Link href="/" className="hover:text-link-blue transition-colors">Home</Link>
               </li>
@@ -286,7 +286,7 @@ export default async function ApprovalPage({ params }: { params: Promise<{ slug:
       {/* ============================================================
           SECTION 13 — Call to Action
           ============================================================ */}
-      <CTASection />
+      <CTASection service_slug={slug} />
     </>
   );
 }

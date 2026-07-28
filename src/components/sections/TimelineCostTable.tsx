@@ -99,7 +99,7 @@ export default function TimelineCostTable({
           </div>
 
           {disclaimer && (
-            <p className="mt-4 text-caption text-body-text/60 flex items-start gap-1.5">
+            <p className="mt-4 text-caption text-body-text/80 flex items-start gap-1.5">
               <AlertCircle size={14} strokeWidth={1.75} className="shrink-0 mt-0.5" />
               {disclaimer}
             </p>

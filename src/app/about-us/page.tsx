@@ -16,7 +16,7 @@ import { Shield, Award, Users, BadgeCheck } from "lucide-react";
    ============================================================ */
 
 export const metadata: Metadata = {
-  title: "About Us",
+  title: "About Wasleen Approvals | Dubai Approval Consultants",
   description:
     "Wasleen Liminal Approval Consultants — 8+ years of experience streamlining Dubai approvals. Trusted by 500+ clients for DM, DDA, DEWA & DCD permits.",
   alternates: {

@@ -28,14 +28,14 @@ import CTASection from "@/components/sections/CTASection";
 export const metadata: Metadata = {
   title: "Dubai Approvals Expert | DM, DDA, DEWA & DCD | Wasleen",
   description:
-    "Need fast engineering and safety approvals in Dubai? Wasleen manages DM, DDA, DEWA, and DCD permits for your projects. Contact our experts today!",
+    "Need fast engineering and safety approvals in Dubai? Wasleen manages DM, DDA, DEWA, and DCD permits. Contact our experts today!",
   alternates: {
     canonical: SITE.url,
   },
   openGraph: {
     title: "Dubai Approvals Expert | DM, DDA, DEWA & DCD | Wasleen",
     description:
-      "Need fast engineering and safety approvals in Dubai? Wasleen manages DM, DDA, DEWA, and DCD permits for your projects. Contact our experts today!",
+      "Need fast engineering and safety approvals in Dubai? Wasleen manages DM, DDA, DEWA, and DCD permits. Contact our experts today!",
     url: SITE.url,
   },
 };
@@ -103,7 +103,7 @@ export default function HomePage() {
       />
 
       {/* ===== 6. CTA Section ===== */}
-      <CTASection />
+      <CTASection service_slug="homepage" />
 
       {/* ============================================================
          Homepage JSON-LD Schema
@@ -118,7 +118,7 @@ export default function HomePage() {
             url: SITE.url,
             name: "Dubai Approvals Expert | DM, DDA, DEWA & DCD | Wasleen",
             description:
-              "Need fast engineering and safety approvals in Dubai? Wasleen manages DM, DDA, DEWA, and DCD permits for your projects. Contact our experts today!",
+              "Need fast engineering and safety approvals in Dubai? Wasleen manages DM, DDA, DEWA, and DCD permits. Contact our experts today!",
             isPartOf: {
               "@id": `${SITE.url}/#website`,
             },

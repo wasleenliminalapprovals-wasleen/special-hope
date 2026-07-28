@@ -79,12 +79,12 @@ export default function DocumentsTable({
                     </td>
                     <td className="px-4 py-3">
                       {doc.mandatory !== false ? (
-                        <span className="inline-flex items-center gap-1 text-caption font-medium text-success-green">
+                        <span className="inline-flex items-center gap-1 text-caption font-medium text-body-text">
                           <CheckCircle size={14} strokeWidth={1.75} />
                           Mandatory
                         </span>
                       ) : (
-                        <span className="inline-flex items-center gap-1 text-caption font-medium text-body-text/60">
+                        <span className="inline-flex items-center gap-1 text-caption font-medium text-body-text/80">
                           <AlertCircle size={14} strokeWidth={1.75} />
                           Optional
                         </span>
@@ -97,7 +97,7 @@ export default function DocumentsTable({
           </div>
 
           {disclaimer && (
-            <p className="mt-4 text-caption text-body-text/60 flex items-start gap-1.5">
+            <p className="mt-4 text-caption text-body-text/80 flex items-start gap-1.5">
               <AlertCircle size={14} strokeWidth={1.75} className="shrink-0 mt-0.5" />
               {disclaimer}
             </p>
