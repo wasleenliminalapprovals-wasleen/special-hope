@@ -4,8 +4,7 @@ import { Suspense } from "react";
 import { SITE, NAP } from "@/lib/constants";
 import { fontVariables } from "@/lib/fonts";
 import { siteConfig } from "@/lib/site-config";
-import Header from "@/components/layout/Header";
-import Footer from "@/components/layout/Footer";
+import RootLayoutClient from "@/components/layout/RootLayoutClient";
 import FloatingWhatsApp from "@/components/sections/FloatingWhatsApp";
 import PageViewTracker from "@/components/analytics/PageViewTracker";
 import "./globals.css";
@@ -104,21 +103,8 @@ export default function RootLayout({
   return (
     <html lang="en-AE" className={fontVariables("en")}>
       <body className="font-roboto antialiased">
-        {/* Skip to main content link for accessibility */}
-        <a
-          href="#main-content"
-          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:start-4 focus:z-[9999] focus:px-4 focus:py-2 focus:bg-brand-blue focus:text-white focus:rounded-md"
-        >
-          Skip to main content
-        </a>
-
-        {/* Site header — sticky with nav, mega menus, mobile hamburger */}
-        <Header locale="en" />
-
-        <main id="main-content">{children}</main>
-
-        {/* Site footer — 5-column with accordion on mobile */}
-        <Footer locale="en" />
+        {/* RootLayoutClient conditionally renders Header/Footer only on non-Arabic routes */}
+        <RootLayoutClient>{children}</RootLayoutClient>
 
         {/* Page view tracking on client-side route changes */}
         <Suspense fallback={null}>
