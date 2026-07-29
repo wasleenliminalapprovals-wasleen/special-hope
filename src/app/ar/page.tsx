@@ -2,12 +2,12 @@ import type { Metadata } from "next";
 import { SITE, AR } from "@/lib/constants";
 import { hreflangAlternates } from "@/lib/locale";
 import { homepageSchema } from "@/lib/schema";
-import TrustStrip from "@/components/sections/TrustStrip";
-import ServiceCategories from "@/components/sections/ServiceCategories";
-import ProcessOverview from "@/components/sections/ProcessOverview";
-import GeoContentSection from "@/components/sections/GeoContentSection";
+import TrustStripArabic from "@/components/sections/TrustStripArabic";
+import ServiceCategoriesArabic from "@/components/sections/ServiceCategoriesArabic";
+import ProcessOverviewArabic from "@/components/sections/ProcessOverviewArabic";
+import GeoContentSectionArabic from "@/components/sections/GeoContentSectionArabic";
 import FAQBlock from "@/components/sections/FAQBlock";
-import AuthorityUpdates from "@/components/sections/AuthorityUpdates";
+import AuthorityUpdatesArabic from "@/components/sections/AuthorityUpdatesArabic";
 import CTASectionArabic from "@/components/sections/CTASectionArabic";
 
 export const metadata: Metadata = {
@@ -122,17 +122,17 @@ export default function ArabicHomePage() {
         </div>
       </section>
 
-      {/* ===== 2. Trust Strip ===== */}
-      <TrustStrip />
+      {/* ===== 2. Trust Strip (Arabic) ===== */}
+      <TrustStripArabic />
 
-      {/* ===== 3. Service Categories ===== */}
-      <ServiceCategories />
+      {/* ===== 3. Service Categories (Arabic) ===== */}
+      <ServiceCategoriesArabic />
 
-      {/* ===== 4. Process Overview ===== */}
-      <ProcessOverview />
+      {/* ===== 4. Process Overview (Arabic) ===== */}
+      <ProcessOverviewArabic />
 
-      {/* ===== 5. GEO Content Section ===== */}
-      <GeoContentSection />
+      {/* ===== 5. GEO Content Section (Arabic) ===== */}
+      <GeoContentSectionArabic />
 
       {/* ===== 6. FAQ Block ===== */}
       <FAQBlock
@@ -140,8 +140,8 @@ export default function ArabicHomePage() {
         items={faqItems}
       />
 
-      {/* ===== 7. Authority Updates ===== */}
-      <AuthorityUpdates />
+      {/* ===== 7. Authority Updates (Arabic) ===== */}
+      <AuthorityUpdatesArabic />
 
       {/* ===== 8. Arabic CTA Section ===== */}
       <CTASectionArabic serviceSlug="homepage" />

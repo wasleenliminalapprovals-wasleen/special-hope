@@ -149,6 +149,17 @@ interface ServiceItem {
 
 function getServices(locale: "en" | "ar"): ServiceItem[] {
   const prefix = locale === "ar" ? "/ar" : "";
+  if (locale === "ar") {
+    return [
+      { label: "الرسومات ثنائية الأبعاد", href: `${prefix}/services/2d-drawings` },
+      { label: "التصميم ثلاثي الأبعاد", href: `${prefix}/services/3d-design-visualization` },
+      { label: "توثيق CAD", href: `${prefix}/services/cad-documentation` },
+      { label: "إدارة المشاريع", href: `${prefix}/services/project-management` },
+      { label: "خدمات التشطيبات", href: `${prefix}/services/fit-outs` },
+      { label: "الديكور الداخلي (وسلين)", href: "https://wasleen.com", isExternal: true },
+      { label: "البرجولات", href: "https://www.pergolas.wasleen.com", isExternal: true },
+    ];
+  }
   return [
     { label: "2D Drawings", href: `${prefix}/services/2d-drawings` },
     { label: "3D Designs", href: `${prefix}/services/3d-design-visualization` },

@@ -57,9 +57,10 @@ export default function Header({ locale = "en" }: HeaderProps) {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  /* ── Close mega menus on route change ── */
+  /* ── Close mega menus & mobile menu on route change ── */
   useEffect(() => {
     setActiveMegaMenu(null);
+    setIsMobileMenuOpen(false);
   }, [pathname]);
 
   /* ── Close mega menus on escape ── */
