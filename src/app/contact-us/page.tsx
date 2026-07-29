@@ -9,6 +9,8 @@
 
 import type { Metadata } from "next";
 import { SITE, NAP } from "@/lib/constants";
+import { hreflangAlternates } from "@/lib/locale";
+import { staticPageSchema } from "@/lib/schema";
 import { Phone, MessageCircle, Mail, MapPin, Clock } from "lucide-react";
 import WhatsAppButton from "@/components/sections/WhatsAppButton";
 import SocialIconsRow from "@/components/sections/SocialIconsRow";
@@ -23,6 +25,7 @@ export const metadata: Metadata = {
     "Get in touch with Wasleen Approvals for a free consultation. Call +971542330837, WhatsApp us, or email approvals@wasleen.com. We respond within 2 hours.",
   alternates: {
     canonical: `${SITE.url}/contact-us`,
+    languages: hreflangAlternates(SITE.url, "/contact-us"),
   },
   openGraph: {
     title: "Contact Wasleen Approvals | Dubai Approval Consultants",
@@ -76,8 +79,33 @@ const contactMethods = [
    ============================================================ */
 
 export default function ContactUsPage() {
+  /* ── Schema ─────────────────────────────────────────── */
+  const schemas = staticPageSchema(
+    {
+      url: "/contact-us",
+      title: "Contact Wasleen Liminal Approval Consultants",
+      description:
+        "Contact Wasleen Approvals for Dubai approval services.",
+      pageType: "ContactPage",
+      breadcrumbs: [
+        { position: 1, name: "Home", slug: "/" },
+        { position: 2, name: "Contact Us", slug: "/contact-us" },
+      ],
+      dateModified: "2026-07-28",
+    },
+    "en",
+  );
+
   return (
     <>
+      {/* JSON-LD Schema */}
+      {schemas.map((schema, i) => (
+        <script
+          key={i}
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+        />
+      ))}
       {/* ===== Hero ===== */}
       <section className="bg-brand-blue px-4 py-16 md:px-8 md:py-24">
         <div className="max-w-4xl mx-auto text-center">
@@ -251,55 +279,6 @@ export default function ContactUsPage() {
           </div>
         </div>
       </section>
-
-      {/* ============================================================
-         JSON-LD Schema
-         ============================================================ */}
-
-      {/* ContactPage + ContactPoint Schema */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "ContactPage",
-            "@id": `${SITE.url}/contact-us/#contactpage`,
-            url: `${SITE.url}/contact-us`,
-            name: "Contact Wasleen Liminal Approval Consultants",
-            description:
-              "Contact Wasleen Approvals for Dubai approval services.",
-            mainEntity: {
-              "@id": `${SITE.url}/#organization`,
-            },
-          }),
-        }}
-      />
-
-      {/* BreadcrumbList Schema */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "BreadcrumbList",
-            "@id": `${SITE.url}/contact-us/#breadcrumb`,
-            itemListElement: [
-              {
-                "@type": "ListItem",
-                position: 1,
-                name: "Home",
-                item: SITE.url,
-              },
-              {
-                "@type": "ListItem",
-                position: 2,
-                name: "Contact Us",
-                item: `${SITE.url}/contact-us`,
-              },
-            ],
-          }),
-        }}
-      />
     </>
   );
 }

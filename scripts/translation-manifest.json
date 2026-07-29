@@ -1,0 +1,563 @@
+{
+  "version": 1,
+  "approvals": {
+    "dubai-municipality-building-permit": {
+      "hash": "558adc77",
+      "lastTranslated": "2026-07-29T03:02:39.052Z",
+      "status": "translated"
+    },
+    "rta-approval": {
+      "hash": "297095e5",
+      "lastTranslated": "2026-07-29T03:02:56.232Z",
+      "status": "translated"
+    },
+    "dubai-municipality-noc": {
+      "hash": "362dfb74",
+      "lastTranslated": "2026-07-29T03:02:33.689Z",
+      "status": "translated"
+    },
+    "dubai-civil-defense-approval": {
+      "hash": "171d6ac1",
+      "lastTranslated": "2026-07-29T03:02:37.436Z",
+      "status": "translated"
+    },
+    "dubai-municipality-health-safety-approval": {
+      "hash": "12c0c12b",
+      "lastTranslated": "2026-07-29T03:02:58.708Z",
+      "status": "translated"
+    },
+    "dubai-municipality-environmental-compliance": {
+      "hash": "41f28483",
+      "lastTranslated": "2026-07-29T03:02:59.859Z",
+      "status": "translated"
+    },
+    "dubai-municipality-signage-approval": {
+      "hash": "4adb0de7",
+      "lastTranslated": "2026-07-29T03:03:17.796Z",
+      "status": "translated"
+    },
+    "dubai-municipality-civil-defense-noc": {
+      "hash": "7c9b86c2",
+      "lastTranslated": "2026-07-29T03:03:22.021Z",
+      "status": "translated"
+    },
+    "dubai-municipality-completion-certificate": {
+      "hash": "4a5fbc10",
+      "lastTranslated": "2026-07-29T03:03:22.704Z",
+      "status": "translated"
+    },
+    "dubai-municipality-preliminary-building-permit": {
+      "hash": "2ad6c172",
+      "lastTranslated": "2026-07-29T03:03:38.916Z",
+      "status": "translated"
+    },
+    "dubai-municipality-demolition-permit": {
+      "hash": "4cb521cc",
+      "lastTranslated": "2026-07-29T03:03:44.428Z",
+      "status": "translated"
+    },
+    "dubai-municipality-excavation-permit": {
+      "hash": "25a9989b",
+      "lastTranslated": "2026-07-29T03:03:48.012Z",
+      "status": "translated"
+    },
+    "dubai-silicon-oasis-approval": {
+      "hash": "613b21d6",
+      "lastTranslated": "2026-07-29T03:04:01.857Z",
+      "status": "translated"
+    },
+    "dubai-south-approval": {
+      "hash": "2c755451",
+      "lastTranslated": "2026-07-29T03:04:05.233Z",
+      "status": "translated"
+    },
+    "jebel-ali-free-zone-approval": {
+      "hash": "14b3ec0a",
+      "lastTranslated": "2026-07-29T03:04:21.898Z",
+      "status": "translated"
+    },
+    "tecom-approvals": {
+      "hash": "3c6e1379",
+      "lastTranslated": "2026-07-29T03:04:11.433Z",
+      "status": "translated"
+    },
+    "dubai-airport-freezone-approval": {
+      "hash": "19491fea",
+      "lastTranslated": "2026-07-29T03:04:27.628Z",
+      "status": "translated"
+    },
+    "dubai-knowledge-park-approval": {
+      "hash": "73521ffb",
+      "lastTranslated": "2026-07-29T03:04:32.919Z",
+      "status": "translated"
+    },
+    "dmcc-approval": {
+      "hash": "4aa047c6",
+      "lastTranslated": "2026-07-29T03:04:43.080Z",
+      "status": "translated"
+    },
+    "dubai-science-park-approval": {
+      "hash": "287c431b",
+      "lastTranslated": "2026-07-29T03:04:50.193Z",
+      "status": "translated"
+    },
+    "emaar-community-approval": {
+      "hash": "4a50a646",
+      "lastTranslated": "2026-07-29T03:04:55.733Z",
+      "status": "translated"
+    },
+    "nakheel-developer-approval": {
+      "hash": "fa95b0d",
+      "lastTranslated": "2026-07-29T03:05:05.171Z",
+      "status": "translated"
+    },
+    "dubai-properties-approval": {
+      "hash": "52c5b91b",
+      "lastTranslated": "2026-07-29T03:05:16.130Z",
+      "status": "translated"
+    },
+    "damac-properties-approval": {
+      "hash": "61799688",
+      "lastTranslated": "2026-07-29T03:05:17.448Z",
+      "status": "translated"
+    },
+    "meraas-holding-approval": {
+      "hash": "46b11c94",
+      "lastTranslated": "2026-07-29T03:05:26.573Z",
+      "status": "translated"
+    },
+    "sobha-realty-approval": {
+      "hash": "91f093c",
+      "lastTranslated": "2026-07-29T03:05:36.587Z",
+      "status": "translated"
+    },
+    "ejari-registration": {
+      "hash": "3f146937",
+      "lastTranslated": "2026-07-29T03:05:51.579Z",
+      "status": "translated"
+    },
+    "dubai-land-department-registration": {
+      "hash": "22641658",
+      "lastTranslated": "2026-07-29T03:05:41.607Z",
+      "status": "translated"
+    },
+    "title-deed-registration": {
+      "hash": "4f2af61",
+      "lastTranslated": "2026-07-29T03:05:56.857Z",
+      "status": "translated"
+    },
+    "rera-permit": {
+      "hash": "b1c1ecd",
+      "lastTranslated": "2026-07-29T03:06:04.273Z",
+      "status": "translated"
+    },
+    "dewa-approval": {
+      "hash": "40756434",
+      "lastTranslated": "2026-07-29T03:06:14.926Z",
+      "status": "translated"
+    },
+    "dewa-connection-noc": {
+      "hash": "7dd47a9c",
+      "lastTranslated": "2026-07-29T03:06:20.367Z",
+      "status": "translated"
+    },
+    "district-cooling-approval": {
+      "hash": "34732893",
+      "lastTranslated": "2026-07-29T03:06:25.729Z",
+      "status": "translated"
+    },
+    "dewa-meter-installation": {
+      "hash": "6e08c0fc",
+      "lastTranslated": "2026-07-29T03:06:36.441Z",
+      "status": "translated"
+    },
+    "dewa-load-enhancement": {
+      "hash": "31117a39",
+      "lastTranslated": "2026-07-29T03:06:41.747Z",
+      "status": "translated"
+    },
+    "telecom-connection-approval": {
+      "hash": "2ffc09bc",
+      "lastTranslated": "2026-07-29T03:06:46.280Z",
+      "status": "translated"
+    },
+    "dewa-temporary-power-connection": {
+      "hash": "79e82a51",
+      "lastTranslated": "2026-07-29T03:06:58.197Z",
+      "status": "translated"
+    },
+    "food-control-department-approval": {
+      "hash": "6ac8e88c",
+      "lastTranslated": "2026-07-29T03:07:04.616Z",
+      "status": "translated"
+    },
+    "dtcm-tourism-approval": {
+      "hash": "140082f2",
+      "lastTranslated": "2026-07-29T03:07:08.701Z",
+      "status": "translated"
+    },
+    "dubai-health-authority-approval": {
+      "hash": "7b877ec8",
+      "lastTranslated": "2026-07-29T03:07:22.525Z",
+      "status": "translated"
+    },
+    "public-health-approval": {
+      "hash": "19d3ef5a",
+      "lastTranslated": "2026-07-29T03:07:26.848Z",
+      "status": "translated"
+    },
+    "entertainment-license-approval": {
+      "hash": "6d65c01f",
+      "lastTranslated": "2026-07-29T03:07:31.207Z",
+      "status": "translated"
+    },
+    "interior-fit-out-approval": {
+      "hash": "46711ae3",
+      "lastTranslated": "2026-07-29T03:07:49.457Z",
+      "status": "translated"
+    },
+    "change-of-usage-permit": {
+      "hash": "7b6ae93e",
+      "lastTranslated": "2026-07-29T03:07:48.594Z",
+      "status": "translated"
+    },
+    "structural-modification-permit": {
+      "hash": "120f14d6",
+      "lastTranslated": "2026-07-29T03:07:54.794Z",
+      "status": "translated"
+    },
+    "refurbishment-permit": {
+      "hash": "351c69b5",
+      "lastTranslated": "2026-07-29T03:08:11.532Z",
+      "status": "translated"
+    },
+    "partition-ceiling-approval": {
+      "hash": "59b0a0c4",
+      "lastTranslated": "2026-07-29T03:08:10.667Z",
+      "status": "translated"
+    },
+    "mep-approval": {
+      "hash": "22fd116f",
+      "lastTranslated": "2026-07-29T03:08:20.420Z",
+      "status": "translated"
+    },
+    "2d-drawing-submission": {
+      "hash": "44fff4c1",
+      "lastTranslated": "2026-07-29T03:08:31.877Z",
+      "status": "translated"
+    },
+    "3d-design-approval": {
+      "hash": "66631519",
+      "lastTranslated": "2026-07-29T03:08:36.200Z",
+      "status": "translated"
+    },
+    "cad-drawing-certification": {
+      "hash": "22130a01",
+      "lastTranslated": "2026-07-29T03:08:43.328Z",
+      "status": "translated"
+    },
+    "as-built-drawing-approval": {
+      "hash": "5eb3fe1b",
+      "lastTranslated": "2026-07-29T03:08:56.340Z",
+      "status": "translated"
+    },
+    "ded-approval": {
+      "hash": "33a27114",
+      "lastTranslated": "2026-07-29T03:08:59.982Z",
+      "status": "translated"
+    },
+    "dda-approval": {
+      "hash": "2c2b5657",
+      "lastTranslated": "2026-07-29T03:09:04.455Z",
+      "status": "translated"
+    },
+    "dubai-police-approval": {
+      "hash": "1408f00e",
+      "lastTranslated": "2026-07-29T03:09:17.909Z",
+      "status": "translated"
+    },
+    "difc-approval": {
+      "hash": "11d2bfe2",
+      "lastTranslated": "2026-07-29T03:09:21.171Z",
+      "status": "translated"
+    },
+    "impz-approval": {
+      "hash": "23f068a6",
+      "lastTranslated": "2026-07-29T03:09:24.591Z",
+      "status": "translated"
+    },
+    "dubai-holding-approval": {
+      "hash": "f09ad3f",
+      "lastTranslated": "2026-07-29T03:09:39.211Z",
+      "status": "translated"
+    },
+    "community-approval": {
+      "hash": "5771390",
+      "lastTranslated": "2026-07-29T03:09:42.669Z",
+      "status": "translated"
+    },
+    "al-safat-green-building-approval": {
+      "hash": "1ac8b3dd",
+      "lastTranslated": "2026-07-29T03:09:46.569Z",
+      "status": "translated"
+    },
+    "sewerage-drainage-approval": {
+      "hash": "1837fb03",
+      "lastTranslated": "2026-07-29T03:10:02.585Z",
+      "status": "translated"
+    },
+    "electrical-works-approval": {
+      "hash": "36c46593",
+      "lastTranslated": "2026-07-29T03:10:04.936Z",
+      "status": "translated"
+    },
+    "mezzanine-floor-approval": {
+      "hash": "545156cb",
+      "lastTranslated": "2026-07-29T03:10:09.775Z",
+      "status": "translated"
+    },
+    "restaurant-works-approval": {
+      "hash": "273be4ef",
+      "lastTranslated": "2026-07-29T03:10:24.110Z",
+      "status": "translated"
+    },
+    "interior-works-approval": {
+      "hash": "5570b275",
+      "lastTranslated": "2026-07-29T03:10:27.568Z",
+      "status": "translated"
+    },
+    "commercial-approval": {
+      "hash": "162ca3cf",
+      "lastTranslated": "2026-07-29T03:10:36.101Z",
+      "status": "translated"
+    },
+    "residential-approval": {
+      "hash": "8ca841d",
+      "lastTranslated": "2026-07-29T03:10:45.014Z",
+      "status": "translated"
+    },
+    "project-approval": {
+      "hash": "747aa3d0",
+      "lastTranslated": "2026-07-29T03:10:50.234Z",
+      "status": "translated"
+    }
+  },
+  "guides": {
+    "how-to-avoid-approval-rejection-dubai": {
+      "hash": "7000d282",
+      "lastTranslated": "2026-07-28T23:51:03.285Z",
+      "status": "translated"
+    },
+    "dubai-approval-fees-guide": {
+      "hash": "47654a89",
+      "lastTranslated": "2026-07-28T23:51:03.875Z",
+      "status": "translated"
+    },
+    "complete-guide-dubai-building-approvals": {
+      "hash": "60df413b",
+      "lastTranslated": "2026-07-28T23:51:03.888Z",
+      "status": "translated"
+    },
+    "approval-timelines-dubai-guide": {
+      "hash": "64e1d859",
+      "lastTranslated": "2026-07-28T23:51:11.790Z",
+      "status": "translated"
+    },
+    "how-long-does-dm-building-permit-take": {
+      "hash": "4f3a961f",
+      "lastTranslated": "2026-07-28T23:51:11.932Z",
+      "status": "translated"
+    },
+    "dcd-fire-safety-approval-documents": {
+      "hash": "3b357dd6",
+      "lastTranslated": "2026-07-28T23:51:13.650Z",
+      "status": "translated"
+    },
+    "dm-noc-for-renovation-guide": {
+      "hash": "4cecdcb",
+      "lastTranslated": "2026-07-28T23:51:20.756Z",
+      "status": "translated"
+    },
+    "rta-approval-commercial-projects": {
+      "hash": "5b79d0db",
+      "lastTranslated": "2026-07-28T23:51:20.842Z",
+      "status": "translated"
+    },
+    "dm-completion-certificate-steps": {
+      "hash": "315e09fa",
+      "lastTranslated": "2026-07-28T23:51:24.134Z",
+      "status": "translated"
+    },
+    "dubai-south-design-guidelines": {
+      "hash": "3f557f28",
+      "lastTranslated": "2026-07-28T23:51:29.629Z",
+      "status": "translated"
+    },
+    "dso-fit-out-approval-guide": {
+      "hash": "252b9c26",
+      "lastTranslated": "2026-07-28T23:51:29.952Z",
+      "status": "translated"
+    },
+    "tecom-business-setup-approvals": {
+      "hash": "30af11ed",
+      "lastTranslated": "2026-07-28T23:51:34.108Z",
+      "status": "translated"
+    },
+    "nakheel-renovation-approval-process": {
+      "hash": "17588a6c",
+      "lastTranslated": "2026-07-28T23:51:38.053Z",
+      "status": "translated"
+    },
+    "dmcc-free-zone-approval-process": {
+      "hash": "422f2830",
+      "lastTranslated": "2026-07-28T23:51:41.008Z",
+      "status": "translated"
+    },
+    "emaar-community-design-guidelines": {
+      "hash": "77e4fba8",
+      "lastTranslated": "2026-07-28T23:51:43.859Z",
+      "status": "translated"
+    },
+    "dubai-properties-noc-process": {
+      "hash": "4f010ae2",
+      "lastTranslated": "2026-07-28T23:51:47.335Z",
+      "status": "translated"
+    },
+    "ejari-registration-complete-guide": {
+      "hash": "33eb0957",
+      "lastTranslated": "2026-07-28T23:51:49.548Z",
+      "status": "translated"
+    },
+    "title-deed-transfer-dubai": {
+      "hash": "6389add8",
+      "lastTranslated": "2026-07-28T23:51:53.029Z",
+      "status": "translated"
+    },
+    "rera-permit-requirements-guide": {
+      "hash": "5fa96152",
+      "lastTranslated": "2026-07-28T23:51:56.456Z",
+      "status": "translated"
+    },
+    "dewa-connection-process-guide": {
+      "hash": "6aa77a18",
+      "lastTranslated": "2026-07-28T23:51:59.473Z",
+      "status": "translated"
+    },
+    "district-cooling-connection-guide": {
+      "hash": "51c9bc3",
+      "lastTranslated": "2026-07-28T23:52:04.454Z",
+      "status": "translated"
+    },
+    "dewa-meter-installation-steps": {
+      "hash": "77afea45",
+      "lastTranslated": "2026-07-28T23:52:04.949Z",
+      "status": "translated"
+    },
+    "dubai-food-control-approval-guide": {
+      "hash": "23701cc7",
+      "lastTranslated": "2026-07-28T23:52:08.836Z",
+      "status": "translated"
+    },
+    "dha-healthcare-approval-guide": {
+      "hash": "20a91d8f",
+      "lastTranslated": "2026-07-28T23:52:14.575Z",
+      "status": "translated"
+    },
+    "dtcm-tourism-license-requirements": {
+      "hash": "37e74e76",
+      "lastTranslated": "2026-07-28T23:52:14.755Z",
+      "status": "translated"
+    },
+    "interior-fit-out-permit-process": {
+      "hash": "419659c1",
+      "lastTranslated": "2026-07-28T23:52:17.988Z",
+      "status": "translated"
+    },
+    "change-of-usage-permit-guide": {
+      "hash": "6a88ce3d",
+      "lastTranslated": "2026-07-28T23:52:23.841Z",
+      "status": "translated"
+    },
+    "structural-modification-approval-guide": {
+      "hash": "1f27e44c",
+      "lastTranslated": "2026-07-28T23:52:23.988Z",
+      "status": "translated"
+    },
+    "cad-drawing-standards-dubai-guide": {
+      "hash": "60c5aed5",
+      "lastTranslated": "2026-07-28T23:52:28.576Z",
+      "status": "translated"
+    },
+    "as-built-drawing-requirements": {
+      "hash": "1d8b492b",
+      "lastTranslated": "2026-07-28T23:52:32.273Z",
+      "status": "translated"
+    },
+    "3d-design-submission-guide": {
+      "hash": "1bf25ba6",
+      "lastTranslated": "2026-07-28T23:52:34.109Z",
+      "status": "translated"
+    }
+  },
+  "services": {
+    "cad-documentation": {
+      "hash": "5c3dca2",
+      "lastTranslated": "2026-07-28T23:52:44.557Z",
+      "status": "translated"
+    },
+    "3d-design-visualization": {
+      "hash": "1cf6e7a1",
+      "lastTranslated": "2026-07-28T23:52:45.903Z",
+      "status": "translated"
+    },
+    "2d-drawings": {
+      "hash": "70b57c75",
+      "lastTranslated": "2026-07-28T23:52:47.215Z",
+      "status": "translated"
+    },
+    "document-clearing": {
+      "hash": "1561aafd",
+      "lastTranslated": "2026-07-28T23:52:55.628Z",
+      "status": "translated"
+    },
+    "approval-management": {
+      "hash": "110b2370",
+      "lastTranslated": "2026-07-28T23:52:55.828Z",
+      "status": "translated"
+    },
+    "project-management": {
+      "hash": "91b7167",
+      "lastTranslated": "2026-07-28T23:52:58.328Z",
+      "status": "translated"
+    },
+    "fit-outs": {
+      "hash": "da84347",
+      "lastTranslated": "2026-07-28T23:53:07.040Z",
+      "status": "translated"
+    }
+  },
+  "_description": "Translation manifest for DeepSeek localization pipeline.",
+  "_structure": {
+    "approvals": {
+      "<en_slug>": {
+        "hash": "<content_hash>",
+        "lastTranslated": "<ISO_timestamp>",
+        "status": "translated|pending|review"
+      }
+    },
+    "guides": {
+      "<en_slug>": {
+        "hash": "<content_hash>",
+        "lastTranslated": "<ISO_timestamp>",
+        "status": "translated|pending|review"
+      }
+    },
+    "services": {
+      "<en_slug>": {
+        "hash": "<content_hash>",
+        "lastTranslated": "<ISO_timestamp>",
+        "status": "translated|pending|review"
+      }
+    }
+  }
+}

@@ -93,7 +93,7 @@ export default function GeoContentSection() {
             streamlined the approval process for hundreds of clients across Dubai&rsquo;s
             commercial and residential sectors. We combine deep regulatory knowledge with
             efficient document preparation to deliver the fastest possible turnaround times.
-            <Link href="/about-us" className="text-link-blue hover:underline font-medium ml-1">
+            <Link href="/about-us" className="text-link-blue hover:underline font-medium ms-1">
               Learn more about our team &rarr;
             </Link>
           </p>

@@ -74,7 +74,7 @@ export default function Card({
     </>
   );
 
-  const cardClasses = `flex flex-col gap-3 p-6 rounded-md bg-gradient-to-br from-white to-card-bg/30 border border-border-light border-l-2 border-l-transparent shadow-card transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-lg hover:border-brand-blue/40 hover:border-l-4 hover:border-l-brand-blue hover:bg-gradient-to-br hover:from-white hover:to-card-bg ${className}`.trim();
+  const cardClasses = `flex flex-col gap-3 p-6 rounded-md bg-gradient-to-br from-white to-card-bg/30 border border-border-light border-s-2 border-s-transparent shadow-card transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-lg hover:border-brand-blue/40 hover:border-s-4 hover:border-s-brand-blue hover:bg-gradient-to-br hover:from-white hover:to-card-bg ${className}`.trim();
 
   if (href) {
     const isExternal =

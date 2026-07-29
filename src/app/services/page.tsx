@@ -25,6 +25,7 @@ import {
 } from "lucide-react";
 import { services } from "@/data/services";
 import { SITE, HUB_SLUGS } from "@/lib/constants";
+import { hreflangAlternates } from "@/lib/locale";
 import { breadcrumbList, webPageSchema } from "@/lib/schema";
 import Button from "@/components/ui/Button";
 import CTASection from "@/components/sections/CTASection";
@@ -39,6 +40,7 @@ export const metadata: Metadata = {
     "Expert approval services in Dubai: 2D & 3D drawings, CAD documentation, approval management, and document clearing. End-to-end support for DM, DCD, DEWA, and developer submissions. Contact us today.",
   alternates: {
     canonical: `${SITE.url}${HUB_SLUGS.services}`,
+    languages: hreflangAlternates(SITE.url, HUB_SLUGS.services),
   },
   openGraph: {
     title: "Our Services | 2D Drawings, 3D Design & Approvals | Wasleen",
@@ -118,7 +120,7 @@ export default function ServicesHubPage() {
                 <Link
                   key={service.slug}
                   href={`/services/${service.slug}`}
-                  className="group flex flex-col gap-4 p-6 rounded-md bg-gradient-to-br from-white to-card-bg/30 border border-border-light border-l-2 border-l-transparent shadow-card transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-lg hover:border-brand-blue/40 hover:border-l-4 hover:border-l-brand-blue hover:bg-gradient-to-br hover:from-white hover:to-card-bg"
+                  className="group flex flex-col gap-4 p-6 rounded-md bg-gradient-to-br from-white to-card-bg/30 border border-border-light border-s-2 border-s-transparent shadow-card transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-lg hover:border-brand-blue/40 hover:border-s-4 hover:border-s-brand-blue hover:bg-gradient-to-br hover:from-white hover:to-card-bg"
                 >
                   {/* Header with icon + title + arrow */}
                   <div className="flex items-start justify-between gap-3">

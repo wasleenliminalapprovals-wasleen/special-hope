@@ -8,10 +8,17 @@
  *   - #organization  → Organization
  *   - #website       → WebSite
  *
+ * Phase 4.1: All functions accept a `locale` parameter for Arabic support.
+ *   - English: @id uses BASE (e.g., /#organization)
+ *   - Arabic:  @id uses BASE + /ar (e.g., /ar/#organization)
+ *   - name/description use AR constants when locale === 'ar'
+ *
  * @see .roo/rules/05-TECHNICAL-SEO-SCHEMA.md for full schema rules
+ * @see plans/arabic-market-domination-reconciled-plan.md §4.1
  */
 
-import { SITE, NAP } from "@/lib/constants";
+import { SITE, NAP, AR } from "@/lib/constants";
+import { localePrefix } from "@/lib/locale";
 import type { FAQItem, ProcessStep, GuideData } from "@/types";
 
 /* ── helpers ─────────────────────────────────────────────── */
@@ -36,13 +43,14 @@ function crumb(position: number, name: string, slug: string) {
  * Organization schema — references #organization.
  * Must match footer NAP byte-for-byte.
  */
-export function organizationSchema() {
+export function organizationSchema(locale: "en" | "ar" = "en") {
+  const lp = localePrefix(locale);
   return {
     "@context": "https://schema.org",
     "@type": "Organization",
-    "@id": `${BASE}/#organization`,
-    name: NAP.companyName,
-    url: BASE,
+    "@id": `${BASE}${lp}/#organization`,
+    name: locale === "ar" ? AR.siteName : NAP.companyName,
+    url: `${BASE}${lp}`,
     telephone: NAP.phone,
     email: NAP.email,
     address: {
@@ -55,20 +63,23 @@ export function organizationSchema() {
     },
     areaServed: NAP.areaServed,
     priceRange: "AED",
+    availableLanguage: ["en", "ar"],
   };
 }
 
 /**
  * WebSite schema — references #website.
  */
-export function websiteSchema() {
+export function websiteSchema(locale: "en" | "ar" = "en") {
+  const lp = localePrefix(locale);
   return {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    "@id": `${BASE}/#website`,
-    url: BASE,
-    name: SITE.name,
-    publisher: { "@id": `${BASE}/#organization` },
+    "@id": `${BASE}${lp}/#website`,
+    url: `${BASE}${lp}`,
+    name: locale === "ar" ? AR.siteName : SITE.name,
+    publisher: { "@id": `${BASE}${lp}/#organization` },
+    inLanguage: locale === "ar" ? "ar-AE" : "en-AE",
   };
 }
 
@@ -85,7 +96,8 @@ export interface WebPageSchemaInput {
 /**
  * WebPage schema — generic for any page type.
  */
-export function webPageSchema(data: WebPageSchemaInput) {
+export function webPageSchema(data: WebPageSchemaInput, locale: "en" | "ar" = "en") {
+  const lp = localePrefix(locale);
   const fullUrl = data.url.startsWith("http") ? data.url : `${BASE}${data.url}`;
   return {
     "@context": "https://schema.org",
@@ -95,11 +107,10 @@ export function webPageSchema(data: WebPageSchemaInput) {
     name: data.title,
     description: data.description,
     dateModified: data.dateModified,
-    isPartOf: { "@id": `${BASE}/#website` },
-    about: data.aboutRef ? { "@id": `${BASE}${data.aboutRef}` } : undefined,
-    ...(data.aboutRef
-      ? {}
-      : { about: { "@id": `${BASE}/#organization` } }),
+    isPartOf: { "@id": `${BASE}${lp}/#website` },
+    about: data.aboutRef
+      ? { "@id": `${BASE}${lp}${data.aboutRef}` }
+      : { "@id": `${BASE}${lp}/#organization` },
   };
 }
 
@@ -113,14 +124,18 @@ export interface ServiceSchemaInput {
 /**
  * Service schema — used on approval service pages and service pages.
  */
-export function serviceSchema(data: ServiceSchemaInput & { serviceId?: string }) {
+export function serviceSchema(
+  data: ServiceSchemaInput & { serviceId?: string },
+  locale: "en" | "ar" = "en",
+) {
+  const lp = localePrefix(locale);
   return {
     "@context": "https://schema.org",
     "@type": "Service",
-    ...(data.serviceId ? { "@id": `${BASE}${data.serviceId}` } : {}),
+    ...(data.serviceId ? { "@id": `${BASE}${lp}${data.serviceId}` } : {}),
     name: data.name,
     description: data.description,
-    provider: { "@id": `${BASE}/#organization` },
+    provider: { "@id": `${BASE}${lp}/#organization` },
     ...(data.category ? { category: data.category } : {}),
   };
 }
@@ -128,10 +143,12 @@ export function serviceSchema(data: ServiceSchemaInput & { serviceId?: string })
 /**
  * FAQPage schema — mirrors visible FAQ content exactly.
  */
-export function faqPageSchema(faqs: FAQItem[]) {
+export function faqPageSchema(faqs: FAQItem[], locale: "en" | "ar" = "en") {
+  const lp = localePrefix(locale);
   return {
     "@context": "https://schema.org",
     "@type": "FAQPage",
+    "@id": `${BASE}${lp}/#faq`,
     mainEntity: faqs.map((item) => ({
       "@type": "Question",
       name: item.question,
@@ -146,10 +163,12 @@ export function faqPageSchema(faqs: FAQItem[]) {
 /**
  * HowTo schema — mirrors visible process steps exactly.
  */
-export function howToSchema(steps: ProcessStep[]) {
+export function howToSchema(steps: ProcessStep[], locale: "en" | "ar" = "en") {
+  const lp = localePrefix(locale);
   return {
     "@context": "https://schema.org",
     "@type": "HowTo",
+    "@id": `${BASE}${lp}/#howto`,
     step: steps.map((s) => ({
       "@type": "HowToStep",
       position: s.step,
@@ -169,10 +188,12 @@ export interface QAPageSchemaInput {
 /**
  * QAPage schema — used on guide/Q&A pages of type "qa".
  */
-export function qaPageSchema(data: QAPageSchemaInput) {
+export function qaPageSchema(data: QAPageSchemaInput, locale: "en" | "ar" = "en") {
+  const lp = localePrefix(locale);
   return {
     "@context": "https://schema.org",
     "@type": "QAPage",
+    "@id": `${BASE}${lp}/#qa`,
     mainEntity: {
       "@type": "Question",
       name: data.question,
@@ -201,10 +222,12 @@ export interface BreadcrumbItem {
  *     { position: 3, name: "DEWA Approval", slug: "/approvals/dewa-approval" },
  *   ])
  */
-export function breadcrumbList(items: BreadcrumbItem[]) {
+export function breadcrumbList(items: BreadcrumbItem[], locale: "en" | "ar" = "en") {
+  const lp = localePrefix(locale);
   return {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
+    "@id": `${BASE}${lp}/#breadcrumb`,
     itemListElement: items.map((item) => crumb(item.position, item.name, item.slug)),
   };
 }
@@ -230,25 +253,34 @@ export interface ApprovalSchemaStackInput {
  *
  * Returns an array of schema objects ready for stringification.
  */
-export function approvalSchemaStack(input: ApprovalSchemaStackInput) {
+export function approvalSchemaStack(
+  input: ApprovalSchemaStackInput,
+  locale: "en" | "ar" = "en",
+) {
   const serviceId = `#service-${input.serviceName.toLowerCase().replace(/\s+/g, "-")}`;
   return [
-    serviceSchema({
-      name: input.serviceName,
-      description: input.serviceDescription,
-      category: input.serviceCategory,
-      serviceId,
-    }),
-    webPageSchema({
-      url: input.url,
-      title: input.title,
-      description: input.description,
-      dateModified: input.dateModified,
-      aboutRef: serviceId,
-    }),
-    faqPageSchema(input.faqs),
-    howToSchema(input.howToSteps),
-    breadcrumbList(input.breadcrumbs),
+    serviceSchema(
+      {
+        name: input.serviceName,
+        description: input.serviceDescription,
+        category: input.serviceCategory,
+        serviceId,
+      },
+      locale,
+    ),
+    webPageSchema(
+      {
+        url: input.url,
+        title: input.title,
+        description: input.description,
+        dateModified: input.dateModified,
+        aboutRef: serviceId,
+      },
+      locale,
+    ),
+    faqPageSchema(input.faqs, locale),
+    howToSchema(input.howToSteps, locale),
+    breadcrumbList(input.breadcrumbs, locale),
   ];
 }
 
@@ -267,25 +299,34 @@ export interface GuideSchemaStackInput {
  * Generates the full schema stack required on guide pages:
  *   WebPage + (QAPage | WebPage) + BreadcrumbList
  */
-export function guideSchemaStack(input: GuideSchemaStackInput) {
+export function guideSchemaStack(
+  input: GuideSchemaStackInput,
+  locale: "en" | "ar" = "en",
+) {
   const schemas: Record<string, unknown>[] = [
-    webPageSchema({
-      url: input.url,
-      title: input.title,
-      description: input.description,
-      dateModified: input.dateModified,
-    }),
-    breadcrumbList(input.breadcrumbs),
+    webPageSchema(
+      {
+        url: input.url,
+        title: input.title,
+        description: input.description,
+        dateModified: input.dateModified,
+      },
+      locale,
+    ),
+    breadcrumbList(input.breadcrumbs, locale),
   ];
 
   if (input.guideData.type === "qa" && input.guideData.question && input.guideData.answer) {
     schemas.push(
-      qaPageSchema({
-        question: input.guideData.question,
-        answer: input.guideData.answer,
-        title: input.title,
-        description: input.description,
-      })
+      qaPageSchema(
+        {
+          question: input.guideData.question,
+          answer: input.guideData.answer,
+          title: input.title,
+          description: input.description,
+        },
+        locale,
+      ),
     );
   }
 
@@ -310,30 +351,39 @@ export interface ServiceSchemaStackInput {
  * Generates the full schema stack required on /services/{slug} pages:
  *   WebPage + Service + (FAQPage?) + (HowTo?) + BreadcrumbList
  */
-export function serviceSchemaStack(input: ServiceSchemaStackInput) {
+export function serviceSchemaStack(
+  input: ServiceSchemaStackInput,
+  locale: "en" | "ar" = "en",
+) {
   const serviceId = `#service-${input.serviceName.toLowerCase().replace(/\s+/g, "-")}`;
   const schemas: Record<string, unknown>[] = [
-    serviceSchema({
-      name: input.serviceName,
-      description: input.serviceDescription,
-      serviceId,
-    }),
-    webPageSchema({
-      url: input.url,
-      title: input.title,
-      description: input.description,
-      dateModified: input.dateModified,
-      aboutRef: serviceId,
-    }),
-    breadcrumbList(input.breadcrumbs),
+    serviceSchema(
+      {
+        name: input.serviceName,
+        description: input.serviceDescription,
+        serviceId,
+      },
+      locale,
+    ),
+    webPageSchema(
+      {
+        url: input.url,
+        title: input.title,
+        description: input.description,
+        dateModified: input.dateModified,
+        aboutRef: serviceId,
+      },
+      locale,
+    ),
+    breadcrumbList(input.breadcrumbs, locale),
   ];
 
   if (input.faqs && input.faqs.length > 0) {
-    schemas.push(faqPageSchema(input.faqs));
+    schemas.push(faqPageSchema(input.faqs, locale));
   }
 
   if (input.howToSteps && input.howToSteps.length > 0) {
-    schemas.push(howToSchema(input.howToSteps));
+    schemas.push(howToSchema(input.howToSteps, locale));
   }
 
   return schemas;
@@ -353,19 +403,20 @@ export interface StaticPageSchemaInput {
 /**
  * Schema stack for static pages (About Us, Contact Us).
  */
-export function staticPageSchema(input: StaticPageSchemaInput) {
+export function staticPageSchema(input: StaticPageSchemaInput, locale: "en" | "ar" = "en") {
+  const lp = localePrefix(locale);
   return [
     {
       "@context": "https://schema.org",
       "@type": input.pageType,
-      "@id": `${BASE}${input.url}`,
-      url: `${BASE}${input.url}`,
+      "@id": `${BASE}${lp}${input.url}`,
+      url: `${BASE}${lp}${input.url}`,
       name: input.title,
       description: input.description,
-      isPartOf: { "@id": `${BASE}/#website` },
-      about: { "@id": `${BASE}/#organization` },
+      isPartOf: { "@id": `${BASE}${lp}/#website` },
+      about: { "@id": `${BASE}${lp}/#organization` },
     },
-    breadcrumbList(input.breadcrumbs),
+    breadcrumbList(input.breadcrumbs, locale),
   ];
 }
 
@@ -380,14 +431,26 @@ export interface HomepageSchemaInput {
 /**
  * Schema stack for the homepage.
  */
-export function homepageSchema(input: HomepageSchemaInput) {
+export function homepageSchema(input: HomepageSchemaInput, locale: "en" | "ar" = "en") {
   return [
-    webPageSchema({
-      url: "/",
-      title: input.title,
-      description: input.description,
-      dateModified: input.dateModified,
-    }),
-    breadcrumbList([{ position: 1, name: "Home", slug: "/" }]),
+    webPageSchema(
+      {
+        url: "/",
+        title: input.title,
+        description: input.description,
+        dateModified: input.dateModified,
+      },
+      locale,
+    ),
+    breadcrumbList(
+      [
+        {
+          position: 1,
+          name: locale === "ar" ? AR.breadcrumb.home : "Home",
+          slug: locale === "ar" ? "/ar" : "/",
+        },
+      ],
+      locale,
+    ),
   ];
 }

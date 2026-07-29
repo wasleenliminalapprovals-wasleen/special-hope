@@ -44,15 +44,23 @@ const iconMap: Record<string, typeof Shield> = {
   "key-zone": Shield,
 };
 
-/** Derive icon key from label text */
+/** Derive icon key from label text (supports both English and Arabic labels) */
 function getIconKey(label: string): string {
   const lower = label.toLowerCase();
+  /* English matching */
   if (lower.includes("authority") || lower.includes("focus") || lower.includes("zone") || lower.includes("community")) return "authority";
   if (lower.includes("time") || lower.includes("timeline") || lower.includes("validity") || lower.includes("stage")) return "timeline";
   if (lower.includes("mandatory") || lower.includes("purpose")) return "mandatory-for";
   if (lower.includes("document") || lower.includes("count")) return "documents-required";
   if (lower.includes("area") || lower.includes("location")) return "area";
   if (lower.includes("key")) return "key-focus";
+  /* Arabic matching */
+  if (lower.includes("جهة") || lower.includes("سلطة") || lower.includes("منطقة") || lower.includes("مجتمع")) return "authority";
+  if (lower.includes("مدة") || lower.includes("وقت") || lower.includes("صلاحية") || lower.includes("مرحلة")) return "timeline";
+  if (lower.includes("إلزامي") || lower.includes("الغرض") || lower.includes("مطلوب")) return "mandatory-for";
+  if (lower.includes("مستند") || lower.includes("وثيقة") || lower.includes("عدد")) return "documents-required";
+  if (lower.includes("مساحة") || lower.includes("موقع")) return "area";
+  if (lower.includes("رئيسي") || lower.includes("محوري")) return "key-focus";
   return "authority";
 }
 

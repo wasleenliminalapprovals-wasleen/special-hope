@@ -39,7 +39,7 @@ export default function HeroSection() {
       <div className="relative max-w-6xl mx-auto px-4 py-12 md:px-8 md:py-20 lg:py-28">
         <div className="grid gap-8 md:grid-cols-2 md:gap-12 items-center">
           {/* ===== Text Content (z-10 on mobile to sit above drawing) ===== */}
-          <div className="relative z-10 text-center md:text-left">
+          <div className="relative z-10 text-center md:text-start">
             <h1 className="text-h1 font-montserrat text-white leading-tight mb-4">
               Fast-Track Dubai Municipality, DDA, DEWA & DCD Project Approvals in UAE
             </h1>

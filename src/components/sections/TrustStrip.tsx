@@ -121,12 +121,12 @@ export default function TrustStrip() {
         {/* ── Secondary Authorities: CSS Marquee ── */}
         <div className="relative overflow-hidden">
           {/* Gradient fade edges */}
-          <div className="absolute left-0 top-0 bottom-0 w-8 z-10 bg-gradient-to-r from-light-bg to-transparent pointer-events-none" />
-          <div className="absolute right-0 top-0 bottom-0 w-8 z-10 bg-gradient-to-l from-light-bg to-transparent pointer-events-none" />
+          <div className="absolute start-0 top-0 bottom-0 w-8 z-10 bg-gradient-to-r from-light-bg to-transparent pointer-events-none" />
+          <div className="absolute end-0 top-0 bottom-0 w-8 z-10 bg-gradient-to-l from-light-bg to-transparent pointer-events-none" />
 
           {/* Marquee track — scrolls left, then resets via duplicate set */}
           <div className="flex overflow-hidden">
-            <div className="flex shrink-0 gap-6 items-center animate-marquee-left">
+            <div className="flex shrink-0 gap-6 items-center animate-marquee-start">
               {secondaryAuthorities.map((auth) => (
                 <div
                   key={auth.name}

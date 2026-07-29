@@ -294,7 +294,7 @@
    MARQUEE ANIMATIONS — Authority logo carousels
    ============================================================ */
 
-@keyframes marquee-left {
+@keyframes marquee-start {
   0% {
     transform: translateX(0);
   }
@@ -303,9 +303,120 @@
   }
 }
 
-.animate-marquee-left {
-  animation: marquee-left 40s linear infinite;
+@keyframes marquee-end {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(100%);
+  }
 }
+
+.animate-marquee-start {
+  animation: marquee-start 40s linear infinite;
+}
+
+[dir="rtl"] .animate-marquee-start {
+  animation: marquee-end 40s linear infinite;
+}
+
+/* ============================================================
+   RTL UTILITY: MegaMenu dropdown -- centered alignment
+   `start-1/2` + `-translate-x-1/2` centers in LTR.
+   In RTL, start = right edge, so we need +50% transform instead.
+   ============================================================ */
+
+[dir="rtl"] .mega-menu-dropdown {
+  transform: translateX(50%);
+}
+
+/* ============================================================
+   RTL UTILITY: MobileNav drawer -- slide direction
+   ============================================================ */
+
+[dir="rtl"] .mobile-nav-drawer.translate-x-full {
+  transform: translateX(-100%);
+}
+
+/* ============================================================
+   PHASE 3.3 -- RTL COMPONENT AUDIT AND VERIFICATION
+
+   All 7 component types listed in the Arabic market domination
+   plan (arabic-market-domination-reconciled-plan.md section 3.3)
+   have been audited and verified to work correctly under dir="rtl"
+   via three mechanisms:
+
+   1. CSS Logical Properties (Phase 0.5)
+      - start-* / end-* map to right/left in RTL
+      - ms-* / me-* map to margin-right/margin-left in RTL
+      - ps-* / pe-* map to padding-right/padding-left in RTL
+      - border-s-* / border-e-* swap sides in RTL
+      - text-start / text-end align correctly in RTL
+
+   2. Native Browser RTL Layout
+      - dir="rtl" auto-flips flexbox row direction
+      - dir="rtl" auto-flips grid item flow direction
+      - dir="rtl" auto-reverses HTML table column order
+      - dir="rtl" reverses inline text/icon sequences
+
+   3. Explicit [dir="rtl"] CSS Selectors (this file)
+      - Only for transforms/animations that cannot use logical props
+
+   -- VERIFIED COMPONENTS --
+
+   1. FAQ Accordion (Accordion.tsx)
+      - ChevronDown rotate-180 is direction-agnostic
+      - Same rotation behavior in LTR and RTL
+      - No [dir="rtl"] override needed
+
+   2. Stats Strip (StatsStrip.tsx)
+      - CSS Grid with grid-cols-2 md:grid-cols-4
+      - Grid items auto-flow right-to-left with dir="rtl"
+      - Icon + text flex containers auto-flip with dir="rtl"
+      - No [dir="rtl"] override needed
+
+   3. Process Steps (ProcessStepsBlock.tsx)
+      - Uses logical properties: start-[23px], ms-4, end-*
+      - Step number circle at -top-2 -start-2 shifts to top-right in RTL
+      - Vertical connector line at start-[23px] aligns with circles on right
+      - Flex layout (step number + content) auto-flips in RTL
+      - No [dir="rtl"] override needed
+
+   4. Timeline/Cost Tables (TimelineCostTable.tsx, DocumentsTable.tsx)
+      - HTML tables auto-reverse column order with dir="rtl"
+      - text-start handles alignment correctly in both directions
+      - Column order (Stage | Timeline | Cost | Notes) reverses for RTL readers
+      - No [dir="rtl"] override needed
+
+   5. Cards with Icons (Card.tsx, WhyChooseUs.tsx, CaseStudyBlock.tsx, RejectionReasons.tsx)
+      - Uses flex items-start gap-3 pattern: icon (first child) + text (second child)
+      - dir="rtl" flips flex-direction: row, placing icon on the right
+      - No [dir="rtl"] override needed
+
+   6. Mega Menu Columns (MegaMenu.tsx)
+      - Grid layout with logical column ordering
+      - Already has [dir="rtl"] selector for dropdown centering (see above)
+      - No additional [dir="rtl"] override needed
+
+   7. Search/Input Fields
+      - No search/input fields exist in the codebase
+      - N/A: add placeholder alignment overrides if inputs are added later
+
+   -- RULE FOR FUTURE DEVELOPERS --
+
+   DO NOT use JavaScript `if (locale === 'ar')` conditionals for
+   layout/positioning/directional behavior inside shared components.
+
+   CORRECT (CSS-driven, inert for English by construction):
+     [dir="rtl"] .some-element { transform: translateX(50%); }
+
+   WRONG (JS conditional touches English render path):
+     if (locale === 'ar') { ... }
+
+   Text content localization (titles, labels, aria-labels, hrefs) is
+   handled separately via the AR constants object in lib/constants.ts
+   and locale-aware getter functions.
+   ============================================================ */
 
 /* ============================================================
    RESPECT PREFERS-REDUCED-MOTION

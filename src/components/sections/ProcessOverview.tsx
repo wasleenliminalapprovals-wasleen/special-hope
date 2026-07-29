@@ -58,9 +58,9 @@ export default function ProcessOverview() {
           {steps.map((step) => {
             const Icon = step.icon;
             return (
-              <div key={step.step} className="relative flex flex-col items-center text-center p-6 bg-card-bg rounded-md border border-border-light shadow-card transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-lg hover:border-brand-blue/40 hover:border-l-4 hover:border-l-brand-blue hover:bg-gradient-to-br hover:from-white hover:to-card-bg group">
+              <div key={step.step} className="relative flex flex-col items-center text-center p-6 bg-card-bg rounded-md border border-border-light shadow-card transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-lg hover:border-brand-blue/40 hover:border-s-4 hover:border-s-brand-blue hover:bg-gradient-to-br hover:from-white hover:to-card-bg group">
                 {/* Step number circle */}
-                <div className="absolute -top-2 -left-2 w-8 h-8 rounded-full bg-brand-blue text-white flex items-center justify-center text-caption font-montserrat font-bold">
+                <div className="absolute -top-2 -start-2 w-8 h-8 rounded-full bg-brand-blue text-white flex items-center justify-center text-caption font-montserrat font-bold">
                   {step.step}
                 </div>
 
@@ -80,7 +80,7 @@ export default function ProcessOverview() {
                 {/* Connector line (desktop only) */}
                 {step.step < 4 && (
                   <div
-                    className="hidden lg:block absolute top-1/2 -right-3 w-6 h-0.5 bg-border-light"
+                    className="hidden lg:block absolute top-1/2 -end-3 w-6 h-0.5 bg-border-light"
                     aria-hidden="true"
                   />
                 )}

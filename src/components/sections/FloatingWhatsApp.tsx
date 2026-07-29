@@ -32,8 +32,8 @@ export default function FloatingWhatsApp() {
       type="button"
       onClick={handleClick}
       className="
-        fixed bottom-4 right-4 z-50
-        md:bottom-6 md:right-6
+        fixed bottom-4 end-4 z-50
+        md:bottom-6 md:end-6
         flex items-center justify-center
         w-14 h-14 md:w-16 md:h-16
         rounded-full

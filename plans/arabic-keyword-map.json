@@ -1,0 +1,1150 @@
+{
+  "generatedAt": "2026-07-29T03:53:37.123Z",
+  "totalPages": 106,
+  "summary": {
+    "approvals": 68,
+    "guides": 31,
+    "services": 7
+  },
+  "approvals": [
+    {
+      "slug": "dubai-municipality-building-permit",
+      "primaryKeyword": "تصريح بناء بلدية دبي",
+      "secondaryKeywords": [
+        "تصريح بناء دبي",
+        "رخصة بناء بلدية دبي",
+        "طلب تصريح بناء دبي",
+        "موافقة بناء بلدية دبي"
+      ],
+      "directAnswerLength": 311
+    },
+    {
+      "slug": "dubai-civil-defense-approval",
+      "primaryKeyword": "موافقة الدفاع المدني دبي",
+      "secondaryKeywords": [
+        "موافقة الدفاع المدني",
+        "تصريح السلامة من الحرائق دبي",
+        "شهادة الدفاع المدني دبي",
+        "موافقة الحماية من الحرائق دبي"
+      ],
+      "directAnswerLength": 383
+    },
+    {
+      "slug": "dubai-municipality-noc",
+      "primaryKeyword": "شهادة عدم ممانعة بلدية دبي",
+      "secondaryKeywords": [
+        "شهادة عدم ممانعة DM دبي",
+        "شهادة عدم ممانعة بلدية دبي للبناء",
+        "NOC بلدية دبي",
+        "تصريح عدم ممانعة بلدية دبي"
+      ],
+      "directAnswerLength": 331
+    },
+    {
+      "slug": "rta-approval",
+      "primaryKeyword": "موافقة هيئة الطرق والمواصلات دبي",
+      "secondaryKeywords": [
+        "تصريح هيئة الطرق والمواصلات",
+        "NOC هيئة الطرق والمواصلات دبي",
+        "دراسة تأثير المرور دبي",
+        "موافقة الوصول المروري دبي",
+        "تصريح الحواجز الإنشائية دبي"
+      ],
+      "directAnswerLength": 433
+    },
+    {
+      "slug": "dubai-municipality-health-safety-approval",
+      "primaryKeyword": "موافقة بلدية دبي للصحة والسلامة المهنية",
+      "secondaryKeywords": [
+        "تصريح الصحة والسلامة بلدية دبي",
+        "موافقة السلامة المهنية دبي",
+        "تصريح سلامة مكان العمل بلدية دبي",
+        "شهادة الصحة والسلامة بلدية دبي"
+      ],
+      "directAnswerLength": 339
+    },
+    {
+      "slug": "dubai-municipality-environmental-compliance",
+      "primaryKeyword": "الامتثال البيئي بلدية دبي",
+      "secondaryKeywords": [
+        "تصريح بيئي بلدية دبي",
+        "تقييم الأثر البيئي دبي",
+        "تصريح إدارة النفايات دبي"
+      ],
+      "directAnswerLength": 376
+    },
+    {
+      "slug": "dubai-municipality-signage-approval",
+      "primaryKeyword": "موافقة بلدية دبي للافتات الإعلانية",
+      "secondaryKeywords": [
+        "تصريح لافتات بلدية دبي",
+        "موافقة الإعلانات الخارجية دبي",
+        "تصريح اللافتات التجارية بلدية دبي",
+        "اشتراطات اللافتات بلدية دبي"
+      ],
+      "directAnswerLength": 399
+    },
+    {
+      "slug": "dubai-municipality-civil-defense-noc",
+      "primaryKeyword": "موافقة بلدية دبي والدفاع المدني المشتركة",
+      "secondaryKeywords": [
+        "شهادة لا مانع مشتركة DM DCD دبي",
+        "موافقة الدفاع المدني وبلدية دبي",
+        "تصريح البناء المشترك DM DCD",
+        "إجراءات الموافقة المشتركة دبي"
+      ],
+      "directAnswerLength": 356
+    },
+    {
+      "slug": "dubai-municipality-completion-certificate",
+      "primaryKeyword": "شهادة إتمام البناء من بلدية دبي",
+      "secondaryKeywords": [
+        "شهادة الإشغال دبي",
+        "الموافقة النهائية للبناء بلدية دبي",
+        "إتمام البناء دبي",
+        "تصريح الإشغال دبي"
+      ],
+      "directAnswerLength": 272
+    },
+    {
+      "slug": "dubai-municipality-preliminary-building-permit",
+      "primaryKeyword": "تصريح البناء الأولي من بلدية دبي",
+      "secondaryKeywords": [
+        "التصريح الأولي لبلدية دبي",
+        "اعتماد التصميم الإنشائي دبي",
+        "تصريح البناء المبدئي بلدية دبي"
+      ],
+      "directAnswerLength": 382
+    },
+    {
+      "slug": "dubai-municipality-demolition-permit",
+      "primaryKeyword": "تصريح هدم بلدية دبي",
+      "secondaryKeywords": [
+        "تصريح هدم بلدية دبي",
+        "موافقة هدم مباني دبي",
+        "شهادة عدم ممانعة هدم بلدية دبي"
+      ],
+      "directAnswerLength": 327
+    },
+    {
+      "slug": "dubai-municipality-excavation-permit",
+      "primaryKeyword": "تصريح حفر بلدية دبي",
+      "secondaryKeywords": [
+        "تصريح حفر دبي",
+        "موافقة حفر بلدية دبي",
+        "تصريح حفر خنادق دبي",
+        "NOC حفر دبي"
+      ],
+      "directAnswerLength": 347
+    },
+    {
+      "slug": "dubai-silicon-oasis-approval",
+      "primaryKeyword": "موافقة واحة دبي للسيليكون",
+      "secondaryKeywords": [
+        "تصريح بناء واحة دبي للسيليكون",
+        "موافقة إنشاءات DSO",
+        "شهادة عدم ممانعة DSO"
+      ],
+      "directAnswerLength": 347
+    },
+    {
+      "slug": "dubai-south-approval",
+      "primaryKeyword": "موافقة دبي الجنوب",
+      "secondaryKeywords": [
+        "تصريح بناء دبي الجنوب",
+        "موافقة إنشاءات دبي الجنوب",
+        "شهادة عدم ممانعة دبي الجنوب",
+        "ترخيص تطوير دبي الجنوب"
+      ],
+      "directAnswerLength": 320
+    },
+    {
+      "slug": "tecom-approvals",
+      "primaryKeyword": "موافقة تيكوم دبي",
+      "secondaryKeywords": [
+        "موافقة مدينة دبي للإنترنت",
+        "تصريح بناء مدينة دبي للإعلام",
+        "تصريح تجهيز تيكوم"
+      ],
+      "directAnswerLength": 350
+    },
+    {
+      "slug": "jebel-ali-free-zone-approval",
+      "primaryKeyword": "موافقة جافزا دبي",
+      "secondaryKeywords": [
+        "تصريح بناء جافزا",
+        "موافقة إنشاءات جافزا",
+        "تصريح تجهيز جافزا",
+        "تراخيص جافزا"
+      ],
+      "directAnswerLength": 274
+    },
+    {
+      "slug": "dubai-airport-freezone-approval",
+      "primaryKeyword": "موافقة المنطقة الحرة بمطار دبي",
+      "secondaryKeywords": [
+        "تصريح بناء المنطقة الحرة بمطار دبي",
+        "موافقة تجهيز DAFZA",
+        "رخصة إنشاء المنطقة الحرة بمطار دبي"
+      ],
+      "directAnswerLength": 394
+    },
+    {
+      "slug": "dubai-knowledge-park-approval",
+      "primaryKeyword": "موافقة دبي نوليدج بارك",
+      "secondaryKeywords": [
+        "تصريح تجهيز دبي نوليدج بارك",
+        "موافقة بناء دبي نوليدج بارك",
+        "تصريح إنشاء نوليدج بارك"
+      ],
+      "directAnswerLength": 378
+    },
+    {
+      "slug": "dmcc-approval",
+      "primaryKeyword": "موافقة مركز دبي للسلع المتعددة",
+      "secondaryKeywords": [
+        "تصريح تجهيز DMCC",
+        "موافقة بناء DMCC",
+        "موافقة جي إل تي دبي"
+      ],
+      "directAnswerLength": 370
+    },
+    {
+      "slug": "dubai-science-park-approval",
+      "primaryKeyword": "موافقة دبي ساينس بارك",
+      "secondaryKeywords": [
+        "تصريح تجهيز دبي ساينس بارك",
+        "موافقة بناء دبي ساينس بارك",
+        "تصريح إنشاء مدينة العلوم"
+      ],
+      "directAnswerLength": 401
+    },
+    {
+      "slug": "emaar-community-approval",
+      "primaryKeyword": "موافقة إعمار المجتمعية دبي",
+      "secondaryKeywords": [
+        "شهادة عدم الممانعة من إعمار دبي",
+        "موافقة التشطيبات في مجتمعات إعمار",
+        "تصريح إعمار المجتمعي"
+      ],
+      "directAnswerLength": 374
+    },
+    {
+      "slug": "nakheel-developer-approval",
+      "primaryKeyword": "موافقة نخيل دبي",
+      "secondaryKeywords": [
+        "شهادة عدم ممانعة نخيل دبي",
+        "موافقة مجتمع نخيل",
+        "تصريح تشطيب نخيل"
+      ],
+      "directAnswerLength": 346
+    },
+    {
+      "slug": "dubai-properties-approval",
+      "primaryKeyword": "موافقة مشاريع دبي العقارية",
+      "secondaryKeywords": [
+        "شهادة عدم ممانعة مشاريع دبي",
+        "موافقة مجتمعات دبي العقارية",
+        "تصريح تجهيز مشاريع دبي"
+      ],
+      "directAnswerLength": 342
+    },
+    {
+      "slug": "damac-properties-approval",
+      "primaryKeyword": "موافقة داماك العقارية دبي",
+      "secondaryKeywords": [
+        "شهادة عدم ممانعة داماك دبي",
+        "موافقة مجتمع داماك",
+        "تصريح تشطيب داماك"
+      ],
+      "directAnswerLength": 309
+    },
+    {
+      "slug": "meraas-holding-approval",
+      "primaryKeyword": "موافقة ميراس دبي",
+      "secondaryKeywords": [
+        "شهادة عدم ممانعة ميراس دبي",
+        "موافقة مجتمع ميراس",
+        "تصريح تجهيز ميراس"
+      ],
+      "directAnswerLength": 332
+    },
+    {
+      "slug": "sobha-realty-approval",
+      "primaryKeyword": "موافقة سبها العقارية دبي",
+      "secondaryKeywords": [
+        "شهادة عدم ممانعة سبها دبي",
+        "موافقة مجتمع سبها",
+        "تصريح تشطيب سبها"
+      ],
+      "directAnswerLength": 322
+    },
+    {
+      "slug": "dubai-land-department-registration",
+      "primaryKeyword": "تسجيل دائرة الأراضي والأملاك بدبي",
+      "secondaryKeywords": [
+        "تسجيل عقاري دبي",
+        "تسجيل الملكية دبي",
+        "تسجيل الأراضي دبي"
+      ],
+      "directAnswerLength": 340
+    },
+    {
+      "slug": "ejari-registration",
+      "primaryKeyword": "تسجيل الإيجار إجاري دبي",
+      "secondaryKeywords": [
+        "عقد إيجار إجاري دبي",
+        "تسجيل الإيجار في دبي",
+        "تجديد إجاري دبي"
+      ],
+      "directAnswerLength": 419
+    },
+    {
+      "slug": "title-deed-registration",
+      "primaryKeyword": "تسجيل سند الملكية دبي",
+      "secondaryKeywords": [
+        "سند ملكية دبي",
+        "شهادة ملكية عقارية دبي",
+        "إصدار سند ملكية من الأراضي والأملاك"
+      ],
+      "directAnswerLength": 324
+    },
+    {
+      "slug": "rera-permit",
+      "primaryKeyword": "تصريح مؤسسة دبي العقارية",
+      "secondaryKeywords": [
+        "تسجيل RERA في دبي",
+        "تصريح الهيئة التنظيمية العقارية",
+        "تصريح بناء RERA",
+        "ترخيص وساطة عقارية RERA"
+      ],
+      "directAnswerLength": 293
+    },
+    {
+      "slug": "dewa-approval",
+      "primaryKeyword": "موافقة ديوا دبي",
+      "secondaryKeywords": [
+        "موافقة توصيل ديوا",
+        "شهادة عدم ممانعة ديوا",
+        "تصريح كهرباء ومياه دبي",
+        "رفع الأحمال ديوا"
+      ],
+      "directAnswerLength": 415
+    },
+    {
+      "slug": "dewa-connection-noc",
+      "primaryKeyword": "شهادة لا مانع ديوا للتوصيل دبي",
+      "secondaryKeywords": [
+        "شهادة عدم ممانعة ديوا",
+        "شهادة لا مانع ديوا لرخصة البناء",
+        "شهادة براءة ذمة ديوا"
+      ],
+      "directAnswerLength": 390
+    },
+    {
+      "slug": "district-cooling-approval",
+      "primaryKeyword": "موافقة تبريد المناطق دبي",
+      "secondaryKeywords": [
+        "ربط إم باور دبي",
+        "موافقة تبرد",
+        "تصريح ربط تبريد المناطق"
+      ],
+      "directAnswerLength": 330
+    },
+    {
+      "slug": "dewa-meter-installation",
+      "primaryKeyword": "تركيب عداد ديوا في دبي",
+      "secondaryKeywords": [
+        "توصيل عداد كهرباء ديوا",
+        "تركيب عداد مياه ديوا",
+        "تركيب عداد كهرباء دبي"
+      ],
+      "directAnswerLength": 325
+    },
+    {
+      "slug": "dewa-load-enhancement",
+      "primaryKeyword": "زيادة الحمل الكهربائي ديوا دبي",
+      "secondaryKeywords": [
+        "رفع سعة الحمل الكهربائي ديوا",
+        "ترقية القدرة الكهربائية ديوا",
+        "زيادة الأحمال الكهربائية الإضافية دبي"
+      ],
+      "directAnswerLength": 322
+    },
+    {
+      "slug": "telecom-connection-approval",
+      "primaryKeyword": "موافقة ربط الاتصالات دبي",
+      "secondaryKeywords": [
+        "ربط دو في دبي",
+        "موافقة اتصالات على الربط",
+        "تصريح البنية التحتية للاتصالات دبي"
+      ],
+      "directAnswerLength": 325
+    },
+    {
+      "slug": "dewa-temporary-power-connection",
+      "primaryKeyword": "توصيلة كهرباء مؤقتة ديوا دبي",
+      "secondaryKeywords": [
+        "كهرباء مؤقتة مواقع البناء دبي",
+        "توصيلة كهرباء ديوا للمقاولين",
+        "طلب توصيلة مؤقتة ديوا",
+        "تكلفة توصيلة كهرباء مؤقتة دبي"
+      ],
+      "directAnswerLength": 443
+    },
+    {
+      "slug": "food-control-department-approval",
+      "primaryKeyword": "موافقة إدارة الرقابة الغذائية دبي",
+      "secondaryKeywords": [
+        "تصريح سلامة غذائية بلدية دبي",
+        "موافقة مطعم بلدية دبي",
+        "تصريح منشأة غذائية دبي",
+        "اشتراطات المطابخ بلدية دبي",
+        "رخصة تشغيل غذائي دبي"
+      ],
+      "directAnswerLength": 392
+    },
+    {
+      "slug": "dtcm-tourism-approval",
+      "primaryKeyword": "موافقة سياحة دبي",
+      "secondaryKeywords": [
+        "تصريح سياحة دبي",
+        "موافقة فندق دبي",
+        "رخصة منشأة سياحية دبي",
+        "تصنيف فندقي دبي"
+      ],
+      "directAnswerLength": 373
+    },
+    {
+      "slug": "dubai-health-authority-approval",
+      "primaryKeyword": "موافقة هيئة الصحة بدبي",
+      "secondaryKeywords": [
+        "تصريح هيئة الصحة بدبي",
+        "ترخيص منشأة صحية دبي",
+        "تسجيل مهني صحي دبي",
+        "اعتماد مركز طبي دبي"
+      ],
+      "directAnswerLength": 356
+    },
+    {
+      "slug": "public-health-approval",
+      "primaryKeyword": "موافقة الصحة العامة بلدية دبي",
+      "secondaryKeywords": [
+        "تصريح الصحة العامة بلدية دبي",
+        "موافقة الصحة العامة للمنشآت",
+        "موافقة بلدية دبي لصالونات التجميل"
+      ],
+      "directAnswerLength": 396
+    },
+    {
+      "slug": "entertainment-license-approval",
+      "primaryKeyword": "موافقة ترخيص الترفيه دبي",
+      "secondaryKeywords": [
+        "تصريح الفعاليات دبي",
+        "ترخيص منشأة ترفيهية دبي",
+        "تصريح العروض الحية دبي"
+      ],
+      "directAnswerLength": 405
+    },
+    {
+      "slug": "interior-fit-out-approval",
+      "primaryKeyword": "موافقة التشطيب الداخلي دبي",
+      "secondaryKeywords": [
+        "تصريح تشطيب مكاتب دبي",
+        "موافقة تشطيب تجاري",
+        "شهادة عدم ممانعة تشطيب داخلي دبي"
+      ],
+      "directAnswerLength": 390
+    },
+    {
+      "slug": "change-of-usage-permit",
+      "primaryKeyword": "تصريح تغيير الاستخدام دبي",
+      "secondaryKeywords": [
+        "موافقة تغيير الاستخدام دبي",
+        "تصريح تحويل الاستخدام بلدية دبي",
+        "تغيير تصنيف الأرض دبي"
+      ],
+      "directAnswerLength": 400
+    },
+    {
+      "slug": "structural-modification-permit",
+      "primaryKeyword": "تصريح تعديل إنشائي دبي",
+      "secondaryKeywords": [
+        "تصريح تغيير إنشائي دبي",
+        "تصريح إزالة جدار دبي",
+        "موافقة تعديل هيكلي دبي"
+      ],
+      "directAnswerLength": 377
+    },
+    {
+      "slug": "refurbishment-permit",
+      "primaryKeyword": "تصريح تجديد دبي",
+      "secondaryKeywords": [
+        "تصريح ترميم دبي",
+        "موافقة تجديد المباني",
+        "شهادة عدم ممانعة تجديد دبي"
+      ],
+      "directAnswerLength": 398
+    },
+    {
+      "slug": "partition-ceiling-approval",
+      "primaryKeyword": "موافقة القواطع والأسقف المعلقة دبي",
+      "secondaryKeywords": [
+        "تصريح قواطع المكاتب دبي",
+        "موافقة تركيب الأسقف المعلقة",
+        "تصريح جدران الفصل دبي"
+      ],
+      "directAnswerLength": 338
+    },
+    {
+      "slug": "mep-approval",
+      "primaryKeyword": "موافقة MEP دبي",
+      "secondaryKeywords": [
+        "تصريح النظم الميكانيكية والكهربائية والصحية دبي",
+        "موافقة التكييف والتهوية دبي",
+        "اعتماد مخططات MEP",
+        "استشارات MEP دبي"
+      ],
+      "directAnswerLength": 396
+    },
+    {
+      "slug": "2d-drawing-submission",
+      "primaryKeyword": "تقديم المخططات ثنائية الأبعاد دبي",
+      "secondaryKeywords": [
+        "المخططات المعمارية دبي",
+        "مخططات ثنائية الأبعاد لبلدية دبي",
+        "تقديم مخططات البناء دبي"
+      ],
+      "directAnswerLength": 370
+    },
+    {
+      "slug": "3d-design-approval",
+      "primaryKeyword": "اعتماد التصميم ثلاثي الأبعاد دبي",
+      "secondaryKeywords": [
+        "تصاميم ثلاثية الأبعاد لبلدية دبي",
+        "اعتماد النموذج المعماري ثلاثي الأبعاد",
+        "التمثيل البصري ثلاثي الأبعاد بلدية دبي"
+      ],
+      "directAnswerLength": 290
+    },
+    {
+      "slug": "cad-drawing-certification",
+      "primaryKeyword": "شهادة مطابقة رسومات الكاد دبي",
+      "secondaryKeywords": [
+        "شهادة مطابقة رسومات الكاد كما تم التنفيذ",
+        "اعتماد رسومات الكاد بلدية دبي",
+        "معايير رسومات الكاد دبي",
+        "الامتثال لرسومات الكاد الإمارات"
+      ],
+      "directAnswerLength": 365
+    },
+    {
+      "slug": "as-built-drawing-approval",
+      "primaryKeyword": "اعتماد المخططات الواقعية دبي",
+      "secondaryKeywords": [
+        "تقديم المخططات الواقعية بلدية دبي",
+        "اعتماد CAD الواقعي دبي",
+        "شهادة المخططات الواقعية الإمارات",
+        "معايير المخططات الواقعية دبي"
+      ],
+      "directAnswerLength": 288
+    },
+    {
+      "slug": "ded-approval",
+      "primaryKeyword": "موافقة الاقتصاد والسياحة بدبي",
+      "secondaryKeywords": [
+        "موافقة دائرة التنمية الاقتصادية دبي",
+        "ترخيص تجاري دبي",
+        "تسجيل النشاط الاقتصادي دبي",
+        "تأسيس شركة في دبي"
+      ],
+      "directAnswerLength": 357
+    },
+    {
+      "slug": "dda-approval",
+      "primaryKeyword": "موافقة هيئة دبي التنموية",
+      "secondaryKeywords": [
+        "تصريح هيئة دبي التنموية",
+        "موافقة بناء DDA",
+        "موافقة المجمع السكني DDA"
+      ],
+      "directAnswerLength": 339
+    },
+    {
+      "slug": "dubai-police-approval",
+      "primaryKeyword": "موافقة شرطة دبي أنظمة الأمن",
+      "secondaryKeywords": [
+        "موافقة كاميرات المراقبة شرطة دبي",
+        "تصريح أنظمة الأمن دبي",
+        "موافقة أنظمة الإنذار شرطة دبي",
+        "إدارة صناعة الأمن دبي"
+      ],
+      "directAnswerLength": 354
+    },
+    {
+      "slug": "difc-approval",
+      "primaryKeyword": "موافقة مركز دبي المالي العالمي دبي",
+      "secondaryKeywords": [
+        "موافقة تجهيز DIFC",
+        "تصريح بناء DIFC",
+        "تسجيل إيجار DIFC",
+        "تصريح مركز دبي المالي العالمي"
+      ],
+      "directAnswerLength": 314
+    },
+    {
+      "slug": "impz-approval",
+      "primaryKeyword": "موافقة مدينة دبي للإنتاج الإعلامي",
+      "secondaryKeywords": [
+        "موافقة IMPZ",
+        "تصريح المنطقة الدولية للإنتاج الإعلامي",
+        "تجهيز مدينة دبي للإنتاج الإعلامي",
+        "موافقة تيكوم للإنتاج الإعلامي"
+      ],
+      "directAnswerLength": 356
+    },
+    {
+      "slug": "dubai-holding-approval",
+      "primaryKeyword": "موافقة دبي هولدينغ",
+      "secondaryKeywords": [
+        "موافقة مجتمع دبي هولدينغ",
+        "شهادة عدم ممانعة دبي هولدينغ",
+        "تصريح تجديد دبي هولدينغ"
+      ],
+      "directAnswerLength": 282
+    },
+    {
+      "slug": "community-approval",
+      "primaryKeyword": "موافقة المجتمع السكني دبي",
+      "secondaryKeywords": [
+        "موافقة جمعية الملاك دبي",
+        "شهادة عدم الممانعة من إدارة المجتمع السكني",
+        "تصريح المجتمع السكني دبي",
+        "موافقة OA دبي"
+      ],
+      "directAnswerLength": 388
+    },
+    {
+      "slug": "al-safat-green-building-approval",
+      "primaryKeyword": "موافقة الصفقات الخضراء دبي",
+      "secondaryKeywords": [
+        "اشتراطات البناء الأخضر دبي",
+        "شهادة الصفقات الخضراء دبي",
+        "الامتثال البيئي بلدية دبي",
+        "استدامة المباني دبي"
+      ],
+      "directAnswerLength": 386
+    },
+    {
+      "slug": "sewerage-drainage-approval",
+      "primaryKeyword": "موافقة الصرف الصحي والمياه دبي",
+      "secondaryKeywords": [
+        "تصريح الصرف الصحي بلدية دبي",
+        "موافقة توصيل الصرف الصحي دبي",
+        "تصريح تصريف مياه الأمطار",
+        "شهادة عدم ممانعة الصرف الصحي DM"
+      ],
+      "directAnswerLength": 375
+    },
+    {
+      "slug": "electrical-works-approval",
+      "primaryKeyword": "موافقة الأعمال الكهربائية دبي",
+      "secondaryKeywords": [
+        "تصريح كهرباء ديوا",
+        "موافقة التركيبات الكهربائية دبي",
+        "موافقة بلدية دبي الكهربائية",
+        "تصريح التوصيل الكهربائي دبي"
+      ],
+      "directAnswerLength": 345
+    },
+    {
+      "slug": "mezzanine-floor-approval",
+      "primaryKeyword": "موافقة طابق ميزانين دبي",
+      "secondaryKeywords": [
+        "تصريح ميزانين بلدية دبي",
+        "موافقة ميزانين مستودعات دبي",
+        "موافقة إنشائية ميزانين",
+        "رخصة بناء ميزانين بلدية دبي"
+      ],
+      "directAnswerLength": 400
+    },
+    {
+      "slug": "restaurant-works-approval",
+      "primaryKeyword": "موافقة أعمال المطاعم دبي",
+      "secondaryKeywords": [
+        "تصريح تجهيز المطاعم دبي",
+        "موافقة مطبخ المطعم دبي",
+        "تصريح المنشآت الغذائية بلدية دبي",
+        "موافقة تجديد المطاعم دبي"
+      ],
+      "directAnswerLength": 398
+    },
+    {
+      "slug": "interior-works-approval",
+      "primaryKeyword": "موافقة أعمال الديكور الداخلي دبي",
+      "secondaryKeywords": [
+        "تصريح التشطيبات الداخلية دبي",
+        "موافقة تجديد الديكور الداخلي",
+        "تصريح التعديلات الداخلية",
+        "موافقة بلدية دبي لأعمال الديكور"
+      ],
+      "directAnswerLength": 442
+    },
+    {
+      "slug": "commercial-approval",
+      "primaryKeyword": "موافقة التجهيز التجاري دبي",
+      "secondaryKeywords": [
+        "تصريح التجهيز الداخلي التجاري دبي",
+        "موافقة تجهيز المكاتب",
+        "تصريح تجهيز المحلات التجارية دبي",
+        "موافقة تجديد المساحات التجارية"
+      ],
+      "directAnswerLength": 431
+    },
+    {
+      "slug": "residential-approval",
+      "primaryKeyword": "موافقة التشطيب السكني دبي",
+      "secondaryKeywords": [
+        "تصريح تجديد المنزل دبي",
+        "موافقة تجديد الفيلا",
+        "تصريح تشطيب الشقة دبي",
+        "موافقة التصميم الداخلي السكني"
+      ],
+      "directAnswerLength": 308
+    },
+    {
+      "slug": "project-approval",
+      "primaryKeyword": "موافقة المشروع دبي",
+      "secondaryKeywords": [
+        "تصريح البناء الشامل دبي",
+        "تصريح المشروع الكامل دبي",
+        "موافقة الأعمال الرئيسية",
+        "الموافقة المتكاملة للمشروع دبي"
+      ],
+      "directAnswerLength": 373
+    }
+  ],
+  "guides": [
+    {
+      "slug": "complete-guide-dubai-building-approvals",
+      "primaryKeyword": "دليل موافقات البناء في دبي",
+      "secondaryKeywords": [
+        "دليل تصاريح البناء في دبي",
+        "عملية موافقات البناء في دبي",
+        "دليل موافقات بلدية دبي 2026",
+        "الدليل الشامل لموافقات دبي"
+      ],
+      "descriptionLength": 855
+    },
+    {
+      "slug": "how-to-avoid-approval-rejection-dubai",
+      "primaryKeyword": "تجنب رفض الموافقات دبي",
+      "secondaryKeywords": [
+        "أسباب رفض رخصة البناء دبي",
+        "كيفية الحصول على الموافقة من المرة الأولى دبي",
+        "أخطاء الموافقات الشائعة دبي",
+        "حلول رفض الموافقات دبي"
+      ],
+      "descriptionLength": 737
+    },
+    {
+      "slug": "dubai-approval-fees-guide",
+      "primaryKeyword": "دليل رسوم الموافقات في دبي",
+      "secondaryKeywords": [
+        "رسوم تصاريح البناء في دبي 2026",
+        "تكاليف الموافقات في دبي",
+        "جدول رسوم موافقات بلدية دبي",
+        "تفصيل تكاليف الموافقات في دبي"
+      ],
+      "descriptionLength": 856
+    },
+    {
+      "slug": "approval-timelines-dubai-guide",
+      "primaryKeyword": "دليل المواعيد الزمنية للموافقات في دبي",
+      "secondaryKeywords": [
+        "كم تستغرق الموافقات في دبي",
+        "مدة معالجة تصريح البناء في دبي",
+        "الجدول الزمني للموافقات دبي 2026",
+        "دليل مدة موافقة بلدية دبي"
+      ],
+      "descriptionLength": 741
+    },
+    {
+      "slug": "how-long-does-dm-building-permit-take",
+      "primaryKeyword": "كم تستغرق رخصة البناء من بلدية دبي",
+      "secondaryKeywords": [
+        "مدة معالجة رخصة بناء بلدية دبي",
+        "مدة رخصة البناء في دبي",
+        "كم مدة رخصة بلدية دبي",
+        "الجدول الزمني لرخصة بلدية دبي"
+      ],
+      "descriptionLength": 466
+    },
+    {
+      "slug": "dcd-fire-safety-approval-documents",
+      "primaryKeyword": "مستندات موافقة الدفاع المدني دبي السلامة من الحرائق",
+      "secondaryKeywords": [
+        "المستندات المطلوبة الدفاع المدني دبي",
+        "قائمة موافقة الدفاع المدني دبي",
+        "مستندات السلامة من الحرائق الدفاع المدني",
+        "متطلبات تقديم الدفاع المدني دبي"
+      ],
+      "descriptionLength": 565
+    },
+    {
+      "slug": "dm-noc-for-renovation-guide",
+      "primaryKeyword": "شهادة عدم ممانعة بلدية دبي للتجديد",
+      "secondaryKeywords": [
+        "شهادة عدم ممانعة بلدية دبي للتجديد",
+        "شهادة عدم ممانعة لتجديد الفيلا في دبي",
+        "متطلبات شهادة عدم ممانعة بلدية دبي للتجديد",
+        "تصريح تجديد دبي شهادة عدم ممانعة"
+      ],
+      "descriptionLength": 632
+    },
+    {
+      "slug": "rta-approval-commercial-projects",
+      "primaryKeyword": "موافقة هيئة الطرق والمواصلات للمشاريع التجارية دبي",
+      "secondaryKeywords": [
+        "دراسة تأثير المرور هيئة الطرق والمواصلات دبي",
+        "موافقة RTA للمشاريع التجارية",
+        "متطلبات مواقف السيارات RTA دبي",
+        "شهادة عدم ممانعة RTA للمباني التجارية"
+      ],
+      "descriptionLength": 586
+    },
+    {
+      "slug": "dm-completion-certificate-steps",
+      "primaryKeyword": "خطوات شهادة إتمام البناء بلدية دبي",
+      "secondaryKeywords": [
+        "إجراءات شهادة إتمام البناء بلدية دبي",
+        "شهادة إتمام البناء دبي",
+        "كيفية الحصول على شهادة إتمام البناء",
+        "متطلبات شهادة إتمام البناء دبي"
+      ],
+      "descriptionLength": 611
+    },
+    {
+      "slug": "dso-fit-out-approval-guide",
+      "primaryKeyword": "دليل موافقات التجهيز الداخلي في واحة دبي للسيليكون",
+      "secondaryKeywords": [
+        "تصريح التجهيز الداخلي DSO",
+        "إجراءات شهادة عدم الممانعة من واحة دبي للسيليكون",
+        "اعتماد إرشادات التصميم في DSO",
+        "متطلبات التجهيز الداخلي في DSO"
+      ],
+      "descriptionLength": 586
+    },
+    {
+      "slug": "dubai-south-design-guidelines",
+      "primaryKeyword": "إرشادات تصميم دبي الجنوب والموافقة",
+      "secondaryKeywords": [
+        "عملية الموافقة في دبي الجنوب",
+        "مراجعة التصميم في دبي الجنوب",
+        "متطلبات شهادة عدم الممانعة في دبي الجنوب",
+        "إرشادات البناء في دبي الجنوب"
+      ],
+      "descriptionLength": 564
+    },
+    {
+      "slug": "tecom-business-setup-approvals",
+      "primaryKeyword": "موافقات تأسيس الأعمال في تيكوم دبي",
+      "secondaryKeywords": [
+        "موافقة التجهيز الداخلي في مدينة دبي للإنترنت",
+        "تصاريح التأسيس في مدينة دبي للإعلام",
+        "عملية شهادة عدم الممانعة من تيكوم",
+        "إرشادات مراجعة التصميم في تيكوم"
+      ],
+      "descriptionLength": 639
+    },
+    {
+      "slug": "dmcc-free-zone-approval-process",
+      "primaryKeyword": "إجراءات موافقات المنطقة الحرة لسلع دبي المتعددة",
+      "secondaryKeywords": [
+        "موافقة تجهيز DMCC",
+        "تصريح تأسيس أعمال DMCC",
+        "موافقة تجهيز أبراج بحيرات الجميرا DMCC",
+        "متطلبات شهادة عدم الممانعة DMCC"
+      ],
+      "descriptionLength": 651
+    },
+    {
+      "slug": "nakheel-renovation-approval-process",
+      "primaryKeyword": "إجراءات موافقة تجديد نخيل",
+      "secondaryKeywords": [
+        "شهادة عدم ممانعة نخيل للتجديد",
+        "موافقة تجديد نخلة جميرا",
+        "إرشادات تصميم نخيل",
+        "إجراءات موافقة مجتمع نخيل"
+      ],
+      "descriptionLength": 579
+    },
+    {
+      "slug": "emaar-community-design-guidelines",
+      "primaryKeyword": "إرشادات التصميم لمجتمعات إعمار",
+      "secondaryKeywords": [
+        "موافقة تجديد إعمار",
+        "عملية شهادة عدم الممانعة إعمار",
+        "موافقة تشطيب دبي مارينا",
+        "إرشادات مجتمعات إعمار دبي"
+      ],
+      "descriptionLength": 646
+    },
+    {
+      "slug": "dubai-properties-noc-process",
+      "primaryKeyword": "عملية موافقة دبي العقارية",
+      "secondaryKeywords": [
+        "موافقة تجديد دبي العقارية",
+        "موافقة تجهيز الخليج التجاري",
+        "موافقة تجديد شاطئ جميرا",
+        "مراجعة تصميم دبي العقارية"
+      ],
+      "descriptionLength": 632
+    },
+    {
+      "slug": "ejari-registration-complete-guide",
+      "primaryKeyword": "الدليل الشامل لتسجيل الإيجار في دبي",
+      "secondaryKeywords": [
+        "كيفية تسجيل الإيجار في دبي",
+        "المستندات المطلوبة للإيجار",
+        "تسجيل الإيجار أونلاين",
+        "عملية تجديد الإيجار في دبي"
+      ],
+      "descriptionLength": 597
+    },
+    {
+      "slug": "title-deed-transfer-dubai",
+      "primaryKeyword": "إجراءات نقل سند الملكية في دبي",
+      "secondaryKeywords": [
+        "نقل سند الملكية دائرة الأراضي والأملاك دبي",
+        "كيفية نقل ملكية عقار في دبي",
+        "رسوم نقل الملكية في دبي",
+        "عملية نقل سند الملكية دائرة الأراضي والأملاك"
+      ],
+      "descriptionLength": 678
+    },
+    {
+      "slug": "rera-permit-requirements-guide",
+      "primaryKeyword": "متطلبات تصاريح مؤسسة التنظيم العقاري دبي",
+      "secondaryKeywords": [
+        "تصريح البيع على الخارطة RERA",
+        "حاسبة زيادة الإيجار RERA",
+        "دليل رسوم الخدمات RERA",
+        "تصريح الإعلان العقاري RERA"
+      ],
+      "descriptionLength": 558
+    },
+    {
+      "slug": "dewa-connection-process-guide",
+      "primaryKeyword": "دليل عملية توصيل ديوا في دبي",
+      "secondaryKeywords": [
+        "كيفية الحصول على توصيلة ديوا",
+        "تقديم طلب توصيلة جديدة ديوا",
+        "رسوم توصيل ديوا في دبي",
+        "عملية تفتيش ديوا"
+      ],
+      "descriptionLength": 581
+    },
+    {
+      "slug": "district-cooling-connection-guide",
+      "primaryKeyword": "دليل توصيل التبريد المركزي في دبي",
+      "secondaryKeywords": [
+        "عملية توصيل التبريد المركزي",
+        "توصيل التبريد المركزي إمباور",
+        "دليل الإمارات للتبريد المركزي",
+        "رسوم التبريد المركزي دبي"
+      ],
+      "descriptionLength": 590
+    },
+    {
+      "slug": "dewa-meter-installation-steps",
+      "primaryKeyword": "خطوات تركيب عداد كهرباء ديوا في دبي",
+      "secondaryKeywords": [
+        "كيفية تركيب عداد كهرباء ديوا",
+        "رسوم تركيب عداد كهرباء ديوا",
+        "إجراءات استبدال عداد كهرباء ديوا",
+        "ترقية عداد كهرباء ديوا في دبي"
+      ],
+      "descriptionLength": 672
+    },
+    {
+      "slug": "dubai-food-control-approval-guide",
+      "primaryKeyword": "دليل الحصول على موافقة قسم الرقابة الغذائية في دبي",
+      "secondaryKeywords": [
+        "موافقة الرقابة الغذائية بلدية دبي",
+        "موافقة المطاعم بلدية دبي",
+        "تصريح سلامة الأغذية دبي",
+        "رخصة المنشأة الغذائية دبي"
+      ],
+      "descriptionLength": 747
+    },
+    {
+      "slug": "dtcm-tourism-license-requirements",
+      "primaryKeyword": "متطلبات رخصة السياحة DTCM دبي",
+      "secondaryKeywords": [
+        "تقديم طلب رخصة سياحة دبي",
+        "اعتماد تصنيف الفنادق DTCM",
+        "رخصة وكالة سفر دبي",
+        "إجراءات موافقة DTCM السياحية"
+      ],
+      "descriptionLength": 640
+    },
+    {
+      "slug": "dha-healthcare-approval-guide",
+      "primaryKeyword": "دليل موافقة هيئة الصحة بدبي للمنشآت الصحية",
+      "secondaryKeywords": [
+        "ترخيص عيادة هيئة الصحة بدبي دبي",
+        "عملية موافقة هيئة الصحة بدبي",
+        "ترخيص منشأة صحية دبي",
+        "موافقة مركز طبي هيئة الصحة بدبي"
+      ],
+      "descriptionLength": 717
+    },
+    {
+      "slug": "interior-fit-out-permit-process",
+      "primaryKeyword": "إجراءات تصريح التجهيزات الداخلية دبي",
+      "secondaryKeywords": [
+        "متطلبات تصريح التجهيزات الداخلية دبي",
+        "موافقة التجهيزات التجارية دبي",
+        "خطوات تصريح التجهيزات الداخلية",
+        "تصريح التجهيزات السكنية دبي"
+      ],
+      "descriptionLength": 713
+    },
+    {
+      "slug": "change-of-usage-permit-guide",
+      "primaryKeyword": "دليل تصريح تغيير الاستخدام في دبي",
+      "secondaryKeywords": [
+        "تغيير استخدام العقار في دبي",
+        "تحويل سكني إلى تجاري في دبي",
+        "تصريح تغيير الاستخدام من بلدية دبي",
+        "متطلبات تصريح تغيير الاستخدام في دبي"
+      ],
+      "descriptionLength": 789
+    },
+    {
+      "slug": "structural-modification-approval-guide",
+      "primaryKeyword": "دليل موافقة التعديلات الإنشائية دبي",
+      "secondaryKeywords": [
+        "تصريح التعديل الإنشائي دبي",
+        "موافقة توسيع المبنى دبي",
+        "موافقة إزالة الجدار الحامل",
+        "تصريح فتحة بلاطة دبي"
+      ],
+      "descriptionLength": 705
+    },
+    {
+      "slug": "cad-drawing-standards-dubai-guide",
+      "primaryKeyword": "دليل معايير رسومات CAD في دبي",
+      "secondaryKeywords": [
+        "معايير CAD لبلدية دبي",
+        "تسمية الطبقات في CAD لبلدية دبي",
+        "متطلبات تقديم رسومات CAD في دبي",
+        "معايير رسومات CAD في دبي 2026"
+      ],
+      "descriptionLength": 581
+    },
+    {
+      "slug": "as-built-drawing-requirements",
+      "primaryKeyword": "متطلبات المخططات حسب التنفيذ دبي",
+      "secondaryKeywords": [
+        "متطلبات المخططات حسب التنفيذ بلدية دبي",
+        "تقديم CAD حسب التنفيذ دبي",
+        "عملية اعتماد المخططات حسب التنفيذ",
+        "معايير المخططات حسب التنفيذ في دبي"
+      ],
+      "descriptionLength": 624
+    },
+    {
+      "slug": "3d-design-submission-guide",
+      "primaryKeyword": "دليل تقديم التصميم ثلاثي الأبعاد دبي",
+      "secondaryKeywords": [
+        "تقديم التصميم ثلاثي الأبعاد بلدية دبي",
+        "متطلبات اعتماد التصميم ثلاثي الأبعاد دبي",
+        "تقديم ثلاثي الأبعاد لاعتماد المطور",
+        "معايير التصور ثلاثي الأبعاد دبي"
+      ],
+      "descriptionLength": 632
+    }
+  ],
+  "services": [
+    {
+      "slug": "2d-drawings",
+      "primaryKeyword": "اعتماد الرسومات ثنائية الأبعاد دبي",
+      "secondaryKeywords": [
+        "رسومات معمارية ثنائية الأبعاد دبي",
+        "رسومات هندسية ثنائية الأبعاد لبلدية دبي",
+        "رسومات مخططات طوابق ثنائية الأبعاد دبي",
+        "تقديم رسومات ثنائية الأبعاد لبلدية دبي"
+      ],
+      "directAnswerLength": 337
+    },
+    {
+      "slug": "3d-design-visualization",
+      "primaryKeyword": "التصميم ثلاثي الأبعاد موافقات دبي",
+      "secondaryKeywords": [
+        "خدمات التصميم ثلاثي الأبعاد دبي",
+        "التصور المعماري ثلاثي الأبعاد دبي",
+        "التصميم ثلاثي الأبعاد لتقديمات بلدية دبي",
+        "التصور ثلاثي الأبعاد لموافقات المطورين العقاريين"
+      ],
+      "directAnswerLength": 258
+    },
+    {
+      "slug": "cad-documentation",
+      "primaryKeyword": "خدمات توثيق رسومات CAD لاعتماد دبي",
+      "secondaryKeywords": [
+        "خدمات رسومات CAD في دبي",
+        "توثيق رسومات CAD لبلدية دبي",
+        "خدمات الرسم الهندسي CAD في الإمارات",
+        "توثيق رسومات CAD لرخص البناء"
+      ],
+      "directAnswerLength": 226
+    },
+    {
+      "slug": "approval-management",
+      "primaryKeyword": "خدمة إدارة الموافقات في دبي",
+      "secondaryKeywords": [
+        "إدارة موافقات البناء في دبي",
+        "استشاري موافقات دبي",
+        "خدمة إدارة التصاريح في دبي",
+        "تنسيق الموافقات في دبي"
+      ],
+      "directAnswerLength": 345
+    },
+    {
+      "slug": "document-clearing",
+      "primaryKeyword": "خدمة تصفية مستندات دبي",
+      "secondaryKeywords": [
+        "تصفية مستندات دبي",
+        "تصفية مستندات حكومية الإمارات",
+        "معالجة مستندات دبي",
+        "تقديم مستندات للجهات الرسمية دبي"
+      ],
+      "directAnswerLength": 277
+    },
+    {
+      "slug": "project-management",
+      "primaryKeyword": "إدارة موافقات المشاريع دبي",
+      "secondaryKeywords": [
+        "إدارة موافقات البناء دبي",
+        "إدارة تصاريح المشاريع",
+        "خدمة تنسيق الموافقات دبي",
+        "خدمة إدارة التصاريح دبي"
+      ],
+      "directAnswerLength": 290
+    },
+    {
+      "slug": "fit-outs",
+      "primaryKeyword": "موافقة التجهيزات الداخلية دبي",
+      "secondaryKeywords": [
+        "تصريح التجهيزات الداخلية التجارية دبي",
+        "موافقة تجهيز المكاتب",
+        "تصريح تجهيز المحلات التجارية",
+        "شهادة عدم الممانعة للتجهيزات دبي",
+        "خدمات موافقات التجهيزات الداخلية"
+      ],
+      "directAnswerLength": 282
+    }
+  ]
+}

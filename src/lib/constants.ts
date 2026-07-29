@@ -4,7 +4,7 @@
  */
 
 export const SITE = {
-  url: process.env.NEXT_PUBLIC_SITE_URL || "https://www.dubaiapprovalconsultants.com",
+  url: "https://www.dubaiapprovalconsultants.com",
   name: "Wasleen Approvals",
   fullName: "Wasleen Liminal Approval Consultants",
   tagline: "Dubai Approval Consultant Experts",
@@ -72,3 +72,134 @@ export const DEFAULT_SEO = {
 
 export const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || "G-SJF4WHM8QJ";
 export const GTM_ID = process.env.NEXT_PUBLIC_GTM_ID || "";
+
+/* ============================================================
+   Arabic UI Constants — Navigation, Footer, CTAs & Labels
+   Used by the Arabic layout (src/app/ar/layout.tsx) and all
+   Arabic pages to render RTL-appropriate UI strings.
+   ============================================================ */
+
+export const AR = {
+  /** Site name in Arabic */
+  siteName: "وسلين ليمينال لاستشارات الموافقات",
+  siteShortName: "وسلين للموافقات",
+  tagline: "خبراء موافقات دبي",
+  description:
+    "استشارات متخصصة في موافقات دبي — بلدية دبي، ديوا، الدفاع المدني، وهيئة دبي للتطوير. تسريع موافقات مشروعك مع وسلين للموافقات.",
+
+  /** Language switcher labels */
+  lang: {
+    switchToEnglish: "English",
+    switchToArabic: "العربية",
+    currentLang: "العربية",
+  },
+
+  /** Navigation labels (matches Header nav items) */
+  nav: {
+    home: "الرئيسية",
+    approvals: "الموافقات",
+    services: "الخدمات",
+    guides: "الأدلة",
+    aboutUs: "من نحن",
+    contactUs: "اتصل بنا",
+    whatsapp: "واتساب",
+    callNow: "اتصل الآن",
+  },
+
+  /** Footer section labels */
+  footer: {
+    about: "عن وسلين",
+    aboutDesc:
+      "وسلين ليمينال لاستشارات الموافقات — خبراء في الحصول على الموافقات الحكومية في دبي. نساعدك في تسريع موافقات مشروعك.",
+    quickLinks: "روابط سريعة",
+    services: "خدماتنا",
+    contact: "معلومات الاتصال",
+    workingHours: "ساعات العمل",
+    workingHoursDetail: "الأحد - الخميس: ٩:٠٠ صباحاً - ٦:٠٠ مساءً",
+    rights: "© {year} وسلين ليمينال لاستشارات الموافقات. جميع الحقوق محفوظة.",
+    privacy: "سياسة الخصوصية",
+    terms: "شروط الاستخدام",
+  },
+
+  /** CTA (Call to Action) text */
+  cta: {
+    getStarted: "ابدأ الآن",
+    contactUs: "اتصل بنا",
+    requestQuote: "اطلب عرض سعر",
+    learnMore: "اعرف المزيد",
+    whatsapp: "تواصل عبر واتساب",
+    callUs: "اتصل بنا الآن",
+    submitEnquiry: "إرسال الاستفسار",
+    getApproval: "احصل على الموافقة",
+    viewAll: "عرض الكل",
+    readMore: "اقرأ المزيد",
+    startProject: "ابدأ مشروعك",
+    freeConsultation: "استشارة مجانية",
+  },
+
+  /** Breadcrumb labels */
+  breadcrumb: {
+    home: "الرئيسية",
+    approvals: "الموافقات",
+    services: "الخدمات",
+    guides: "الأدلة",
+    aboutUs: "من نحن",
+    contactUs: "اتصل بنا",
+  },
+
+  /** Category labels (8 approval categories translated) */
+  categories: {
+    "government-regulatory": "الحكومية والتنظيمية",
+    "free-zone": "المناطق الحرة",
+    "developer-community": "المطورين والمجتمعات",
+    "property-registration": "العقارات والتسجيل",
+    "technical-utility": "الفنية والمرافق",
+    "trade-food-hospitality": "التجارة والأغذية والضيافة",
+    "fit-out-construction": "التشطيبات والبناء",
+    "drawing-documentation": "الرسومات والوثائق",
+  },
+
+  /** Form labels and placeholders */
+  form: {
+    name: "الاسم الكامل",
+    namePlaceholder: "أدخل اسمك الكامل",
+    email: "البريد الإلكتروني",
+    emailPlaceholder: "أدخل بريدك الإلكتروني",
+    phone: "رقم الهاتف",
+    phonePlaceholder: "أدخل رقم هاتفك",
+    message: "الرسالة",
+    messagePlaceholder: "اكتب رسالتك هنا...",
+    subject: "الموضوع",
+    subjectPlaceholder: "أدخل موضوع الاستفسار",
+    submit: "إرسال",
+    required: "هذا الحقل مطلوب",
+    success: "تم إرسال رسالتك بنجاح. سنتواصل معك قريباً.",
+    error: "حدث خطأ. يرجى المحاولة مرة أخرى.",
+    privacyConsent: "أوافق على سياسة الخصوصية",
+  },
+
+  /** Search / page labels */
+  search: {
+    placeholder: "ابحث عن موافقة...",
+    noResults: "لا توجد نتائج",
+    results: "نتائج البحث",
+  },
+
+  /** Miscellaneous UI labels */
+  misc: {
+    lastUpdated: "آخر تحديث",
+    readingTime: "دقائق للقراءة",
+    share: "مشاركة",
+    print: "طباعة",
+    backToTop: "العودة إلى الأعلى",
+    pageNotFound: "الصفحة غير موجودة",
+    pageNotFoundDesc: "عذراً، الصفحة التي تبحث عنها غير موجودة.",
+    goHome: "العودة إلى الرئيسية",
+    loading: "جارٍ التحميل...",
+    copies: "نسخ",
+  },
+
+  /** WhatsApp pre-filled message in Arabic */
+  whatsappMessage:
+    "مرحباً وسلين ليمينال لاستشارات الموافقات، لدي استفسار بخصوص موافقات مشروعي. هل يمكنكم مشاركة الخطوات التالية؟",
+} as const;

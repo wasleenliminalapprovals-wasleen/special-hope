@@ -9,6 +9,8 @@
 
 import type { Metadata } from "next";
 import { SITE, NAP } from "@/lib/constants";
+import { hreflangAlternates } from "@/lib/locale";
+import { staticPageSchema } from "@/lib/schema";
 import { Shield, Award, Users, BadgeCheck } from "lucide-react";
 
 /* ============================================================
@@ -21,6 +23,7 @@ export const metadata: Metadata = {
     "Wasleen Liminal Approval Consultants — 8+ years of experience streamlining Dubai approvals. Trusted by 500+ clients for DM, DDA, DEWA & DCD permits.",
   alternates: {
     canonical: `${SITE.url}/about-us`,
+    languages: hreflangAlternates(SITE.url, "/about-us"),
   },
   openGraph: {
     title: "About Wasleen Approvals | Dubai Approval Experts",
@@ -65,8 +68,33 @@ const values = [
    ============================================================ */
 
 export default function AboutUsPage() {
+  /* ── Schema ─────────────────────────────────────────── */
+  const schemas = staticPageSchema(
+    {
+      url: "/about-us",
+      title: "About Wasleen Liminal Approval Consultants",
+      description:
+        "Wasleen Liminal Approval Consultants — 8+ years of experience streamlining Dubai approvals.",
+      pageType: "AboutPage",
+      breadcrumbs: [
+        { position: 1, name: "Home", slug: "/" },
+        { position: 2, name: "About Us", slug: "/about-us" },
+      ],
+      dateModified: "2026-07-28",
+    },
+    "en",
+  );
+
   return (
     <>
+      {/* JSON-LD Schema */}
+      {schemas.map((schema, i) => (
+        <script
+          key={i}
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+        />
+      ))}
       {/* ===== Hero ===== */}
       <section className="bg-brand-blue px-4 py-16 md:px-8 md:py-24">
         <div className="max-w-4xl mx-auto text-center">
@@ -200,55 +228,6 @@ export default function AboutUsPage() {
           </div>
         </div>
       </section>
-
-      {/* ============================================================
-         JSON-LD Schema
-         ============================================================ */}
-
-      {/* AboutPage Schema */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "AboutPage",
-            "@id": `${SITE.url}/about-us/#aboutpage`,
-            url: `${SITE.url}/about-us`,
-            name: "About Wasleen Liminal Approval Consultants",
-            description:
-              "Wasleen Liminal Approval Consultants — 8+ years of experience streamlining Dubai approvals.",
-            mainEntity: {
-              "@id": `${SITE.url}/#organization`,
-            },
-          }),
-        }}
-      />
-
-      {/* BreadcrumbList Schema */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "BreadcrumbList",
-            "@id": `${SITE.url}/about-us/#breadcrumb`,
-            itemListElement: [
-              {
-                "@type": "ListItem",
-                position: 1,
-                name: "Home",
-                item: SITE.url,
-              },
-              {
-                "@type": "ListItem",
-                position: 2,
-                name: "About Us",
-                item: `${SITE.url}/about-us`,
-              },
-            ],
-          }),
-        }}
-      />
     </>
   );
 }

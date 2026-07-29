@@ -9,11 +9,16 @@
  * 5. FAQBlock          — Top 6 general questions + FAQPage schema
  * 6. CTASection        — Final CTA (phone, WhatsApp, email)
  *
+ * Schema: WebPage + BreadcrumbList via schema.ts homep‌ageSchema() (Phase 4.1)
+ *
  * @see /plans/complete-build-plan.md (Phase 6 — Homepage)
+ * @see plans/arabic-market-domination-reconciled-plan.md §4.1
  */
 
 import type { Metadata } from "next";
-import { SITE, NAP } from "@/lib/constants";
+import { SITE } from "@/lib/constants";
+import { hreflangAlternates } from "@/lib/locale";
+import { homepageSchema } from "@/lib/schema";
 import HeroSection from "@/components/sections/HeroSection";
 import TrustStrip from "@/components/sections/TrustStrip";
 import ServiceCategories from "@/components/sections/ServiceCategories";
@@ -33,6 +38,7 @@ export const metadata: Metadata = {
     "Wasleen Approval Consultants in Al Qusais, Dubai — expert DM, DDA, DEWA & DCD approvals for Business Bay, JLT & all UAE hubs. Contact us today.",
   alternates: {
     canonical: SITE.url,
+    languages: hreflangAlternates(SITE.url, "/"),
   },
   openGraph: {
     title: "Fast-Track Dubai Project Approvals | DM, DDA, DEWA & DCD | Wasleen",
@@ -84,8 +90,27 @@ const faqItems = [
    ============================================================ */
 
 export default function HomePage() {
+  /* ── Schema ─────────────────────────────────────────── */
+  const schemas = homepageSchema(
+    {
+      title: "Fast-Track Dubai Project Approvals | DM, DDA, DEWA & DCD | Wasleen",
+      description:
+        "Wasleen Approval Consultants in Al Qusais, Dubai — expert DM, DDA, DEWA & DCD approvals for Business Bay, JLT & all UAE hubs. Contact us today.",
+      dateModified: "2026-07-28",
+    },
+    "en",
+  );
+
   return (
     <>
+      {/* JSON-LD Schema */}
+      {schemas.map((schema, i) => (
+        <script
+          key={i}
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+        />
+      ))}
       {/* ===== 1. Hero Section ===== */}
       <HeroSection />
 
@@ -112,53 +137,6 @@ export default function HomePage() {
 
       {/* ===== 8. CTA Section ===== */}
       <CTASection service_slug="homepage" />
-
-      {/* ============================================================
-         Homepage JSON-LD Schema
-         ============================================================ */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "WebPage",
-            "@id": `${SITE.url}/#webpage`,
-            url: SITE.url,
-            name: "Fast-Track Dubai Project Approvals | DM, DDA, DEWA & DCD | Wasleen",
-            description:
-              "Wasleen Approval Consultants in Al Qusais, Dubai — expert DM, DDA, DEWA & DCD approvals for Business Bay, JLT & all UAE hubs. Contact us today.",
-            isPartOf: {
-              "@id": `${SITE.url}/#website`,
-            },
-            about: {
-              "@id": `${SITE.url}/#organization`,
-            },
-            breadcrumb: {
-              "@id": `${SITE.url}/#breadcrumb`,
-            },
-          }),
-        }}
-      />
-
-      {/* BreadcrumbList Schema */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "BreadcrumbList",
-            "@id": `${SITE.url}/#breadcrumb`,
-            itemListElement: [
-              {
-                "@type": "ListItem",
-                position: 1,
-                name: "Home",
-                item: SITE.url,
-              },
-            ],
-          }),
-        }}
-      />
     </>
   );
 }

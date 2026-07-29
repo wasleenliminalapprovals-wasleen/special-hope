@@ -42,7 +42,7 @@ export default function ProcessStepsBlock({
           <div className="relative">
             {/* Vertical connector line */}
             <div
-              className="absolute left-[23px] top-0 bottom-0 w-0.5 bg-border-light hidden md:block"
+              className="absolute start-[23px] top-0 bottom-0 w-0.5 bg-border-light hidden md:block"
               aria-hidden="true"
             />
 
@@ -56,7 +56,7 @@ export default function ProcessStepsBlock({
                     </div>
                     {/* Mobile connector */}
                     {step.step < steps.length && (
-                      <div className="md:hidden ml-4" aria-hidden="true">
+                      <div className="md:hidden ms-4" aria-hidden="true">
                         <ArrowDown size={20} strokeWidth={1.75} className="text-border-light" />
                       </div>
                     )}

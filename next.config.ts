@@ -7,6 +7,12 @@ const nextConfig: NextConfig = {
   /* ── React Strict Mode for development best practices ── */
   reactStrictMode: true,
 
+  /* ── Trailing Slash Handling ── */
+  // Prevents Next.js from auto-stripping trailing slashes (which would
+  // cause a redirect loop with middleware that adds them back).
+  // Middleware explicitly handles /ar → /ar/ normalization.
+  skipTrailingSlashRedirect: true,
+
   /* ── Image Optimization ── */
   images: {
     formats: ["image/webp", "image/avif"],

@@ -27,6 +27,7 @@ import {
 } from "lucide-react";
 import { approvals } from "@/data/approvals";
 import { SITE, HUB_SLUGS } from "@/lib/constants";
+import { hreflangAlternates } from "@/lib/locale";
 import { breadcrumbList, webPageSchema } from "@/lib/schema";
 import { APPROVAL_CATEGORIES, type ApprovalCategory } from "@/types";
 import Card from "@/components/ui/Card";
@@ -43,6 +44,7 @@ export const metadata: Metadata = {
     "Complete list of 52+ Dubai building and engineering approvals. Find DM permits, DCD NOCs, DEWA connections, developer approvals, free zone permits, and more. Expert guidance from Wasleen Approvals.",
   alternates: {
     canonical: `${SITE.url}${HUB_SLUGS.approvals}`,
+    languages: hreflangAlternates(SITE.url, HUB_SLUGS.approvals),
   },
   openGraph: {
     title: "Dubai Approvals (52+) | DM, DDA, DEWA, DCD & More | Wasleen",
@@ -154,7 +156,7 @@ export default function ApprovalsHubPage() {
                   <Link
                     key={approval.slug}
                     href={`/approvals/${approval.slug}`}
-                    className="group flex flex-col gap-3 p-5 rounded-md bg-gradient-to-br from-white to-card-bg/30 border border-border-light border-l-2 border-l-transparent shadow-card transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-lg hover:border-brand-blue/40 hover:border-l-4 hover:border-l-brand-blue hover:bg-gradient-to-br hover:from-white hover:to-card-bg"
+                    className="group flex flex-col gap-3 p-5 rounded-md bg-gradient-to-br from-white to-card-bg/30 border border-border-light border-s-2 border-s-transparent shadow-card transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-lg hover:border-brand-blue/40 hover:border-s-4 hover:border-s-brand-blue hover:bg-gradient-to-br hover:from-white hover:to-card-bg"
                   >
                     <div className="flex items-start justify-between gap-3">
                       <h3 className="text-h4 font-montserrat font-bold text-heading-text group-hover:text-link-blue transition-colors">

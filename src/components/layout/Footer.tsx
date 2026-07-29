@@ -11,52 +11,116 @@ import {
 } from "lucide-react";
 import WasleenIcon from "@/components/logo/WasleenIcon";
 import SocialIconsRow from "@/components/sections/SocialIconsRow";
-import { NAP, SITE } from "@/lib/constants";
+import { AR, NAP, SITE } from "@/lib/constants";
 
 /* ============================================================
    Footer — 5-column on desktop, single-column accordion on mobile
    ============================================================ */
 
+/* ── Helper: localized href prefix ── */
+function p(locale: "en" | "ar", href: string) {
+  if (locale === "ar" && href.startsWith("/")) return `/ar${href}`;
+  return href;
+}
+
 /* ── Service links (mirrors header Services mega menu) ── */
-const SERVICES = [
-  { label: "2D Drawings", href: "/services/2d-drawings" },
-  { label: "3D Design & Visualization", href: "/services/3d-design-visualization" },
-  { label: "CAD Documentation", href: "/services/cad-documentation" },
-  { label: "Approval Management", href: "/services/approval-management" },
-  { label: "Document Clearing", href: "/services/document-clearing" },
-  { label: "Interior (Wasleen)", href: "https://wasleen.com", isExternal: true },
-  { label: "Pergolas", href: "https://www.pergolas.wasleen.com", isExternal: true },
-];
+function getServices(locale: "en" | "ar") {
+  const prefix = locale === "ar" ? "/ar" : "";
+  if (locale === "ar") {
+    return [
+      { label: "رسومات ثنائية الأبعاد", href: `${prefix}/services/2d-drawings` },
+      { label: "تصميم وتصور ثلاثي الأبعاد", href: `${prefix}/services/3d-design-visualization` },
+      { label: "توثيق CAD", href: `${prefix}/services/cad-documentation` },
+      { label: "إدارة الموافقات", href: `${prefix}/services/approval-management` },
+      { label: "إنهاء المعاملات", href: `${prefix}/services/document-clearing` },
+      { label: "الديكور الداخلي (وسلين)", href: "https://wasleen.com", isExternal: true },
+      { label: "البرجولات", href: "https://www.pergolas.wasleen.com", isExternal: true },
+    ];
+  }
+  return [
+    { label: "2D Drawings", href: `${prefix}/services/2d-drawings` },
+    { label: "3D Design & Visualization", href: `${prefix}/services/3d-design-visualization` },
+    { label: "CAD Documentation", href: `${prefix}/services/cad-documentation` },
+    { label: "Approval Management", href: `${prefix}/services/approval-management` },
+    { label: "Document Clearing", href: `${prefix}/services/document-clearing` },
+    { label: "Interior (Wasleen)", href: "https://wasleen.com", isExternal: true },
+    { label: "Pergolas", href: "https://www.pergolas.wasleen.com", isExternal: true },
+  ];
+}
 
 /* ── Approval categories for footer columns ── */
-const GOV_APPROVALS = [
-  { label: "Dubai Municipality", href: "/approvals/dubai-municipality-building-permit" },
-  { label: "Dubai Civil Defense (DCD)", href: "/approvals/dubai-civil-defense-approval" },
-  { label: "DEWA Approval", href: "/approvals/dewa-approval" },
-  { label: "DDA Approval", href: "/approvals/dda-approval" },
-  { label: "RTA Approval", href: "/approvals/rta-approval" },
-  { label: "Dubai Police", href: "/approvals/dubai-police-approval" },
-];
+function getGovApprovals(locale: "en" | "ar") {
+  const prefix = locale === "ar" ? "/ar" : "";
+  if (locale === "ar") {
+    return [
+      { label: "بلدية دبي", href: `${prefix}/approvals/dubai-municipality-building-permit` },
+      { label: "الدفاع المدني بدبي (DCD)", href: `${prefix}/approvals/dubai-civil-defense-approval` },
+      { label: "موافقة هيئة كهرباء ومياه دبي", href: `${prefix}/approvals/dewa-approval` },
+      { label: "موافقة هيئة دبي للتطوير (DDA)", href: `${prefix}/approvals/dda-approval` },
+      { label: "موافقة هيئة الطرق والمواصلات (RTA)", href: `${prefix}/approvals/rta-approval` },
+      { label: "شرطة دبي", href: `${prefix}/approvals/dubai-police-approval` },
+    ];
+  }
+  return [
+    { label: "Dubai Municipality", href: `${prefix}/approvals/dubai-municipality-building-permit` },
+    { label: "Dubai Civil Defense (DCD)", href: `${prefix}/approvals/dubai-civil-defense-approval` },
+    { label: "DEWA Approval", href: `${prefix}/approvals/dewa-approval` },
+    { label: "DDA Approval", href: `${prefix}/approvals/dda-approval` },
+    { label: "RTA Approval", href: `${prefix}/approvals/rta-approval` },
+    { label: "Dubai Police", href: `${prefix}/approvals/dubai-police-approval` },
+  ];
+}
 
-const FREE_ZONE_APPROVALS = [
-  { label: "JAFZA Approval", href: "/approvals/jebel-ali-free-zone-approval" },
-  { label: "DMCC Approval", href: "/approvals/dmcc-approval" },
-  { label: "Dubai South", href: "/approvals/dubai-south-approval" },
-  { label: "DIFC Approval", href: "/approvals/difc-approval" },
-  { label: "DSO Approval", href: "/approvals/dubai-silicon-oasis-approval" },
-  { label: "DAFZA Approval", href: "/approvals/dubai-airport-freezone-approval" },
-];
+function getFreeZoneApprovals(locale: "en" | "ar") {
+  const prefix = locale === "ar" ? "/ar" : "";
+  if (locale === "ar") {
+    return [
+      { label: "موافقة جافزا (JAFZA)", href: `${prefix}/approvals/jebel-ali-free-zone-approval` },
+      { label: "موافقة مركز دبي للسلع المتعددة", href: `${prefix}/approvals/dmcc-approval` },
+      { label: "دبي الجنوب", href: `${prefix}/approvals/dubai-south-approval` },
+      { label: "موافقة مركز دبي المالي العالمي", href: `${prefix}/approvals/difc-approval` },
+      { label: "موافقة واحة دبي للسيليكون", href: `${prefix}/approvals/dubai-silicon-oasis-approval` },
+      { label: "موافقة المنطقة الحرة بمطار دبي", href: `${prefix}/approvals/dubai-airport-freezone-approval` },
+    ];
+  }
+  return [
+    { label: "JAFZA Approval", href: `${prefix}/approvals/jebel-ali-free-zone-approval` },
+    { label: "DMCC Approval", href: `${prefix}/approvals/dmcc-approval` },
+    { label: "Dubai South", href: `${prefix}/approvals/dubai-south-approval` },
+    { label: "DIFC Approval", href: `${prefix}/approvals/difc-approval` },
+    { label: "DSO Approval", href: `${prefix}/approvals/dubai-silicon-oasis-approval` },
+    { label: "DAFZA Approval", href: `${prefix}/approvals/dubai-airport-freezone-approval` },
+  ];
+}
 
-const FITOUT_APPROVALS = [
-  { label: "Interior Works", href: "/approvals/interior-works-approval" },
-  { label: "Fit-Out Works", href: "/approvals/interior-fit-out-approval" },
-  { label: "Ejari Registration", href: "/approvals/ejari-registration" },
-  { label: "Commercial Approval", href: "/approvals/commercial-approval" },
-  { label: "Building Completion Cert.", href: "/approvals/dubai-municipality-completion-certificate" },
-];
+function getFitoutApprovals(locale: "en" | "ar") {
+  const prefix = locale === "ar" ? "/ar" : "";
+  if (locale === "ar") {
+    return [
+      { label: "أعمال الديكور الداخلي", href: `${prefix}/approvals/interior-works-approval` },
+      { label: "أعمال التشطيب", href: `${prefix}/approvals/interior-fit-out-approval` },
+      { label: "تسجيل إيجاري", href: `${prefix}/approvals/ejari-registration` },
+      { label: "الموافقة التجارية", href: `${prefix}/approvals/commercial-approval` },
+      { label: "شهادة إتمام البناء", href: `${prefix}/approvals/dubai-municipality-completion-certificate` },
+    ];
+  }
+  return [
+    { label: "Interior Works", href: `${prefix}/approvals/interior-works-approval` },
+    { label: "Fit-Out Works", href: `${prefix}/approvals/interior-fit-out-approval` },
+    { label: "Ejari Registration", href: `${prefix}/approvals/ejari-registration` },
+    { label: "Commercial Approval", href: `${prefix}/approvals/commercial-approval` },
+    { label: "Building Completion Cert.", href: `${prefix}/approvals/dubai-municipality-completion-certificate` },
+  ];
+}
 
-export default function Footer() {
+export default function Footer({ locale = "en" }: { locale?: "en" | "ar" }) {
   const currentYear = new Date().getFullYear();
+  const SERVICES = getServices(locale);
+  const GOV_APPROVALS = getGovApprovals(locale);
+  const FREE_ZONE_APPROVALS = getFreeZoneApprovals(locale);
+  const FITOUT_APPROVALS = getFitoutApprovals(locale);
+  const prefix = locale === "ar" ? "/ar" : "";
+  const t = AR.categories;
 
   return (
     <footer className="bg-brand-blue text-white">
@@ -64,54 +128,57 @@ export default function Footer() {
         {/* ── Desktop: 5-column grid ── */}
         <div className="hidden lg:grid lg:grid-cols-5 lg:gap-8">
           {/* Col 1: Company info */}
-          <FooterCompanyColumn />
+          <FooterCompanyColumn locale={locale} />
 
           {/* Col 2: Services */}
-          <FooterLinksColumn title="Services" links={SERVICES} />
+          <FooterLinksColumn title={locale === "ar" ? AR.footer.services : "Services"} links={SERVICES} locale={locale} />
 
           {/* Col 3: Government & Regulatory */}
           <FooterLinksColumn
-            title="Government Approvals"
+            title={locale === "ar" ? t["government-regulatory"] : "Government Approvals"}
             links={GOV_APPROVALS}
-            viewAllHref="/approvals"
+            viewAllHref={`${prefix}/approvals`}
+            locale={locale}
           />
 
           {/* Col 4: Free Zone + Fit-Out */}
           <div className="space-y-8">
             <FooterLinksColumn
-              title="Free Zone Approvals"
+              title={locale === "ar" ? t["free-zone"] : "Free Zone Approvals"}
               links={FREE_ZONE_APPROVALS}
-              viewAllHref="/approvals"
+              viewAllHref={`${prefix}/approvals`}
+              locale={locale}
             />
             <FooterLinksColumn
-              title="Fit-Out & Interior"
+              title={locale === "ar" ? t["fit-out-construction"] : "Fit-Out & Interior"}
               links={FITOUT_APPROVALS}
-              viewAllHref="/approvals"
+              viewAllHref={`${prefix}/approvals`}
+              locale={locale}
             />
           </div>
 
           {/* Col 5: Company & Contact */}
-          <FooterContactColumn />
+          <FooterContactColumn locale={locale} />
         </div>
 
         {/* ── Mobile: accordion sections ── */}
         <div className="lg:hidden space-y-0">
           {/* Company info (always visible) */}
           <div className="pb-6 border-b border-white/20 mb-0">
-            <FooterCompanyColumn />
+            <FooterCompanyColumn locale={locale} />
           </div>
 
-          <MobileAccordionSection title="Services" links={SERVICES} />
-          <MobileAccordionSection title="Government Approvals" links={GOV_APPROVALS} viewAllHref="/approvals" />
-          <MobileAccordionSection title="Free Zone Approvals" links={FREE_ZONE_APPROVALS} viewAllHref="/approvals" />
-          <MobileAccordionSection title="Fit-Out & Interior" links={FITOUT_APPROVALS} viewAllHref="/approvals" />
-          <MobileAccordionSection title="Company & Contact" isContactSection />
+          <MobileAccordionSection title={locale === "ar" ? AR.footer.services : "Services"} links={SERVICES} locale={locale} />
+          <MobileAccordionSection title={locale === "ar" ? t["government-regulatory"] : "Government Approvals"} links={GOV_APPROVALS} viewAllHref={`${prefix}/approvals`} locale={locale} />
+          <MobileAccordionSection title={locale === "ar" ? t["free-zone"] : "Free Zone Approvals"} links={FREE_ZONE_APPROVALS} viewAllHref={`${prefix}/approvals`} locale={locale} />
+          <MobileAccordionSection title={locale === "ar" ? t["fit-out-construction"] : "Fit-Out & Interior"} links={FITOUT_APPROVALS} viewAllHref={`${prefix}/approvals`} locale={locale} />
+          <MobileAccordionSection title={locale === "ar" ? AR.footer.contact : "Company & Contact"} isContactSection locale={locale} />
         </div>
 
         {/* ── Maps section ── */}
         <div className="mt-10">
           <p className="text-caption font-medium text-white/70 uppercase tracking-wider mb-3">
-            Our Locations
+            {locale === "ar" ? "مواقعنا" : "Our Locations"}
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {/* Map 1 — Main Office */}
@@ -152,8 +219,8 @@ export default function Footer() {
       {/* ── Bottom bar ── */}
       <div className="border-t border-white/20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-4 flex flex-col sm:flex-row items-center justify-between gap-2 text-caption text-white/70">
-          <span>Designed by Wasleen Digital Labs</span>
-          <span>&copy; {currentYear} {NAP.companyName}. All rights reserved.</span>
+          <span>{locale === "ar" ? "تصميم وسلين ديجيتال لابز" : "Designed by Wasleen Digital Labs"}</span>
+          <span>{locale === "ar" ? AR.footer.rights.replace("{year}", String(currentYear)) : `&copy; ${currentYear} ${NAP.companyName}. All rights reserved.`}</span>
         </div>
       </div>
     </footer>
@@ -164,7 +231,7 @@ export default function Footer() {
    Sub-Components
    ============================================================ */
 
-function FooterCompanyColumn() {
+function FooterCompanyColumn({ locale = "en" }: { locale?: "en" | "ar" }) {
   return (
     <div className="space-y-4">
       <div className="flex items-center gap-3">
@@ -179,9 +246,7 @@ function FooterCompanyColumn() {
         </div>
       </div>
       <p className="text-body-sm text-white/80 leading-relaxed">
-        Dubai's trusted approvals consultancy. We fast-track project approvals
-        across Dubai Municipality, DDA, DEWA, DCD, and all free zone authorities
-        — saving you time, cost, and compliance risk.
+        {locale === "ar" ? AR.footer.aboutDesc : "Dubai's trusted approvals consultancy. We fast-track project approvals across Dubai Municipality, DDA, DEWA, DCD, and all free zone authorities — saving you time, cost, and compliance risk."}
       </p>
       <SocialIconsRow variant="footer" />
     </div>
@@ -192,9 +257,10 @@ interface FooterLinksColumnProps {
   title: string;
   links: { label: string; href: string; isExternal?: boolean }[];
   viewAllHref?: string;
+  locale?: "en" | "ar";
 }
 
-function FooterLinksColumn({ title, links, viewAllHref }: FooterLinksColumnProps) {
+function FooterLinksColumn({ title, links, viewAllHref, locale = "en" }: FooterLinksColumnProps) {
   return (
     <div>
       <h3 className="text-body-sm font-bold text-white mb-3">{title}</h3>
@@ -227,7 +293,7 @@ function FooterLinksColumn({ title, links, viewAllHref }: FooterLinksColumnProps
               href={viewAllHref}
               className="text-body-sm font-semibold text-white/80 hover:text-white transition-colors"
             >
-              View All &rarr;
+              {locale === "ar" ? `${AR.cta.viewAll} ←` : "View All →"}
             </Link>
           </li>
         )}
@@ -236,31 +302,33 @@ function FooterLinksColumn({ title, links, viewAllHref }: FooterLinksColumnProps
   );
 }
 
-function FooterContactColumn() {
+function FooterContactColumn({ locale = "en" }: { locale?: "en" | "ar" }) {
+  const prefix = locale === "ar" ? "/ar" : "";
+
   return (
     <div>
-      <h3 className="text-body-sm font-bold text-white mb-3">Company & Contact</h3>
+      <h3 className="text-body-sm font-bold text-white mb-3">{locale === "ar" ? AR.footer.contact : "Company & Contact"}</h3>
       <ul className="space-y-3">
         <li>
-          <Link href="/about-us" className="text-body-sm text-white/70 hover:text-white transition-colors">
-            About Us
+          <Link href={`${prefix}/about-us`} className="text-body-sm text-white/70 hover:text-white transition-colors">
+            {locale === "ar" ? AR.breadcrumb.aboutUs : "About Us"}
           </Link>
         </li>
         <li>
-          <Link href="/contact-us" className="text-body-sm text-white/70 hover:text-white transition-colors">
-            Contact Us
+          <Link href={`${prefix}/contact-us`} className="text-body-sm text-white/70 hover:text-white transition-colors">
+            {locale === "ar" ? AR.breadcrumb.contactUs : "Contact Us"}
           </Link>
         </li>
         <li>
-          <Link href="/guides" className="text-body-sm text-white/70 hover:text-white transition-colors">
-            Guides & Q&A
+          <Link href={`${prefix}/guides`} className="text-body-sm text-white/70 hover:text-white transition-colors">
+            {locale === "ar" ? `${AR.breadcrumb.guides} & Q&A` : "Guides & Q&A"}
           </Link>
         </li>
         <li>
           <a
             href={`tel:${NAP.phone}`}
             className="flex items-center gap-2 text-body-sm text-white/70 hover:text-white transition-colors"
-            aria-label={`Call us at ${NAP.phone}`}
+            aria-label={locale === "ar" ? `اتصل بنا على ${NAP.phone}` : `Call us at ${NAP.phone}`}
           >
             <Phone size={14} strokeWidth={1.75} className="shrink-0" />
             <span>{NAP.phone}</span>
@@ -270,7 +338,7 @@ function FooterContactColumn() {
           <a
             href={`mailto:${NAP.email}`}
             className="flex items-center gap-2 text-body-sm text-white/70 hover:text-white transition-colors"
-            aria-label={`Email us at ${NAP.email}`}
+            aria-label={locale === "ar" ? `راسلنا على ${NAP.email}` : `Email us at ${NAP.email}`}
           >
             <Mail size={14} strokeWidth={1.75} className="shrink-0" />
             <span>{NAP.email}</span>
@@ -298,6 +366,7 @@ interface MobileAccordionSectionProps {
   links?: { label: string; href: string; isExternal?: boolean }[];
   viewAllHref?: string;
   isContactSection?: boolean;
+  locale?: "en" | "ar";
 }
 
 function MobileAccordionSection({
@@ -305,6 +374,7 @@ function MobileAccordionSection({
   links,
   viewAllHref,
   isContactSection,
+  locale = "en",
 }: MobileAccordionSectionProps) {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -315,7 +385,7 @@ function MobileAccordionSection({
         onClick={() => setIsOpen((prev) => !prev)}
         className="flex w-full items-center justify-between py-3.5 text-body-sm font-bold text-white transition-colors min-h-[44px]"
         aria-expanded={isOpen}
-        aria-label={`Toggle ${title} section`}
+        aria-label={locale === "ar" ? `تبديل قسم ${title}` : `Toggle ${title} section`}
       >
         <span>{title}</span>
         <ChevronDown
@@ -328,9 +398,9 @@ function MobileAccordionSection({
       {isOpen && (
         <div className="pb-4">
           {isContactSection ? (
-            <FooterContactColumn />
+            <FooterContactColumn locale={locale} />
           ) : (
-            <ul className="space-y-2 pl-1">
+            <ul className="space-y-2 ps-1">
               {links?.map((link) => (
                 <li key={link.href}>
                   {link.isExternal ? (
@@ -359,7 +429,7 @@ function MobileAccordionSection({
                     href={viewAllHref}
                     className="inline-block text-body-sm font-semibold text-white/80 hover:text-white transition-colors py-1"
                   >
-                    View All &rarr;
+                    {locale === "ar" ? `${AR.cta.viewAll} ←` : "View All →"}
                   </Link>
                 </li>
               )}

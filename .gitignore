@@ -48,6 +48,14 @@ npm-debug.log*
 # ============================================================
 reference details/
 .roo/
+
+# ============================================================
+# Temp / scratch files — not part of the project
+# ============================================================
+temp-*.js
+check_slugs_temp.txt
+1)*
+lighthouse-reports/
 "temp-*"  
 "check_slugs_temp.txt"  
 "src/data/guides-backup.ts" 

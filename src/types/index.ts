@@ -184,6 +184,70 @@ export interface ApprovalData {
 
   /** Last updated date (ISO string, e.g., "2026-03-15") */
   lastUpdated: string;
+
+  /* ---- Arabic Localization ---- */
+  /** Arabic content — optional, added for bilingual support */
+  ar?: ApprovalArabicContent;
+}
+
+/**
+ * Arabic content for an approval page.
+ * All fields are localized, not translated.
+ */
+/**
+ * Stub entry type for Arabic data files — only slug + Arabic content needed.
+ * Used by src/data/approvals-ar.ts during Phase 0/1. In Phase 2, these get
+ * merged into the main ApprovalData array via the `ar?` field.
+ */
+export interface ApprovalArabicEntry {
+  slug: string;
+  ar: ApprovalArabicContent;
+}
+
+export interface ApprovalArabicContent {
+  /** Arabic-script slug (e.g., "موافقة-ديوا") */
+  slug: string;
+  /** Arabic name */
+  name: string;
+  /** Arabic short name */
+  shortName: string;
+  /** Arabic authority full name */
+  authorityFull: string;
+  /** Arabic authority abbreviation */
+  authorityAbbr: string;
+  /** Arabic primary keyword */
+  primaryKeyword: string;
+  /** Arabic secondary keywords */
+  secondaryKeywords: string[];
+  /** Arabic direct answer block */
+  directAnswer: string;
+  /** Arabic description */
+  description: string;
+  /** Arabic who-needs-it list */
+  whoNeedsIt: string[];
+  /** Arabic documents */
+  documents: DocumentRequirement[];
+  /** Arabic process steps */
+  process: ProcessStep[];
+  /** Arabic timeline table */
+  timelineTable: TimelineEntry[];
+  /** Arabic rejection reasons */
+  rejectionReasons: RejectionReason[];
+  /** Arabic case study */
+  caseStudy: CaseStudy | null;
+  /** Arabic why-choose-us list */
+  whyChooseUs: string[];
+  /** Arabic FAQ items */
+  faqs: FAQItem[];
+
+  /* ---- Structural Parity Fields ---- */
+
+  /** Section 2: At-a-glance stats with Arabic labels (4 items) */
+  stats: StatFact[];
+  /** Typical timeline in Arabic (e.g., "5-10 أيام عمل") */
+  typicalTimeline: string;
+  /** Typical cost range in Arabic (e.g., "من 500 إلى 3,000 درهم") */
+  typicalCostRange: string;
 }
 
 /* ============================================================
@@ -224,6 +288,40 @@ export interface GuideData {
 
   /** Last updated date (ISO string) */
   lastUpdated: string;
+
+  /* ---- Arabic Localization ---- */
+  /** Arabic content — optional, added for bilingual support */
+  ar?: GuideArabicContent;
+}
+
+/**
+ * Arabic content for a guide/Q&A page.
+ */
+/**
+ * Stub entry type for Arabic guide data files.
+ */
+export interface GuideArabicEntry {
+  slug: string;
+  ar: GuideArabicContent;
+}
+
+export interface GuideArabicContent {
+  /** Arabic-script slug */
+  slug: string;
+  /** Arabic title / H1 */
+  title: string;
+  /** Arabic description */
+  description: string;
+  /** Arabic primary keyword */
+  primaryKeyword: string;
+  /** Arabic secondary keywords */
+  secondaryKeywords: string[];
+  /** Arabic question (for QAPage schema) */
+  question?: string;
+  /** Arabic answer (for QAPage schema) */
+  answer?: string;
+  /** Arabic content paragraphs */
+  content: string[];
 }
 
 /* ============================================================
@@ -257,4 +355,42 @@ export interface ServiceData {
 
   /** Last updated date (ISO string) */
   lastUpdated: string;
+
+  /* ---- Arabic Localization ---- */
+  /** Arabic content — optional, added for bilingual support */
+  ar?: ServiceArabicContent;
+}
+
+/**
+ * Arabic content for a service page.
+ */
+/**
+ * Stub entry type for Arabic service data files.
+ */
+export interface ServiceArabicEntry {
+  slug: string;
+  ar: ServiceArabicContent;
+}
+
+export interface ServiceArabicContent {
+  /** Arabic-script slug */
+  slug: string;
+  /** Arabic service name */
+  name: string;
+  /** Arabic tagline */
+  tagline: string;
+  /** Arabic primary keyword */
+  primaryKeyword: string;
+  /** Arabic secondary keywords */
+  secondaryKeywords: string[];
+  /** Arabic direct answer */
+  directAnswer: string;
+  /** Arabic description */
+  description: string;
+  /** Arabic features list */
+  features: string[];
+  /** Arabic process steps */
+  process?: ProcessStep[];
+  /** Arabic FAQ items */
+  faqs: FAQItem[];
 }

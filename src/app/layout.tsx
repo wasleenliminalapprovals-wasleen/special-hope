@@ -1,39 +1,14 @@
 import type { Metadata, Viewport } from "next";
-import { Montserrat, Roboto, Roboto_Mono } from "next/font/google";
 import { GoogleTagManager } from "@next/third-parties/google";
 import { Suspense } from "react";
-import { SITE, NAP, GTM_ID } from "@/lib/constants";
-import { organizationSchema, websiteSchema } from "@/lib/schema";
+import { SITE, NAP } from "@/lib/constants";
+import { fontVariables } from "@/lib/fonts";
+import { siteConfig } from "@/lib/site-config";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import FloatingWhatsApp from "@/components/sections/FloatingWhatsApp";
 import PageViewTracker from "@/components/analytics/PageViewTracker";
 import "./globals.css";
-
-/* ============================================================
-   Font Configuration — next/font
-   ============================================================ */
-
-const montserrat = Montserrat({
-  subsets: ["latin"],
-  weight: ["400", "700", "800", "900"],
-  variable: "--font-montserrat",
-  display: "swap",
-});
-
-const roboto = Roboto({
-  subsets: ["latin"],
-  weight: ["400", "500", "700"],
-  variable: "--font-roboto",
-  display: "swap",
-});
-
-const robotoMono = Roboto_Mono({
-  subsets: ["latin"],
-  weight: ["400", "500"],
-  variable: "--font-roboto-mono",
-  display: "swap",
-});
 
 /* ============================================================
    Viewport Configuration
@@ -89,11 +64,20 @@ export const metadata: Metadata = {
     title: `${SITE.tagline} | ${SITE.name}`,
     description: SITE.description,
     url: SITE.url,
+    images: [
+      {
+        url: "/logos/og.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Wasleen Liminal Approval Consultants — Dubai Approvals Expert",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: `${SITE.tagline} | ${SITE.name}`,
     description: SITE.description,
+    images: ["/logos/og.jpg"],
   },
   icons: {
     icon: [
@@ -115,24 +99,26 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const { gtmId, sitewideSchema } = siteConfig("en");
+
   return (
-    <html lang="en-AE" className={`${montserrat.variable} ${roboto.variable} ${robotoMono.variable}`}>
+    <html lang="en-AE" className={fontVariables("en")}>
       <body className="font-roboto antialiased">
         {/* Skip to main content link for accessibility */}
         <a
           href="#main-content"
-          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[9999] focus:px-4 focus:py-2 focus:bg-brand-blue focus:text-white focus:rounded-md"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:start-4 focus:z-[9999] focus:px-4 focus:py-2 focus:bg-brand-blue focus:text-white focus:rounded-md"
         >
           Skip to main content
         </a>
 
         {/* Site header — sticky with nav, mega menus, mobile hamburger */}
-        <Header />
+        <Header locale="en" />
 
         <main id="main-content">{children}</main>
 
         {/* Site footer — 5-column with accordion on mobile */}
-        <Footer />
+        <Footer locale="en" />
 
         {/* Page view tracking on client-side route changes */}
         <Suspense fallback={null}>
@@ -143,27 +129,21 @@ export default function RootLayout({
         <FloatingWhatsApp />
 
         {/* Google Tag Manager (noscript fallback + head script) */}
-        {GTM_ID && <GoogleTagManager gtmId={GTM_ID} />}
+        {gtmId && <GoogleTagManager gtmId={gtmId} />}
 
         {/* ============================================================
            Sitewide JSON-LD Schema — injected once in root layout
            ============================================================ */}
 
-        {/* Organization Schema — references #organization */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(organizationSchema()),
-          }}
-        />
-
-        {/* WebSite Schema — references #website */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(websiteSchema()),
-          }}
-        />
+        {sitewideSchema.map((schema, index) => (
+          <script
+            key={index}
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{
+              __html: JSON.stringify(schema),
+            }}
+          />
+        ))}
       </body>
     </html>
   );

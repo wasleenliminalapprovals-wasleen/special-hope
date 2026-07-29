@@ -51,7 +51,7 @@ export default function DocumentsTable({
           </p>
 
           <div className="overflow-x-auto rounded-md border border-border-light">
-            <table className="w-full text-left">
+            <table className="w-full text-start">
               <thead>
                 <tr className="bg-card-bg border-b border-border-light">
                   <th scope="col" className="px-4 py-3 text-caption font-bold text-heading-text uppercase tracking-wide">

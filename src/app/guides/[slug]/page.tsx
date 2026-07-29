@@ -22,6 +22,7 @@ import { ArrowLeft, HelpCircle, BookOpen, ArrowRight } from "lucide-react";
 import { guides } from "@/data/guides";
 import { approvals } from "@/data/approvals";
 import { SITE, HUB_SLUGS } from "@/lib/constants";
+import { hreflangAlternates } from "@/lib/locale";
 import { guideSchemaStack } from "@/lib/schema";
 import RelatedGuides from "@/components/sections/RelatedGuides";
 import CTASection from "@/components/sections/CTASection";
@@ -53,7 +54,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   return {
     title: seoTitle,
     description,
-    alternates: { canonical },
+    alternates: { canonical, languages: hreflangAlternates(SITE.url, `/guides/${guide.slug}`) },
     openGraph: {
       title: seoTitle,
       description: description.substring(0, 160),
@@ -118,7 +119,8 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
 
   /* ── Schema ─────────────────────────────────────────────── */
 
-  const schemas = guideSchemaStack({
+  const schemas = guideSchemaStack(
+    {
     url: canonical,
     title: `${guide.primaryKeyword} | ${SITE.name}`,
     description: guide.description.substring(0, 160),
@@ -132,8 +134,10 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
       { position: 2, name: "Guides", slug: HUB_SLUGS.guides },
       { position: 3, name: guide.title, slug: `/guides/${guide.slug}` },
     ],
-    dateModified: guide.lastUpdated,
-  });
+      dateModified: guide.lastUpdated,
+    },
+    "en",
+  );
 
   /* ── Render ─────────────────────────────────────────────── */
 

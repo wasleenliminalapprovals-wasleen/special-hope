@@ -18,6 +18,7 @@ import { Clock, DollarSign } from "lucide-react";
 import { approvals } from "@/data/approvals";
 import { guides } from "@/data/guides";
 import { SITE, HUB_SLUGS } from "@/lib/constants";
+import { hreflangAlternates } from "@/lib/locale";
 import { approvalSchemaStack } from "@/lib/schema";
 import { renderDescription } from "@/lib/content";
 import { APPROVAL_CATEGORIES } from "@/types";
@@ -62,7 +63,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   return {
     title: seoTitle,
     description,
-    alternates: { canonical },
+    alternates: { canonical, languages: hreflangAlternates(SITE.url, `/approvals/${approval.slug}`) },
     openGraph: {
       title: seoTitle,
       description: description.substring(0, 160),
@@ -105,7 +106,8 @@ export default async function ApprovalPage({ params }: { params: Promise<{ slug:
 
   /* ── Schema ─────────────────────────────────────────────── */
 
-  const schemas = approvalSchemaStack({
+  const schemas = approvalSchemaStack(
+    {
     url: canonical,
     title: `${approval.primaryKeyword} | ${SITE.name}`,
     description: approval.directAnswer.substring(0, 160),
@@ -119,8 +121,10 @@ export default async function ApprovalPage({ params }: { params: Promise<{ slug:
       { position: 2, name: "Approvals", slug: HUB_SLUGS.approvals },
       { position: 3, name: approval.name, slug: `/approvals/${approval.slug}` },
     ],
-    dateModified: approval.lastUpdated,
-  });
+      dateModified: approval.lastUpdated,
+    },
+    "en",
+  );
 
   /* ── Render ─────────────────────────────────────────────── */
 

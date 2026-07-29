@@ -7,23 +7,42 @@ import { Menu, Phone } from "lucide-react";
 import WasleenLogo from "@/components/logo/WasleenLogo";
 import MegaMenu from "./MegaMenu";
 import MobileNav from "./MobileNav";
-import { NAP } from "@/lib/constants";
+import LanguageSwitcher from "./LanguageSwitcher";
+import { AR, NAP } from "@/lib/constants";
 
 /* ============================================================
    Header — Sticky, with desktop nav + mobile hamburger
+   Accepts `locale` prop — "en" (default) or "ar"
    ============================================================ */
 
-const NAV_ITEMS = [
-  { label: "Home", href: "/" },
-  { label: "Approvals", href: "/approvals", hasMegaMenu: true as const },
-  { label: "Services", href: "/services", hasMegaMenu: true as const },
-  { label: "Guides", href: "/guides" },
-  { label: "About Us", href: "/about-us" },
-  { label: "Contact Us", href: "/contact-us" },
-];
+interface HeaderProps {
+  locale?: "en" | "ar";
+}
 
-export default function Header() {
+function getNavItems(locale: "en" | "ar") {
+  if (locale === "ar") {
+    return [
+      { label: AR.nav.home, href: "/ar" },
+      { label: AR.nav.approvals, href: "/ar/approvals", hasMegaMenu: true as const },
+      { label: AR.nav.services, href: "/ar/services", hasMegaMenu: true as const },
+      { label: AR.nav.guides, href: "/ar/guides" },
+      { label: AR.nav.aboutUs, href: "/ar/about-us" },
+      { label: AR.nav.contactUs, href: "/ar/contact-us" },
+    ];
+  }
+  return [
+    { label: "Home", href: "/" },
+    { label: "Approvals", href: "/approvals", hasMegaMenu: true as const },
+    { label: "Services", href: "/services", hasMegaMenu: true as const },
+    { label: "Guides", href: "/guides" },
+    { label: "About Us", href: "/about-us" },
+    { label: "Contact Us", href: "/contact-us" },
+  ];
+}
+
+export default function Header({ locale = "en" }: HeaderProps) {
   const pathname = usePathname();
+  const NAV_ITEMS = getNavItems(locale);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeMegaMenu, setActiveMegaMenu] = useState<string | null>(null);
@@ -81,7 +100,7 @@ export default function Header() {
     <>
       <header
         className={`
-          fixed top-0 left-0 right-0 z-30 bg-white/95 backdrop-blur-sm
+          fixed top-0 start-0 end-0 z-30 bg-white/95 backdrop-blur-sm
           transition-all duration-200 ease-out
           ${isScrolled ? "shadow-sticky py-1" : "py-2"}
         `}
@@ -90,15 +109,15 @@ export default function Header() {
           <div className="flex items-center justify-between">
             {/* ── Logo ── */}
             <Link
-              href="/"
+              href={locale === "ar" ? "/ar" : "/"}
               className="shrink-0 focus:outline-none focus:ring-2 focus:ring-brand-blue focus:ring-offset-2 rounded-md"
-              aria-label="Wasleen Approvals — Home"
+              aria-label={locale === "ar" ? "وسلين للموافقات — الرئيسية" : "Wasleen Approvals — Home"}
             >
               <WasleenLogo size={isScrolled ? 36 : 40} />
             </Link>
 
             {/* ── Desktop Nav ── */}
-            <nav className="hidden lg:flex items-center gap-1" aria-label="Main navigation">
+            <nav className="hidden lg:flex items-center gap-1" aria-label={locale === "ar" ? "القائمة الرئيسية" : "Main navigation"}>
               {NAV_ITEMS.map((item) => {
                 if (item.hasMegaMenu) {
                   return (
@@ -148,7 +167,8 @@ export default function Header() {
                         onMouseLeave={handleMegaMenuLeave}
                       >
                         <MegaMenu
-                          type={item.label === "Approvals" ? "approvals" : "services"}
+                          type={item.label === "Approvals" || item.label === AR.nav.approvals ? "approvals" : "services"}
+                          locale={locale}
                           isActive={activeMegaMenu === item.label}
                           onMouseEnter={() => handleMegaMenuEnter(item.label)}
                           onMouseLeave={handleMegaMenuLeave}
@@ -177,25 +197,28 @@ export default function Header() {
               })}
             </nav>
 
-            {/* ── Desktop CTA ── */}
+            {/* ── Desktop CTA + Language Switcher ── */}
             <div className="hidden lg:flex items-center gap-3">
+              <LanguageSwitcher />
               <a
                 href={`tel:${NAP.phone}`}
                 className="flex items-center gap-2 bg-cta-amber hover:bg-cta-amber-hover text-brand-black font-bold text-body-sm py-2.5 px-5 rounded-md transition-colors shadow-sm whitespace-nowrap"
-                aria-label={`Call us at ${NAP.phone}`}
+                aria-label={locale === "ar" ? `اتصل بنا على ${NAP.phone}` : `Call us at ${NAP.phone}`}
               >
                 <Phone size={16} strokeWidth={1.75} />
-                <span>Get Free Consultation</span>
+                <span>{locale === "ar" ? AR.cta.freeConsultation : "Get Free Consultation"}</span>
               </a>
             </div>
 
-            {/* ── Mobile: Hamburger + CTA ── */}
+            {/* ── Mobile: Language Switcher + CTA + Hamburger ── */}
             <div className="flex lg:hidden items-center gap-2">
+              <LanguageSwitcher />
+
               {/* Mobile CTA (phone icon) */}
               <a
                 href={`tel:${NAP.phone}`}
                 className="flex items-center justify-center w-10 h-10 rounded-md bg-cta-amber hover:bg-cta-amber-hover text-brand-black transition-colors"
-                aria-label={`Call us at ${NAP.phone}`}
+                aria-label={locale === "ar" ? `اتصل بنا على ${NAP.phone}` : `Call us at ${NAP.phone}`}
               >
                 <Phone size={18} strokeWidth={1.75} />
               </a>
@@ -205,7 +228,7 @@ export default function Header() {
                 type="button"
                 onClick={openMobileMenu}
                 className="flex items-center justify-center w-10 h-10 rounded-md hover:bg-card-bg transition-colors"
-                aria-label="Open navigation menu"
+                aria-label={locale === "ar" ? "فتح القائمة" : "Open navigation menu"}
                 aria-expanded={isMobileMenuOpen}
               >
                 <Menu size={22} strokeWidth={1.75} />
@@ -219,7 +242,7 @@ export default function Header() {
       <div className={`transition-all duration-200 ${isScrolled ? "h-[57px]" : "h-[65px]"}`} />
 
       {/* Mobile navigation drawer */}
-      <MobileNav isOpen={isMobileMenuOpen} onClose={closeMobileMenu} />
+      <MobileNav isOpen={isMobileMenuOpen} onClose={closeMobileMenu} locale={locale} />
     </>
   );
 }

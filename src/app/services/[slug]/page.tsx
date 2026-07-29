@@ -22,6 +22,7 @@ import { CheckCircle2, ArrowRight, ShieldCheck } from "lucide-react";
 import { services } from "@/data/services";
 import { approvals } from "@/data/approvals";
 import { SITE, HUB_SLUGS } from "@/lib/constants";
+import { hreflangAlternates } from "@/lib/locale";
 import { serviceSchemaStack } from "@/lib/schema";
 
 /* ── Section Components ─────────────────────────────────── */
@@ -55,7 +56,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   return {
     title,
     description,
-    alternates: { canonical },
+    alternates: { canonical, languages: hreflangAlternates(SITE.url, `/services/${service.slug}`) },
     openGraph: {
       title: title.substring(0, 60),
       description: description.substring(0, 160),
@@ -84,7 +85,8 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
 
   /* ── Schema ─────────────────────────────────────────────── */
 
-  const schemas = serviceSchemaStack({
+  const schemas = serviceSchemaStack(
+    {
     url: canonical,
     title: `${service.primaryKeyword} | ${SITE.name}`,
     description: service.directAnswer.substring(0, 160),
@@ -97,8 +99,10 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
       { position: 2, name: "Services", slug: HUB_SLUGS.services },
       { position: 3, name: service.name, slug: `/services/${service.slug}` },
     ],
-    dateModified: service.lastUpdated,
-  });
+      dateModified: service.lastUpdated,
+    },
+    "en",
+  );
 
   /* ── Resolve related services ──────────────────────────── */
 
