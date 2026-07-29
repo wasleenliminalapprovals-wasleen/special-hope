@@ -2,6 +2,13 @@ import type { Metadata } from "next";
 import { SITE, AR } from "@/lib/constants";
 import { hreflangAlternates } from "@/lib/locale";
 import { homepageSchema } from "@/lib/schema";
+import TrustStrip from "@/components/sections/TrustStrip";
+import ServiceCategories from "@/components/sections/ServiceCategories";
+import ProcessOverview from "@/components/sections/ProcessOverview";
+import GeoContentSection from "@/components/sections/GeoContentSection";
+import FAQBlock from "@/components/sections/FAQBlock";
+import AuthorityUpdates from "@/components/sections/AuthorityUpdates";
+import CTASectionArabic from "@/components/sections/CTASectionArabic";
 
 export const metadata: Metadata = {
   title: `${AR.tagline} | ${AR.siteShortName}`,
@@ -12,19 +19,56 @@ export const metadata: Metadata = {
   },
 };
 
+/* ============================================================
+   Arabic Homepage FAQ Items
+   ============================================================ */
+
+const faqItems = [
+  {
+    question: "ما أنواع الموافقات التي تتعامل معها وسلين في دبي؟",
+    answer:
+      "تتعامل وسلين مع أكثر من 52 نوعاً من الموافقات في جميع أنحاء دبي، تشمل بلدية دبي وهيئة دبي للتطوير وهيئة كهرباء ومياه دبي والدفاع المدني بدبي وموافقات المناطق الحرة وغيرها. نحن نغطي الموافقات الحكومية والمناطق الحرة والمطورين والموافقات الفنية لجميع أنواع المشاريع.",
+  },
+  {
+    question: "كم من الوقت تستغرق الموافقة النموذجية في دبي؟",
+    answer:
+      "تختلف المدة حسب الجهة وتعقيد المشروع. قد تستغرق الموافقات البسيطة من 3 إلى 5 أيام عمل، بينما قد تستغرق الموافقات المعقدة متعددة الجهات من 4 إلى 8 أسابيع. نقدم تقديراً واقعياً للمدة خلال استشارتك المجانية بناءً على مشروعك المحدد.",
+  },
+  {
+    question: "هل أحتاج إلى استشاري للحصول على موافقة مشروعي في دبي؟",
+    answer:
+      "على الرغم من أنه ليس مطلوباً قانونياً لجميع الموافقات، إلا أن العمل مع استشاري مثل وسلين يقلل بشكل كبير من التأخير والرفض. نحن نتولى إعداد المستندات والتقديم والمتابعة والمراجعات — مما يوفر عليك أسابيع من المراجعة مع مختلف الجهات.",
+  },
+  {
+    question: "ما هي المستندات التي أحتاج لتقديمها للحصول على الموافقة؟",
+    answer:
+      "تختلف المستندات المطلوبة حسب نوع الموافقة، ولكنها تشمل عموماً: نموذج الطلب مكتمل، شهادة عدم ممانعة من الجهات المعنية، رسومات تفصيلية (ثنائية وثلاثية الأبعاد)، حسابات إنشائية، عقد إيجار أو سند ملكية، ورخصة تجارية سارية. سنقدم لك قائمة كاملة أثناء الاستشارة.",
+  },
+  {
+    question: "كم تكلفة الحصول على موافقة في دبي؟",
+    answer:
+      "تختلف التكاليف حسب الجهة ونطاق المشروع. تتراوح الرسوم الحكومية من 500 إلى 5,000 درهم إماراتي لكل موافقة، بينما يتم تحديد رسوم الخدمات الاستشارية بناءً على التعقيد. نقدم أسعاراً شفافة وشاملة بدون رسوم خفيفة. اتصل بنا للحصول على عرض سعر مجاني.",
+  },
+  {
+    question: "ما الذي يميز وسلين عن غيرها من مستشاري الموافقات؟",
+    answer:
+      "مع أكثر من 8 سنوات من الخبرة وأكثر من 500 مشروع ناجح، تقدم وسلين خبرة عميقة في المشهد التنظيمي في دبي. نوفر إدارة شاملة وأسعاراً شفافة وتحديثات فورية وسجلاً مثبتاً في تسريع الموافقات. فريقنا يعرف بالضبط كيفية عمل كل جهة.",
+  },
+];
+
 export default function ArabicHomePage() {
   /* ── Schema (Arabic) ──────────────────────────────── */
   const schemas = homepageSchema(
     {
       title: `${AR.tagline} | ${AR.siteShortName}`,
       description: AR.description,
-      dateModified: "2026-07-28",
+      dateModified: "2026-07-29",
     },
     "ar",
   );
 
   return (
-    <div className="min-h-screen">
+    <>
       {/* JSON-LD Schema */}
       {schemas.map((schema, i) => (
         <script
@@ -33,10 +77,74 @@ export default function ArabicHomePage() {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
         />
       ))}
+
+      {/* ===== 1. Hero Section (Arabic) ===== */}
       <section className="bg-brand-blue text-white py-16 px-4 text-center">
-        <h1 className="text-h1 font-bold mb-4">{AR.tagline}</h1>
-        <p className="text-body-lg max-w-3xl mx-auto">{AR.description}</p>
+        <div className="max-w-6xl mx-auto">
+          <h1 className="text-h1 font-bold mb-4">{AR.tagline}</h1>
+          <p className="text-body-lg max-w-3xl mx-auto mb-8 leading-relaxed">
+            {AR.description}
+          </p>
+
+          {/* CTA Buttons */}
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <a
+              href={`https://wa.me/${SITE.url.includes('wasleen') ? '971542330837' : '971542330837'}?text=${encodeURIComponent('مرحباً وسلين، لدي استفسار بخصوص موافقات مشروعي. هل يمكنكم مشاركة الخطوات التالية؟')}`}
+              className="inline-flex items-center justify-center gap-2 rounded-md bg-cta-amber text-brand-black font-semibold px-8 py-4 text-body hover:bg-cta-amber-hover transition-colors"
+              aria-label="احصل على استشارة مجانية عبر واتساب"
+            >
+              {AR.cta.freeConsultation}
+            </a>
+            <a
+              href="/ar/approvals"
+              className="inline-flex items-center justify-center gap-2 rounded-md border-2 border-white text-white font-semibold px-8 py-4 text-body hover:bg-white hover:text-brand-blue transition-colors"
+              aria-label="عرض جميع الموافقات"
+            >
+              {AR.cta.viewAll}
+            </a>
+          </div>
+
+          {/* Trust signals */}
+          <div className="mt-8 pt-6 border-t border-white/20 grid grid-cols-3 gap-4 text-center max-w-lg mx-auto">
+            <div>
+              <p className="text-h3 font-bold text-cta-amber">52+</p>
+              <p className="text-caption text-white/70">نوع موافقة</p>
+            </div>
+            <div>
+              <p className="text-h3 font-bold text-cta-amber">500+</p>
+              <p className="text-caption text-white/70">مشروع منجز</p>
+            </div>
+            <div>
+              <p className="text-h3 font-bold text-cta-amber">8+</p>
+              <p className="text-caption text-white/70">سنوات خبرة</p>
+            </div>
+          </div>
+        </div>
       </section>
-    </div>
+
+      {/* ===== 2. Trust Strip ===== */}
+      <TrustStrip />
+
+      {/* ===== 3. Service Categories ===== */}
+      <ServiceCategories />
+
+      {/* ===== 4. Process Overview ===== */}
+      <ProcessOverview />
+
+      {/* ===== 5. GEO Content Section ===== */}
+      <GeoContentSection />
+
+      {/* ===== 6. FAQ Block ===== */}
+      <FAQBlock
+        title="الأسئلة الشائعة حول الموافقات في دبي"
+        items={faqItems}
+      />
+
+      {/* ===== 7. Authority Updates ===== */}
+      <AuthorityUpdates />
+
+      {/* ===== 8. Arabic CTA Section ===== */}
+      <CTASectionArabic serviceSlug="homepage" />
+    </>
   );
 }

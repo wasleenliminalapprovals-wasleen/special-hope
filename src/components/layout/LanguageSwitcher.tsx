@@ -3,17 +3,18 @@
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { useCallback, useMemo } from "react";
-import { getOppositeLocale, getLang, localePrefix } from "@/lib/locale";
-import { Languages } from "lucide-react";
+import { getOppositeLocale, getLang } from "@/lib/locale";
 
 /**
  * Language Switcher Component
  *
- * Toggles between the current page's English and Arabic counterpart.
- * - English pages: shows "العربية" → navigates to /ar/... equivalent
- * - Arabic pages: shows "English" → navigates to the root-path equivalent
+ * Displays two small colored boxes side by side — EN (blue) and AR (green).
+ * The active language is shown with a darker background + border.
+ * The inactive language is clickable to switch.
  *
- * @see plans/arabic-market-domination-reconciled-plan.md §3.1
+ * No icon is used — only text labels "EN" and "AR".
+ *
+ * @see plans/fix-3-arabic-vercel-issues.md (Issue 3)
  */
 
 interface LanguageSwitcherProps {
@@ -24,9 +25,8 @@ interface LanguageSwitcherProps {
 export default function LanguageSwitcher({ variant = "icon" }: LanguageSwitcherProps) {
   const pathname = usePathname();
 
-  const { isEnglish, targetHref, label, hreflang } = useMemo(() => {
+  const { isEnglish, targetHref } = useMemo(() => {
     const isEnglish = !pathname.startsWith("/ar");
-    const targetLocale = getOppositeLocale(isEnglish ? "en" : "ar");
 
     // Build the target path
     let target: string;
@@ -41,8 +41,6 @@ export default function LanguageSwitcher({ variant = "icon" }: LanguageSwitcherP
     return {
       isEnglish,
       targetHref: target,
-      label: isEnglish ? "العربية" : "English",
-      hreflang: getLang(targetLocale),
     };
   }, [pathname]);
 
@@ -57,32 +55,51 @@ export default function LanguageSwitcher({ variant = "icon" }: LanguageSwitcherP
     }
   }, [isEnglish, pathname]);
 
-  if (variant === "full") {
-    return (
-      <Link
-        href={targetHref}
-        onClick={handleClick}
-        hrefLang={hreflang}
-        aria-label={`Switch to ${label}`}
-        className="flex items-center gap-2 px-4 py-2 rounded-md bg-brand-blue text-white hover:bg-brand-blue-hover transition-colors text-sm font-medium"
-      >
-        <Languages size={18} strokeWidth={1.75} aria-hidden="true" />
-        <span>{label}</span>
-      </Link>
-    );
-  }
-
-  // Icon variant — compact for header toolbar (light background)
   return (
-    <Link
-      href={targetHref}
-      onClick={handleClick}
-      hrefLang={hreflang}
-      aria-label={`Switch to ${label}`}
-      className="flex items-center gap-1.5 px-3 py-1.5 rounded-md text-sm font-medium text-body-text hover:text-brand-blue hover:bg-card-bg transition-colors"
+    <div
+      className={`flex items-center gap-1 ${variant === "full" ? "justify-center" : ""}`}
+      role="group"
+      aria-label="Language switcher"
     >
-      <Languages size={16} strokeWidth={1.75} aria-hidden="true" />
-      <span className="hidden sm:inline">{label}</span>
-    </Link>
+      {/* English box */}
+      <Link
+        href={isEnglish ? "#" : targetHref}
+        onClick={isEnglish ? undefined : handleClick}
+        hrefLang="en"
+        aria-current={isEnglish ? "true" : undefined}
+        aria-label={isEnglish ? "Current language: English" : "Switch to English"}
+        className={`
+          inline-flex items-center justify-center rounded font-bold transition-colors
+          ${variant === "full" ? "px-4 py-2 text-sm" : "px-2 py-1 text-xs"}
+          ${
+            isEnglish
+              ? "bg-blue-100 text-blue-800 cursor-default ring-1 ring-blue-300"
+              : "bg-gray-100 text-gray-400 hover:bg-blue-50 hover:text-blue-600 hover:ring-1 hover:ring-blue-200"
+          }
+        `}
+      >
+        EN
+      </Link>
+
+      {/* Arabic box */}
+      <Link
+        href={!isEnglish ? "#" : targetHref}
+        onClick={!isEnglish ? undefined : handleClick}
+        hrefLang="ar"
+        aria-current={!isEnglish ? "true" : undefined}
+        aria-label={!isEnglish ? "Current language: Arabic" : "Switch to Arabic"}
+        className={`
+          inline-flex items-center justify-center rounded font-bold transition-colors
+          ${variant === "full" ? "px-4 py-2 text-sm" : "px-2 py-1 text-xs"}
+          ${
+            !isEnglish
+              ? "bg-green-100 text-green-800 cursor-default ring-1 ring-green-300"
+              : "bg-gray-100 text-gray-400 hover:bg-green-50 hover:text-green-600 hover:ring-1 hover:ring-green-200"
+          }
+        `}
+      >
+        AR
+      </Link>
+    </div>
   );
 }

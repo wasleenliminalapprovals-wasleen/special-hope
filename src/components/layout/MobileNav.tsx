@@ -102,7 +102,12 @@ export default function MobileNav({ isOpen, onClose, locale = "en" }: MobileNavP
         className={`
           fixed top-0 end-0 z-50 h-full w-[300px] max-w-[85vw] bg-white shadow-dropdown
           transform transition-transform duration-300 ease-out mobile-nav-drawer
-          ${isOpen ? "translate-x-0" : "translate-x-full"}
+          ${isOpen
+            ? "translate-x-0"
+            : locale === "ar"
+              ? "-translate-x-full"
+              : "translate-x-full"
+          }
         `}
       >
         {/* Close button */}
