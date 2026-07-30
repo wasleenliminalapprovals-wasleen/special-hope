@@ -25,9 +25,9 @@
   --color-border-light: #D6E4F0;
 
   /* ---- Typography Scale ---- */
-  --font-family-montserrat: "Montserrat", system-ui, sans-serif;
-  --font-family-roboto: "Roboto", system-ui, sans-serif;
-  --font-family-roboto-mono: "Roboto Mono", monospace;
+  --font-montserrat: "Montserrat", system-ui, sans-serif;
+  --font-roboto: "Roboto", system-ui, sans-serif;
+  --font-roboto-mono: "Roboto Mono", monospace;
 
   --text-h1: 2.5rem;
   --text-h1--line-height: 1.2;
@@ -85,7 +85,7 @@
   }
 
   body {
-    font-family: var(--font-family-roboto);
+    font-family: var(--font-roboto);
     color: var(--color-body-text);
     background-color: #ffffff;
   }

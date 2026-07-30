@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { GoogleTagManager } from "@next/third-parties/google";
+import Script from "next/script";
 import { Suspense } from "react";
 import { SITE, NAP } from "@/lib/constants";
 import { fontVariables } from "@/lib/fonts";
@@ -114,8 +114,24 @@ export default function RootLayout({
         {/* Global floating WhatsApp button */}
         <FloatingWhatsApp />
 
-        {/* Google Tag Manager (noscript fallback + head script) */}
-        {gtmId && <GoogleTagManager gtmId={gtmId} />}
+        {/* Google Tag Manager — deferred until page fully loads (lazyOnload) */}
+        {gtmId && (
+          <>
+            <Script
+              id="gtm-script"
+              src={`https://www.googletagmanager.com/gtm.js?id=${gtmId}`}
+              strategy="lazyOnload"
+            />
+            <noscript>
+              <iframe
+                src={`https://www.googletagmanager.com/ns.html?id=${gtmId}`}
+                height="0"
+                width="0"
+                style={{ display: "none", visibility: "hidden" }}
+              />
+            </noscript>
+          </>
+        )}
 
         {/* ============================================================
            Sitewide JSON-LD Schema — injected once in root layout
