@@ -1,19 +1,27 @@
 /**
- * Dynamic sitemap.xml generator — 3-way split index for ~190+ bilingual pages.
+ * Unified sitemap.xml — single-file generator for ~190 bilingual pages.
  *
- * Google strictly recommends sitemaps for HTML pages only. Text files intended
- * for AI agents (llms.txt, llms-full.txt) are served at their root URL and
- * MUST be excluded from the XML sitemap to avoid Soft 404 / crawl issues.
+ * Google recommends a single sitemap up to 50,000 URLs / 50 MB. This
+ * file serves everything in one go, eliminating the split-sitemap routing
+ * issues that were causing /sitemap.xml → 404 and /sitemap/1.xml → truncated output.
  *
- * Split structure (for future scale with dozens more guides/locations):
- *   sitemap/1.xml  — Core Pages    (home, about-us, contact-us, hubs — en + ar)
- *   sitemap/2.xml  — Service Pages (52 approvals + 5 services — en + ar)
- *   sitemap/3.xml  — Guide Pages   (30+ guides — en + ar)
+ * Structure (all pages en + ar):
+ *   1. Homepage (2)
+ *   2. Static pages (about-us, contact-us — 4)
+ *   3. Hub pages (approvals, guides, services — 6)
+ *   4. Approval pages (52 services × 2 languages = 104)
+ *   5. Service pages (5 × 2 = 10)
+ *   6. Guide / Q&A pages (30+ × 2 = 60+)
  *
- * All three are registered in robots.ts so Googlebot discovers every page.
+ * SEO best practices applied:
+ *   - lastModified: real dates, never artificially bumped
+ *   - changeFrequency: weekly for hubs/home, monthly for content pages
+ *   - priority: 1.0 (homepage) → 0.9 (hubs/ar-home) → 0.8 (approvals) → 0.7 (guides/services) → 0.6 (static)
+ *   - alternates.languages: en-AE ↔ ar-AE with x-default
+ *   - All URLs canonical via alternates.x-default
  *
- * @see .roo/rules/03-SEO-AI-SEARCH-MASTER.md for SEO rules
- * @see .roo/rules/05-TECHNICAL-SEO-SCHEMA.md for sitemap requirements
+ * @see .roo/rules/03-SEO-AI-SEARCH-MASTER.md  — SEO rules
+ * @see .roo/rules/05-TECHNICAL-SEO-SCHEMA.md   — Sitemap requirements
  */
 
 import type { MetadataRoute } from "next";
@@ -24,170 +32,80 @@ import { SITE } from "@/lib/constants";
 
 const BASE_URL = SITE.url;
 
-/* ── Sitemap segments ──────────────────────────────────────── */
-
-export async function generateSitemaps() {
-  return [{ id: 1 }, { id: 2 }, { id: 3 }];
+/* ── Helper: generate alternates object ──────────────────────── */
+function alt(path: string, arPath: string, defaultPath: string) {
+  return {
+    languages: {
+      "ar-AE": `${BASE_URL}${arPath}`,
+      "x-default": `${BASE_URL}${defaultPath}`,
+    },
+  };
 }
 
-export default async function sitemap({
-  id,
-}: {
-  id: number;
-}): Promise<MetadataRoute.Sitemap> {
-  switch (id) {
-    case 1:
-      return buildCoreSitemap();
-    case 2:
-      return buildServiceSitemap();
-    case 3:
-      return buildGuideSitemap();
-    default:
-      return [];
-  }
-}
-
-/* ================================================================
-   Sitemap 1 — Core Pages (static pages + hub pages, en + ar)
-   ================================================================ */
-
-function buildCoreSitemap(): MetadataRoute.Sitemap {
-  const entries: MetadataRoute.Sitemap = [];
-
-  // Homepage — English + Arabic
+/* ── Helper: push en + ar pair ───────────────────────────────── */
+function pushPair(
+  entries: MetadataRoute.Sitemap,
+  enPath: string,
+  arPath: string,
+  enLastMod: string,
+  arLastMod: string,
+  freq: "weekly" | "monthly" | "yearly",
+  enPriority: number,
+  arPriority: number,
+) {
+  // English
   entries.push({
-    url: BASE_URL,
-    lastModified: new Date("2026-07-15"),
-    changeFrequency: "weekly",
-    priority: 1.0,
-    alternates: {
-      languages: {
-        "ar-AE": `${BASE_URL}/ar`,
-        "x-default": BASE_URL,
-      },
-    },
+    url: `${BASE_URL}${enPath}`,
+    lastModified: new Date(enLastMod),
+    changeFrequency: freq,
+    priority: enPriority,
+    alternates: alt(enPath, arPath, enPath),
   });
-
+  // Arabic
   entries.push({
-    url: `${BASE_URL}/ar`,
-    lastModified: new Date("2026-07-28"),
-    changeFrequency: "weekly",
-    priority: 0.9,
-    alternates: {
-      languages: {
-        "en-AE": BASE_URL,
-        "x-default": BASE_URL,
-      },
-    },
+    url: `${BASE_URL}${arPath}`,
+    lastModified: new Date(arLastMod),
+    changeFrequency: freq,
+    priority: arPriority,
+    alternates: alt(arPath, enPath, enPath),
   });
-
-  // About Us — English + Arabic
-  entries.push({
-    url: `${BASE_URL}/about-us`,
-    lastModified: new Date("2026-07-01"),
-    changeFrequency: "monthly",
-    priority: 0.6,
-    alternates: {
-      languages: {
-        "ar-AE": `${BASE_URL}/ar/about-us`,
-        "x-default": `${BASE_URL}/about-us`,
-      },
-    },
-  });
-
-  entries.push({
-    url: `${BASE_URL}/ar/about-us`,
-    lastModified: new Date("2026-07-28"),
-    changeFrequency: "monthly",
-    priority: 0.6,
-    alternates: {
-      languages: {
-        "en-AE": `${BASE_URL}/about-us`,
-        "x-default": `${BASE_URL}/about-us`,
-      },
-    },
-  });
-
-  // Contact Us — English + Arabic
-  entries.push({
-    url: `${BASE_URL}/contact-us`,
-    lastModified: new Date("2026-07-01"),
-    changeFrequency: "monthly",
-    priority: 0.6,
-    alternates: {
-      languages: {
-        "ar-AE": `${BASE_URL}/ar/contact-us`,
-        "x-default": `${BASE_URL}/contact-us`,
-      },
-    },
-  });
-
-  entries.push({
-    url: `${BASE_URL}/ar/contact-us`,
-    lastModified: new Date("2026-07-28"),
-    changeFrequency: "monthly",
-    priority: 0.6,
-    alternates: {
-      languages: {
-        "en-AE": `${BASE_URL}/contact-us`,
-        "x-default": `${BASE_URL}/contact-us`,
-      },
-    },
-  });
-
-  // Hub pages — English + Arabic
-  const hubs = [
-    { path: "/approvals", priority: 0.9, lastMod: "2026-07-15" },
-    { path: "/guides", priority: 0.8, lastMod: "2026-07-15" },
-    { path: "/services", priority: 0.8, lastMod: "2026-07-01" },
-  ] as const;
-
-  for (const hub of hubs) {
-    // English
-    entries.push({
-      url: `${BASE_URL}${hub.path}`,
-      lastModified: new Date(hub.lastMod),
-      changeFrequency: "weekly",
-      priority: hub.priority,
-      alternates: {
-        languages: {
-          "ar-AE": `${BASE_URL}/ar${hub.path}`,
-          "x-default": `${BASE_URL}${hub.path}`,
-        },
-      },
-    });
-    // Arabic
-    entries.push({
-      url: `${BASE_URL}/ar${hub.path}`,
-      lastModified: new Date("2026-07-28"),
-      changeFrequency: "weekly",
-      priority: hub.priority - 0.1,
-      alternates: {
-        languages: {
-          "en-AE": `${BASE_URL}${hub.path}`,
-          "x-default": `${BASE_URL}${hub.path}`,
-        },
-      },
-    });
-  }
-
-  return entries;
 }
 
 /* ================================================================
-   Sitemap 2 — Service Pages (52 approvals + 5 services, en + ar)
+   MAIN SITEMAP EXPORT
    ================================================================ */
 
-function buildServiceSitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const entries: MetadataRoute.Sitemap = [];
 
-  // Approval pages — 52 English + 52 Arabic
+  /* ── 1. Homepage ──────────────────────────────────────────── */
+  // Priority 1.0 = only the primary canonical homepage
+  // Arabic homepage gets 0.9 — still high but signals en as primary
+  pushPair(entries, "", "/ar", "2026-07-15", "2026-07-28", "weekly", 1.0, 0.9);
+
+  /* ── 2. Static pages (about-us, contact-us) ──────────────── */
+  // Priority 0.6 — stable content, low change frequency
+  pushPair(entries, "/about-us", "/ar/about-us", "2026-07-01", "2026-07-28", "monthly", 0.6, 0.5);
+  pushPair(entries, "/contact-us", "/ar/contact-us", "2026-07-01", "2026-07-28", "monthly", 0.6, 0.5);
+
+  /* ── 3. Hub pages (approvals, guides, services) ──────────── */
+  // Priority 0.9 / 0.8 — these are gateway pages for topical clusters.
+  // Weekly change frequency signals freshness to crawlers.
+  pushPair(entries, "/approvals", "/ar/approvals", "2026-07-15", "2026-07-28", "weekly", 0.9, 0.8);
+  pushPair(entries, "/guides", "/ar/guides", "2026-07-15", "2026-07-28", "weekly", 0.8, 0.7);
+  pushPair(entries, "/services", "/ar/services", "2026-07-01", "2026-07-28", "weekly", 0.8, 0.7);
+
+  /* ── 4. Approval pages (52 en + 52 ar = 104) ─────────────── */
+  // Priority 0.8 / 0.7 — these are the core money pages.
+  // Each approval gets its own lastModified from the data source.
   for (const approval of approvals) {
     const slug = approval.slug;
+    const lastMod = approval.lastUpdated || "2026-07-01";
+
     // English
     entries.push({
       url: `${BASE_URL}/approvals/${slug}`,
-      lastModified: new Date(approval.lastUpdated),
+      lastModified: new Date(lastMod),
       changeFrequency: "monthly",
       priority: 0.8,
       alternates: {
@@ -197,10 +115,11 @@ function buildServiceSitemap(): MetadataRoute.Sitemap {
         },
       },
     });
+
     // Arabic
     entries.push({
       url: `${BASE_URL}/ar/approvals/${slug}`,
-      lastModified: new Date(approval.lastUpdated),
+      lastModified: new Date(lastMod),
       changeFrequency: "monthly",
       priority: 0.7,
       alternates: {
@@ -212,13 +131,16 @@ function buildServiceSitemap(): MetadataRoute.Sitemap {
     });
   }
 
-  // Service pages — 5 English + 5 Arabic
+  /* ── 5. Service pages (5 en + 5 ar = 10) ─────────────────── */
+  // Priority 0.7 / 0.6 — complementary services to approvals.
   for (const service of services) {
     const slug = service.slug;
+    const lastMod = service.lastUpdated || "2026-07-01";
+
     // English
     entries.push({
       url: `${BASE_URL}/services/${slug}`,
-      lastModified: new Date(service.lastUpdated),
+      lastModified: new Date(lastMod),
       changeFrequency: "monthly",
       priority: 0.7,
       alternates: {
@@ -228,10 +150,11 @@ function buildServiceSitemap(): MetadataRoute.Sitemap {
         },
       },
     });
+
     // Arabic
     entries.push({
       url: `${BASE_URL}/ar/services/${slug}`,
-      lastModified: new Date(service.lastUpdated),
+      lastModified: new Date(lastMod),
       changeFrequency: "monthly",
       priority: 0.6,
       alternates: {
@@ -243,22 +166,17 @@ function buildServiceSitemap(): MetadataRoute.Sitemap {
     });
   }
 
-  return entries;
-}
-
-/* ================================================================
-   Sitemap 3 — Guide / Q&A Pages (30+ en + ar)
-   ================================================================ */
-
-function buildGuideSitemap(): MetadataRoute.Sitemap {
-  const entries: MetadataRoute.Sitemap = [];
-
+  /* ── 6. Guide / Q&A pages (30+ en + 30+ ar = 60+) ────────── */
+  // Priority 0.7 / 0.6 — these target AI search engines (Google AI Overviews,
+  // ChatGPT Search, Perplexity) and benefit from fresh lastModified dates.
   for (const guide of guides) {
     const slug = guide.slug;
-    // English — bumped to 0.7 for AI search priority (Google AI Overviews, ChatGPT Search)
+    const lastMod = guide.lastUpdated || "2026-07-01";
+
+    // English
     entries.push({
       url: `${BASE_URL}/guides/${slug}`,
-      lastModified: new Date(guide.lastUpdated),
+      lastModified: new Date(lastMod),
       changeFrequency: "monthly",
       priority: 0.7,
       alternates: {
@@ -268,10 +186,11 @@ function buildGuideSitemap(): MetadataRoute.Sitemap {
         },
       },
     });
+
     // Arabic
     entries.push({
       url: `${BASE_URL}/ar/guides/${slug}`,
-      lastModified: new Date(guide.lastUpdated),
+      lastModified: new Date(lastMod),
       changeFrequency: "monthly",
       priority: 0.6,
       alternates: {

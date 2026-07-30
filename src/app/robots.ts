@@ -94,10 +94,6 @@ export default function robots(): MetadataRoute.Robots {
       },
     ],
 
-    sitemap: [
-      `${BASE}/sitemap/1.xml`,
-      `${BASE}/sitemap/2.xml`,
-      `${BASE}/sitemap/3.xml`,
-    ],
+    sitemap: `${BASE}/sitemap.xml`,
   };
 }
