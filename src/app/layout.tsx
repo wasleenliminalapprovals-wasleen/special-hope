@@ -98,7 +98,7 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const { gtmId, sitewideSchema } = siteConfig("en");
+  const { gtmId, gaId, sitewideSchema } = siteConfig("en");
 
   return (
     <html lang="en-AE" className={fontVariables("en")}>
@@ -130,6 +130,24 @@ export default function RootLayout({
                 style={{ display: "none", visibility: "hidden" }}
               />
             </noscript>
+          </>
+        )}
+
+        {/* GA4 Direct Google Tag — for Google Analytics cross-page detection */}
+        {gaId && (
+          <>
+            <Script
+              src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}
+              strategy="afterInteractive"
+            />
+            <Script id="ga4-init" strategy="afterInteractive">
+              {`
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', '${gaId}');
+              `}
+            </Script>
           </>
         )}
 
