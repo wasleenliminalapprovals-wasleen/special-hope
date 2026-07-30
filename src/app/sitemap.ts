@@ -1,17 +1,27 @@
 /**
- * Dynamic sitemap.xml generator — 128+ bilingual pages.
+ * Unified sitemap.xml — single-file generator for ~190 bilingual pages.
  *
- * Generates URLs for every page type in both English and Arabic,
- * with proper xhtml:link alternates for hreflang.
- * - Static pages (home, about-us, contact-us)
- * - Hub pages (approvals, guides, services)
- * - Approval service pages (52) — from @/data/approvals
- * - Guide / Q&A pages (30+) — from @/data/guides
- * - Service pages (5) — from @/data/services
- * - Arabic counterparts for every page
+ * Google recommends a single sitemap up to 50,000 URLs / 50 MB. This
+ * file serves everything in one go, eliminating the split-sitemap routing
+ * issues that were causing /sitemap.xml → 404 and /sitemap/1.xml → truncated output.
  *
- * @see .roo/rules/03-SEO-AI-SEARCH-MASTER.md for SEO rules
- * @see .roo/rules/05-TECHNICAL-SEO-SCHEMA.md for sitemap requirements
+ * Structure (all pages en + ar):
+ *   1. Homepage (2)
+ *   2. Static pages (about-us, contact-us — 4)
+ *   3. Hub pages (approvals, guides, services — 6)
+ *   4. Approval pages (52 services × 2 languages = 104)
+ *   5. Service pages (5 × 2 = 10)
+ *   6. Guide / Q&A pages (30+ × 2 = 60+)
+ *
+ * SEO best practices applied:
+ *   - Every <url> includes self-referencing hreflang (en/ar) + x-default
+ *   - x-default always points to the English (canonical) URL
+ *   - lastModified: real dates, never artificially bumped
+ *   - priority and changefreq omitted — Google ignores them in sitemaps
+ *   - All URLs canonical via alternates.x-default
+ *
+ * @see .roo/rules/03-SEO-AI-SEARCH-MASTER.md  — SEO rules
+ * @see .roo/rules/05-TECHNICAL-SEO-SCHEMA.md   — Sitemap requirements
  */
 
 import type { MetadataRoute } from "next";
@@ -22,277 +32,120 @@ import { SITE } from "@/lib/constants";
 
 const BASE_URL = SITE.url;
 
-export default function sitemap(): MetadataRoute.Sitemap {
+/* ── Helper: generate complete alternates for an en/ar page pair ── */
+function alt(enUrl: string, arUrl: string) {
+  return {
+    languages: {
+      en: enUrl,
+      ar: arUrl,
+      "x-default": enUrl, // x-default always points to English (canonical)
+    },
+  };
+}
+
+/* ── Helper: push en + ar pair ───────────────────────────────── */
+function pushPair(
+  entries: MetadataRoute.Sitemap,
+  enPath: string,
+  arPath: string,
+  enLastMod: string,
+  arLastMod: string,
+) {
+  const enUrl = `${BASE_URL}${enPath}`;
+  const arUrl = `${BASE_URL}${arPath}`;
+
+  // English
+  entries.push({
+    url: enUrl,
+    lastModified: new Date(enLastMod),
+    alternates: alt(enUrl, arUrl),
+  });
+  // Arabic
+  entries.push({
+    url: arUrl,
+    lastModified: new Date(arLastMod),
+    alternates: alt(enUrl, arUrl),
+  });
+}
+
+/* ================================================================
+   MAIN SITEMAP EXPORT
+   ================================================================ */
+
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const entries: MetadataRoute.Sitemap = [];
 
-  /* ================================================================
-     1. STATIC PAGES — English + Arabic
-     ================================================================ */
+  /* ── 1. Homepage ──────────────────────────────────────────── */
+  pushPair(entries, "", "/ar", "2026-07-15", "2026-07-28");
 
-  // Homepage — English + Arabic
-  entries.push({
-    url: BASE_URL,
-    lastModified: new Date("2026-07-15"),
-    changeFrequency: "weekly",
-    priority: 1.0,
-    alternates: {
-      languages: {
-        "ar-AE": `${BASE_URL}/ar`,
-      },
-    },
-  });
+  /* ── 2. Static pages (about-us, contact-us) ──────────────── */
+  pushPair(entries, "/about-us", "/ar/about-us", "2026-07-01", "2026-07-28");
+  pushPair(entries, "/contact-us", "/ar/contact-us", "2026-07-01", "2026-07-28");
 
-  entries.push({
-    url: `${BASE_URL}/ar`,
-    lastModified: new Date("2026-07-28"),
-    changeFrequency: "weekly",
-    priority: 0.8,
-    alternates: {
-      languages: {
-        "en-AE": BASE_URL,
-      },
-    },
-  });
+  /* ── 3. Hub pages (approvals, guides, services) ──────────── */
+  pushPair(entries, "/approvals", "/ar/approvals", "2026-07-15", "2026-07-28");
+  pushPair(entries, "/guides", "/ar/guides", "2026-07-15", "2026-07-28");
+  pushPair(entries, "/services", "/ar/services", "2026-07-01", "2026-07-28");
 
-  // About Us — English + Arabic
-  entries.push({
-    url: `${BASE_URL}/about-us`,
-    lastModified: new Date("2026-07-01"),
-    changeFrequency: "monthly",
-    priority: 0.5,
-    alternates: {
-      languages: {
-        "ar-AE": `${BASE_URL}/ar/about-us`,
-      },
-    },
-  });
-
-  entries.push({
-    url: `${BASE_URL}/ar/about-us`,
-    lastModified: new Date("2026-07-28"),
-    changeFrequency: "monthly",
-    priority: 0.5,
-    alternates: {
-      languages: {
-        "en-AE": `${BASE_URL}/about-us`,
-      },
-    },
-  });
-
-  // Contact Us — English + Arabic
-  entries.push({
-    url: `${BASE_URL}/contact-us`,
-    lastModified: new Date("2026-07-01"),
-    changeFrequency: "monthly",
-    priority: 0.5,
-    alternates: {
-      languages: {
-        "ar-AE": `${BASE_URL}/ar/contact-us`,
-      },
-    },
-  });
-
-  entries.push({
-    url: `${BASE_URL}/ar/contact-us`,
-    lastModified: new Date("2026-07-28"),
-    changeFrequency: "monthly",
-    priority: 0.5,
-    alternates: {
-      languages: {
-        "en-AE": `${BASE_URL}/contact-us`,
-      },
-    },
-  });
-
-  /* ================================================================
-     2. HUB PAGES — English + Arabic
-     ================================================================ */
-
-  entries.push({
-    url: `${BASE_URL}/approvals`,
-    lastModified: new Date("2026-07-15"),
-    changeFrequency: "weekly",
-    priority: 0.9,
-    alternates: {
-      languages: {
-        "ar-AE": `${BASE_URL}/ar/approvals`,
-      },
-    },
-  });
-
-  entries.push({
-    url: `${BASE_URL}/ar/approvals`,
-    lastModified: new Date("2026-07-28"),
-    changeFrequency: "weekly",
-    priority: 0.7,
-    alternates: {
-      languages: {
-        "en-AE": `${BASE_URL}/approvals`,
-      },
-    },
-  });
-
-  entries.push({
-    url: `${BASE_URL}/guides`,
-    lastModified: new Date("2026-07-15"),
-    changeFrequency: "weekly",
-    priority: 0.8,
-    alternates: {
-      languages: {
-        "ar-AE": `${BASE_URL}/ar/guides`,
-      },
-    },
-  });
-
-  entries.push({
-    url: `${BASE_URL}/ar/guides`,
-    lastModified: new Date("2026-07-28"),
-    changeFrequency: "weekly",
-    priority: 0.7,
-    alternates: {
-      languages: {
-        "en-AE": `${BASE_URL}/guides`,
-      },
-    },
-  });
-
-  entries.push({
-    url: `${BASE_URL}/services`,
-    lastModified: new Date("2026-07-01"),
-    changeFrequency: "weekly",
-    priority: 0.8,
-    alternates: {
-      languages: {
-        "ar-AE": `${BASE_URL}/ar/services`,
-      },
-    },
-  });
-
-  entries.push({
-    url: `${BASE_URL}/ar/services`,
-    lastModified: new Date("2026-07-28"),
-    changeFrequency: "weekly",
-    priority: 0.7,
-    alternates: {
-      languages: {
-        "en-AE": `${BASE_URL}/services`,
-      },
-    },
-  });
-
-  /* ================================================================
-     3. APPROVAL PAGES — 52 English + 52 Arabic
-     ================================================================ */
-
+  /* ── 4. Approval pages (52 en + 52 ar = 104) ─────────────── */
   for (const approval of approvals) {
     const slug = approval.slug;
-    // English
+    const lastMod = approval.lastUpdated || "2026-07-01";
+    const enUrl = `${BASE_URL}/approvals/${slug}`;
+    const arUrl = `${BASE_URL}/ar/approvals/${slug}`;
+
     entries.push({
-      url: `${BASE_URL}/approvals/${slug}`,
-      lastModified: new Date(approval.lastUpdated),
-      changeFrequency: "monthly",
-      priority: 0.8,
-      alternates: {
-        languages: {
-          "ar-AE": `${BASE_URL}/ar/approvals/${slug}`,
-        },
-      },
+      url: enUrl,
+      lastModified: new Date(lastMod),
+      alternates: alt(enUrl, arUrl),
     });
-    // Arabic
+
     entries.push({
-      url: `${BASE_URL}/ar/approvals/${slug}`,
-      lastModified: new Date(approval.lastUpdated),
-      changeFrequency: "monthly",
-      priority: 0.6,
-      alternates: {
-        languages: {
-          "en-AE": `${BASE_URL}/approvals/${slug}`,
-        },
-      },
+      url: arUrl,
+      lastModified: new Date(lastMod),
+      alternates: alt(enUrl, arUrl),
     });
   }
 
-  /* ================================================================
-     4. GUIDE / Q&A PAGES — 30+ English + Arabic
-     ================================================================ */
-
-  for (const guide of guides) {
-    const slug = guide.slug;
-    // English
-    entries.push({
-      url: `${BASE_URL}/guides/${slug}`,
-      lastModified: new Date(guide.lastUpdated),
-      changeFrequency: "monthly",
-      priority: 0.6,
-      alternates: {
-        languages: {
-          "ar-AE": `${BASE_URL}/ar/guides/${slug}`,
-        },
-      },
-    });
-    // Arabic
-    entries.push({
-      url: `${BASE_URL}/ar/guides/${slug}`,
-      lastModified: new Date(guide.lastUpdated),
-      changeFrequency: "monthly",
-      priority: 0.5,
-      alternates: {
-        languages: {
-          "en-AE": `${BASE_URL}/guides/${slug}`,
-        },
-      },
-    });
-  }
-
-  /* ================================================================
-     5. SERVICE PAGES — 5 English + 5 Arabic
-     ================================================================ */
-
+  /* ── 5. Service pages (5 en + 5 ar = 10) ─────────────────── */
   for (const service of services) {
     const slug = service.slug;
-    // English
+    const lastMod = service.lastUpdated || "2026-07-01";
+    const enUrl = `${BASE_URL}/services/${slug}`;
+    const arUrl = `${BASE_URL}/ar/services/${slug}`;
+
     entries.push({
-      url: `${BASE_URL}/services/${slug}`,
-      lastModified: new Date(service.lastUpdated),
-      changeFrequency: "monthly",
-      priority: 0.7,
-      alternates: {
-        languages: {
-          "ar-AE": `${BASE_URL}/ar/services/${slug}`,
-        },
-      },
+      url: enUrl,
+      lastModified: new Date(lastMod),
+      alternates: alt(enUrl, arUrl),
     });
-    // Arabic
+
     entries.push({
-      url: `${BASE_URL}/ar/services/${slug}`,
-      lastModified: new Date(service.lastUpdated),
-      changeFrequency: "monthly",
-      priority: 0.6,
-      alternates: {
-        languages: {
-          "en-AE": `${BASE_URL}/services/${slug}`,
-        },
-      },
+      url: arUrl,
+      lastModified: new Date(lastMod),
+      alternates: alt(enUrl, arUrl),
     });
   }
 
-  /* ================================================================
-     6. GEO FILES — llms.txt & llms-full.txt (English only)
-     ================================================================ */
+  /* ── 6. Guide / Q&A pages (30+ en + 30+ ar = 60+) ────────── */
+  for (const guide of guides) {
+    const slug = guide.slug;
+    const lastMod = guide.lastUpdated || "2026-07-01";
+    const enUrl = `${BASE_URL}/guides/${slug}`;
+    const arUrl = `${BASE_URL}/ar/guides/${slug}`;
 
-  entries.push({
-    url: `${BASE_URL}/llms.txt`,
-    lastModified: new Date("2026-07-28"),
-    changeFrequency: "weekly",
-    priority: 0.5,
-  });
+    entries.push({
+      url: enUrl,
+      lastModified: new Date(lastMod),
+      alternates: alt(enUrl, arUrl),
+    });
 
-  entries.push({
-    url: `${BASE_URL}/llms-full.txt`,
-    lastModified: new Date("2026-07-28"),
-    changeFrequency: "weekly",
-    priority: 0.5,
-  });
+    entries.push({
+      url: arUrl,
+      lastModified: new Date(lastMod),
+      alternates: alt(enUrl, arUrl),
+    });
+  }
 
   return entries;
 }
