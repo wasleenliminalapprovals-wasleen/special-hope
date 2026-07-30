@@ -1,14 +1,16 @@
 /**
- * Dynamic sitemap.xml generator — 128+ bilingual pages.
+ * Dynamic sitemap.xml generator — 3-way split index for ~190+ bilingual pages.
  *
- * Generates URLs for every page type in both English and Arabic,
- * with proper xhtml:link alternates for hreflang.
- * - Static pages (home, about-us, contact-us)
- * - Hub pages (approvals, guides, services)
- * - Approval service pages (52) — from @/data/approvals
- * - Guide / Q&A pages (30+) — from @/data/guides
- * - Service pages (5) — from @/data/services
- * - Arabic counterparts for every page
+ * Google strictly recommends sitemaps for HTML pages only. Text files intended
+ * for AI agents (llms.txt, llms-full.txt) are served at their root URL and
+ * MUST be excluded from the XML sitemap to avoid Soft 404 / crawl issues.
+ *
+ * Split structure (for future scale with dozens more guides/locations):
+ *   sitemap/1.xml  — Core Pages    (home, about-us, contact-us, hubs — en + ar)
+ *   sitemap/2.xml  — Service Pages (52 approvals + 5 services — en + ar)
+ *   sitemap/3.xml  — Guide Pages   (30+ guides — en + ar)
+ *
+ * All three are registered in robots.ts so Googlebot discovers every page.
  *
  * @see .roo/rules/03-SEO-AI-SEARCH-MASTER.md for SEO rules
  * @see .roo/rules/05-TECHNICAL-SEO-SCHEMA.md for sitemap requirements
@@ -22,12 +24,35 @@ import { SITE } from "@/lib/constants";
 
 const BASE_URL = SITE.url;
 
-export default function sitemap(): MetadataRoute.Sitemap {
-  const entries: MetadataRoute.Sitemap = [];
+/* ── Sitemap segments ──────────────────────────────────────── */
 
-  /* ================================================================
-     1. STATIC PAGES — English + Arabic
-     ================================================================ */
+export async function generateSitemaps() {
+  return [{ id: 1 }, { id: 2 }, { id: 3 }];
+}
+
+export default async function sitemap({
+  id,
+}: {
+  id: number;
+}): Promise<MetadataRoute.Sitemap> {
+  switch (id) {
+    case 1:
+      return buildCoreSitemap();
+    case 2:
+      return buildServiceSitemap();
+    case 3:
+      return buildGuideSitemap();
+    default:
+      return [];
+  }
+}
+
+/* ================================================================
+   Sitemap 1 — Core Pages (static pages + hub pages, en + ar)
+   ================================================================ */
+
+function buildCoreSitemap(): MetadataRoute.Sitemap {
+  const entries: MetadataRoute.Sitemap = [];
 
   // Homepage — English + Arabic
   entries.push({
@@ -38,6 +63,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     alternates: {
       languages: {
         "ar-AE": `${BASE_URL}/ar`,
+        "x-default": BASE_URL,
       },
     },
   });
@@ -46,10 +72,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     url: `${BASE_URL}/ar`,
     lastModified: new Date("2026-07-28"),
     changeFrequency: "weekly",
-    priority: 0.8,
+    priority: 0.9,
     alternates: {
       languages: {
         "en-AE": BASE_URL,
+        "x-default": BASE_URL,
       },
     },
   });
@@ -59,10 +86,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     url: `${BASE_URL}/about-us`,
     lastModified: new Date("2026-07-01"),
     changeFrequency: "monthly",
-    priority: 0.5,
+    priority: 0.6,
     alternates: {
       languages: {
         "ar-AE": `${BASE_URL}/ar/about-us`,
+        "x-default": `${BASE_URL}/about-us`,
       },
     },
   });
@@ -71,10 +99,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     url: `${BASE_URL}/ar/about-us`,
     lastModified: new Date("2026-07-28"),
     changeFrequency: "monthly",
-    priority: 0.5,
+    priority: 0.6,
     alternates: {
       languages: {
         "en-AE": `${BASE_URL}/about-us`,
+        "x-default": `${BASE_URL}/about-us`,
       },
     },
   });
@@ -84,10 +113,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     url: `${BASE_URL}/contact-us`,
     lastModified: new Date("2026-07-01"),
     changeFrequency: "monthly",
-    priority: 0.5,
+    priority: 0.6,
     alternates: {
       languages: {
         "ar-AE": `${BASE_URL}/ar/contact-us`,
+        "x-default": `${BASE_URL}/contact-us`,
       },
     },
   });
@@ -96,94 +126,62 @@ export default function sitemap(): MetadataRoute.Sitemap {
     url: `${BASE_URL}/ar/contact-us`,
     lastModified: new Date("2026-07-28"),
     changeFrequency: "monthly",
-    priority: 0.5,
+    priority: 0.6,
     alternates: {
       languages: {
         "en-AE": `${BASE_URL}/contact-us`,
+        "x-default": `${BASE_URL}/contact-us`,
       },
     },
   });
 
-  /* ================================================================
-     2. HUB PAGES — English + Arabic
-     ================================================================ */
+  // Hub pages — English + Arabic
+  const hubs = [
+    { path: "/approvals", priority: 0.9, lastMod: "2026-07-15" },
+    { path: "/guides", priority: 0.8, lastMod: "2026-07-15" },
+    { path: "/services", priority: 0.8, lastMod: "2026-07-01" },
+  ] as const;
 
-  entries.push({
-    url: `${BASE_URL}/approvals`,
-    lastModified: new Date("2026-07-15"),
-    changeFrequency: "weekly",
-    priority: 0.9,
-    alternates: {
-      languages: {
-        "ar-AE": `${BASE_URL}/ar/approvals`,
+  for (const hub of hubs) {
+    // English
+    entries.push({
+      url: `${BASE_URL}${hub.path}`,
+      lastModified: new Date(hub.lastMod),
+      changeFrequency: "weekly",
+      priority: hub.priority,
+      alternates: {
+        languages: {
+          "ar-AE": `${BASE_URL}/ar${hub.path}`,
+          "x-default": `${BASE_URL}${hub.path}`,
+        },
       },
-    },
-  });
-
-  entries.push({
-    url: `${BASE_URL}/ar/approvals`,
-    lastModified: new Date("2026-07-28"),
-    changeFrequency: "weekly",
-    priority: 0.7,
-    alternates: {
-      languages: {
-        "en-AE": `${BASE_URL}/approvals`,
+    });
+    // Arabic
+    entries.push({
+      url: `${BASE_URL}/ar${hub.path}`,
+      lastModified: new Date("2026-07-28"),
+      changeFrequency: "weekly",
+      priority: hub.priority - 0.1,
+      alternates: {
+        languages: {
+          "en-AE": `${BASE_URL}${hub.path}`,
+          "x-default": `${BASE_URL}${hub.path}`,
+        },
       },
-    },
-  });
+    });
+  }
 
-  entries.push({
-    url: `${BASE_URL}/guides`,
-    lastModified: new Date("2026-07-15"),
-    changeFrequency: "weekly",
-    priority: 0.8,
-    alternates: {
-      languages: {
-        "ar-AE": `${BASE_URL}/ar/guides`,
-      },
-    },
-  });
+  return entries;
+}
 
-  entries.push({
-    url: `${BASE_URL}/ar/guides`,
-    lastModified: new Date("2026-07-28"),
-    changeFrequency: "weekly",
-    priority: 0.7,
-    alternates: {
-      languages: {
-        "en-AE": `${BASE_URL}/guides`,
-      },
-    },
-  });
+/* ================================================================
+   Sitemap 2 — Service Pages (52 approvals + 5 services, en + ar)
+   ================================================================ */
 
-  entries.push({
-    url: `${BASE_URL}/services`,
-    lastModified: new Date("2026-07-01"),
-    changeFrequency: "weekly",
-    priority: 0.8,
-    alternates: {
-      languages: {
-        "ar-AE": `${BASE_URL}/ar/services`,
-      },
-    },
-  });
+function buildServiceSitemap(): MetadataRoute.Sitemap {
+  const entries: MetadataRoute.Sitemap = [];
 
-  entries.push({
-    url: `${BASE_URL}/ar/services`,
-    lastModified: new Date("2026-07-28"),
-    changeFrequency: "weekly",
-    priority: 0.7,
-    alternates: {
-      languages: {
-        "en-AE": `${BASE_URL}/services`,
-      },
-    },
-  });
-
-  /* ================================================================
-     3. APPROVAL PAGES — 52 English + 52 Arabic
-     ================================================================ */
-
+  // Approval pages — 52 English + 52 Arabic
   for (const approval of approvals) {
     const slug = approval.slug;
     // English
@@ -195,6 +193,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       alternates: {
         languages: {
           "ar-AE": `${BASE_URL}/ar/approvals/${slug}`,
+          "x-default": `${BASE_URL}/approvals/${slug}`,
         },
       },
     });
@@ -203,51 +202,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: `${BASE_URL}/ar/approvals/${slug}`,
       lastModified: new Date(approval.lastUpdated),
       changeFrequency: "monthly",
-      priority: 0.6,
+      priority: 0.7,
       alternates: {
         languages: {
           "en-AE": `${BASE_URL}/approvals/${slug}`,
+          "x-default": `${BASE_URL}/approvals/${slug}`,
         },
       },
     });
   }
 
-  /* ================================================================
-     4. GUIDE / Q&A PAGES — 30+ English + Arabic
-     ================================================================ */
-
-  for (const guide of guides) {
-    const slug = guide.slug;
-    // English
-    entries.push({
-      url: `${BASE_URL}/guides/${slug}`,
-      lastModified: new Date(guide.lastUpdated),
-      changeFrequency: "monthly",
-      priority: 0.6,
-      alternates: {
-        languages: {
-          "ar-AE": `${BASE_URL}/ar/guides/${slug}`,
-        },
-      },
-    });
-    // Arabic
-    entries.push({
-      url: `${BASE_URL}/ar/guides/${slug}`,
-      lastModified: new Date(guide.lastUpdated),
-      changeFrequency: "monthly",
-      priority: 0.5,
-      alternates: {
-        languages: {
-          "en-AE": `${BASE_URL}/guides/${slug}`,
-        },
-      },
-    });
-  }
-
-  /* ================================================================
-     5. SERVICE PAGES — 5 English + 5 Arabic
-     ================================================================ */
-
+  // Service pages — 5 English + 5 Arabic
   for (const service of services) {
     const slug = service.slug;
     // English
@@ -259,6 +224,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       alternates: {
         languages: {
           "ar-AE": `${BASE_URL}/ar/services/${slug}`,
+          "x-default": `${BASE_URL}/services/${slug}`,
         },
       },
     });
@@ -271,28 +237,51 @@ export default function sitemap(): MetadataRoute.Sitemap {
       alternates: {
         languages: {
           "en-AE": `${BASE_URL}/services/${slug}`,
+          "x-default": `${BASE_URL}/services/${slug}`,
         },
       },
     });
   }
 
-  /* ================================================================
-     6. GEO FILES — llms.txt & llms-full.txt (English only)
-     ================================================================ */
+  return entries;
+}
 
-  entries.push({
-    url: `${BASE_URL}/llms.txt`,
-    lastModified: new Date("2026-07-28"),
-    changeFrequency: "weekly",
-    priority: 0.5,
-  });
+/* ================================================================
+   Sitemap 3 — Guide / Q&A Pages (30+ en + ar)
+   ================================================================ */
 
-  entries.push({
-    url: `${BASE_URL}/llms-full.txt`,
-    lastModified: new Date("2026-07-28"),
-    changeFrequency: "weekly",
-    priority: 0.5,
-  });
+function buildGuideSitemap(): MetadataRoute.Sitemap {
+  const entries: MetadataRoute.Sitemap = [];
+
+  for (const guide of guides) {
+    const slug = guide.slug;
+    // English — bumped to 0.7 for AI search priority (Google AI Overviews, ChatGPT Search)
+    entries.push({
+      url: `${BASE_URL}/guides/${slug}`,
+      lastModified: new Date(guide.lastUpdated),
+      changeFrequency: "monthly",
+      priority: 0.7,
+      alternates: {
+        languages: {
+          "ar-AE": `${BASE_URL}/ar/guides/${slug}`,
+          "x-default": `${BASE_URL}/guides/${slug}`,
+        },
+      },
+    });
+    // Arabic
+    entries.push({
+      url: `${BASE_URL}/ar/guides/${slug}`,
+      lastModified: new Date(guide.lastUpdated),
+      changeFrequency: "monthly",
+      priority: 0.6,
+      alternates: {
+        languages: {
+          "en-AE": `${BASE_URL}/guides/${slug}`,
+          "x-default": `${BASE_URL}/guides/${slug}`,
+        },
+      },
+    });
+  }
 
   return entries;
 }
