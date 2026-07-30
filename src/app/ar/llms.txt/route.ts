@@ -46,6 +46,24 @@ export async function GET() {
   );
   lines.push("");
 
+  // ── About / Contact Info (Arabic) ──
+
+  lines.push("## عن الشركة");
+  lines.push("");
+  lines.push(
+    "وسلين ليمينال لاستشارات الموافقات (الاسم التجاري: وسلين للموافقات) تساعد " +
+    "أصحاب العقارات والمقاولين والشركات في الحصول على جميع الموافقات الحكومية " +
+    "والجهات الرسمية للمشاريع التجارية والسكنية في دبي."
+  );
+  lines.push("");
+  lines.push("- **الهاتف:** +971542330837");
+  lines.push("- **واتساب:** +971542330837");
+  lines.push("- **البريد الإلكتروني:** approvals@wasleen.com");
+  lines.push("- **العنوان:** مكتب 401، مبنى درويش، القصيص، دبي، الإمارات العربية المتحدة");
+  lines.push("- **منطقة الخدمة:** دبي، الإمارات العربية المتحدة");
+  lines.push("- **ساعات العمل:** الأحد — الخميس، ٩:٠٠ صباحاً — ٦:٠٠ مساءً (بتوقيت الخليج)");
+  lines.push("");
+
   // ── Approval Categories ──
 
   const categoryOrder = [
@@ -123,6 +141,45 @@ export async function GET() {
   lines.push(`- [${AR.nav.approvals}](/ar/approvals)`);
   lines.push(`- [${AR.nav.guides}](/ar/guides)`);
   lines.push(`- [${AR.nav.services}](/ar/services)`);
+  lines.push("");
+
+  // ── Full Knowledge Base (Arabic llms-full.txt) ──
+
+  const totalApprovals = approvals.length;
+  const totalGuides = guides.length;
+  const totalServices = services.length;
+  const totalPages = totalApprovals + totalGuides + totalServices;
+
+  lines.push("## قاعدة المعرفة الكاملة");
+  lines.push("");
+  lines.push(
+    "للحصول على محتوى كامل يشمل قوائم المستندات وخطوات العملية " +
+    "وجداول الوقت والتكاليف وأسباب الرفض والأسئلة الشائعة لكل موافقة ودليل وخدمة:"
+  );
+  lines.push("");
+  lines.push(
+    `- [llms-full.txt (عربي)](/ar/llms-full.txt) — قاعدة المعرفة الكاملة ` +
+    `تحتوي على جميع ${totalApprovals} الموافقات و ${totalGuides} الأدلة ` +
+    `و ${totalServices} الخدمات (إجمالي ${totalPages} صفحة). منظمة مع الإجابة ` +
+    `المباشرة، إحصائيات سريعة، جداول المستندات المطلوبة، خطوات العملية، ` +
+    `جدول الوقت والتكاليف، أسباب الرفض، والأسئلة الشائعة لكل صفحة.`
+  );
+  lines.push(
+    `- [llms-full.txt (إنجليزي)](/llms-full.txt) — النسخة الإنجليزية من قاعدة ` +
+    `المعرفة الكاملة.`
+  );
+  lines.push("");
+
+  // ── Internal Resources (Arabic) ──
+
+  lines.push("## داخلي");
+  lines.push("");
+  lines.push("الموارد التالية مخصصة لاستخدام وكلاء الذكاء الاصطناعي والمرجع الداخلي:");
+  lines.push("");
+  lines.push(`- [llms-full.txt (عربي)](/ar/llms-full.txt) — قاعدة المعرفة الكاملة (${totalPages} صفحة، محتوى منظم مع جداول وقوائم)`);
+  lines.push(`- [خريطة الموقع (الرئيسية)](/sitemap/1.xml) — الصفحات الأساسية: الرئيسية، من نحن، اتصل بنا، الصفحات الدليلية (إنجليزي + عربي)`);
+  lines.push(`- [خريطة الموقع (الخدمات)](/sitemap/2.xml) — صفحات الخدمات: ${totalApprovals} موافقة + ${totalServices} خدمة (إنجليزي + عربي)`);
+  lines.push(`- [خريطة الموقع (الأدلة)](/sitemap/3.xml) — صفحات الأدلة: ${totalGuides} دليل (إنجليزي + عربي)`);
   lines.push("");
 
   const content = lines.join("\n");

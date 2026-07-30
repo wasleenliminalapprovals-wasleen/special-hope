@@ -490,6 +490,24 @@ export function buildLlmsIndex(
   );
   lines.push("");
 
+  // ── About / Contact Info ──
+
+  lines.push("## About");
+  lines.push("");
+  lines.push(
+    "Wasleen Liminal Approval Consultants (trading as Wasleen Approvals) helps " +
+    "property owners, contractors, and businesses obtain all required government " +
+    "and authority approvals for commercial and residential projects in Dubai."
+  );
+  lines.push("");
+  lines.push("- **Phone:** +971542330837");
+  lines.push("- **WhatsApp:** +971542330837");
+  lines.push("- **Email:** approvals@wasleen.com");
+  lines.push("- **Address:** Office 401, Darwish Building, Al Qusais, Dubai, UAE");
+  lines.push("- **Service Area:** Dubai, United Arab Emirates");
+  lines.push("- **Working Hours:** Sunday — Thursday, 9:00 AM — 6:00 PM (GST)");
+  lines.push("");
+
   // ── Approval Categories ──
 
   const categories = [
@@ -559,6 +577,48 @@ export function buildLlmsIndex(
   lines.push("- [Approvals Hub](/approvals)");
   lines.push("- [Guides Hub](/guides)");
   lines.push("- [Services Hub](/services)");
+  lines.push("");
+
+  // ── Full Knowledge Base (llms-full.txt) ──
+
+  const totalApprovals = allApprovals.length;
+  const totalGuides = allGuides.length;
+  const totalServices = allServices.length;
+  const totalPages = totalApprovals + totalGuides + totalServices;
+
+  lines.push("## Full Knowledge Base");
+  lines.push("");
+  lines.push(
+    "For complete expert-level content including full document lists, process steps, " +
+    "timeline tables, rejection reasons, and FAQ for every approval, guide, and service:"
+  );
+  lines.push("");
+  lines.push(
+    `- [llms-full.txt](llms-full.txt) — Complete knowledge base with all ${totalApprovals} ` +
+    `approvals, ${totalGuides} guides, and ${totalServices} services ` +
+    `(${totalPages} pages total). Structured with Direct Answer, At a Glance stats, ` +
+    `Required Documents tables, Process Steps, Timeline & Cost tables, Rejection Reasons, ` +
+    `and FAQ for every page.`
+  );
+  lines.push(
+    `- [llms-full.txt (Arabic)](/ar/llms-full.txt) — Arabic equivalent of the full ` +
+    `knowledge base with all ${totalApprovals} approvals, ${totalGuides} guides, ` +
+    `and ${totalServices} services in Arabic.`
+  );
+  lines.push("");
+
+  // ── Internal Resources ──
+
+  lines.push("## Internal");
+  lines.push("");
+  lines.push(
+    "The following resources are intended for AI agent consumption and internal reference:"
+  );
+  lines.push("");
+  lines.push(`- [llms-full.txt](llms-full.txt) — Full knowledge base (${totalPages} pages, structured content with tables and lists)`);
+  lines.push(`- [Sitemap (Core)](/sitemap/1.xml) — Core pages: home, about, contact, hubs (English + Arabic)`);
+  lines.push(`- [Sitemap (Services)](/sitemap/2.xml) — Service pages: ${totalApprovals} approvals + ${totalServices} services (English + Arabic)`);
+  lines.push(`- [Sitemap (Guides)](/sitemap/3.xml) — Guide pages: ${totalGuides} guides (English + Arabic)`);
   lines.push("");
 
   return lines.join("\n");
