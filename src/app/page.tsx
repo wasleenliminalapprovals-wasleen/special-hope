@@ -16,7 +16,9 @@
  */
 
 import type { Metadata } from "next";
-import { SITE } from "@/lib/constants";
+import Link from "next/link";
+import { ShieldCheck } from "lucide-react";
+import { LICENSE, SITE } from "@/lib/constants";
 import { hreflangAlternates } from "@/lib/locale";
 import { homepageSchema } from "@/lib/schema";
 import HeroSection from "@/components/sections/HeroSection";
@@ -116,6 +118,18 @@ export default function HomePage() {
 
       {/* ===== 2. Trust Strip ===== */}
       <TrustStrip />
+
+      {/* ===== 2b. Verified & Licensed Badge ===== */}
+      <div className="flex justify-center bg-light-bg px-4 pb-8">
+        <Link
+          href="/license"
+          className="inline-flex items-center gap-2 rounded-full border border-border-light bg-white px-5 py-2.5 text-body-sm font-medium text-brand-blue shadow-card transition-colors hover:border-brand-blue"
+          aria-label="DED Licensed & Verified — view our trade license details"
+        >
+          <ShieldCheck size={18} strokeWidth={1.75} className="text-success-green" />
+          DED Licensed & Verified — Trade License No. {LICENSE.licenseNumber}
+        </Link>
+      </div>
 
       {/* ===== 3. Service Categories ===== */}
       <ServiceCategories />

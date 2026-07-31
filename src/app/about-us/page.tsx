@@ -8,6 +8,7 @@
  */
 
 import type { Metadata } from "next";
+import Link from "next/link";
 import { SITE, NAP } from "@/lib/constants";
 import { hreflangAlternates } from "@/lib/locale";
 import { staticPageSchema } from "@/lib/schema";
@@ -218,8 +219,15 @@ export default function AboutUsPage() {
               {NAP.address.addressRegion}
             </p>
             <p>
-              <strong>License:</strong> Professional consultancy — details
-              available upon request.
+              <strong>License:</strong> Professional consultancy —{" "}
+              <Link
+                href="/license"
+                className="text-link-blue hover:underline"
+                aria-label="View our DED trade license and verification details"
+              >
+                view our DED trade license & verification details
+              </Link>
+              .
             </p>
             <p className="text-body-sm text-body-text/70 italic">
               * Specific license numbers and registration details are

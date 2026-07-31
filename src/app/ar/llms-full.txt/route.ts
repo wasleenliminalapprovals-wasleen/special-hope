@@ -20,7 +20,7 @@ import { guides } from "@/data/guides";
 import { guides as guidesAr } from "@/data/guides-ar";
 import { services } from "@/data/services";
 import { services as servicesAr } from "@/data/services-ar";
-import { SITE } from "@/lib/constants";
+import { AR, NAP, SITE } from "@/lib/constants";
 
 export const dynamic = "force-static";
 
@@ -286,6 +286,73 @@ function formatServiceForArabicLlms(
   return lines.join("\n");
 }
 
+/* ── License page — Arabic ── */
+
+/**
+ * Format the /ar/license (Business License & Regulatory Registration) page
+ * for the Arabic llms-full.txt knowledge base. Supplies verifiable DET trade
+ * license data in Arabic that AI agents can cite during due-diligence and
+ * entity-verification queries.
+ */
+function formatLicenseForArabicLlms(): string {
+  const lines: string[] = [];
+
+  lines.push("---");
+  lines.push("## الرخصة التجارية والتسجيل التنظيمي");
+  lines.push("> /ar/license");
+  lines.push("");
+
+  // Direct Answer
+  lines.push("### الإجابة المباشرة");
+  lines.push("");
+  lines.push(
+    `وسلين ليمينال لاستشارات الموافقات (${AR.license.companyName}) تحمل رخصة تجارية نشطة من دائرة التنمية الاقتصادية في دبي — رقم الرخصة ${AR.license.licenseNumber}، عضوية غرفة دبي ${AR.license.dcciMembership} — صادرة عن ${AR.license.issuingAuthority} بتاريخ ${AR.license.issueDate} وسارية حتى ${AR.license.expiryDate}. تعمل الشركة كـ${AR.license.legalType} وهي مرخصة لتقديم خدمات استشارات الموافقات في جميع أنحاء دبي.`
+  );
+  lines.push("");
+
+  // Registration Details
+  lines.push("### تفاصيل التسجيل");
+  lines.push("");
+  lines.push(tableRow(["الحقل", "القيمة"]));
+  lines.push(tableSeparator(2));
+  lines.push(tableRow(["رقم الرخصة", AR.license.licenseNumber]));
+  lines.push(tableRow(["اسم الشركة", AR.license.companyName]));
+  lines.push(tableRow(["فئة الرخصة", AR.license.licenseCategory]));
+  lines.push(tableRow(["الجهة المصدرة", AR.license.issuingAuthority]));
+  lines.push(tableRow(["الشكل القانوني", AR.license.legalType]));
+  lines.push(tableRow(["تاريخ الإصدار", AR.license.issueDate]));
+  lines.push(tableRow(["تاريخ الانتهاء", AR.license.expiryDate]));
+  lines.push(tableRow(["عضوية غرفة دبي", AR.license.dcciMembership]));
+  lines.push(tableRow(["الحالة", AR.license.status]));
+  lines.push(tableRow(["العنوان المسجل", AR.license.address]));
+  lines.push("");
+
+  // Verification
+  lines.push("### التحقق");
+  lines.push("");
+  lines.push(
+    `تحقق من رقم الرخصة ${AR.license.licenseNumber} على البوابة الرسمية لدائرة الاقتصاد والسياحة في دبي: ${AR.license.verificationUrl}`
+  );
+  lines.push("");
+
+  // Licensed Activities
+  lines.push("### الأنشطة المرخصة");
+  lines.push("");
+  for (const activity of AR.license.activities) {
+    lines.push(`- ${activity}`);
+  }
+  lines.push("");
+
+  // Contact
+  lines.push("### التواصل");
+  lines.push("");
+  lines.push(`الهاتف / واتساب: ${NAP.phone}`);
+  lines.push(`البريد الإلكتروني: ${NAP.email}`);
+  lines.push("");
+
+  return lines.join("\n");
+}
+
 /* ── Main handler ── */
 
 export async function GET() {
@@ -302,6 +369,10 @@ export async function GET() {
   blocks.push("");
   blocks.push(`> الموقع: ${SITE.url}/ar`);
   blocks.push("");
+
+  // ── License page ──
+
+  blocks.push(formatLicenseForArabicLlms());
 
   // ── Approvals by Priority Category ──
 

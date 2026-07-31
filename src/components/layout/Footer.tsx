@@ -8,6 +8,7 @@ import {
   Mail,
   MapPin,
   ExternalLink,
+  ShieldCheck,
 } from "lucide-react";
 import WasleenIcon from "@/components/logo/WasleenIcon";
 import SocialIconsRow from "@/components/sections/SocialIconsRow";
@@ -322,6 +323,16 @@ function FooterContactColumn({ locale = "en" }: { locale?: "en" | "ar" }) {
         <li>
           <Link href={`${prefix}/guides`} className="text-body-sm text-white/70 hover:text-white transition-colors">
             {locale === "ar" ? `${AR.breadcrumb.guides} & Q&A` : "Guides & Q&A"}
+          </Link>
+        </li>
+        <li>
+          <Link
+            href={`${prefix}/license`}
+            className="flex items-center gap-2 text-body-sm text-white/70 hover:text-white transition-colors"
+            aria-label={locale === "ar" ? "التحقق من الرخصة التجارية" : "License Verification"}
+          >
+            <ShieldCheck size={14} strokeWidth={1.75} className="shrink-0" />
+            <span>{locale === "ar" ? "التحقق من الرخصة" : "License Verification"}</span>
           </Link>
         </li>
         <li>

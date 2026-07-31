@@ -39,6 +39,36 @@ export const SOCIAL = {
   quora: "https://www.quora.com/profile/Wasleen-Liminal-Approvals",
 } as const;
 
+/* ============================================================
+   LICENSE — DED Trade License data (single source of truth)
+   Rendered byte-for-byte identically in the /license page table,
+   the Organization JSON-LD schema, and the meta description.
+   Source: reference details/license-page-guide.md §5
+   ============================================================ */
+
+export const LICENSE = {
+  licenseNumber: "1188577",
+  companyName: "Wasleen Liminal Approval Consultants",
+  /** As printed on the certificate — "Dep. of Economic Development" */
+  licenseCategory: "Department of Economic Development (DED)",
+  issuingAuthority: "Department of Economy and Tourism (DET), Dubai",
+  legalType: "LLC – Single Owner",
+  issueDate: "2023-09-15",
+  expiryDate: "2027-09-15",
+  dcciMembership: "486012",
+  status: "Active",
+  /** Licensed activities as listed on the certificate */
+  activities: [
+    "Engineering consultancy",
+    "Technical drawing & documentation services",
+    "Government liaison & approval facilitation",
+    "Interior fit-out coordination",
+    "Technical services",
+  ],
+  address: "Office 401, Darwish Building, Al Qusais, Dubai",
+  verificationUrl: "https://app.invest.dubai.ae/search-license",
+} as const;
+
 export const LOCALE = {
   default: "en-AE",
   alternatives: ["ar-AE"] as const,
@@ -51,6 +81,13 @@ export const LOCALE = {
  */
 export const WHATSAPP_MESSAGE =
   "Hello Wasleen Liminal Approval Consultants, I have an approval enquiry for my project. Could you please share the next steps?";
+
+/**
+ * Pre-filled WhatsApp message for the /license page "Request License Copy" CTA.
+ * Tracks the `whatsapp_license_request` micro-conversion (see analytics-tracking.md §4).
+ */
+export const WHATSAPP_LICENSE_MESSAGE =
+  "Hello Wasleen Liminal Approval Consultants, I would like to verify or request a copy of your DED trade license (License No. 1188577).";
 
 /** Hub page slugs for building breadcrumbs and internal links */
 export const HUB_SLUGS = {
@@ -202,4 +239,31 @@ export const AR = {
   /** WhatsApp pre-filled message in Arabic */
   whatsappMessage:
     "مرحباً وسلين ليمينال لاستشارات الموافقات، لدي استفسار بخصوص موافقات مشروعي. هل يمكنكم مشاركة الخطوات التالية؟",
+
+  /** License page — Arabic labels & values (mirrors LICENSE constant) */
+  license: {
+    title: "الرخصة التجارية والتسجيل التنظيمي",
+    intro:
+      "وسلين ليمينال لاستشارات الموافقات شركة مسجلة ومرخصة في دبي، الإمارات العربية المتحدة. نتعامل مع أعمال الموافقات الخاصة بك عبر كيان تجاري مسؤول وقانوني وقابل للتحقق — وليس عبر أفراد.",
+    licenseNumber: "1188577",
+    companyName: "وسلين ليمينال لاستشارات الموافقات",
+    licenseCategory: "دائرة التنمية الاقتصادية",
+    issuingAuthority: "دائرة الاقتصاد والسياحة (دي إي تي)، دبي",
+    legalType: "شركة ذات مسؤولية محدودة – مالك واحد",
+    issueDate: "15-09-2023",
+    expiryDate: "15-09-2027",
+    dcciMembership: "486012",
+    status: "نشطة — سارية حتى 15-09-2027",
+    address: "مكتب 401، مبنى درويش، القصيص، دبي",
+    verificationUrl: "https://app.invest.dubai.ae/search-license",
+    activities: [
+      "الاستشارات الهندسية",
+      "خدمات الرسم الفني والوثائق الهندسية",
+      "التنسيق مع الجهات الحكومية وتسهيل الموافقات",
+      "التنسيق لأعمال الديكور والتشطيبات الداخلية",
+      "الخدمات الفنية",
+    ],
+    whatsappMessage:
+      "مرحباً وسلين ليمينال لاستشارات الموافقات، أرغب في التحقق من رخصتكم التجارية أو طلب نسخة منها (رقم الرخصة 1188577).",
+  },
 } as const;

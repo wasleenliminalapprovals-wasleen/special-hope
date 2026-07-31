@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
-import { SITE, AR } from "@/lib/constants";
+import Link from "next/link";
+import { ShieldCheck } from "lucide-react";
+import { AR, LICENSE, SITE } from "@/lib/constants";
 import { hreflangAlternates } from "@/lib/locale";
 import { homepageSchema } from "@/lib/schema";
 import TrustStripArabic from "@/components/sections/TrustStripArabic";
@@ -124,6 +126,18 @@ export default function ArabicHomePage() {
 
       {/* ===== 2. Trust Strip (Arabic) ===== */}
       <TrustStripArabic />
+
+      {/* ===== 2b. Verified & Licensed Badge (Arabic) ===== */}
+      <div className="flex justify-center bg-light-bg px-4 pb-8">
+        <Link
+          href="/ar/license"
+          className="inline-flex items-center gap-2 rounded-full border border-border-light bg-white px-5 py-2.5 text-body-sm font-medium text-brand-blue shadow-card transition-colors hover:border-brand-blue"
+          aria-label="مرخصون ومعتمدون من دائرة التنمية الاقتصادية — عرض تفاصيل الرخصة"
+        >
+          <ShieldCheck size={18} strokeWidth={1.75} className="text-success-green" />
+          مرخصون ومعتمدون من دائرة التنمية الاقتصادية — رقم الرخصة {LICENSE.licenseNumber}
+        </Link>
+      </div>
 
       {/* ===== 3. Service Categories (Arabic) ===== */}
       <ServiceCategoriesArabic />

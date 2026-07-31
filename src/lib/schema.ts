@@ -17,7 +17,7 @@
  * @see plans/arabic-market-domination-reconciled-plan.md §4.1
  */
 
-import { SITE, NAP, AR } from "@/lib/constants";
+import { SITE, NAP, AR, LICENSE, SOCIAL } from "@/lib/constants";
 import { localePrefix } from "@/lib/locale";
 import type { FAQItem, ProcessStep, GuideData } from "@/types";
 
@@ -50,7 +50,9 @@ export function organizationSchema(locale: "en" | "ar" = "en") {
     "@type": "Organization",
     "@id": `${BASE}${lp}/#organization`,
     name: locale === "ar" ? AR.siteName : NAP.companyName,
+    legalName: locale === "ar" ? AR.license.companyName : LICENSE.companyName,
     url: `${BASE}${lp}`,
+    logo: `${BASE}/logos/wasleen-logo-standalone.svg`,
     telephone: NAP.phone,
     email: NAP.email,
     address: {
@@ -64,6 +66,31 @@ export function organizationSchema(locale: "en" | "ar" = "en") {
     areaServed: NAP.areaServed,
     priceRange: "AED",
     availableLanguage: ["en", "ar"],
+    /* ── Verifiable credential — License No. 1188577 (single source: LICENSE) ── */
+    identifier: {
+      "@type": "PropertyValue",
+      propertyID: "DED Trade License Number",
+      value: LICENSE.licenseNumber,
+      url: LICENSE.verificationUrl,
+    },
+    hasCredential: {
+      "@type": "EducationalOccupationalCredential",
+      credentialCategory: "Business Trade License",
+      name: locale === "ar" ? "الرخصة التجارية" : "DED Trade License",
+      recognizedBy: {
+        "@type": "GovernmentOrganization",
+        name: locale === "ar" ? AR.license.issuingAuthority : LICENSE.issuingAuthority,
+      },
+    },
+    contactPoint: {
+      "@type": "ContactPoint",
+      telephone: NAP.phone,
+      email: NAP.email,
+      contactType: "customer service",
+      availableLanguage: ["en", "ar"],
+    },
+    /* ── sameAs strengthens entity resolution for AI search engines (GEO) ── */
+    sameAs: Object.values(SOCIAL),
   };
 }
 
@@ -417,6 +444,58 @@ export function staticPageSchema(input: StaticPageSchemaInput, locale: "en" | "a
       about: { "@id": `${BASE}${lp}/#organization` },
     },
     breadcrumbList(input.breadcrumbs, locale),
+  ];
+}
+
+/* ── convenience: license page schema stack ─────────────── */
+
+export interface LicensePageSchemaInput {
+  url: string;
+  title: string;
+  description: string;
+  faqs: FAQItem[];
+  dateModified: string;
+}
+
+/**
+ * Schema stack for the /license page:
+ *   WebPage (about → #organization) + BreadcrumbList + FAQPage
+ *
+ * NOTE: The Organization credential data (identifier/hasCredential) lives on
+ * the single sitewide entity injected by the root layout — never duplicate a
+ * second Organization block here (master rule 05 / §2.1 of the license plan).
+ */
+export function licensePageSchemaStack(
+  input: LicensePageSchemaInput,
+  locale: "en" | "ar" = "en",
+) {
+  return [
+    webPageSchema(
+      {
+        url: input.url,
+        title: input.title,
+        description: input.description,
+        dateModified: input.dateModified,
+        aboutRef: "/#organization",
+      },
+      locale,
+    ),
+    breadcrumbList(
+      [
+        {
+          position: 1,
+          name: locale === "ar" ? AR.breadcrumb.home : "Home",
+          slug: locale === "ar" ? "/ar" : "/",
+        },
+        {
+          position: 2,
+          name: locale === "ar" ? "الرخصة التجارية" : "Business License",
+          slug: locale === "ar" ? "/ar/license" : "/license",
+        },
+      ],
+      locale,
+    ),
+    faqPageSchema(input.faqs, locale),
   ];
 }
 

@@ -123,6 +123,9 @@ export async function GET() {
   lines.push(`- [${AR.nav.approvals}](/ar/approvals)`);
   lines.push(`- [${AR.nav.guides}](/ar/guides)`);
   lines.push(`- [${AR.nav.services}](/ar/services)`);
+  lines.push(
+    `- [الرخصة التجارية والتسجيل التنظيمي](/ar/license): ${AR.license.companyName} — رخصة تجارية من دائرة التنمية الاقتصادية رقم ${AR.license.licenseNumber} (عضوية غرفة دبي ${AR.license.dcciMembership})، سارية حتى ${AR.license.expiryDate}.`
+  );
   lines.push("");
 
   const content = lines.join("\n");

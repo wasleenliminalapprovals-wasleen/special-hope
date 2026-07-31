@@ -26,6 +26,7 @@ import type {
   StatFact,
   RejectionReason,
 } from "@/types";
+import { LICENSE, NAP } from "@/lib/constants";
 
 /* ================================================================
    GEO Document Interfaces
@@ -559,6 +560,9 @@ export function buildLlmsIndex(
   lines.push("- [Approvals Hub](/approvals)");
   lines.push("- [Guides Hub](/guides)");
   lines.push("- [Services Hub](/services)");
+  lines.push(
+    `- [Business License & Regulatory Registration](/license): ${LICENSE.companyName} holds DED trade license No. ${LICENSE.licenseNumber} (DCCI ${LICENSE.dcciMembership}), issued by ${LICENSE.issuingAuthority}, valid through ${LICENSE.expiryDate}.`
+  );
   lines.push("");
 
   return lines.join("\n");
@@ -581,6 +585,10 @@ export function buildLlmsFull(
   allServices: ServiceData[]
 ): string {
   const blocks: string[] = [];
+
+  // ── Business License & Regulatory Registration ──
+
+  blocks.push(formatLicenseForLlmsFull());
 
   // ── Approvals by Priority Category ──
 
@@ -800,6 +808,59 @@ function formatServiceForLlmsFull(service: ServiceData): string {
       lines.push("");
     }
   }
+
+  return lines.join("\n");
+}
+
+/**
+ * Format the /license (Business License & Regulatory Registration) page
+ * for llms-full.txt. Supplies verifiable DED trade license data that AI
+ * agents can cite during due-diligence and entity-verification queries.
+ */
+function formatLicenseForLlmsFull(): string {
+  const lines: string[] = [];
+
+  lines.push("---");
+  lines.push("## Business License & Regulatory Registration");
+  lines.push("");
+  lines.push("### Direct Answer");
+  lines.push("");
+  lines.push(
+    `Wasleen Liminal Approval Consultants (${LICENSE.companyName}) holds an active DED trade license — License No. ${LICENSE.licenseNumber}, DCCI membership ${LICENSE.dcciMembership} — issued by ${LICENSE.issuingAuthority} on ${LICENSE.issueDate} and valid through ${LICENSE.expiryDate}. The company operates as ${LICENSE.legalType} and is authorized to provide approval consultancy services across Dubai.`
+  );
+  lines.push("");
+  lines.push("### Registration Details");
+  lines.push("");
+  lines.push("| Field | Value |");
+  lines.push("|---|---|");
+  lines.push(`| License No. | ${LICENSE.licenseNumber} |`);
+  lines.push(`| Company Name | ${LICENSE.companyName} |`);
+  lines.push(`| License Category | ${LICENSE.licenseCategory} |`);
+  lines.push(`| Issuing Authority | ${LICENSE.issuingAuthority} |`);
+  lines.push(`| Legal Type | ${LICENSE.legalType} |`);
+  lines.push(`| Issue Date | ${LICENSE.issueDate} |`);
+  lines.push(`| Expiry Date | ${LICENSE.expiryDate} |`);
+  lines.push(`| DCCI Membership | ${LICENSE.dcciMembership} |`);
+  lines.push(`| Status | ${LICENSE.status} |`);
+  lines.push(`| Registered Address | ${LICENSE.address} |`);
+  lines.push("");
+  lines.push("### Verification");
+  lines.push("");
+  lines.push(
+    `Verify License No. ${LICENSE.licenseNumber} on the official DET Dubai portal: ${LICENSE.verificationUrl}`
+  );
+  lines.push("");
+  lines.push("### Licensed Activities");
+  lines.push("");
+  for (const activity of LICENSE.activities) {
+    lines.push(`- ${activity}`);
+  }
+  lines.push("");
+  lines.push(`### Contact`);
+  lines.push("");
+  lines.push(`Phone / WhatsApp: ${NAP.phone}`);
+  lines.push(`Email: ${NAP.email}`);
+  lines.push("");
 
   return lines.join("\n");
 }
