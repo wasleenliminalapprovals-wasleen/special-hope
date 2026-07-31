@@ -24,11 +24,16 @@
   --color-success-green: #2E9E5B;
   --color-border-light: #D6E4F0;
 
-  /* ---- Typography Scale ---- */
-  --font-montserrat: "Montserrat", system-ui, sans-serif;
-  --font-roboto: "Roboto", system-ui, sans-serif;
-  --font-roboto-mono: "Roboto Mono", monospace;
-
+  /* ----
+     Typography Scale
+     NOTE: --font-montserrat / --font-roboto / --font-roboto-mono are DELIBERATELY
+     NOT declared here. They are defined by next/font (src/lib/fonts.ts) and
+     applied to <html> via its CSS variable classes. Declaring them again in
+     @theme would override next/font's metrics-adjusted fallback (equal
+     specificity, this file loads second) and can suppress next/font's font
+     preload links. The font-montserrat / font-roboto / font-roboto-mono
+     utilities are preserved via explicit @utility rules below.
+     ---- */
   --text-h1: 2.5rem;
   --text-h1--line-height: 1.2;
   --text-h1--font-weight: 700;
@@ -71,6 +76,24 @@
   --shadow-card: 0 2px 8px rgba(0, 0, 0, 0.08);
   --shadow-dropdown: 0 4px 16px rgba(0, 0, 0, 0.12);
   --shadow-sticky: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* ============================================================
+   FONT UTILITIES — preserved from @theme after removing the
+   --font-* tokens (see NOTE above). These read next/font's CSS
+   variables so the metrics-adjusted fallback stays intact.
+   ============================================================ */
+
+@utility font-montserrat {
+  font-family: var(--font-montserrat);
+}
+
+@utility font-roboto {
+  font-family: var(--font-roboto);
+}
+
+@utility font-roboto-mono {
+  font-family: var(--font-roboto-mono);
 }
 
 /* ============================================================
@@ -268,6 +291,29 @@
 /* Stamp loop: press animation with 6s pause between repeats */
 .animate-stamp-loop {
   animation: stamp-loop 6.8s cubic-bezier(0.34, 1.56, 0.64, 1) 5.5s infinite;
+}
+
+/* ============================================================
+   PERFORMANCE GATE — defer drawing animations until post-LCP
+
+   HeroSection applies `.drawing-deferred` to the SVG wrapper on
+   initial render, then removes it after the page becomes idle
+   (requestIdleCallback). While the class is present, all SVG
+   drawing animations are disabled so the main thread stays free
+   for the LCP frame (the stroke-dashoffset + filter animations
+   are NOT composited and otherwise run on the main thread).
+   ============================================================ */
+
+.drawing-deferred .animate-draw-line,
+.drawing-deferred .animate-fade-in,
+.drawing-deferred .animate-fade-in-up,
+.drawing-deferred .animate-stamp-press,
+.drawing-deferred .animate-stamp-loop,
+.drawing-deferred .animate-rotate-in,
+.drawing-deferred .animate-glow-pulse,
+.drawing-deferred .animate-wall-glow-loop,
+.drawing-deferred .animate-pulse-opacity {
+  animation: none;
 }
 
 /* ============================================================

@@ -102,6 +102,31 @@ export default function RootLayout({
 
   return (
     <html lang="en-AE" className={fontVariables("en")}>
+      {/* ============================================================
+          Manual font preloads (critical path).
+          Next.js 15.x extracts the next/font @font-face CSS into a shared
+          external chunk (fonts.ts is imported by BOTH the EN and AR
+          layouts) and therefore emits ZERO <link rel="preload"> tags for
+          the font files. To recover the font download head-start, we
+          hand-preload the latin-subset variable-font files that cover the
+          LCP H1 (Montserrat 700) and body copy (Roboto 400). These are
+          content-hashed: if Google Fonts updates the files, the hashes
+          below must be re-derived from .next/static/css/*.css.
+          ============================================================ */}
+      <link
+        rel="preload"
+        href="/_next/static/media/904be59b21bd51cb-s.p.woff2"
+        as="font"
+        type="font/woff2"
+        crossOrigin="anonymous"
+      />
+      <link
+        rel="preload"
+        href="/_next/static/media/1e41be92c43b3255-s.p.woff2"
+        as="font"
+        type="font/woff2"
+        crossOrigin="anonymous"
+      />
       <body className="font-roboto antialiased">
         {/* RootLayoutClient conditionally renders Header/Footer only on non-Arabic routes */}
         <RootLayoutClient>{children}</RootLayoutClient>
@@ -133,14 +158,17 @@ export default function RootLayout({
           </>
         )}
 
-        {/* GA4 Direct Google Tag — for Google Analytics cross-page detection */}
+        {/* GA4 Direct Google Tag — for Google Analytics cross-page detection.
+            lazyOnload (same as GTM) so Next.js does NOT emit a
+            <link rel="preload" as="script"> for gtag.js in <head>,
+            removing a third-party round-trip from the critical path. */}
         {gaId && (
           <>
             <Script
               src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}
-              strategy="afterInteractive"
+              strategy="lazyOnload"
             />
-            <Script id="ga4-init" strategy="afterInteractive">
+            <Script id="ga4-init" strategy="lazyOnload">
               {`
                 window.dataLayer = window.dataLayer || [];
                 function gtag(){dataLayer.push(arguments);}

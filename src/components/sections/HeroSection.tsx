@@ -13,6 +13,7 @@
 
 "use client";
 
+import { useEffect, useState } from "react";
 import Button from "@/components/ui/Button";
 import SceneA_FloorPlan from "@/components/drawings/SceneA_FloorPlan";
 import { SITE, NAP, WHATSAPP_MESSAGE } from "@/lib/constants";
@@ -20,6 +21,40 @@ import { trackEvent } from "@/lib/analytics";
 
 export default function HeroSection() {
   const whatsappUrl = `https://wa.me/${NAP.whatsapp}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`;
+
+  // Performance: the SVG drawing uses stroke-dashoffset / filter animations which
+  // run on the main thread. Keep them suppressed during the LCP window by applying
+  // the `.drawing-deferred` class, then release after the browser is idle so the
+  // drawing animates as designed without competing with first paint.
+  const [drawingDeferred, setDrawingDeferred] = useState(true);
+
+  useEffect(() => {
+    let cancelled = false;
+
+    const releaseDrawing = () => {
+      if (!cancelled) setDrawingDeferred(false);
+    };
+
+    type IdleWindow = Window & {
+      requestIdleCallback: (cb: () => void, opts?: { timeout: number }) => number;
+      cancelIdleCallback: (handle: number) => void;
+    };
+
+    if (typeof window !== "undefined" && "requestIdleCallback" in window) {
+      const w = window as IdleWindow;
+      const handle = w.requestIdleCallback(releaseDrawing, { timeout: 2500 });
+      return () => {
+        cancelled = true;
+        w.cancelIdleCallback(handle);
+      };
+    }
+
+    const timer = globalThis.setTimeout(releaseDrawing, 1200);
+    return () => {
+      cancelled = true;
+      globalThis.clearTimeout(timer);
+    };
+  }, []);
 
   const handleWhatsAppClick = () => {
     trackEvent({
@@ -94,11 +129,12 @@ export default function HeroSection() {
             Desktop: side-by-side grid column (md: overrides absolute)
           */}
           <div
-            className="
+            className={`
               absolute inset-0 z-0 opacity-15 pointer-events-none overflow-hidden
               md:relative md:inset-auto md:z-auto md:opacity-100 md:pointer-events-auto
               md:block md:w-full md:max-w-lg text-white
-            "
+              ${drawingDeferred ? "drawing-deferred" : ""}
+            `}
             aria-hidden="true"
           >
             <SceneA_FloorPlan />
