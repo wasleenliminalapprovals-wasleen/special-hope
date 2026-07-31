@@ -64,7 +64,7 @@ const faqs: FAQItem[] = [
   {
     question: "Why does Wasleen publish its license details publicly?",
     answer:
-      "We publish our license details openly so clients and project stakeholders can complete due diligence before engaging us. A verifiable DED registration is a core E-E-A-T trust signal and confirms we operate as a formal, accountable legal entity rather than an individual broker.",
+      "We publish our license details openly so clients and project stakeholders can complete due diligence before engaging us. A verifiable DED registration is a core for trust and confirms we operate as a formal, accountable legal entity rather than an individual broker.",
   },
   {
     question: "What legal entity type is Wasleen Liminal Approval Consultants?",
