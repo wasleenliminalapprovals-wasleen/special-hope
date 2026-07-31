@@ -221,7 +221,7 @@ export default function Footer({ locale = "en" }: { locale?: "en" | "ar" }) {
       <div className="border-t border-white/20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-4 flex flex-col sm:flex-row items-center justify-between gap-2 text-caption text-white/70">
           <span>{locale === "ar" ? "تصميم وسلين ديجيتال لابز" : "Designed by Wasleen Digital Labs"}</span>
-          <span>{locale === "ar" ? AR.footer.rights.replace("{year}", String(currentYear)) : `&copy; ${currentYear} ${NAP.companyName}. All rights reserved.`}</span>
+          <span>{locale === "ar" ? AR.footer.rights.replace("{year}", String(currentYear)) : `\u00A9 ${currentYear} ${NAP.companyName}. All rights reserved.`}</span>
         </div>
       </div>
     </footer>
