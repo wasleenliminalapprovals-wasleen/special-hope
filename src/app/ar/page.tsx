@@ -91,7 +91,7 @@ export default function ArabicHomePage() {
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
-              href={`https://wa.me/${SITE.url.includes('wasleen') ? '971542330837' : '971542330837'}?text=${encodeURIComponent('مرحباً وسلين، لدي استفسار بخصوص موافقات مشروعي. هل يمكنكم مشاركة الخطوات التالية؟')}`}
+              href={`https://wa.me/971567648220?text=${encodeURIComponent('مرحباً وسلين، لدي استفسار بخصوص موافقات مشروعي. هل يمكنكم مشاركة الخطوات التالية؟')}`}
               className="inline-flex items-center justify-center gap-2 rounded-md bg-cta-amber text-brand-black font-semibold px-8 py-4 text-body hover:bg-cta-amber-hover transition-colors"
               aria-label="احصل على استشارة مجانية عبر واتساب"
             >

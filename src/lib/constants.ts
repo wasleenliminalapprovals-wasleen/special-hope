@@ -14,8 +14,8 @@ export const SITE = {
 
 export const NAP = {
   companyName: "Wasleen Liminal Approval Consultants",
-  phone: "+971542330837",
-  whatsapp: "+971542330837",
+  phone: "+971567648220",
+  whatsapp: "+971567648220",
   email: "approvals@wasleen.com",
   address: {
     streetAddress: "Office 401, Darwish Building",

@@ -336,6 +336,14 @@ function FooterContactColumn({ locale = "en" }: { locale?: "en" | "ar" }) {
           </Link>
         </li>
         <li>
+          <Link
+            href={`${prefix}/privacy-policy`}
+            className="text-body-sm text-white/70 hover:text-white transition-colors"
+          >
+            {locale === "ar" ? AR.footer.privacy : "Privacy Policy"}
+          </Link>
+        </li>
+        <li>
           <a
             href={`tel:${NAP.phone}`}
             className="flex items-center gap-2 text-body-sm text-white/70 hover:text-white transition-colors"

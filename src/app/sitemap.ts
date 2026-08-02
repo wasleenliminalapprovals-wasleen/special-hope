@@ -82,6 +82,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   pushPair(entries, "/about-us", "/ar/about-us", "2026-07-01", "2026-07-28");
   pushPair(entries, "/contact-us", "/ar/contact-us", "2026-07-01", "2026-07-28");
   pushPair(entries, "/license", "/ar/license", "2026-07-31", "2026-07-31");
+  pushPair(entries, "/privacy-policy", "/ar/privacy-policy", "2026-08-02", "2026-08-02");
 
   /* ── 3. Hub pages (approvals, guides, services) ──────────── */
   pushPair(entries, "/approvals", "/ar/approvals", "2026-07-15", "2026-07-28");

@@ -22,7 +22,7 @@ import SocialIconsRow from "@/components/sections/SocialIconsRow";
 export const metadata: Metadata = {
   title: "Contact Wasleen Approvals | Dubai Approval Consultants",
   description:
-    "Get in touch with Wasleen Approvals for a free consultation. Call +971542330837, WhatsApp us, or email approvals@wasleen.com. We respond within 2 hours.",
+    "Get in touch with Wasleen Approvals for a free consultation. Call +971567648220, WhatsApp us, or email approvals@wasleen.com. We respond within 2 hours.",
   alternates: {
     canonical: `${SITE.url}/contact-us`,
     languages: hreflangAlternates(SITE.url, "/contact-us"),

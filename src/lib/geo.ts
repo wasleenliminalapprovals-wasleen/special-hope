@@ -563,6 +563,9 @@ export function buildLlmsIndex(
   lines.push(
     `- [Business License & Regulatory Registration](/license): ${LICENSE.companyName} holds DED trade license No. ${LICENSE.licenseNumber} (DCCI ${LICENSE.dcciMembership}), issued by ${LICENSE.issuingAuthority}, valid through ${LICENSE.expiryDate}.`
   );
+  lines.push(
+    `- [Privacy Policy](/privacy-policy): Wasleen Liminal Approval Consultants never shares client data with third parties; data processed 100% in-house under UAE PDPL (Federal Decree-Law No. 45 of 2021).`
+  );
   lines.push("");
 
   return lines.join("\n");

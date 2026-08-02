@@ -12,7 +12,7 @@
  *
  * @usage
  * ```tsx
- * <Button variant="cta" href="https://wa.me/971542330837">
+ * <Button variant="cta" href="https://wa.me/971567648220">
  *   Get Free Consultation
  * </Button>
  * <Button variant="primary" onClick={() => trackEvent({...})}>

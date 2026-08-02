@@ -499,6 +499,63 @@ export function licensePageSchemaStack(
   ];
 }
 
+/* ── convenience: privacy policy page schema stack ──────── */
+
+export interface PrivacyPageSchemaInput {
+  url: string;
+  title: string;
+  description: string;
+  faqs: FAQItem[];
+  dateModified: string;
+}
+
+/**
+ * Schema stack for the /privacy-policy page (and /ar/privacy-policy):
+ *   PrivacyPolicy (WebPage subtype) + BreadcrumbList + FAQPage
+ *
+ * `PrivacyPolicy` is a schema.org WebPage subtype — semantically precise for
+ * AI engines. The @id is the page URL itself. NAP/Organization entity is
+ * injected sitewide by the root layout — never duplicate a second Organization
+ * block here (master rule 05).
+ */
+export function privacyPageSchemaStack(
+  input: PrivacyPageSchemaInput,
+  locale: "en" | "ar" = "en",
+): Record<string, unknown>[] {
+  const lp = localePrefix(locale);
+  const fullUrl = input.url.startsWith("http") ? input.url : `${BASE}${input.url}`;
+  return [
+    {
+      "@context": "https://schema.org",
+      "@type": "PrivacyPolicy",
+      "@id": fullUrl,
+      url: fullUrl,
+      name: input.title,
+      description: input.description,
+      dateModified: input.dateModified,
+      inLanguage: locale === "ar" ? "ar-AE" : "en-AE",
+      isPartOf: { "@id": `${BASE}${lp}/#website` },
+      about: { "@id": `${BASE}${lp}/#organization` },
+    },
+    breadcrumbList(
+      [
+        {
+          position: 1,
+          name: locale === "ar" ? AR.breadcrumb.home : "Home",
+          slug: locale === "ar" ? "/ar" : "/",
+        },
+        {
+          position: 2,
+          name: locale === "ar" ? "سياسة الخصوصية" : "Privacy Policy",
+          slug: locale === "ar" ? "/ar/privacy-policy" : "/privacy-policy",
+        },
+      ],
+      locale,
+    ),
+    faqPageSchema(input.faqs, locale),
+  ];
+}
+
 /* ── convenience: homepage schemas ───────────────────────── */
 
 export interface HomepageSchemaInput {
