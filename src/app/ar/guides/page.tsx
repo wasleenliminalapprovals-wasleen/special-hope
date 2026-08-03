@@ -20,6 +20,7 @@ import { hreflangAlternates } from "@/lib/locale";
 import { breadcrumbList, webPageSchema } from "@/lib/schema";
 import Badge from "@/components/ui/Badge";
 import CTASection from "@/components/sections/CTASectionArabic";
+import PseoResourceHub from "@/components/pseo/PseoResourceHub";
 
 /* ============================================================
    Metadata
@@ -223,6 +224,14 @@ export default function ArabicGuidesHub() {
           </div>
         </div>
       </section>
+
+      {/* ===== Divider ===== */}
+      <div className="mx-auto max-w-7xl px-4 md:px-8">
+        <hr className="border-border-light" />
+      </div>
+
+      {/* ===== Resource Hubs (pSEO pages) — Arabic ===== */}
+      <PseoResourceHub locale="ar" />
 
       {/* ===== Cross-Hub Links ===== */}
       <section className="bg-light-bg">

@@ -29,6 +29,7 @@ import GeoContentSection from "@/components/sections/GeoContentSection";
 import FAQBlock from "@/components/sections/FAQBlock";
 import AuthorityUpdates from "@/components/sections/AuthorityUpdates";
 import CTASection from "@/components/sections/CTASection";
+import PseoResourceHub from "@/components/pseo/PseoResourceHub";
 
 /* ============================================================
    Homepage Metadata — 54 chars, front-loaded primary keyword
@@ -148,6 +149,14 @@ export default function HomePage() {
 
       {/* ===== 7. Authority Updates ===== */}
       <AuthorityUpdates />
+
+      {/* ===== 7b. Popular Resources (pSEO guides) ===== */}
+      <PseoResourceHub
+        limit={3}
+        showViewAll
+        heading="Popular Guides & Resources"
+        subheading="Dive deeper into Dubai's approval processes with our in-depth guides — from costs and checklists to comparisons."
+      />
 
       {/* ===== 8. CTA Section ===== */}
       <CTASection service_slug="homepage" />
