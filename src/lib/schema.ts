@@ -585,7 +585,7 @@ export interface StaticPageSchemaInput {
   url: string;
   title: string;
   description: string;
-  pageType: "AboutPage" | "ContactPage";
+  pageType: "AboutPage" | "ContactPage" | "WebPage";
   breadcrumbs: BreadcrumbItem[];
   dateModified: string;
 }

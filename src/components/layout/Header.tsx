@@ -3,7 +3,7 @@
 import { useCallback, useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu, Phone } from "lucide-react";
+import { FileText, Menu, Phone } from "lucide-react";
 import WasleenLogo from "@/components/logo/WasleenLogo";
 import MegaMenu from "./MegaMenu";
 import MobileNav from "./MobileNav";
@@ -203,12 +203,19 @@ export default function Header({ locale = "en" }: HeaderProps) {
               <LanguageSwitcher />
               <a
                 href={`tel:${NAP.phone}`}
-                className="flex items-center gap-2 bg-cta-amber hover:bg-cta-amber-hover text-brand-black font-bold text-body-sm py-2.5 px-5 rounded-md transition-colors shadow-sm whitespace-nowrap"
+                className="flex items-center justify-center w-10 h-10 rounded-md bg-cta-amber hover:bg-cta-amber-hover text-brand-black transition-colors"
                 aria-label={locale === "ar" ? `اتصل بنا على ${NAP.phone}` : `Call us at ${NAP.phone}`}
               >
-                <Phone size={16} strokeWidth={1.75} />
-                <span>{locale === "ar" ? AR.cta.freeConsultation : "Get Free Consultation"}</span>
+                <Phone size={18} strokeWidth={1.75} />
               </a>
+              <Link
+                href={locale === "ar" ? "/ar/free-quote" : "/free-quote"}
+                className="flex items-center gap-2 bg-brand-blue hover:bg-brand-blue-hover text-white font-bold text-body-sm py-2.5 px-5 rounded-md transition-colors shadow-sm whitespace-nowrap"
+                aria-label={locale === "ar" ? "اطلب عرض سعر" : "Get a free quote"}
+              >
+                <FileText size={16} strokeWidth={1.75} />
+                <span>{locale === "ar" ? AR.cta.requestQuote : "Get Quote"}</span>
+              </Link>
             </div>
 
             {/* ── Mobile: Language Switcher + CTA + Hamburger ── */}

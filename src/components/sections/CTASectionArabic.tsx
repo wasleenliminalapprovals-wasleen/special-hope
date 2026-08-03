@@ -13,7 +13,7 @@
 
 "use client";
 
-import { Phone, MessageCircle, Mail } from "lucide-react";
+import { FileText, Phone, MessageCircle, Mail } from "lucide-react";
 import { NAP, AR } from "@/lib/constants";
 import { trackEvent } from "@/lib/analytics";
 
@@ -47,9 +47,18 @@ export default function CTASectionArabic({ serviceSlug = "general" }: CTASection
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center mb-10">
+          <a
+            href="/ar/free-quote"
+            className="inline-flex items-center justify-center gap-2 rounded-md bg-cta-amber text-brand-black font-semibold px-8 py-4 text-body hover:bg-cta-amber-hover transition-colors"
+            aria-label={AR.cta.requestQuote}
+          >
+            <FileText size={20} strokeWidth={1.75} />
+            {AR.cta.requestQuote}
+          </a>
+
           <button
             onClick={handleWhatsAppClick}
-            className="inline-flex items-center justify-center gap-2 rounded-md bg-cta-amber text-brand-black font-semibold px-8 py-4 text-body hover:bg-cta-amber-hover transition-colors"
+            className="inline-flex items-center justify-center gap-2 rounded-md border-2 border-white text-white font-semibold px-8 py-4 text-body hover:bg-white hover:text-brand-blue transition-colors"
             aria-label="تواصل معنا عبر واتساب"
           >
             <MessageCircle size={20} strokeWidth={1.75} />

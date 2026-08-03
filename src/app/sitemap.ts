@@ -79,9 +79,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   /* ── 1. Homepage ──────────────────────────────────────────── */
   pushPair(entries, "", "/ar", "2026-07-15", "2026-07-28");
 
-  /* ── 2. Static pages (about-us, contact-us) ──────────────── */
+  /* ── 2. Static pages (about-us, contact-us, free-quote) ──── */
   pushPair(entries, "/about-us", "/ar/about-us", "2026-07-01", "2026-07-28");
   pushPair(entries, "/contact-us", "/ar/contact-us", "2026-07-01", "2026-07-28");
+  pushPair(entries, "/free-quote", "/ar/free-quote", "2026-08-03", "2026-08-03");
   pushPair(entries, "/license", "/ar/license", "2026-07-31", "2026-07-31");
   pushPair(entries, "/privacy-policy", "/ar/privacy-policy", "2026-08-02", "2026-08-02");
 

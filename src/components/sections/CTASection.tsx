@@ -11,7 +11,7 @@
 "use client";
 
 import Button from "@/components/ui/Button";
-import { Phone, MessageCircle, Mail } from "lucide-react";
+import { FileText, Phone, MessageCircle, Mail } from "lucide-react";
 import { NAP, WHATSAPP_MESSAGE } from "@/lib/constants";
 import { trackEvent } from "@/lib/analytics";
 
@@ -48,8 +48,18 @@ export default function CTASection({ service_slug = "general" }: CTASectionProps
         <div className="flex flex-col sm:flex-row gap-4 justify-center mb-10">
           <Button
             variant="cta"
-            onClick={handleWhatsAppClick}
+            href="/free-quote"
             className="text-body font-semibold px-8 py-4"
+            aria-label="Get a free Dubai approval quote"
+          >
+            <FileText size={20} strokeWidth={1.75} />
+            Get Free Quote
+          </Button>
+
+          <Button
+            variant="outline"
+            onClick={handleWhatsAppClick}
+            className="text-body px-8 py-4 border-white text-white hover:bg-white hover:text-brand-blue"
             aria-label="Contact us via WhatsApp"
           >
             <MessageCircle size={20} strokeWidth={1.75} />

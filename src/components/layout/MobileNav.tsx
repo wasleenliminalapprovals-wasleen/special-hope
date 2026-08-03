@@ -3,7 +3,7 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { X, Phone } from "lucide-react";
+import { FileText, Phone, X } from "lucide-react";
 import MegaMenu from "./MegaMenu";
 import LanguageSwitcher from "./LanguageSwitcher";
 import { AR, NAP } from "@/lib/constants";
@@ -153,15 +153,23 @@ export default function MobileNav({ isOpen, onClose, locale = "en" }: MobileNavP
             onToggle={() => setOpenMenu((prev) => (prev === "services" ? null : "services"))}
           />
 
-          {/* CTA Button */}
-          <div className="px-4 mt-4">
+          {/* CTA Row — Get Quote + Call */}
+          <div className="px-4 mt-4 flex items-center gap-3">
+            <Link
+              href={locale === "ar" ? "/ar/free-quote" : "/free-quote"}
+              className="flex items-center justify-center gap-2 flex-1 bg-cta-amber hover:bg-cta-amber-hover text-brand-black font-bold text-body-sm py-3 px-6 rounded-md transition-colors min-h-[44px]"
+              aria-label={locale === "ar" ? AR.cta.requestQuote : "Get a free quote"}
+              onClick={onClose}
+            >
+              <FileText size={18} strokeWidth={1.75} />
+              <span>{locale === "ar" ? AR.cta.requestQuote : "Get Quote"}</span>
+            </Link>
             <a
               href={`tel:${NAP.phone}`}
-              className="flex items-center justify-center gap-2 w-full bg-cta-amber hover:bg-cta-amber-hover text-white font-bold text-body-sm py-3 px-6 rounded-md transition-colors min-h-[44px]"
+              className="flex items-center justify-center w-11 h-11 shrink-0 bg-brand-blue hover:bg-brand-blue-hover text-white rounded-md transition-colors"
               aria-label={locale === "ar" ? `اتصل بنا على ${NAP.phone}` : `Call us at ${NAP.phone}`}
             >
               <Phone size={18} strokeWidth={1.75} />
-              <span>{locale === "ar" ? AR.cta.freeConsultation : "Get Free Consultation"}</span>
             </a>
           </div>
 
