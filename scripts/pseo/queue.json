@@ -1,0 +1,800 @@
+{
+  "items": [
+    {
+      "id": "q-001",
+      "slug": "dm-building-permit-complete-guide",
+      "kind": "guide",
+      "title": "Dubai Municipality Building Permit — Complete Guide",
+      "authority": "dm",
+      "priority": 100,
+      "scheduledDate": "2026-08-02",
+      "status": "done",
+      "primaryKeyword": "Dubai Municipality building permit",
+      "secondaryKeywords": [
+        "DM building permit process",
+        "building permit requirements Dubai",
+        "building permit fees Dubai",
+        "how to get a building permit in Dubai"
+      ],
+      "topicTags": [
+        "building-permit",
+        "dm",
+        "new-construction"
+      ],
+      "targetWordCount": 1800,
+      "imageHint": "building-permit",
+      "faqCount": 6,
+      "relatedApprovalSlugs": [
+        "dubai-municipality-building-permit",
+        "dubai-municipality-preliminary-building-permit"
+      ],
+      "ar": {
+        "title": "دليل شامل — رخصة البناء من بلدية دبي",
+        "primaryKeyword": "رخصة البناء بلدية دبي",
+        "secondaryKeywords": [
+          "إجراءات رخصة البناء دبي",
+          "شروط رخصة البناء دبي",
+          "رسوم رخصة البناء دبي"
+        ]
+      },
+      "attempts": 1,
+      "generatedAt": "2026-08-02T21:23:32.248Z"
+    },
+    {
+      "id": "q-002",
+      "slug": "dcd-noc-complete-guide",
+      "kind": "guide",
+      "title": "Dubai Civil Defense NOC — Complete Guide",
+      "authority": "dcd",
+      "priority": 100,
+      "scheduledDate": "2026-08-02",
+      "status": "done",
+      "primaryKeyword": "Dubai Civil Defense NOC",
+      "secondaryKeywords": [
+        "DCD NOC process",
+        "fire and life safety approval Dubai",
+        "DCD approval documents",
+        "how long does DCD approval take"
+      ],
+      "topicTags": [
+        "dcd",
+        "noc",
+        "fire-safety"
+      ],
+      "targetWordCount": 1800,
+      "imageHint": "dcd-fire-safety",
+      "faqCount": 6,
+      "relatedApprovalSlugs": [
+        "dubai-civil-defense-approval",
+        "dubai-municipality-civil-defense-noc",
+        "dubai-municipality-building-permit"
+      ],
+      "ar": {
+        "title": "دليل شامل — موافقة الدفاع المدني في دبي (NOC)",
+        "primaryKeyword": "موافقة الدفاع المدني دبي",
+        "secondaryKeywords": [
+          "إجراءات الدفاع المدني دبي",
+          "شهادة السلامة من الحريق دبي",
+          "مستندات الدفاع المدني"
+        ]
+      },
+      "attempts": 1,
+      "generatedAt": "2026-08-02T21:19:08.900Z"
+    },
+    {
+      "id": "q-003",
+      "slug": "dewa-approval-connection-complete-guide",
+      "kind": "guide",
+      "title": "DEWA Approval & Connection — Complete Guide",
+      "authority": "dewa",
+      "priority": 100,
+      "scheduledDate": "2026-08-02",
+      "status": "done",
+      "primaryKeyword": "DEWA approval and connection",
+      "secondaryKeywords": [
+        "DEWA new connection process",
+        "DEWA NOC requirements",
+        "DEWA connection fees Dubai",
+        "how to get DEWA connection"
+      ],
+      "topicTags": [
+        "dewa",
+        "connection",
+        "utilities"
+      ],
+      "targetWordCount": 1800,
+      "imageHint": "dewa-connection",
+      "faqCount": 6,
+      "relatedApprovalSlugs": [
+        "dewa-approval",
+        "dewa-connection-noc",
+        "dewa-meter-installation"
+      ],
+      "ar": {
+        "title": "دليل شامل — موافقة هيئة كهرباء ومياه دبي (ديوا) والتوصيل",
+        "primaryKeyword": "موافقة ديوا والتوصيل",
+        "secondaryKeywords": [
+          "توصيل كهرباء دبي",
+          "شهادة عدم ممانعة ديوا",
+          "رسوم توصيل ديوا"
+        ]
+      },
+      "attempts": 1,
+      "generatedAt": "2026-08-02T21:19:53.440Z"
+    },
+    {
+      "id": "q-004",
+      "slug": "dda-fit-out-approval-complete-guide",
+      "kind": "guide",
+      "title": "DDA Fit-Out Approval — Complete Guide",
+      "authority": "dda",
+      "priority": 95,
+      "scheduledDate": "2026-08-02",
+      "status": "done",
+      "primaryKeyword": "DDA fit-out approval",
+      "secondaryKeywords": [
+        "Dubai Development Authority fit-out",
+        "DDA fit-out permit process",
+        "Dubai South fit-out approval",
+        "fit-out permit documents DDA"
+      ],
+      "topicTags": [
+        "dda",
+        "fit-out",
+        "dubai-south"
+      ],
+      "targetWordCount": 1800,
+      "imageHint": "fit-out",
+      "faqCount": 6,
+      "relatedApprovalSlugs": [
+        "dda-approval",
+        "dubai-south-approval",
+        "interior-fit-out-approval"
+      ],
+      "ar": {
+        "title": "دليل شامل — موافقة التشطيبات الداخلية من هيئة دبي للتطوير (DDA)",
+        "primaryKeyword": "موافقة التشطيبات الداخلية DDA",
+        "secondaryKeywords": [
+          "رخصة التشطيبات الداخلية دبي",
+          "إجراءات DDA",
+          "التشطيبات في دبي ساوث"
+        ]
+      },
+      "attempts": 1,
+      "generatedAt": "2026-08-02T21:24:12.675Z"
+    },
+    {
+      "id": "q-005",
+      "slug": "trade-license-approval-by-business-activity",
+      "kind": "guide",
+      "title": "Trade License Approval by Business Activity — Complete Guide",
+      "authority": "ded",
+      "priority": 95,
+      "scheduledDate": "2026-08-02",
+      "status": "done",
+      "primaryKeyword": "Dubai trade license by business activity",
+      "secondaryKeywords": [
+        "DED trade license process",
+        "how to get a trade license in Dubai",
+        "trade license cost by activity",
+        "business activity approval Dubai"
+      ],
+      "topicTags": [
+        "ded",
+        "trade-license",
+        "business-setup"
+      ],
+      "targetWordCount": 1800,
+      "imageHint": "trade-license",
+      "faqCount": 6,
+      "relatedApprovalSlugs": [
+        "ded-approval",
+        "ejari-registration"
+      ],
+      "ar": {
+        "title": "دليل شامل — رخصة تجارية في دبي حسب النشاط",
+        "primaryKeyword": "الرخصة التجارية حسب النشاط دبي",
+        "secondaryKeywords": [
+          "إجراءات الرخص التجارية دبي",
+          "رسوم الرخصة التجارية",
+          "تأسيس شركة في دبي"
+        ]
+      },
+      "attempts": 1,
+      "generatedAt": "2026-08-02T21:25:10.165Z"
+    },
+    {
+      "id": "q-006",
+      "slug": "restaurant-food-business-approval-checklist",
+      "kind": "checklist",
+      "title": "Restaurant & Food Business Approval — Full Checklist (DM Food Control + DCD + DEWA)",
+      "authority": "dm-food",
+      "priority": 95,
+      "scheduledDate": "2026-08-02",
+      "status": "done",
+      "primaryKeyword": "restaurant approval Dubai checklist",
+      "secondaryKeywords": [
+        "food business approval Dubai",
+        "restaurant licensing requirements Dubai",
+        "DM food control approval",
+        "restaurant fit-out approvals Dubai"
+      ],
+      "topicTags": [
+        "restaurant",
+        "food",
+        "checklist"
+      ],
+      "targetWordCount": 1600,
+      "imageHint": "restaurant-food",
+      "faqCount": 6,
+      "relatedApprovalSlugs": [
+        "food-control-department-approval",
+        "restaurant-works-approval",
+        "dubai-civil-defense-approval",
+        "dewa-approval"
+      ],
+      "ar": {
+        "title": "قائمة فحص شاملة — موافقات المطاعم ونشاط الأغذية في دبي",
+        "primaryKeyword": "موافقات المطاعم في دبي",
+        "secondaryKeywords": [
+          "ترخيص مطعم دبي",
+          "اشتراطات الأغذية بلدية دبي",
+          "قائمة فحص المطاعم"
+        ]
+      },
+      "attempts": 1,
+      "generatedAt": "2026-08-02T21:37:29.810Z"
+    },
+    {
+      "id": "q-007",
+      "slug": "how-much-does-approval-cost-in-dubai",
+      "kind": "cost",
+      "title": "How Much Do Approvals Cost in Dubai? (2026 Fee Guide)",
+      "authority": "dm",
+      "priority": 90,
+      "scheduledDate": "2026-08-02",
+      "status": "done",
+      "primaryKeyword": "approval cost in Dubai",
+      "secondaryKeywords": [
+        "Dubai approval fees",
+        "DM building permit cost",
+        "DEWA connection fee",
+        "fit-out approval cost Dubai"
+      ],
+      "topicTags": [
+        "cost",
+        "fees",
+        "dubai"
+      ],
+      "targetWordCount": 1600,
+      "imageHint": "cost-fees",
+      "faqCount": 6,
+      "relatedApprovalSlugs": [
+        "dubai-municipality-building-permit",
+        "dewa-approval",
+        "interior-fit-out-approval",
+        "ded-approval"
+      ],
+      "ar": {
+        "title": "كم تبلغ تكلفة الموافقات في دبي؟ (دليل الرسوم 2026)",
+        "primaryKeyword": "تكلفة الموافقات في دبي",
+        "secondaryKeywords": [
+          "رسوم الموافقات دبي",
+          "تكلفة رخصة البناء دبي",
+          "رسوم التشطيبات دبي"
+        ]
+      },
+      "attempts": 1,
+      "generatedAt": "2026-08-02T21:27:34.801Z"
+    },
+    {
+      "id": "q-008",
+      "slug": "mainland-vs-free-zone-approval-comparison",
+      "kind": "compare",
+      "title": "Mainland vs Free Zone Approval Process — Dubai Comparison",
+      "authority": "ded",
+      "priority": 90,
+      "scheduledDate": "2026-08-02",
+      "status": "done",
+      "primaryKeyword": "mainland vs free zone Dubai",
+      "secondaryKeywords": [
+        "mainland company vs free zone",
+        "Dubai free zone approval process",
+        "mainland trade license Dubai",
+        "which is better mainland or free zone"
+      ],
+      "topicTags": [
+        "compare",
+        "business-setup",
+        "mainland",
+        "free-zone"
+      ],
+      "targetWordCount": 1600,
+      "imageHint": "mainland-vs-freezone",
+      "faqCount": 6,
+      "relatedApprovalSlugs": [
+        "ded-approval",
+        "dubai-silicon-oasis-approval",
+        "dmcc-approval",
+        "jebel-ali-free-zone-approval"
+      ],
+      "ar": {
+        "title": "مقارنة — الترخيص في البر الرئيسي مقابل المناطق الحرة في دبي",
+        "primaryKeyword": "البر الرئيسي مقابل المناطق الحرة دبي",
+        "secondaryKeywords": [
+          "شركة بر رئيسي أو منطقة حرة",
+          "المناطق الحرة في دبي",
+          "تأسيس شركة في المناطق الحرة"
+        ]
+      },
+      "attempts": 1,
+      "generatedAt": "2026-08-02T21:28:19.859Z"
+    },
+    {
+      "id": "q-009",
+      "slug": "common-reasons-approvals-rejected-in-dubai",
+      "kind": "guide",
+      "title": "Common Reasons Approvals Are Rejected in Dubai (and How to Avoid Them)",
+      "authority": "dm",
+      "priority": 90,
+      "scheduledDate": "2026-08-02",
+      "status": "done",
+      "primaryKeyword": "why approvals get rejected in Dubai",
+      "secondaryKeywords": [
+        "building permit rejection reasons Dubai",
+        "how to avoid approval rejection Dubai",
+        "fit-out rejection reasons",
+        "fix approval rejection Dubai"
+      ],
+      "topicTags": [
+        "rejection",
+        "dm",
+        "tips"
+      ],
+      "targetWordCount": 1800,
+      "imageHint": "rejection-avoidance",
+      "faqCount": 6,
+      "relatedApprovalSlugs": [
+        "dubai-municipality-building-permit",
+        "interior-fit-out-approval",
+        "dubai-civil-defense-approval",
+        "dewa-approval"
+      ],
+      "ar": {
+        "title": "الأسباب الشائعة لرفض الموافقات في دبي وكيفية تجنبها",
+        "primaryKeyword": "أسباب رفض الموافقات في دبي",
+        "secondaryKeywords": [
+          "رفض رخصة البناء دبي",
+          "تجنب رفض الموافقات",
+          "إصلاح رفض الموافقة"
+        ]
+      },
+      "attempts": 1,
+      "generatedAt": "2026-08-02T21:38:20.749Z"
+    },
+    {
+      "id": "q-010",
+      "slug": "dm-noc-what-is-it-who-needs",
+      "kind": "qa",
+      "title": "What Is a Dubai Municipality NOC and Who Needs One?",
+      "authority": "dm",
+      "priority": 80,
+      "scheduledDate": "2026-08-06",
+      "status": "pending",
+      "primaryKeyword": "Dubai Municipality NOC",
+      "secondaryKeywords": [
+        "DM NOC meaning",
+        "who needs a DM NOC",
+        "NOC for renovation Dubai"
+      ],
+      "topicTags": [
+        "dm",
+        "noc"
+      ],
+      "targetWordCount": 600,
+      "imageHint": "noc",
+      "faqCount": 3,
+      "relatedApprovalSlugs": [
+        "dubai-municipality-noc",
+        "dubai-municipality-building-permit"
+      ],
+      "ar": {
+        "title": "ما هي شهادة عدم الممانعة من بلدية دبي ومن يحتاجها؟",
+        "primaryKeyword": "شهادة عدم ممانعة بلدية دبي",
+        "secondaryKeywords": [
+          "معنى شهادة عدم الممانعة",
+          "من يحتاج شهادة عدم ممانعة دبي"
+        ]
+      }
+    },
+    {
+      "id": "q-011",
+      "slug": "dm-building-permit-validity-period",
+      "kind": "qa",
+      "title": "How Long Is a Dubai Municipality Building Permit Valid?",
+      "authority": "dm",
+      "priority": 80,
+      "scheduledDate": "2026-08-06",
+      "status": "pending",
+      "primaryKeyword": "Dubai building permit validity",
+      "secondaryKeywords": [
+        "building permit expiry Dubai",
+        "DM permit renewal",
+        "how long is a permit valid"
+      ],
+      "topicTags": [
+        "dm",
+        "building-permit",
+        "timeline"
+      ],
+      "targetWordCount": 600,
+      "imageHint": "building-permit",
+      "faqCount": 3,
+      "relatedApprovalSlugs": [
+        "dubai-municipality-building-permit"
+      ],
+      "ar": {
+        "title": "كم تبلغ صلاحية رخصة البناء من بلدية دبي؟",
+        "primaryKeyword": "صلاحية رخصة البناء دبي",
+        "secondaryKeywords": [
+          "انتهاء صلاحية رخصة البناء",
+          "تجديد رخصة البناء دبي"
+        ]
+      }
+    },
+    {
+      "id": "q-012",
+      "slug": "dcd-fire-noc-validity-duration",
+      "kind": "qa",
+      "title": "How Long Does a Dubai Civil Defense Fire NOC Take?",
+      "authority": "dcd",
+      "priority": 80,
+      "scheduledDate": "2026-08-06",
+      "status": "pending",
+      "primaryKeyword": "DCD fire NOC time",
+      "secondaryKeywords": [
+        "how long does DCD approval take",
+        "DCD NOC processing time",
+        "fire safety approval duration Dubai"
+      ],
+      "topicTags": [
+        "dcd",
+        "noc",
+        "timeline"
+      ],
+      "targetWordCount": 600,
+      "imageHint": "dcd-fire-safety",
+      "faqCount": 3,
+      "relatedApprovalSlugs": [
+        "dubai-civil-defense-approval"
+      ],
+      "ar": {
+        "title": "كم تستغرق موافقة الدفاع المدني في دبي؟",
+        "primaryKeyword": "مدة موافقة الدفاع المدني دبي",
+        "secondaryKeywords": [
+          "مدة إصدار شهادة عدم الممانعة الدفاع المدني",
+          "مدة السلامة من الحريق دبي"
+        ]
+      }
+    },
+    {
+      "id": "q-013",
+      "slug": "dewa-noc-cost-connection",
+      "kind": "qa",
+      "title": "What Does a DEWA NOC Cost for a New Connection?",
+      "authority": "dewa",
+      "priority": 80,
+      "scheduledDate": "2026-08-07",
+      "status": "pending",
+      "primaryKeyword": "DEWA NOC cost",
+      "secondaryKeywords": [
+        "DEWA NOC fee",
+        "DEWA connection cost Dubai",
+        "how much is a DEWA NOC"
+      ],
+      "topicTags": [
+        "dewa",
+        "noc",
+        "cost"
+      ],
+      "targetWordCount": 600,
+      "imageHint": "dewa-connection",
+      "faqCount": 3,
+      "relatedApprovalSlugs": [
+        "dewa-connection-noc",
+        "dewa-approval"
+      ],
+      "ar": {
+        "title": "كم تبلغ تكلفة شهادة عدم الممانعة من ديوا للتوصيل الجديد؟",
+        "primaryKeyword": "تكلفة شهادة عدم ممانعة ديوا",
+        "secondaryKeywords": [
+          "رسوم شهادة عدم ممانعة ديوا",
+          "تكلفة توصيل ديوا"
+        ]
+      }
+    },
+    {
+      "id": "q-014",
+      "slug": "dewa-load-enhancement-process",
+      "kind": "qa",
+      "title": "How Do I Increase My DEWA Electricity Load?",
+      "authority": "dewa",
+      "priority": 75,
+      "scheduledDate": "2026-08-07",
+      "status": "pending",
+      "primaryKeyword": "increase DEWA electricity load",
+      "secondaryKeywords": [
+        "DEWA load enhancement process",
+        "increase electrical load Dubai",
+        "DEWA load change"
+      ],
+      "topicTags": [
+        "dewa",
+        "load-enhancement"
+      ],
+      "targetWordCount": 600,
+      "imageHint": "dewa-connection",
+      "faqCount": 3,
+      "relatedApprovalSlugs": [
+        "dewa-load-enhancement",
+        "dewa-approval"
+      ],
+      "ar": {
+        "title": "كيف أرفع القدرة الكهربائية (الأحمال) لدى ديوا؟",
+        "primaryKeyword": "رفع الأحمال الكهربائية ديوا",
+        "secondaryKeywords": [
+          "زيادة القدرة الكهربائية دبي",
+          "تغيير الأحمال ديوا"
+        ]
+      }
+    },
+    {
+      "id": "q-015",
+      "slug": "dda-fit-out-permit-documents",
+      "kind": "qa",
+      "title": "What Documents Do I Need for a DDA Fit-Out Permit?",
+      "authority": "dda",
+      "priority": 75,
+      "scheduledDate": "2026-08-07",
+      "status": "pending",
+      "primaryKeyword": "DDA fit-out permit documents",
+      "secondaryKeywords": [
+        "DDA fit-out requirements",
+        "fit-out documents Dubai South",
+        "DDA permit checklist"
+      ],
+      "topicTags": [
+        "dda",
+        "fit-out",
+        "documents"
+      ],
+      "targetWordCount": 600,
+      "imageHint": "fit-out",
+      "faqCount": 3,
+      "relatedApprovalSlugs": [
+        "dda-approval",
+        "dubai-south-approval"
+      ],
+      "ar": {
+        "title": "ما المستندات المطلوبة لرخصة التشطيبات الداخلية من DDA؟",
+        "primaryKeyword": "مستندات رخصة التشطيبات DDA",
+        "secondaryKeywords": [
+          "متطلبات التشطيبات دبي ساوث",
+          "قائمة مستندات DDA"
+        ]
+      }
+    },
+    {
+      "id": "q-016",
+      "slug": "ded-trade-license-renewal-cost",
+      "kind": "qa",
+      "title": "How Much Does It Cost to Renew a Dubai Trade License?",
+      "authority": "ded",
+      "priority": 75,
+      "scheduledDate": "2026-08-08",
+      "status": "pending",
+      "primaryKeyword": "Dubai trade license renewal cost",
+      "secondaryKeywords": [
+        "renew trade license Dubai",
+        "DED license renewal fee",
+        "trade license renewal process"
+      ],
+      "topicTags": [
+        "ded",
+        "trade-license",
+        "cost"
+      ],
+      "targetWordCount": 600,
+      "imageHint": "trade-license",
+      "faqCount": 3,
+      "relatedApprovalSlugs": [
+        "ded-approval"
+      ],
+      "ar": {
+        "title": "كم تبلغ تكلفة تجديد الرخصة التجارية في دبي؟",
+        "primaryKeyword": "تكلفة تجديد الرخصة التجارية دبي",
+        "secondaryKeywords": [
+          "تجديد الرخصة التجارية دبي",
+          "رسوم تجديد الرخصة"
+        ]
+      }
+    },
+    {
+      "id": "q-017",
+      "slug": "ejari-renewal-how-to",
+      "kind": "qa",
+      "title": "How Do I Renew My Ejari Registration?",
+      "authority": "rera",
+      "priority": 75,
+      "scheduledDate": "2026-08-08",
+      "status": "pending",
+      "primaryKeyword": "renew Ejari registration",
+      "secondaryKeywords": [
+        "Ejari renewal process",
+        "how to renew Ejari Dubai",
+        "Ejari renewal fee"
+      ],
+      "topicTags": [
+        "rera",
+        "ejari"
+      ],
+      "targetWordCount": 600,
+      "imageHint": "ejari",
+      "faqCount": 3,
+      "relatedApprovalSlugs": [
+        "ejari-registration",
+        "rera-permit"
+      ],
+      "ar": {
+        "title": "كيف أجدد تسجيل إيجاري؟",
+        "primaryKeyword": "تجديد إيجاري",
+        "secondaryKeywords": [
+          "تجديد عقد الإيجار دبي",
+          "رسوم تجديد إيجاري"
+        ]
+      }
+    },
+    {
+      "id": "q-018",
+      "slug": "rta-noc-driveway-access",
+      "kind": "qa",
+      "title": "How Do I Get an RTA NOC for Driveway Access?",
+      "authority": "rta",
+      "priority": 70,
+      "scheduledDate": "2026-08-08",
+      "status": "pending",
+      "primaryKeyword": "RTA NOC driveway access",
+      "secondaryKeywords": [
+        "RTA access NOC",
+        "driveway approval Dubai",
+        "RTA road access permit"
+      ],
+      "topicTags": [
+        "rta",
+        "noc",
+        "access"
+      ],
+      "targetWordCount": 600,
+      "imageHint": "rta-access",
+      "faqCount": 3,
+      "relatedApprovalSlugs": [
+        "rta-approval"
+      ],
+      "ar": {
+        "title": "كيف أحصل على شهادة عدم ممانعة من هيئة الطرق والمواصلات لمدخل المركبات؟",
+        "primaryKeyword": "شهادة عدم ممانعة هيئة الطرق والمواصلات",
+        "secondaryKeywords": [
+          "موافقة المدخل هيئة الطرق",
+          "تصريح الوصول دبي"
+        ]
+      }
+    },
+    {
+      "id": "q-019",
+      "slug": "dha-clinic-license-requirements",
+      "kind": "qa",
+      "title": "What Are the DHA Requirements to License a Clinic?",
+      "authority": "dha",
+      "priority": 70,
+      "scheduledDate": "2026-08-09",
+      "status": "pending",
+      "primaryKeyword": "DHA clinic license requirements",
+      "secondaryKeywords": [
+        "open a clinic in Dubai",
+        "DHA facility license",
+        "clinic licensing Dubai requirements"
+      ],
+      "topicTags": [
+        "dha",
+        "healthcare",
+        "clinic"
+      ],
+      "targetWordCount": 600,
+      "imageHint": "dha-clinic",
+      "faqCount": 3,
+      "relatedApprovalSlugs": [
+        "dubai-health-authority-approval"
+      ],
+      "ar": {
+        "title": "ما هي متطلبات ترخيص العيادات من هيئة الصحة بدبي؟",
+        "primaryKeyword": "متطلبات ترخيص العيادات دبي",
+        "secondaryKeywords": [
+          "فتح عيادة في دبي",
+          "ترخيص منشأة صحية دبي"
+        ]
+      }
+    },
+    {
+      "id": "q-020",
+      "slug": "entertainment-license-process-dubai",
+      "kind": "qa",
+      "title": "How Do I Get an Entertainment License in Dubai?",
+      "authority": "dtcm",
+      "priority": 70,
+      "scheduledDate": "2026-08-09",
+      "status": "pending",
+      "primaryKeyword": "entertainment license Dubai",
+      "secondaryKeywords": [
+        "entertainment permit Dubai",
+        "event approval Dubai",
+        "entertainment license requirements Dubai"
+      ],
+      "topicTags": [
+        "dtcm",
+        "entertainment",
+        "license"
+      ],
+      "targetWordCount": 600,
+      "imageHint": "entertainment",
+      "faqCount": 3,
+      "relatedApprovalSlugs": [
+        "entertainment-license-approval",
+        "dtcm-tourism-approval",
+        "dubai-police-approval"
+      ],
+      "ar": {
+        "title": "كيف أحصل على رخصة ترفيه في دبي؟",
+        "primaryKeyword": "رخصة ترفيه دبي",
+        "secondaryKeywords": [
+          "تصريح الفعاليات دبي",
+          "موافقات الترفيه دبي"
+        ]
+      }
+    },
+    {
+      "id": "q-021",
+      "slug": "dubai-police-cctv-approval",
+      "kind": "qa",
+      "title": "Do I Need Dubai Police Approval for CCTV in My Business?",
+      "authority": "dubai-police",
+      "priority": 70,
+      "scheduledDate": "2026-08-09",
+      "status": "pending",
+      "primaryKeyword": "Dubai Police CCTV approval",
+      "secondaryKeywords": [
+        "CCTV approval Dubai business",
+        "security camera permit Dubai",
+        "Dubai Police security systems"
+      ],
+      "topicTags": [
+        "dubai-police",
+        "cctv",
+        "security"
+      ],
+      "targetWordCount": 600,
+      "imageHint": "cctv-security",
+      "faqCount": 3,
+      "relatedApprovalSlugs": [
+        "dubai-police-approval"
+      ],
+      "ar": {
+        "title": "هل أحتاج موافقة شرطة دبي لتثبيت كاميرات المراقبة في منشأتي؟",
+        "primaryKeyword": "موافقة شرطة دبي كاميرات المراقبة",
+        "secondaryKeywords": [
+          "تصريح كاميرات المراقبة دبي",
+          "أنظمة الأمن شرطة دبي"
+        ]
+      }
+    }
+  ]
+}

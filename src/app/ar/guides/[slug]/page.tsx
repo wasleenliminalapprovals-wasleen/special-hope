@@ -28,7 +28,11 @@ import { approvals } from "@/data/approvals";
 import { approvals as approvalsAr } from "@/data/approvals-ar";
 import { SITE, AR } from "@/lib/constants";
 import { hreflangAlternates } from "@/lib/locale";
-import { guideSchemaStack } from "@/lib/schema";
+import { guideSchemaStack, pseoSchemaStack } from "@/lib/schema";
+import { getPseoPage, getPseoArabicEntry, loadPseoPages } from "@/lib/pseo-data";
+import PseoPageRenderer from "@/components/pseo/PseoPageRenderer";
+import type { PseoRelatedItem } from "@/components/pseo/PseoRelatedBlock";
+import type { PseoPage, PseoArabicEntry } from "@/types";
 import Badge from "@/components/ui/Badge";
 import CTASectionArabic from "@/components/sections/CTASectionArabic";
 
@@ -40,9 +44,15 @@ interface Props {
    Static Generation
    ============================================================ */
 
-/** Generate all Arabic guide pages at build time */
+/** Generate all Arabic guide + pSEO pages at build time */
 export async function generateStaticParams() {
-  return guides.map((guide) => ({ slug: guide.slug }));
+  const pseoSlugs = loadPseoPages()
+    .filter((page) => getPseoArabicEntry(page.slug))
+    .map((page) => ({ slug: page.slug }));
+  return [
+    ...guides.map((guide) => ({ slug: guide.slug })),
+    ...pseoSlugs,
+  ];
 }
 
 /* ============================================================
@@ -51,6 +61,35 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
+
+  /* ── pSEO-generated page metadata (Arabic) ─────────────── */
+  const pseoPage = getPseoPage(slug);
+  const pseoAr = getPseoArabicEntry(slug);
+  if (pseoPage && pseoAr) {
+    const ar = pseoAr.ar;
+    const seoTitle = `${ar.metaTitle || `${ar.primaryKeyword} | ${AR.siteShortName}`}`.substring(0, 60);
+    const description = (ar.metaDescription || ar.directAnswer || "").substring(0, 160);
+    const canonical = `${SITE.url}/ar/guides/${slug}`;
+    return {
+      title: seoTitle,
+      description,
+      alternates: { canonical, languages: hreflangAlternates(SITE.url, `/ar/guides/${slug}`) },
+      openGraph: {
+        title: seoTitle,
+        description: description.substring(0, 160),
+        url: canonical,
+        type: "article",
+        siteName: SITE.name,
+        locale: "ar_AE",
+      },
+      twitter: {
+        card: "summary_large_image",
+        title: seoTitle,
+        description: description.substring(0, 160),
+      },
+    };
+  }
+
   const guide = guides.find((g) => g.slug === slug);
   const arEntry = guidesAr.find((g) => g.slug === slug);
   if (!guide || !arEntry) return {};
@@ -96,11 +135,134 @@ function getParentApproval(slug?: string): { name: string; slug: string } | null
 }
 
 /* ============================================================
+   Helpers: Arabic pSEO page rendering
+   ============================================================ */
+
+/** Fact-sheet date → valid ISO date for schema (falls back to build date). */
+function schemaDate(value: string): string {
+  if (!value || value === "pending") return new Date().toISOString();
+  return value;
+}
+
+/** Resolve pSEO related slugs into Arabic-named links (/ar/ paths). */
+function resolvePseoRelatedAr(page: PseoPage): PseoRelatedItem[] {
+  const items: PseoRelatedItem[] = [];
+  const seen = new Set<string>();
+
+  const add = (slug: string, name: string, href: string, description?: string) => {
+    if (seen.has(slug)) return;
+    seen.add(slug);
+    items.push({ name, href, description });
+  };
+
+  if (page.parentApprovalSlug) {
+    const parent = approvals.find((a) => a.slug === page.parentApprovalSlug);
+    if (parent) {
+      const parentAr = approvalsAr.find((a) => a.slug === page.parentApprovalSlug);
+      add(
+        parent.slug,
+        parentAr?.ar?.name ?? parent.name,
+        `/ar/approvals/${parent.slug}`,
+        "متطلبات الموافقة الكاملة والوثائق والمدد الزمنية",
+      );
+    }
+  }
+
+  for (const slug of page.relatedSlugs ?? []) {
+    if (seen.has(slug)) continue;
+    const approval = approvals.find((a) => a.slug === slug);
+    if (approval) {
+      const arApproval = approvalsAr.find((a) => a.slug === slug);
+      add(slug, arApproval?.ar?.name ?? approval.name, `/ar/approvals/${slug}`, "متطلبات الموافقة والمدد الزمنية");
+      continue;
+    }
+    const guide = guides.find((g) => g.slug === slug);
+    if (guide) {
+      const arGuide = guidesAr.find((g) => g.slug === slug);
+      add(slug, arGuide?.ar?.title ?? guide.title, `/ar/guides/${slug}`, "دليل مفصّل");
+      continue;
+    }
+    const pseo = getPseoPage(slug);
+    const pseoAr = getPseoArabicEntry(slug);
+    if (pseo && pseoAr) {
+      add(slug, pseoAr.ar.title, `/ar/guides/${slug}`, "دليل ذو صلة");
+      continue;
+    }
+    add(slug, slug.replace(/-/g, " "), `/ar/guides/${slug}`);
+  }
+  return items;
+}
+
+/** Render an Arabic pSEO page with its schema stack and pSEO template. */
+function renderPseoPageAr(page: PseoPage, arEntry: PseoArabicEntry) {
+  const canonical = `${SITE.url}/ar/guides/${page.slug}`;
+  const parentApproval = getParentApproval(page.parentApprovalSlug);
+  const relatedItems = resolvePseoRelatedAr(page);
+  const ar = arEntry.ar;
+
+  const schemas = pseoSchemaStack(
+    {
+      url: canonical,
+      title: ar.metaTitle || ar.title,
+      description: ar.metaDescription || ar.directAnswer || "",
+      kind: page.kind,
+      sections: ar.sections,
+      directAnswer: ar.directAnswer,
+      faqs: ar.faqs,
+      related: relatedItems.map((r) => ({ name: r.name, slug: r.href })),
+      parentApproval: parentApproval
+        ? { name: parentApproval.name, slug: parentApproval.slug }
+        : undefined,
+      dateModified: schemaDate(page.lastVerified),
+    },
+    "ar",
+  );
+
+  // Merge AR content into the page so PseoPageRenderer renders Arabic (locale="ar" reads page.ar)
+  const mergedPage: PseoPage = { ...page, ar };
+
+  return (
+    <>
+      {schemas.map((schema, i) => (
+        <script
+          key={i}
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+        />
+      ))}
+      <PseoPageRenderer
+        page={mergedPage}
+        locale="ar"
+        breadcrumbs={[
+          { name: AR.breadcrumb.home, href: "/ar" },
+          { name: AR.breadcrumb.guides, href: "/ar/guides" },
+          { name: ar.title, href: `/ar/guides/${page.slug}` },
+        ]}
+        related={relatedItems}
+        parentApproval={
+          parentApproval
+            ? { name: parentApproval.name, href: `/ar/approvals/${parentApproval.slug}` }
+            : null
+        }
+      />
+    </>
+  );
+}
+
+/* ============================================================
    Page Component
    ============================================================ */
 
 export default async function ArabicGuidePage({ params }: Props) {
   const { slug } = await params;
+
+  /* ── pSEO-generated Arabic page ────────────────────────── */
+  const pseoPage = getPseoPage(slug);
+  const pseoAr = getPseoArabicEntry(slug);
+  if (pseoPage && pseoAr) {
+    return renderPseoPageAr(pseoPage, pseoAr);
+  }
+
   const guide = guides.find((g) => g.slug === slug);
   const arEntry = guidesAr.find((g) => g.slug === slug);
   if (!guide || !arEntry) notFound();

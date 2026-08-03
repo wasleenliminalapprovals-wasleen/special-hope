@@ -25,6 +25,7 @@ import type {
   ProcessStep,
   StatFact,
   RejectionReason,
+  PseoPage,
 } from "@/types";
 import { LICENSE, NAP } from "@/lib/constants";
 
@@ -478,7 +479,8 @@ registerGeoFormatter<ServiceData>("service", {
 export function buildLlmsIndex(
   allApprovals: ApprovalData[],
   allGuides: GuideData[],
-  allServices: ServiceData[]
+  allServices: ServiceData[],
+  allPseo: PseoPage[] = []
 ): string {
   const lines: string[] = [];
 
@@ -538,6 +540,22 @@ export function buildLlmsIndex(
   }
   lines.push("");
 
+  // ── pSEO Pages ──
+
+  if (allPseo.length > 0) {
+    lines.push(`## pSEO Pages — ${allPseo.length} pages`);
+    lines.push("");
+
+    for (const page of allPseo) {
+      const snippet = (page.directAnswer || page.metaDescription || "")
+        .split(".")[0].trim() + ".";
+      lines.push(
+        `- [${page.title}](/guides/${page.slug}): ${snippet}`
+      );
+    }
+    lines.push("");
+  }
+
   // ── Service Pages ──
 
   lines.push(`## Service Pages — ${allServices.length} pages`);
@@ -585,7 +603,8 @@ export function buildLlmsIndex(
 export function buildLlmsFull(
   allApprovals: ApprovalData[],
   allGuides: GuideData[],
-  allServices: ServiceData[]
+  allServices: ServiceData[],
+  allPseo: PseoPage[] = []
 ): string {
   const blocks: string[] = [];
 
@@ -617,6 +636,12 @@ export function buildLlmsFull(
 
   for (const guide of allGuides) {
     blocks.push(formatGuideForLlmsFull(guide));
+  }
+
+  // ── pSEO Pages ──
+
+  for (const page of allPseo) {
+    blocks.push(formatPseoForLlmsFull(page));
   }
 
   // ── Services ──
@@ -746,6 +771,77 @@ function formatGuideForLlmsFull(guide: GuideData): string {
   if (geo.sections.content && geo.sections.content.length > 0) {
     for (const para of geo.sections.content) {
       lines.push(para);
+      lines.push("");
+    }
+  }
+
+  return lines.join("\n");
+}
+
+/**
+ * Format a single pSEO page for llms-full.txt.
+ *
+ * pSEO pages carry structured sections (paragraphs, lists, tables, quotes)
+ * that are rendered as markdown so AI engines can parse the full content
+ * for complex multi-step queries.
+ */
+function formatPseoForLlmsFull(page: PseoPage): string {
+  const lines: string[] = [];
+
+  lines.push("---");
+  lines.push(`## ${page.title}`);
+  lines.push("");
+
+  // Direct Answer
+  if (page.directAnswer) {
+    lines.push("### Direct Answer");
+    lines.push("");
+    lines.push(page.directAnswer);
+    lines.push("");
+  }
+
+  // Sections
+  for (const section of page.sections) {
+    lines.push(`## ${section.heading}`);
+    lines.push("");
+
+    for (const block of section.blocks) {
+      switch (block.type) {
+        case "paragraph":
+          lines.push(block.text);
+          lines.push("");
+          break;
+        case "heading":
+          lines.push(`${"#".repeat(block.level)} ${block.text}`);
+          lines.push("");
+          break;
+        case "list":
+          for (const item of block.items) {
+            lines.push(`${block.ordered ? "1." : "-"} ${item}`);
+          }
+          lines.push("");
+          break;
+        case "table":
+          lines.push(tableToMarkdown([block.headers, ...block.rows]));
+          lines.push("");
+          break;
+        case "quote":
+          lines.push(`> ${block.text}`);
+          lines.push("");
+          break;
+      }
+    }
+  }
+
+  // FAQ
+  if (page.faqs && page.faqs.length > 0) {
+    lines.push("## FAQ");
+    lines.push("");
+
+    for (const faq of page.faqs) {
+      lines.push(`Q: ${faq.question}`);
+      lines.push("");
+      lines.push(`A: ${faq.answer}`);
       lines.push("");
     }
   }

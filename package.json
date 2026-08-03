@@ -6,7 +6,10 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "pseo:generate": "tsx scripts/pseo/generate.ts 3",
+    "pseo:report": "tsx scripts/pseo/weekly-report.ts",
+    "pseo:verify": "tsx scripts/pseo/weekly-report.ts --verify"
   },
   "dependencies": {
     "@next/third-parties": "^15.2.4",
@@ -26,6 +29,7 @@
     "lighthouse": "^13.4.1",
     "sharp": "^0.35.3",
     "tailwindcss": "^4.1.4",
+    "tsx": "^4.23.4",
     "typescript": "^5.7.0"
   },
   "browserslist": {

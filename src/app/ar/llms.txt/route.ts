@@ -17,6 +17,7 @@ import { guides as guidesAr } from "@/data/guides-ar";
 import { services } from "@/data/services";
 import { services as servicesAr } from "@/data/services-ar";
 import { AR } from "@/lib/constants";
+import { loadPseoArabicEntries } from "@/lib/pseo-data";
 
 export const dynamic = "force-static";
 
@@ -97,6 +98,24 @@ export async function GET() {
     );
   }
   lines.push("");
+
+  // ── pSEO Pages (Arabic) ──
+
+  const pseoArEntries = loadPseoArabicEntries();
+  if (pseoArEntries.length > 0) {
+    lines.push(`## صفحات البرمجة SEO — ${pseoArEntries.length} صفحة`);
+    lines.push("");
+
+    for (const entry of pseoArEntries) {
+      const ar = entry.ar;
+      const snippet = (ar.metaDescription || ar.directAnswer || "")
+        .split(".")[0].trim() + ".";
+      lines.push(
+        `- [${ar.title}](/ar/guides/${entry.slug}): ${snippet}`
+      );
+    }
+    lines.push("");
+  }
 
   // ── Service Pages ──
 

@@ -19,7 +19,13 @@
 
 import { SITE, NAP, AR, LICENSE, SOCIAL } from "@/lib/constants";
 import { localePrefix } from "@/lib/locale";
-import type { FAQItem, ProcessStep, GuideData } from "@/types";
+import type {
+  FAQItem,
+  ProcessStep,
+  GuideData,
+  PseoPageKind,
+  PseoSection,
+} from "@/types";
 
 /* ── helpers ─────────────────────────────────────────────── */
 
@@ -411,6 +417,163 @@ export function serviceSchemaStack(
 
   if (input.howToSteps && input.howToSteps.length > 0) {
     schemas.push(howToSchema(input.howToSteps, locale));
+  }
+
+  return schemas;
+}
+
+/* ── convenience: pSEO page schemas ──────────────────────── */
+
+export interface PseoSchemaStackInput {
+  url: string;
+  title: string;
+  description: string;
+  kind: PseoPageKind;
+  sections: PseoSection[];
+  /** Direct answer block — used as the accepted answer on "qa" pages */
+  directAnswer?: string;
+  faqs?: FAQItem[];
+  /** Related pages for the ItemList schema (name + locale-prefixed URL) */
+  related?: { name: string; slug: string }[];
+  /** Pillar approval page this pSEO page links up to */
+  parentApproval?: { name: string; slug: string };
+  /** Optional explicit breadcrumbs; auto-built from parentApproval when omitted */
+  breadcrumbs?: BreadcrumbItem[];
+  dateModified: string;
+}
+
+/**
+ * Derive HowTo steps from ordered lists inside pSEO content sections.
+ * Each ordered list item becomes a HowToStep with global sequential numbering.
+ */
+function extractHowToSteps(sections: PseoSection[]): ProcessStep[] {
+  const steps: ProcessStep[] = [];
+  for (const section of sections) {
+    for (const block of section.blocks) {
+      if (block.type === "list" && block.ordered) {
+        for (const item of block.items) {
+          steps.push({ step: steps.length + 1, title: item, description: "" });
+        }
+      }
+    }
+  }
+  return steps;
+}
+
+/** Convert a bare slug into a human-readable ItemList name. */
+function nameFromSlug(slug: string): string {
+  return slug
+    .replace(/[-_]+/g, " ")
+    .replace(/\b\w/g, (c) => c.toUpperCase());
+}
+
+/**
+ * Schema stack for programmatic SEO (pSEO) pages:
+ *   WebPage + BreadcrumbList + (FAQPage?) + (HowTo?) + (QAPage?) + (ItemList?)
+ *
+ * Per-kind rules:
+ *   - "qa"        → QAPage (title = question, directAnswer = accepted answer)
+ *   - guide / checklist / timeline → HowTo (from ordered lists in sections)
+ *   - any kind    → FAQPage when faqs present; ItemList when related present
+ *
+ * @see .roo/rules/05-TECHNICAL-SEO-SCHEMA.md §3
+ */
+export function pseoSchemaStack(
+  input: PseoSchemaStackInput,
+  locale: "en" | "ar" = "en",
+) {
+  const lp = localePrefix(locale);
+  const schemas: Record<string, unknown>[] = [
+    webPageSchema(
+      {
+        url: input.url,
+        title: input.title,
+        description: input.description,
+        dateModified: input.dateModified,
+      },
+      locale,
+    ),
+  ];
+
+  // BreadcrumbList — auto-built when not supplied explicitly
+  const breadcrumbs: BreadcrumbItem[] =
+    input.breadcrumbs && input.breadcrumbs.length > 0
+      ? input.breadcrumbs
+      : [
+          { position: 1, name: locale === "ar" ? "الرئيسية" : "Home", slug: `${lp}/` },
+          ...(input.parentApproval
+            ? [
+                {
+                  position: 2,
+                  name: locale === "ar" ? "الموافقات" : "Approvals",
+                  slug: `${lp}/approvals`,
+                },
+                {
+                  position: 3,
+                  name: input.parentApproval.name,
+                  slug: `${lp}/approvals/${input.parentApproval.slug}`,
+                },
+                { position: 4, name: input.title, slug: input.url },
+              ]
+            : [
+                {
+                  position: 2,
+                  name: locale === "ar" ? "الأدلة" : "Guides",
+                  slug: `${lp}/guides`,
+                },
+                { position: 3, name: input.title, slug: input.url },
+              ]),
+        ];
+  schemas.push(breadcrumbList(breadcrumbs, locale));
+
+  // FAQPage — mirrors the visible FAQ block exactly
+  if (input.faqs && input.faqs.length > 0) {
+    schemas.push(faqPageSchema(input.faqs, locale));
+  }
+
+  // QAPage — only for the "qa" kind (question = title, answer = directAnswer)
+  if (input.kind === "qa") {
+    schemas.push(
+      qaPageSchema(
+        {
+          question: input.title,
+          answer: input.directAnswer ?? input.description,
+          title: input.title,
+          description: input.description,
+        },
+        locale,
+      ),
+    );
+  }
+
+  // HowTo — from ordered lists in sections (guide/checklist/timeline kinds)
+  if (
+    input.kind === "guide" ||
+    input.kind === "checklist" ||
+    input.kind === "timeline"
+  ) {
+    const steps = extractHowToSteps(input.sections);
+    if (steps.length > 0) {
+      schemas.push(howToSchema(steps, locale));
+    }
+  }
+
+  // ItemList — related internal links
+  if (input.related && input.related.length > 0) {
+    schemas.push({
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      "@id": `${BASE}${lp}/#related`,
+      name: locale === "ar" ? "صفحات ذات صلة" : "Related pages",
+      itemListElement: input.related.map((item, i) => ({
+        "@type": "ListItem",
+        position: i + 1,
+        name: item.name || nameFromSlug(item.slug),
+        url: item.slug.startsWith("http")
+          ? item.slug
+          : `${BASE}${item.slug.startsWith("/") ? "" : "/"}${item.slug}`,
+      })),
+    });
   }
 
   return schemas;

@@ -28,6 +28,7 @@ import type { MetadataRoute } from "next";
 import { approvals } from "@/data/approvals";
 import { guides } from "@/data/guides";
 import { services } from "@/data/services";
+import { loadPseoPages, getPseoArabicEntry } from "@/lib/pseo-data";
 import { SITE } from "@/lib/constants";
 
 const BASE_URL = SITE.url;
@@ -147,6 +148,41 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       lastModified: new Date(lastMod),
       alternates: alt(enUrl, arUrl),
     });
+  }
+
+  /* ── 7. pSEO pages (en + ar when Arabic exists) ───────────── */
+  // pSEO pages render under /guides/{slug}. Slugs are deduped by the
+  // generation engine, but we guard against collisions with existing
+  // guides so the sitemap never lists a URL twice.
+  const guideSlugs = new Set(guides.map((g) => g.slug));
+
+  for (const page of loadPseoPages()) {
+    if (guideSlugs.has(page.slug)) continue;
+
+    const lastMod =
+      page.lastVerified && page.lastVerified !== "pending"
+        ? page.lastVerified
+        : new Date().toISOString().slice(0, 10);
+
+    const enUrl = `${BASE_URL}/guides/${page.slug}`;
+    const arEntry = getPseoArabicEntry(page.slug);
+    const arUrl = `${BASE_URL}/ar/guides/${page.slug}`;
+
+    entries.push({
+      url: enUrl,
+      lastModified: new Date(lastMod),
+      alternates: arEntry
+        ? alt(enUrl, arUrl)
+        : { languages: { en: enUrl, "x-default": enUrl } },
+    });
+
+    if (arEntry) {
+      entries.push({
+        url: arUrl,
+        lastModified: new Date(lastMod),
+        alternates: alt(enUrl, arUrl),
+      });
+    }
   }
 
   return entries;

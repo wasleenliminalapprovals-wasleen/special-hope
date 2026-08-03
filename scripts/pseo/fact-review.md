@@ -1,0 +1,70 @@
+# Fact Review — pSEO pages with unverified figures
+
+Mark each item [x] once verified. This file drives your weekly 10-20 min review.
+
+## 2026-08-02 — common-reasons-approvals-rejected-in-dubai (dm)
+- [ ] directAnswer: "2–10 working days" — not found in the Dubai Municipality fact sheet
+
+## 2026-08-02 — dcd-noc-complete-guide (dcd)
+- [ ] FAQ "How much does a DCD NOC cost in Dubai?": "AED 1,000" — not found in the Dubai Civil Defense fact sheet
+- [ ] FAQ "How much does a DCD NOC cost in Dubai?": "AED 100" — not found in the Dubai Civil Defense fact sheet
+- [ ] FAQ "How much does a DCD NOC cost in Dubai?": "AED 500" — not found in the Dubai Civil Defense fact sheet
+
+## 2026-08-02 — dda-fit-out-approval-complete-guide (dda)
+- No unverified figures found.
+
+## 2026-08-02 — dewa-approval-connection-complete-guide (dewa)
+- [ ] section "DEWA New Connection Process: Step-by-Step": "2–4 weeks" — not found in the Dubai Electricity and Water Authority fact sheet
+- [ ] section "DEWA Connection Timelines": "2–4 weeks" — not found in the Dubai Electricity and Water Authority fact sheet
+- [ ] FAQ "What is the DEWA connection fee for a new electricity connection in Dubai?": "AED 100" — not found in the Dubai Electricity and Water Authority fact sheet
+- [ ] FAQ "What is the DEWA connection fee for a new electricity connection in Dubai?": "AED 300" — not found in the Dubai Electricity and Water Authority fact sheet
+- [ ] FAQ "What is the DEWA connection fee for a new electricity connection in Dubai?": "AED 500" — not found in the Dubai Electricity and Water Authority fact sheet
+- [ ] FAQ "How long does it take to get a DEWA connection?": "2 to 4 weeks" — not found in the Dubai Electricity and Water Authority fact sheet
+
+## 2026-08-02 — dm-building-permit-complete-guide (dm)
+- [ ] FAQ "How long does it take to get a building permit in Dubai?": "2–3 weeks" — not found in the Dubai Municipality fact sheet
+
+## 2026-08-02 — how-much-does-approval-cost-in-dubai (dm)
+- [ ] directAnswer: "2–15 working days" — not found in the Dubai Municipality fact sheet
+- [ ] section "Building Permit Cost Breakdown": "5,000" — not found in the Dubai Municipality fact sheet
+- [ ] section "Building Permit Cost Breakdown": "AED 125,000" — not found in the Dubai Municipality fact sheet
+- [ ] section "Building Permit Cost Breakdown": "AED 175,000" — not found in the Dubai Municipality fact sheet
+- [ ] section "Building Permit Cost Breakdown": "125,000 – 175,000" — not found in the Dubai Municipality fact sheet
+- [ ] section "Building Permit Cost Breakdown": "360 – 2,500" — not found in the Dubai Municipality fact sheet
+- [ ] FAQ "How much does an NOC cost in Dubai?": "AED 120" — not found in the Dubai Municipality fact sheet
+- [ ] FAQ "How much does an NOC cost in Dubai?": "AED 500" — not found in the Dubai Municipality fact sheet
+
+## 2026-08-02 — mainland-vs-free-zone-approval-comparison (ded)
+- [ ] directAnswer: "100" — not found in the Department of Economy and Tourism (DET) — Trade License fact sheet
+- [ ] directAnswer: "4 to 15 working days" — not found in the Department of Economy and Tourism (DET) — Trade License fact sheet
+- [ ] section "Mainland vs Free Zone Dubai: Which Approval Process Fits Your Business?": "100" — not found in the Department of Economy and Tourism (DET) — Trade License fact sheet
+- [ ] section "Mainland vs Free Zone Dubai: Which Approval Process Fits Your Business?": "4–15 working days" — not found in the Department of Economy and Tourism (DET) — Trade License fact sheet
+- [ ] section "Mainland vs Free Zone Dubai: Which Approval Process Fits Your Business?": "3–10 working days" — not found in the Department of Economy and Tourism (DET) — Trade License fact sheet
+- [ ] section "Mainland Approval Process (DET) Step by Step": "AED 620" — not found in the Department of Economy and Tourism (DET) — Trade License fact sheet
+- [ ] section "Mainland Approval Process (DET) Step by Step": "AED 1,000" — not found in the Department of Economy and Tourism (DET) — Trade License fact sheet
+- [ ] section "Mainland Approval Process (DET) Step by Step": "AED 15,000" — not found in the Department of Economy and Tourism (DET) — Trade License fact sheet
+- [ ] section "Free Zone Approval Process: How It Differs": "3–10 working days" — not found in the Department of Economy and Tourism (DET) — Trade License fact sheet
+- [ ] section "Cost Comparison: Mainland vs Free Zone": "AED 300–600" — not found in the Department of Economy and Tourism (DET) — Trade License fact sheet
+- [ ] section "Cost Comparison: Mainland vs Free Zone": "AED 5,000–15,000" — not found in the Department of Economy and Tourism (DET) — Trade License fact sheet
+- [ ] section "Cost Comparison: Mainland vs Free Zone": "AED 5,000" — not found in the Department of Economy and Tourism (DET) — Trade License fact sheet
+- [ ] section "Which Is Better: Mainland or Free Zone?": "100" — not found in the Department of Economy and Tourism (DET) — Trade License fact sheet
+- [ ] FAQ "What is the difference between mainland and free zone company in Dubai?": "100" — not found in the Department of Economy and Tourism (DET) — Trade License fact sheet
+- [ ] FAQ "How long does it take to get a mainland trade license in Dubai?": "4 to 15 working days" — not found in the Department of Economy and Tourism (DET) — Trade License fact sheet
+- [ ] FAQ "How long does it take to get a mainland trade license in Dubai?": "1-3 days" — not found in the Department of Economy and Tourism (DET) — Trade License fact sheet
+- [ ] FAQ "How long does it take to get a mainland trade license in Dubai?": "1-5 days" — not found in the Department of Economy and Tourism (DET) — Trade License fact sheet
+- [ ] FAQ "How long does it take to get a mainland trade license in Dubai?": "2-7 days" — not found in the Department of Economy and Tourism (DET) — Trade License fact sheet
+- [ ] FAQ "What are the costs for a mainland license in Dubai?": "AED 620" — not found in the Department of Economy and Tourism (DET) — Trade License fact sheet
+- [ ] FAQ "What are the costs for a mainland license in Dubai?": "AED 120" — not found in the Department of Economy and Tourism (DET) — Trade License fact sheet
+
+## 2026-08-02 — restaurant-food-business-approval-checklist (dm-food)
+- [ ] No fact sheet for this authority — all figures are unverified.
+
+## 2026-08-02 — trade-license-approval-by-business-activity (ded)
+- [ ] directAnswer: "AED 1,000" — not found in the Department of Economy and Tourism (DET) — Trade License fact sheet
+- [ ] FAQ "How long does it take to get a trade license in Dubai?": "5 to 15 working days" — not found in the Department of Economy and Tourism (DET) — Trade License fact sheet
+- [ ] FAQ "What is the cost of a trade license in Dubai?": "AED 620" — not found in the Department of Economy and Tourism (DET) — Trade License fact sheet
+- [ ] FAQ "What is the cost of a trade license in Dubai?": "AED 120" — not found in the Department of Economy and Tourism (DET) — Trade License fact sheet
+
+---
+
+_Regenerated 2026-08-02: 9 pages scanned, 44 unverified figure(s) across 9 page(s). Verify against the authority portal, then set `lastVerified` in the fact sheet._

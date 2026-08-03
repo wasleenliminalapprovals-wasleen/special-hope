@@ -23,7 +23,11 @@ import { guides } from "@/data/guides";
 import { approvals } from "@/data/approvals";
 import { SITE, HUB_SLUGS } from "@/lib/constants";
 import { hreflangAlternates } from "@/lib/locale";
-import { guideSchemaStack } from "@/lib/schema";
+import { guideSchemaStack, pseoSchemaStack } from "@/lib/schema";
+import { getPseoPage, loadPseoPages } from "@/lib/pseo-data";
+import PseoPageRenderer from "@/components/pseo/PseoPageRenderer";
+import type { PseoRelatedItem } from "@/components/pseo/PseoRelatedBlock";
+import type { PseoPage } from "@/types";
 import RelatedGuides from "@/components/sections/RelatedGuides";
 import CTASection from "@/components/sections/CTASection";
 import Badge from "@/components/ui/Badge";
@@ -32,9 +36,12 @@ import Badge from "@/components/ui/Badge";
    Static Generation
    ============================================================ */
 
-/** Generate all guide pages at build time */
+/** Generate all guide + pSEO pages at build time */
 export function generateStaticParams() {
-  return guides.map((guide) => ({ slug: guide.slug }));
+  return [
+    ...guides.map((guide) => ({ slug: guide.slug })),
+    ...loadPseoPages().map((page) => ({ slug: page.slug })),
+  ];
 }
 
 /* ============================================================
@@ -43,6 +50,34 @@ export function generateStaticParams() {
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
+
+  /* ── pSEO-generated page metadata ──────────────────────── */
+  const pseoPage = getPseoPage(slug);
+  if (pseoPage) {
+    const seoTitle =
+      pseoPage.metaTitle ||
+      `${pseoPage.primaryKeyword} | ${SITE.name}`.substring(0, 60);
+    const description = (pseoPage.metaDescription || pseoPage.directAnswer || "").substring(0, 160);
+    const canonical = `${SITE.url}/guides/${pseoPage.slug}`;
+    return {
+      title: seoTitle,
+      description,
+      alternates: { canonical, languages: hreflangAlternates(SITE.url, `/guides/${pseoPage.slug}`) },
+      openGraph: {
+        title: seoTitle,
+        description,
+        url: canonical,
+        type: "article",
+        siteName: SITE.name,
+      },
+      twitter: {
+        card: "summary_large_image",
+        title: seoTitle,
+        description,
+      },
+    };
+  }
+
   const guide = guides.find((g) => g.slug === slug);
   if (!guide) return {};
 
@@ -82,11 +117,129 @@ function getParentApproval(slug?: string): { name: string; slug: string } | null
 }
 
 /* ============================================================
+   Helpers: pSEO page rendering
+   ============================================================ */
+
+/** Fact-sheet date → valid ISO date for schema (falls back to build date). */
+function schemaDate(value: string): string {
+  if (!value || value === "pending") return new Date().toISOString();
+  return value;
+}
+
+/** Resolve pSEO related slugs into named links (approvals → guides → pSEO). */
+function resolvePseoRelated(page: PseoPage): PseoRelatedItem[] {
+  const items: PseoRelatedItem[] = [];
+  const seen = new Set<string>();
+
+  const add = (slug: string, name: string, href: string, description?: string) => {
+    if (seen.has(slug)) return;
+    seen.add(slug);
+    items.push({ name, href, description });
+  };
+
+  if (page.parentApprovalSlug) {
+    const parent = approvals.find((a) => a.slug === page.parentApprovalSlug);
+    if (parent) {
+      add(
+        parent.slug,
+        parent.name,
+        `/approvals/${parent.slug}`,
+        "Full approval requirements, documents, and timeline",
+      );
+    }
+  }
+
+  for (const slug of page.relatedSlugs ?? []) {
+    if (seen.has(slug)) continue;
+    const approval = approvals.find((a) => a.slug === slug);
+    if (approval) {
+      add(slug, approval.name, `/approvals/${slug}`, "Approval requirements and timeline");
+      continue;
+    }
+    const guide = guides.find((g) => g.slug === slug);
+    if (guide) {
+      add(slug, guide.title, `/guides/${slug}`, "Detailed guide");
+      continue;
+    }
+    const pseo = getPseoPage(slug);
+    if (pseo) {
+      add(slug, pseo.title, `/guides/${slug}`, "Related guide");
+      continue;
+    }
+    add(
+      slug,
+      slug.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase()),
+      `/guides/${slug}`,
+    );
+  }
+  return items;
+}
+
+/** Render a pSEO page with its schema stack and pSEO template. */
+function renderPseoPage(page: PseoPage) {
+  const canonical = `${SITE.url}/guides/${page.slug}`;
+  const parentApproval = getParentApproval(page.parentApprovalSlug);
+  const relatedItems = resolvePseoRelated(page);
+
+  const schemas = pseoSchemaStack(
+    {
+      url: canonical,
+      title: page.metaTitle || page.title,
+      description: page.metaDescription || page.directAnswer || "",
+      kind: page.kind,
+      sections: page.sections,
+      directAnswer: page.directAnswer,
+      faqs: page.faqs,
+      related: relatedItems.map((r) => ({ name: r.name, slug: r.href })),
+      parentApproval: parentApproval
+        ? { name: parentApproval.name, slug: parentApproval.slug }
+        : undefined,
+      dateModified: schemaDate(page.lastVerified),
+    },
+    "en",
+  );
+
+  return (
+    <>
+      {schemas.map((schema, i) => (
+        <script
+          key={i}
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+        />
+      ))}
+      <PseoPageRenderer
+        page={page}
+        locale="en"
+        breadcrumbs={[
+          { name: "Home", href: "/" },
+          { name: "Guides", href: HUB_SLUGS.guides },
+          { name: page.title, href: `/guides/${page.slug}` },
+        ]}
+        related={relatedItems}
+        parentApproval={
+          parentApproval
+            ? { name: parentApproval.name, href: `/approvals/${parentApproval.slug}` }
+            : null
+        }
+      />
+    </>
+  );
+}
+
+/* ============================================================
    Page Component
    ============================================================ */
 
 export default async function GuidePage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
+
+  /* ── pSEO-generated page branch ───────────────────────── */
+  const pseoPage = getPseoPage(slug);
+  if (pseoPage) {
+    return renderPseoPage(pseoPage);
+  }
+
   const guide = guides.find((g) => g.slug === slug);
   if (!guide) notFound();
 

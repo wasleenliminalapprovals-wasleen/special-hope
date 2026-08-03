@@ -15,11 +15,12 @@ import { approvals } from "@/data/approvals";
 import { guides } from "@/data/guides";
 import { services } from "@/data/services";
 import { buildLlmsIndex } from "@/lib/geo";
+import { loadPseoPages } from "@/lib/pseo-data";
 
 export const dynamic = "force-static";
 
 export async function GET() {
-  const content = buildLlmsIndex(approvals, guides, services);
+  const content = buildLlmsIndex(approvals, guides, services, loadPseoPages());
 
   return new NextResponse(content, {
     status: 200,

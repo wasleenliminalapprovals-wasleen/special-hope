@@ -9,6 +9,7 @@ import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import FloatingWhatsApp from "@/components/sections/FloatingWhatsApp";
 import PageViewTracker from "@/components/analytics/PageViewTracker";
+import ArabicDocumentAttributes from "@/components/layout/ArabicDocumentAttributes";
 
 /* ============================================================
    Viewport Configuration
@@ -93,8 +94,12 @@ export default function ArabicRootLayout({
   const { gtmId, gaId, sitewideSchema } = siteConfig("ar");
 
   return (
-    <html lang="ar-AE" dir="rtl" className={fontVariables("ar")}>
-      <body className="font-roboto antialiased" dir="rtl">
+    <>
+      {/* Sync <html lang="ar-AE" dir="rtl"> after hydration (root layout owns <html>) */}
+      <ArabicDocumentAttributes />
+
+      {/* RTL wrapper — <html>/<body> belong to the root layout only */}
+      <div lang="ar-AE" dir="rtl" className={fontVariables("ar")}>
         {/* Skip to main content link for accessibility */}
         <a
           href="#main-content"
@@ -153,7 +158,7 @@ export default function ArabicRootLayout({
             }}
           />
         ))}
-      </body>
-    </html>
+      </div>
+    </>
   );
 }

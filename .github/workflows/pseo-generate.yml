@@ -1,0 +1,106 @@
+name: pSEO Generate
+
+# Automatic daily page generation for the pSEO domination engine.
+# 3 batches/day × 3 pages = 9 pages/day (~270/month) at 9am / 3pm / 9pm UAE
+# (05:00 / 11:00 / 17:00 UTC — Gulf Standard Time is UTC+4).
+#
+# Each run: generate the next 3 queued pages (EN + Gulf-Arabic AR) → quality
+# gate → fact gate → write data files → commit + push → Vercel auto-rebuilds.
+#
+# Sundays 08:00 UAE (04:00 UTC) additionally run the weekly fact-review report
+# (scripts/pseo/weekly-report.ts) — the single ~15-20 min manual review.
+#
+# Required secrets:
+#   - DEEPSEEK_API_KEY  (GitHub repo secret)
+# GITHUB_TOKEN is provided automatically by GitHub Actions.
+
+on:
+  schedule:
+    - cron: "0 5 * * *"     # 9:00 AM UAE
+    - cron: "0 11 * * *"    # 3:00 PM UAE
+    - cron: "0 17 * * *"    # 9:00 PM UAE
+    - cron: "0 4 * * 0"     # 8:00 AM UAE Sundays — weekly fact-review report
+  workflow_dispatch: {}     # manual trigger (used for the pilot run)
+
+concurrency:
+  group: pseo-generate
+  cancel-in-progress: false
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run pSEO generator (batch of 3)
+        env:
+          DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
+        run: npx tsx scripts/pseo/generate.ts 3
+
+      - name: Commit generated pages
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add src/data/pseo scripts/pseo/queue.json scripts/pseo/fact-review.md
+          if git diff --cached --quiet; then
+            echo "No new pages generated — nothing to commit."
+          else
+            git commit -m "chore(pseo): generate next 3 pages (EN + AR)"
+            git push
+          fi
+
+      - name: Log summary
+        run: |
+          echo "::notice::pSEO batch complete. Review fact-review.md weekly for unverified figures."
+
+  weekly-report:
+    runs-on: ubuntu-latest
+    # Runs on Sundays (04:00 UTC) or manually via workflow_dispatch.
+    if: github.event_name == 'workflow_dispatch' || (github.event_name == 'schedule' && github.event.schedule == '0 4 * * 0')
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Generate weekly fact-review report
+        run: npx tsx scripts/pseo/weekly-report.ts
+
+      - name: Commit weekly report
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add scripts/pseo/reports scripts/pseo/fact-review.md src/data/pseo
+          if git diff --cached --quiet; then
+            echo "No report changes — nothing to commit."
+          else
+            git commit -m "chore(pseo): weekly fact-review report"
+            git push
+          fi
+
+      - name: Log summary
+        run: |
+          echo "::notice::Weekly pSEO fact-review report generated. Review scripts/pseo/reports/LATEST.md."

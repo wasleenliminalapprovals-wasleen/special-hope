@@ -18,11 +18,17 @@ export default function RootLayoutClient({ children }: { children: ReactNode }) 
 
   return (
     <>
-      {!isArabicRoute && <Header locale="en" />}
+      {!isArabicRoute && (
+        <>
+          <Header locale="en" />
 
-      <main id="main-content">{children}</main>
+          <main id="main-content">{children}</main>
 
-      {!isArabicRoute && <Footer locale="en" />}
+          <Footer locale="en" />
+        </>
+      )}
+
+      {isArabicRoute && children}
     </>
   );
 }
