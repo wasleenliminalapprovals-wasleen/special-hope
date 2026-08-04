@@ -13,7 +13,7 @@
  * @see plans/arabic-market-domination-reconciled-plan.md §0.7
  */
 
-import { GTM_ID, GA_MEASUREMENT_ID } from "@/lib/constants";
+import { GTM_ID, GA_MEASUREMENT_ID, META_PIXEL_ID } from "@/lib/constants";
 import { organizationSchema, websiteSchema } from "@/lib/schema";
 
 export interface SiteConfig {
@@ -21,6 +21,8 @@ export interface SiteConfig {
   gtmId: string;
   /** Google Analytics 4 measurement ID */
   gaId: string;
+  /** Meta Pixel ID (Facebook / Meta ads attribution) */
+  metaPixelId: string;
   /**
    * Sitewide JSON-LD schema objects (Organization + WebSite).
    * These are injected once in the root <body> via <script type="application/ld+json">.
@@ -41,6 +43,7 @@ export function siteConfig(locale: "en" | "ar" = "en"): SiteConfig {
   return {
     gtmId: GTM_ID,
     gaId: GA_MEASUREMENT_ID,
+    metaPixelId: META_PIXEL_ID,
     sitewideSchema: [
       organizationSchema(locale),
       websiteSchema(locale),

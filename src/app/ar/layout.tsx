@@ -1,14 +1,12 @@
 import type { Metadata, Viewport } from "next";
 import Script from "next/script";
 import { GoogleTagManager } from "@next/third-parties/google";
-import { Suspense } from "react";
 import { SITE, AR } from "@/lib/constants";
 import { fontVariables } from "@/lib/fonts";
 import { siteConfig } from "@/lib/site-config";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import FloatingWhatsApp from "@/components/sections/FloatingWhatsApp";
-import PageViewTracker from "@/components/analytics/PageViewTracker";
 import ArabicDocumentAttributes from "@/components/layout/ArabicDocumentAttributes";
 
 /* ============================================================
@@ -115,11 +113,6 @@ export default function ArabicRootLayout({
 
         {/* Site footer — localized Arabic */}
         <Footer locale="ar" />
-
-        {/* Page view tracking on client-side route changes */}
-        <Suspense fallback={null}>
-          <PageViewTracker />
-        </Suspense>
 
         {/* Global floating WhatsApp button */}
         <FloatingWhatsApp />

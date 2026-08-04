@@ -27,6 +27,7 @@ import {
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 import { trackEvent } from "@/lib/analytics";
+import { metaLead } from "@/lib/meta-pixel";
 import { NAP, AR } from "@/lib/constants";
 import {
   APPS_SCRIPT,
@@ -156,6 +157,16 @@ export default function FreeQuoteForm({ locale = "en" }: { locale?: "en" | "ar" 
       const json = await res.json().catch(() => ({}));
       if (!res.ok || json.success !== true) throw new Error("submit failed");
       trackEvent({ action: "quote_submit_success", category: "free_quote", label: data.service });
+      // Meta Pixel Lead with Advanced Matching — email/phone passed directly to
+      // fbq (Meta SHA-256 hashes automatically) and NEVER routed through GTM.
+      metaLead({
+        email: data.email,
+        phone: data.phone,
+        service: data.service,
+        content_category: data.location,
+        currency: "AED",
+        locale,
+      });
       setSubmitted(true);
     } catch {
       setSubmitError(true);

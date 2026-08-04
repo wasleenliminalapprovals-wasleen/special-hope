@@ -110,6 +110,9 @@ export const DEFAULT_SEO = {
 export const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || "G-SJF4WHM8QJ";
 export const GTM_ID = process.env.NEXT_PUBLIC_GTM_ID || "";
 
+/** Meta Pixel ID — used by src/lib/meta-pixel.ts and the root-layout base script. */
+export const META_PIXEL_ID = process.env.NEXT_PUBLIC_META_PIXEL_ID || "";
+
 /* ============================================================
    Arabic UI Constants — Navigation, Footer, CTAs & Labels
    Used by the Arabic layout (src/app/ar/layout.tsx) and all

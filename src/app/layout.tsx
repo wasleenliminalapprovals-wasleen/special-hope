@@ -7,6 +7,7 @@ import { siteConfig } from "@/lib/site-config";
 import RootLayoutClient from "@/components/layout/RootLayoutClient";
 import FloatingWhatsApp from "@/components/sections/FloatingWhatsApp";
 import PageViewTracker from "@/components/analytics/PageViewTracker";
+import MetaPixelTracker from "@/components/analytics/MetaPixelTracker";
 import "./globals.css";
 
 /* ============================================================
@@ -98,7 +99,7 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const { gtmId, gaId, sitewideSchema } = siteConfig("en");
+  const { gtmId, gaId, metaPixelId, sitewideSchema } = siteConfig("en");
 
   return (
     <html lang="en-AE" className={fontVariables("en")}>
@@ -134,6 +135,8 @@ export default function RootLayout({
         {/* Page view tracking on client-side route changes */}
         <Suspense fallback={null}>
           <PageViewTracker />
+          {/* Meta Pixel tracking (PageView every route + ViewContent on content routes) */}
+          <MetaPixelTracker />
         </Suspense>
 
         {/* Global floating WhatsApp button */}
@@ -176,6 +179,38 @@ export default function RootLayout({
                 gtag('config', '${gaId}');
               `}
             </Script>
+          </>
+        )}
+
+        {/* Meta Pixel — loader + fbq('init', META_PIXEL_ID).
+            lazyOnload (same as GTM/GA4) to keep fbevents.js off the critical
+            path. NOTE: no inline fbq('track','PageView') here — MetaPixelTracker
+            fires exactly one PageView per route (Meta's documented SPA pattern). */}
+        {metaPixelId && (
+          <>
+            <Script id="meta-pixel-init" strategy="lazyOnload">
+              {`
+                !function(f,b,e,v,n,t,s)
+                {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+                n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+                if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+                n.queue=[];t=b.createElement(e);t.async=!0;
+                t.src=v;s=b.getElementsByTagName(e)[0];
+                s.parentNode.insertBefore(t,s)}(window, document,'script',
+                'https://connect.facebook.net/en_US/fbevents.js');
+                fbq('init', '${metaPixelId}');
+              `}
+            </Script>
+            {/* Non-JS fallback — fires a single PageView pixel request only for browsers without JS */}
+            <noscript>
+              <img
+                height="1"
+                width="1"
+                style={{ display: "none" }}
+                src={`https://www.facebook.com/tr?id=${metaPixelId}&ev=PageView&noscript=1`}
+                alt=""
+              />
+            </noscript>
           </>
         )}
 
