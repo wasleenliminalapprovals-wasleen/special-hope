@@ -380,7 +380,7 @@
       "authority": "dm",
       "priority": 80,
       "scheduledDate": "2026-08-06",
-      "status": "pending",
+      "status": "done",
       "primaryKeyword": "Dubai Municipality NOC",
       "secondaryKeywords": [
         "DM NOC meaning",
@@ -405,7 +405,9 @@
           "معنى شهادة عدم الممانعة",
           "من يحتاج شهادة عدم ممانعة دبي"
         ]
-      }
+      },
+      "attempts": 1,
+      "generatedAt": "2026-08-06T18:33:32.456Z"
     },
     {
       "id": "q-011",
@@ -415,7 +417,7 @@
       "authority": "dm",
       "priority": 80,
       "scheduledDate": "2026-08-06",
-      "status": "pending",
+      "status": "done",
       "primaryKeyword": "Dubai building permit validity",
       "secondaryKeywords": [
         "building permit expiry Dubai",
@@ -429,7 +431,7 @@
       ],
       "targetWordCount": 600,
       "imageHint": "building-permit",
-      "faqCount": 3,
+      "faqCount": 5,
       "relatedApprovalSlugs": [
         "dubai-municipality-building-permit"
       ],
@@ -440,7 +442,9 @@
           "انتهاء صلاحية رخصة البناء",
           "تجديد رخصة البناء دبي"
         ]
-      }
+      },
+      "attempts": 2,
+      "generatedAt": "2026-08-06T18:39:03.623Z"
     },
     {
       "id": "q-012",
@@ -450,7 +454,7 @@
       "authority": "dcd",
       "priority": 80,
       "scheduledDate": "2026-08-06",
-      "status": "pending",
+      "status": "done",
       "primaryKeyword": "DCD fire NOC time",
       "secondaryKeywords": [
         "how long does DCD approval take",
@@ -464,7 +468,7 @@
       ],
       "targetWordCount": 600,
       "imageHint": "dcd-fire-safety",
-      "faqCount": 3,
+      "faqCount": 5,
       "relatedApprovalSlugs": [
         "dubai-civil-defense-approval"
       ],
@@ -475,7 +479,9 @@
           "مدة إصدار شهادة عدم الممانعة الدفاع المدني",
           "مدة السلامة من الحريق دبي"
         ]
-      }
+      },
+      "attempts": 2,
+      "generatedAt": "2026-08-06T18:39:40.999Z"
     },
     {
       "id": "q-013",
@@ -499,7 +505,7 @@
       ],
       "targetWordCount": 600,
       "imageHint": "dewa-connection",
-      "faqCount": 3,
+      "faqCount": 5,
       "relatedApprovalSlugs": [
         "dewa-connection-noc",
         "dewa-approval"
@@ -534,7 +540,7 @@
       ],
       "targetWordCount": 600,
       "imageHint": "dewa-connection",
-      "faqCount": 3,
+      "faqCount": 5,
       "relatedApprovalSlugs": [
         "dewa-load-enhancement",
         "dewa-approval"
@@ -570,7 +576,7 @@
       ],
       "targetWordCount": 600,
       "imageHint": "fit-out",
-      "faqCount": 3,
+      "faqCount": 5,
       "relatedApprovalSlugs": [
         "dda-approval",
         "dubai-south-approval"
@@ -606,7 +612,7 @@
       ],
       "targetWordCount": 600,
       "imageHint": "trade-license",
-      "faqCount": 3,
+      "faqCount": 5,
       "relatedApprovalSlugs": [
         "ded-approval"
       ],
@@ -640,7 +646,7 @@
       ],
       "targetWordCount": 600,
       "imageHint": "ejari",
-      "faqCount": 3,
+      "faqCount": 5,
       "relatedApprovalSlugs": [
         "ejari-registration",
         "rera-permit"
@@ -676,7 +682,7 @@
       ],
       "targetWordCount": 600,
       "imageHint": "rta-access",
-      "faqCount": 3,
+      "faqCount": 5,
       "relatedApprovalSlugs": [
         "rta-approval"
       ],
@@ -711,7 +717,7 @@
       ],
       "targetWordCount": 600,
       "imageHint": "dha-clinic",
-      "faqCount": 3,
+      "faqCount": 5,
       "relatedApprovalSlugs": [
         "dubai-health-authority-approval"
       ],
@@ -746,7 +752,7 @@
       ],
       "targetWordCount": 600,
       "imageHint": "entertainment",
-      "faqCount": 3,
+      "faqCount": 5,
       "relatedApprovalSlugs": [
         "entertainment-license-approval",
         "dtcm-tourism-approval",
@@ -783,7 +789,7 @@
       ],
       "targetWordCount": 600,
       "imageHint": "cctv-security",
-      "faqCount": 3,
+      "faqCount": 5,
       "relatedApprovalSlugs": [
         "dubai-police-approval"
       ],

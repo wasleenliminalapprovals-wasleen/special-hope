@@ -68,3 +68,25 @@ Mark each item [x] once verified. This file drives your weekly 10-20 min review.
 ---
 
 _Regenerated 2026-08-02: 9 pages scanned, 44 unverified figure(s) across 9 page(s). Verify against the authority portal, then set `lastVerified` in the fact sheet._
+
+## 2026-08-06 — dm-noc-what-is-it-who-needs (dm)
+- [ ] FAQ "How long does it take to get a Dubai Municipality NOC?": "AED 120" — not found in the Dubai Municipality fact sheet
+
+## 2026-08-06 — dm-building-permit-validity-period (dm)
+- [ ] directAnswer: "6 months" — not found in the Dubai Municipality fact sheet
+- [ ] directAnswer: "1 year" — not found in the Dubai Municipality fact sheet
+- [ ] section "Dubai Building Permit Validity: 6 Months to 1 Year": "6 months" — not found in the Dubai Municipality fact sheet
+- [ ] section "Dubai Building Permit Validity: 6 Months to 1 Year": "1 year" — not found in the Dubai Municipality fact sheet
+- [ ] FAQ "How long is a Dubai building permit valid?": "6 months" — not found in the Dubai Municipality fact sheet
+- [ ] FAQ "How long is a Dubai building permit valid?": "1 year" — not found in the Dubai Municipality fact sheet
+
+## 2026-08-06 — dcd-fire-noc-validity-duration (dcd)
+- [ ] directAnswer: "8 to 23 working days" — not found in the Dubai Civil Defense fact sheet
+- [ ] section "DCD Fire NOC Time: Step-by-Step Breakdown": "200" — not found in the Dubai Civil Defense fact sheet
+- [ ] section "DCD Fire NOC Time: Step-by-Step Breakdown": "23 working days" — not found in the Dubai Civil Defense fact sheet
+- [ ] section "DCD Fire NOC Time: Step-by-Step Breakdown": "8–23 working days" — not found in the Dubai Civil Defense fact sheet
+- [ ] FAQ "How long does a DCD fire NOC take in Dubai?": "8–23 working days" — not found in the Dubai Civil Defense fact sheet
+- [ ] FAQ "How long does a DCD fire NOC take in Dubai?": "1–3 days" — not found in the Dubai Civil Defense fact sheet
+- [ ] FAQ "How long does a DCD fire NOC take in Dubai?": "5–15 days" — not found in the Dubai Civil Defense fact sheet
+- [ ] FAQ "How long does a DCD fire NOC take in Dubai?": "2–5 days" — not found in the Dubai Civil Defense fact sheet
+- [ ] FAQ "How much does a DCD fire NOC cost in Dubai?": "AED 100" — not found in the Dubai Civil Defense fact sheet

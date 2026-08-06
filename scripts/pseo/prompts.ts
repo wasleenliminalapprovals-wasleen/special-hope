@@ -102,7 +102,7 @@ PRIMARY KEYWORD: ${item.primaryKeyword}
 SECONDARY KEYWORDS: ${item.secondaryKeywords.join(", ")}
 TOPIC TAGS: ${item.topicTags.join(", ")}
 TARGET WORD COUNT: ~${item.targetWordCount} words (body text only)
-NUMBER OF FAQS: ${item.faqCount}
+NUMBER OF FAQS: ${Math.max(item.faqCount, 4)} (minimum 4 required)
 AUTHORITY: ${item.authority}
 
 FACT SHEET (SOURCE OF ALL NUMBERS):
@@ -149,7 +149,7 @@ export function buildArUserPrompt(
 كلمات مفتاحية ثانوية: ${item.ar.secondaryKeywords.join("، ")}
 الوسوم: ${item.topicTags.join("، ")}
 عدد الكلمات المستهدف: نحو ${Math.round(item.targetWordCount * 0.8)} كلمة (النص فقط)
-عدد الأسئلة الشائعة: ${item.faqCount}
+عدد الأسئلة الشائعة: ${Math.max(item.faqCount, 4)} (4 على الأقل)
 الجهة: ${sheet?.nameAr ?? item.authority}
 
 صحيفة الحقائق (مصدر كل الأرقام):
