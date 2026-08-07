@@ -90,3 +90,14 @@ _Regenerated 2026-08-02: 9 pages scanned, 44 unverified figure(s) across 9 page(
 - [ ] FAQ "How long does a DCD fire NOC take in Dubai?": "5–15 days" — not found in the Dubai Civil Defense fact sheet
 - [ ] FAQ "How long does a DCD fire NOC take in Dubai?": "2–5 days" — not found in the Dubai Civil Defense fact sheet
 - [ ] FAQ "How much does a DCD fire NOC cost in Dubai?": "AED 100" — not found in the Dubai Civil Defense fact sheet
+
+## 2026-08-07 — dewa-noc-cost-connection (dewa)
+- [ ] directAnswer: "AED 100" — not found in the Dubai Electricity and Water Authority fact sheet
+- [ ] directAnswer: "5–10 days" — not found in the Dubai Electricity and Water Authority fact sheet
+- [ ] section "DEWA NOC Cost Breakdown": "AED 100" — not found in the Dubai Electricity and Water Authority fact sheet
+- [ ] section "Timeline for DEWA NOC and Connection": "10–20 working days" — not found in the Dubai Electricity and Water Authority fact sheet
+- [ ] FAQ "What is the DEWA NOC fee?": "AED 100" — not found in the Dubai Electricity and Water Authority fact sheet
+- [ ] FAQ "How long does it take to get a DEWA NOC?": "10–20 working days" — not found in the Dubai Electricity and Water Authority fact sheet
+
+## 2026-08-07 — dda-fit-out-permit-documents (dda)
+- [ ] FAQ "How long does DDA take to issue a fit-out permit?": "5–15 working days" — not found in the Dubai Development Authority fact sheet

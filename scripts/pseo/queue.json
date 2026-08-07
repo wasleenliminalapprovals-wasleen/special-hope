@@ -491,7 +491,7 @@
       "authority": "dewa",
       "priority": 80,
       "scheduledDate": "2026-08-07",
-      "status": "pending",
+      "status": "done",
       "primaryKeyword": "DEWA NOC cost",
       "secondaryKeywords": [
         "DEWA NOC fee",
@@ -517,7 +517,9 @@
           "رسوم شهادة عدم ممانعة ديوا",
           "تكلفة توصيل ديوا"
         ]
-      }
+      },
+      "attempts": 1,
+      "generatedAt": "2026-08-07T01:53:27.384Z"
     },
     {
       "id": "q-014",
@@ -527,7 +529,7 @@
       "authority": "dewa",
       "priority": 75,
       "scheduledDate": "2026-08-07",
-      "status": "pending",
+      "status": "done",
       "primaryKeyword": "increase DEWA electricity load",
       "secondaryKeywords": [
         "DEWA load enhancement process",
@@ -552,7 +554,9 @@
           "زيادة القدرة الكهربائية دبي",
           "تغيير الأحمال ديوا"
         ]
-      }
+      },
+      "attempts": 1,
+      "generatedAt": "2026-08-07T01:54:07.312Z"
     },
     {
       "id": "q-015",
@@ -562,7 +566,7 @@
       "authority": "dda",
       "priority": 75,
       "scheduledDate": "2026-08-07",
-      "status": "pending",
+      "status": "done",
       "primaryKeyword": "DDA fit-out permit documents",
       "secondaryKeywords": [
         "DDA fit-out requirements",
@@ -588,7 +592,9 @@
           "متطلبات التشطيبات دبي ساوث",
           "قائمة مستندات DDA"
         ]
-      }
+      },
+      "attempts": 1,
+      "generatedAt": "2026-08-07T01:54:56.716Z"
     },
     {
       "id": "q-016",
