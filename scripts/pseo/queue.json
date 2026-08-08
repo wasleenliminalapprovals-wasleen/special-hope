@@ -604,7 +604,7 @@
       "authority": "ded",
       "priority": 75,
       "scheduledDate": "2026-08-08",
-      "status": "pending",
+      "status": "done",
       "primaryKeyword": "Dubai trade license renewal cost",
       "secondaryKeywords": [
         "renew trade license Dubai",
@@ -629,7 +629,9 @@
           "تجديد الرخصة التجارية دبي",
           "رسوم تجديد الرخصة"
         ]
-      }
+      },
+      "attempts": 1,
+      "generatedAt": "2026-08-08T07:38:01.282Z"
     },
     {
       "id": "q-017",
@@ -639,7 +641,7 @@
       "authority": "rera",
       "priority": 75,
       "scheduledDate": "2026-08-08",
-      "status": "pending",
+      "status": "done",
       "primaryKeyword": "renew Ejari registration",
       "secondaryKeywords": [
         "Ejari renewal process",
@@ -664,7 +666,9 @@
           "تجديد عقد الإيجار دبي",
           "رسوم تجديد إيجاري"
         ]
-      }
+      },
+      "attempts": 1,
+      "generatedAt": "2026-08-08T07:38:45.845Z"
     },
     {
       "id": "q-018",
@@ -674,7 +678,7 @@
       "authority": "rta",
       "priority": 70,
       "scheduledDate": "2026-08-08",
-      "status": "pending",
+      "status": "done",
       "primaryKeyword": "RTA NOC driveway access",
       "secondaryKeywords": [
         "RTA access NOC",
@@ -699,7 +703,9 @@
           "موافقة المدخل هيئة الطرق",
           "تصريح الوصول دبي"
         ]
-      }
+      },
+      "attempts": 1,
+      "generatedAt": "2026-08-08T07:39:16.403Z"
     },
     {
       "id": "q-019",

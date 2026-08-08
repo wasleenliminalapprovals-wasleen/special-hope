@@ -101,3 +101,30 @@ _Regenerated 2026-08-02: 9 pages scanned, 44 unverified figure(s) across 9 page(
 
 ## 2026-08-07 — dda-fit-out-permit-documents (dda)
 - [ ] FAQ "How long does DDA take to issue a fit-out permit?": "5–15 working days" — not found in the Dubai Development Authority fact sheet
+
+## 2026-08-08 — ded-trade-license-renewal-cost (ded)
+- [ ] directAnswer: "AED 1,000" — not found in the Department of Economy and Tourism (DET) — Trade License fact sheet
+- [ ] directAnswer: "AED 15,000" — not found in the Department of Economy and Tourism (DET) — Trade License fact sheet
+- [ ] section "What Is the Dubai Trade License Renewal Cost?": "AED 1,000" — not found in the Department of Economy and Tourism (DET) — Trade License fact sheet
+- [ ] section "What Is the Dubai Trade License Renewal Cost?": "AED 15,000" — not found in the Department of Economy and Tourism (DET) — Trade License fact sheet
+- [ ] section "Breakdown of Renewal Fees": "AED 1,000" — not found in the Department of Economy and Tourism (DET) — Trade License fact sheet
+- [ ] section "Breakdown of Renewal Fees": "AED 15,000" — not found in the Department of Economy and Tourism (DET) — Trade License fact sheet
+- [ ] section "Renewal Process and Timeline": "5–15 working days" — not found in the Department of Economy and Tourism (DET) — Trade License fact sheet
+- [ ] FAQ "How much does it cost to renew a Dubai trade license?": "AED 1,000" — not found in the Department of Economy and Tourism (DET) — Trade License fact sheet
+- [ ] FAQ "How much does it cost to renew a Dubai trade license?": "AED 15,000" — not found in the Department of Economy and Tourism (DET) — Trade License fact sheet
+- [ ] FAQ "What is the DED license renewal fee?": "AED 1,000" — not found in the Department of Economy and Tourism (DET) — Trade License fact sheet
+- [ ] FAQ "What is the DED license renewal fee?": "AED 15,000" — not found in the Department of Economy and Tourism (DET) — Trade License fact sheet
+- [ ] FAQ "How long does it take to renew a trade license in Dubai?": "5–15 working days" — not found in the Department of Economy and Tourism (DET) — Trade License fact sheet
+
+## 2026-08-08 — ejari-renewal-how-to (rera)
+- [ ] directAnswer: "AED 150" — not found in the Real Estate Regulatory Agency (RERA) — Ejari fact sheet
+- [ ] section "What Is Ejari Renewal?": "AED 150" — not found in the Real Estate Regulatory Agency (RERA) — Ejari fact sheet
+- [ ] section "Step-by-Step Ejari Renewal Process": "AED 150" — not found in the Real Estate Regulatory Agency (RERA) — Ejari fact sheet
+- [ ] FAQ "What is the Ejari renewal fee in Dubai?": "AED 150" — not found in the Real Estate Regulatory Agency (RERA) — Ejari fact sheet
+
+## 2026-08-08 — rta-noc-driveway-access (rta)
+- [ ] directAnswer: "1 to 10 working days" — not found in the Roads and Transport Authority fact sheet
+- [ ] section "RTA NOC for Driveway Access: Process and Timeline": "10 working days" — not found in the Roads and Transport Authority fact sheet
+- [ ] section "RTA NOC for Driveway Access: Process and Timeline": "1 week" — not found in the Roads and Transport Authority fact sheet
+- [ ] section "RTA NOC for Driveway Access: Process and Timeline": "3 weeks" — not found in the Roads and Transport Authority fact sheet
+- [ ] FAQ "How long does it take to get an RTA NOC for driveway access?": "1 to 10 working days" — not found in the Roads and Transport Authority fact sheet
