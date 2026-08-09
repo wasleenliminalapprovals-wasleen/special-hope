@@ -128,3 +128,25 @@ _Regenerated 2026-08-02: 9 pages scanned, 44 unverified figure(s) across 9 page(
 - [ ] section "RTA NOC for Driveway Access: Process and Timeline": "1 week" — not found in the Roads and Transport Authority fact sheet
 - [ ] section "RTA NOC for Driveway Access: Process and Timeline": "3 weeks" — not found in the Roads and Transport Authority fact sheet
 - [ ] FAQ "How long does it take to get an RTA NOC for driveway access?": "1 to 10 working days" — not found in the Roads and Transport Authority fact sheet
+
+## 2026-08-09 — dha-clinic-license-requirements (dha)
+- [ ] directAnswer: "AED 1,500" — not found in the Dubai Health Authority fact sheet
+- [ ] FAQ "How much does a DHA clinic license cost?": "AED 1,500" — not found in the Dubai Health Authority fact sheet
+- [ ] FAQ "How much does a DHA clinic license cost?": "AED 1,000" — not found in the Dubai Health Authority fact sheet
+- [ ] FAQ "How much does a DHA clinic license cost?": "AED 500" — not found in the Dubai Health Authority fact sheet
+- [ ] FAQ "How much does a DHA clinic license cost?": "AED 2,000" — not found in the Dubai Health Authority fact sheet
+
+## 2026-08-09 — entertainment-license-process-dubai (dtcm)
+- [ ] directAnswer: "AED 500" — not found in the Dubai Department of Economy and Tourism (Tourism) fact sheet
+- [ ] section "How to Apply for an Entertainment License in Dubai": "7–22 working days" — not found in the Dubai Department of Economy and Tourism (Tourism) fact sheet
+- [ ] FAQ "How much does an entertainment license cost in Dubai?": "AED 3,000" — not found in the Dubai Department of Economy and Tourism (Tourism) fact sheet
+- [ ] FAQ "How much does an entertainment license cost in Dubai?": "AED 500" — not found in the Dubai Department of Economy and Tourism (Tourism) fact sheet
+- [ ] FAQ "How much does an entertainment license cost in Dubai?": "AED 5,000" — not found in the Dubai Department of Economy and Tourism (Tourism) fact sheet
+- [ ] FAQ "How long does it take to get an entertainment license in Dubai?": "7–22 working days" — not found in the Dubai Department of Economy and Tourism (Tourism) fact sheet
+- [ ] FAQ "Do I need a separate permit for a single event in Dubai?": "AED 500" — not found in the Dubai Department of Economy and Tourism (Tourism) fact sheet
+- [ ] FAQ "Do I need a separate permit for a single event in Dubai?": "AED 5,000" — not found in the Dubai Department of Economy and Tourism (Tourism) fact sheet
+
+## 2026-08-09 — dubai-police-cctv-approval (dubai-police)
+- [ ] directAnswer: "AED 200" — not found in the Dubai Police fact sheet
+- [ ] directAnswer: "AED 1,000" — not found in the Dubai Police fact sheet
+- [ ] FAQ "What is the cost of Dubai Police CCTV approval?": "AED 200" — not found in the Dubai Police fact sheet
