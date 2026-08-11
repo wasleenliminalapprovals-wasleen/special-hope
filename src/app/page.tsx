@@ -18,7 +18,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ShieldCheck } from "lucide-react";
-import { LICENSE, SITE } from "@/lib/constants";
+import { SITE } from "@/lib/constants";
 import { hreflangAlternates } from "@/lib/locale";
 import { homepageSchema } from "@/lib/schema";
 import HeroSection from "@/components/sections/HeroSection";
@@ -30,6 +30,7 @@ import FAQBlock from "@/components/sections/FAQBlock";
 import AuthorityUpdates from "@/components/sections/AuthorityUpdates";
 import CTASection from "@/components/sections/CTASection";
 import PseoResourceHub from "@/components/pseo/PseoResourceHub";
+import FramedImage from "@/components/sections/FramedImage";
 
 /* ============================================================
    Homepage Metadata — 54 chars, front-loaded primary keyword
@@ -128,9 +129,27 @@ export default function HomePage() {
           aria-label="DED Licensed & Verified — view our trade license details"
         >
           <ShieldCheck size={18} strokeWidth={1.75} className="text-success-green" />
-          DED Licensed & Verified — Trade License No. {LICENSE.licenseNumber}
+          DED Licensed & Verified
         </Link>
       </div>
+
+      {/* ===== 2c. Featured Image Band — Free Zone NOC (above "Approval Services We Handle") ===== */}
+      <section className="bg-light-bg">
+        <div className="max-w-6xl mx-auto px-4 pb-12 md:px-8 md:pb-16">
+          <div className="max-w-4xl mx-auto">
+            <FramedImage
+              image={{
+                src: "/images/free-zone-community-noc-approval-dubai.webp",
+                alt: "Free zone community NOC approval for a fit-out in a Dubai free zone",
+                caption: "Free zone NOC approvals in Dubai",
+                width: 1376,
+                height: 768,
+              }}
+              halo
+            />
+          </div>
+        </div>
+      </section>
 
       {/* ===== 3. Service Categories ===== */}
       <ServiceCategories />

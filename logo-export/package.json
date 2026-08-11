@@ -1,0 +1,11 @@
+{
+  "name": "wasleen-logo-export",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Standalone export utilities for Wasleen logo (outside website use only)",
+  "type": "module",
+  "dependencies": {
+    "@resvg/resvg-js": "^2.6.2",
+    "opentype.js": "^2.0.0"
+  }
+}

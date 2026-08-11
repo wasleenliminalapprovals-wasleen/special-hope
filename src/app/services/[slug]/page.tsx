@@ -29,6 +29,7 @@ import { serviceSchemaStack } from "@/lib/schema";
 import ProcessStepsBlock from "@/components/sections/ProcessStepsBlock";
 import FAQBlock from "@/components/sections/FAQBlock";
 import CTASection from "@/components/sections/CTASection";
+import FramedImage from "@/components/sections/FramedImage";
 
 /* ============================================================
    Static Generation
@@ -157,25 +158,36 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
             </ol>
           </nav>
 
-          {/* H1 — Primary keyword */}
-          <h1 className="text-h1 font-montserrat text-heading-text mb-3 max-w-4xl">
-            {service.name}
-          </h1>
+          <div className="grid grid-cols-1 md:grid-cols-2 md:gap-10 md:items-start">
+            <div>
+              {/* H1 — Primary keyword */}
+              <h1 className="text-h1 font-montserrat text-heading-text mb-3 max-w-4xl">
+                {service.name}
+              </h1>
 
-          {/* Tagline */}
-          <p className="text-body-lg font-medium text-body-text/70 mb-4">
-            {service.tagline}
-          </p>
+              {/* Tagline */}
+              <p className="text-body-lg font-medium text-body-text/70 mb-4">
+                {service.tagline}
+              </p>
 
-          {/* Direct Answer Block — self-contained, quotable by AI */}
-          <p className="text-body-lg text-body-text max-w-4xl leading-relaxed mb-6">
-            {service.directAnswer}
-          </p>
+              {/* Direct Answer Block — self-contained, quotable by AI */}
+              <p className="text-body-lg text-body-text max-w-4xl leading-relaxed mb-6">
+                {service.directAnswer}
+              </p>
 
-          {/* Last updated */}
-          <p className="text-caption text-body-text/50">
-            Last updated: {service.lastUpdated}
-          </p>
+              {/* Last updated */}
+              <p className="text-caption text-body-text/50">
+                Last updated: {service.lastUpdated}
+              </p>
+            </div>
+
+            {/* Hero image — framed, above the fold */}
+            {service.image && (
+              <div className="mt-8 md:mt-0">
+                <FramedImage image={service.image} priority halo />
+              </div>
+            )}
+          </div>
         </div>
       </section>
 
@@ -230,7 +242,20 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
       </section>
 
       {/* ============================================================
-          SECTION 4 — Process Steps (if available)
+          SECTION 4a — Process Image (framed, above the process heading)
+          ============================================================ */}
+      {service.processImage && (
+        <section className="bg-white">
+          <div className="max-w-6xl mx-auto px-4 pt-12 md:px-8 md:pt-16">
+            <div className="max-w-4xl mx-auto">
+              <FramedImage image={service.processImage} halo />
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* ============================================================
+          SECTION 4b — Process Steps (if available)
           ============================================================ */}
       {service.process && service.process.length > 0 && (
         <ProcessStepsBlock steps={service.process} />

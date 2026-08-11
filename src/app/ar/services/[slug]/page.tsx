@@ -23,6 +23,7 @@ import { services } from "@/data/services";
 import { services as servicesAr } from "@/data/services-ar";
 import { approvals } from "@/data/approvals";
 import { approvals as approvalsAr } from "@/data/approvals-ar";
+import { getImageBySrc } from "@/data/images";
 import { SITE, AR, HUB_SLUGS } from "@/lib/constants";
 import { hreflangAlternates } from "@/lib/locale";
 import { serviceSchemaStack } from "@/lib/schema";
@@ -32,6 +33,7 @@ import { renderDescription } from "@/lib/content";
 import ProcessStepsBlock from "@/components/sections/ProcessStepsBlock";
 import FAQBlock from "@/components/sections/FAQBlock";
 import CTASectionArabic from "@/components/sections/CTASectionArabic";
+import FramedImage from "@/components/sections/FramedImage";
 
 /* ============================================================
    Types
@@ -104,6 +106,24 @@ export default async function ArabicServicePage({ params }: Props) {
 
   const ar = arEntry.ar;
   const canonical = `${SITE.url}/ar/services/${service.slug}`;
+
+  /* ── Localized framed images (Arabic alt/caption from image registry) ── */
+
+  const heroImage = service.image
+    ? {
+        ...service.image,
+        alt: getImageBySrc(service.image.src)?.ar?.alt ?? service.image.alt,
+        caption: getImageBySrc(service.image.src)?.ar?.caption ?? service.image.caption,
+      }
+    : undefined;
+
+  const processImage = service.processImage
+    ? {
+        ...service.processImage,
+        alt: getImageBySrc(service.processImage.src)?.ar?.alt ?? service.processImage.alt,
+        caption: getImageBySrc(service.processImage.src)?.ar?.caption ?? service.processImage.caption,
+      }
+    : undefined;
 
   /* ── Schema ─────────────────────────────────────────────── */
 
@@ -196,25 +216,36 @@ export default async function ArabicServicePage({ params }: Props) {
             </ol>
           </nav>
 
-          {/* H1 — Primary keyword */}
-          <h1 className="text-h1 font-montserrat text-heading-text mb-3 max-w-4xl">
-            {ar.name}
-          </h1>
+          <div className="grid grid-cols-1 md:grid-cols-2 md:gap-10 md:items-start">
+            <div>
+              {/* H1 — Primary keyword */}
+              <h1 className="text-h1 font-montserrat text-heading-text mb-3 max-w-4xl">
+                {ar.name}
+              </h1>
 
-          {/* Tagline */}
-          <p className="text-body-lg font-medium text-body-text/70 mb-4">
-            {ar.tagline}
-          </p>
+              {/* Tagline */}
+              <p className="text-body-lg font-medium text-body-text/70 mb-4">
+                {ar.tagline}
+              </p>
 
-          {/* Direct Answer Block — self-contained, quotable by AI */}
-          <p className="text-body-lg text-body-text max-w-4xl leading-relaxed mb-6">
-            {ar.directAnswer}
-          </p>
+              {/* Direct Answer Block — self-contained, quotable by AI */}
+              <p className="text-body-lg text-body-text max-w-4xl leading-relaxed mb-6">
+                {ar.directAnswer}
+              </p>
 
-          {/* Last updated */}
-          <p className="text-caption text-body-text/50">
-            آخر تحديث: {service.lastUpdated}
-          </p>
+              {/* Last updated */}
+              <p className="text-caption text-body-text/50">
+                آخر تحديث: {service.lastUpdated}
+              </p>
+            </div>
+
+            {/* Hero image — framed, above the fold */}
+            {heroImage && (
+              <div className="mt-8 md:mt-0">
+                <FramedImage image={heroImage} priority halo />
+              </div>
+            )}
+          </div>
         </div>
       </section>
 
@@ -268,7 +299,20 @@ export default async function ArabicServicePage({ params }: Props) {
       </section>
 
       {/* ============================================================
-          SECTION 4 — Process Steps (if available)
+          SECTION 4a — Process Image (framed, above the process heading)
+          ============================================================ */}
+      {processImage && (
+        <section className="bg-white">
+          <div className="max-w-6xl mx-auto px-4 pt-12 md:px-8 md:pt-16">
+            <div className="max-w-4xl mx-auto">
+              <FramedImage image={processImage} halo />
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* ============================================================
+          SECTION 4b — Process Steps (if available)
           ============================================================ */}
       {ar.process && ar.process.length > 0 && (
         <ProcessStepsBlock steps={ar.process} />

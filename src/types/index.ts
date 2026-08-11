@@ -353,6 +353,11 @@ export interface ServiceData {
   /** Related service slugs */
   relatedSlugs: string[];
 
+  /** Hero image for the service page (above the fold, priority-rendered) */
+  image?: ImageAssetRef;
+  /** Secondary image placed above the "Step-by-Step Process" section */
+  processImage?: ImageAssetRef;
+
   /** Last updated date (ISO string) */
   lastUpdated: string;
 
