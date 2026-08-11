@@ -1,7 +1,7 @@
 /**
  * PseoPageRenderer — Full-page template for programmatic SEO pages.
  *
- * Composes: breadcrumbs, kind badge, fact-verification badge, H1, meta
+ * Composes: breadcrumbs, kind badge, H1, meta
  * description, direct-answer callout (quotable by AI engines), hero image,
  * content sections, FAQ accordion, and related-link cards.
  *
@@ -19,7 +19,6 @@ import { ArrowLeft, Info } from "lucide-react";
 import type { ImageAssetRef, PseoArabicContent, PseoPage, PseoPageKind } from "@/types";
 import Badge from "@/components/ui/Badge";
 import PseoBreadcrumbs, { type PseoBreadcrumbItem } from "./PseoBreadcrumbs";
-import PseoFactBadge from "./PseoFactBadge";
 import PseoImageBlock from "./PseoImageBlock";
 import PseoSectionBlock from "./PseoSectionBlock";
 import PseoFaqBlock from "./PseoFaqBlock";
@@ -83,11 +82,6 @@ export default function PseoPageRenderer({
 
           <div className="flex flex-wrap items-center gap-2 mb-4">
             <Badge variant="default">{kindText}</Badge>
-            <PseoFactBadge
-              lastVerified={page.lastVerified}
-              reviewStatus={page.reviewStatus}
-              locale={locale}
-            />
           </div>
 
           <h1 className="text-h1 font-montserrat text-heading-text mb-4 max-w-4xl">
