@@ -4,6 +4,7 @@ import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { useCallback, useMemo } from "react";
 import { getOppositeLocale, getLang } from "@/lib/locale";
+import { sendGTMEvent } from "@next/third-parties/google";
 
 /**
  * Language Switcher Component
@@ -45,14 +46,13 @@ export default function LanguageSwitcher({ variant = "icon" }: LanguageSwitcherP
   }, [pathname]);
 
   const handleClick = useCallback(() => {
-    // Track language switch event (if analytics is available)
-    if (typeof window !== "undefined" && (window as any).gtag) {
-      (window as any).gtag("event", "language_switch", {
-        from_language: isEnglish ? "en" : "ar",
-        to_language: isEnglish ? "ar" : "en",
-        path: pathname,
-      });
-    }
+    // Track language switch event via GTM dataLayer (sendGTMEvent)
+    sendGTMEvent({
+      event: "language_switch",
+      from_language: isEnglish ? "en" : "ar",
+      to_language: isEnglish ? "ar" : "en",
+      path: pathname,
+    });
   }, [isEnglish, pathname]);
 
   return (

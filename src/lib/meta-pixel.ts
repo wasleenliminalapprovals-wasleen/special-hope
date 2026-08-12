@@ -62,14 +62,52 @@ declare global {
 }
 
 /**
+ * Pending-event queue — buffers Meta events fired BEFORE the pixel base code
+ * has loaded.
+ *
+ * AnalyticsLoader (src/components/analytics/AnalyticsLoader.tsx) defers the
+ * base script to idle time (after LCP) instead of lazyOnload, so events fired
+ * during hydration — e.g. the PageView/ViewContent from MetaPixelTracker on
+ * first mount — would otherwise be silently dropped. `drainFbqQueue()` flushes
+ * these once `window.fbq` exists; calls made after the base code loads are
+ * forwarded to `fbq` immediately (the base code's own internal queue replays
+ * them once fbevents.js loads).
+ */
+type PendingMetaCall = {
+  command: "track";
+  event: string;
+  data?: Record<string, unknown>;
+};
+
+let pendingCalls: PendingMetaCall[] = [];
+
+/**
  * Fire any Meta standard event. Safe no-op when the pixel isn't loaded or the
  * ID is missing — keeps the page functional if Meta's CDN is unreachable.
  */
 export function metaEvent(event: string, data?: Record<string, unknown>): void {
   if (typeof window === "undefined" || !META_PIXEL_ID) return;
   const fbq = window.fbq;
+  if (typeof fbq === "function") {
+    fbq("track", event, data);
+  } else {
+    pendingCalls.push({ command: "track", event, data });
+  }
+}
+
+/**
+ * Flush any events buffered while the pixel base code was deferred. Safe to
+ * call at any time — it is a no-op until `window.fbq` exists. Called by
+ * AnalyticsLoader immediately after injecting the base code + `fbq('init')`.
+ */
+export function drainFbqQueue(): void {
+  if (typeof window === "undefined") return;
+  const fbq = window.fbq;
   if (typeof fbq !== "function") return;
-  fbq("track", event, data);
+  while (pendingCalls.length > 0) {
+    const call = pendingCalls.shift();
+    if (call) fbq(call.command, call.event, call.data);
+  }
 }
 
 /** PageView — fired on every route change by MetaPixelTracker. */

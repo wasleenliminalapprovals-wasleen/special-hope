@@ -1,11 +1,11 @@
 import type { Metadata, Viewport } from "next";
-import Script from "next/script";
 import { Suspense } from "react";
 import { SITE, NAP } from "@/lib/constants";
 import { fontVariables } from "@/lib/fonts";
 import { siteConfig } from "@/lib/site-config";
 import RootLayoutClient from "@/components/layout/RootLayoutClient";
 import FloatingWhatsApp from "@/components/sections/FloatingWhatsApp";
+import AnalyticsLoader from "@/components/analytics/AnalyticsLoader";
 import PageViewTracker from "@/components/analytics/PageViewTracker";
 import MetaPixelTracker from "@/components/analytics/MetaPixelTracker";
 import "./globals.css";
@@ -99,7 +99,7 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const { gtmId, gaId, metaPixelId, sitewideSchema } = siteConfig("en");
+  const { gtmId, metaPixelId, sitewideSchema } = siteConfig("en");
 
   return (
     <html lang="en-AE" className={fontVariables("en")}>
@@ -108,11 +108,15 @@ export default function RootLayout({
           Next.js 15.x extracts the next/font @font-face CSS into a shared
           external chunk (fonts.ts is imported by BOTH the EN and AR
           layouts) and therefore emits ZERO <link rel="preload"> tags for
-          the font files. To recover the font download head-start, we
-          hand-preload the latin-subset variable-font files that cover the
-          LCP H1 (Montserrat 700) and body copy (Roboto 400). These are
-          content-hashed: if Google Fonts updates the files, the hashes
-          below must be re-derived from .next/static/css/*.css.
+          the font files. We hand-preload every Montserrat/Roboto subset
+          the browser fetches to render the LCP hero — verified via the
+          Lighthouse critical request chain and .next/static/css/*.css:
+            1. Montserrat latin  (904be... — LCP H1, weights 400/700/800/900)
+            2. Roboto latin      (1e41be... — body copy, weights 400/500/700)
+            3. Roboto greek      (970d71... — extra Roboto subset Chrome fetches)
+            4. Roboto extended   (b3f718... — extra Roboto subset Chrome fetches)
+          These are content-hashed: if Google Fonts updates the files, run
+          `npm run check:fonts` (post-build) to re-derive the hashes.
           ============================================================ */}
       <link
         rel="preload"
@@ -128,7 +132,30 @@ export default function RootLayout({
         type="font/woff2"
         crossOrigin="anonymous"
       />
+      <link
+        rel="preload"
+        href="/_next/static/media/970d71e7dcbc144d-s.woff2"
+        as="font"
+        type="font/woff2"
+        crossOrigin="anonymous"
+      />
+      <link
+        rel="preload"
+        href="/_next/static/media/b3f718d64f9a6dea-s.woff2"
+        as="font"
+        type="font/woff2"
+        crossOrigin="anonymous"
+      />
       <body className="font-roboto antialiased">
+        {/* Early dataLayer init — GTM's gtm.js and @next/third-parties
+            sendGTMEvent both rely on window.dataLayer. It must exist before
+            any analytics script runs; this tiny inline script executes during
+            HTML parse, before hydration and long before the deferred GTM load. */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: "window.dataLayer = window.dataLayer || [];",
+          }}
+        />
         {/* RootLayoutClient conditionally renders Header/Footer only on non-Arabic routes */}
         <RootLayoutClient>{children}</RootLayoutClient>
 
@@ -142,76 +169,35 @@ export default function RootLayout({
         {/* Global floating WhatsApp button */}
         <FloatingWhatsApp />
 
-        {/* Google Tag Manager — deferred until page fully loads (lazyOnload) */}
+        {/* Third-party analytics (GTM + Meta Pixel) — loaded AFTER LCP via idle
+            scheduling instead of lazyOnload (see AnalyticsLoader) to keep
+            ~145 KiB of third-party JS off the critical path and reduce Total
+            Blocking Time on mobile. GA4 fires through the GTM container only
+            (single gtag.js load). Events fired before these load are buffered:
+            GTM via the early window.dataLayer init above, Meta via the pending
+            queue in lib/meta-pixel.ts (drained by AnalyticsLoader). The
+            <noscript> fallbacks below are server-rendered for no-JS browsers. */}
+        <AnalyticsLoader gtmId={gtmId} metaPixelId={metaPixelId} />
         {gtmId && (
-          <>
-            <Script
-              id="gtm-script"
-              src={`https://www.googletagmanager.com/gtm.js?id=${gtmId}`}
-              strategy="lazyOnload"
+          <noscript>
+            <iframe
+              src={`https://www.googletagmanager.com/ns.html?id=${gtmId}`}
+              height="0"
+              width="0"
+              style={{ display: "none", visibility: "hidden" }}
             />
-            <noscript>
-              <iframe
-                src={`https://www.googletagmanager.com/ns.html?id=${gtmId}`}
-                height="0"
-                width="0"
-                style={{ display: "none", visibility: "hidden" }}
-              />
-            </noscript>
-          </>
+          </noscript>
         )}
-
-        {/* GA4 Direct Google Tag — for Google Analytics cross-page detection.
-            lazyOnload (same as GTM) so Next.js does NOT emit a
-            <link rel="preload" as="script"> for gtag.js in <head>,
-            removing a third-party round-trip from the critical path. */}
-        {gaId && (
-          <>
-            <Script
-              src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}
-              strategy="lazyOnload"
-            />
-            <Script id="ga4-init" strategy="lazyOnload">
-              {`
-                window.dataLayer = window.dataLayer || [];
-                function gtag(){dataLayer.push(arguments);}
-                gtag('js', new Date());
-                gtag('config', '${gaId}');
-              `}
-            </Script>
-          </>
-        )}
-
-        {/* Meta Pixel — loader + fbq('init', META_PIXEL_ID).
-            lazyOnload (same as GTM/GA4) to keep fbevents.js off the critical
-            path. NOTE: no inline fbq('track','PageView') here — MetaPixelTracker
-            fires exactly one PageView per route (Meta's documented SPA pattern). */}
         {metaPixelId && (
-          <>
-            <Script id="meta-pixel-init" strategy="lazyOnload">
-              {`
-                !function(f,b,e,v,n,t,s)
-                {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-                n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-                if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-                n.queue=[];t=b.createElement(e);t.async=!0;
-                t.src=v;s=b.getElementsByTagName(e)[0];
-                s.parentNode.insertBefore(t,s)}(window, document,'script',
-                'https://connect.facebook.net/en_US/fbevents.js');
-                fbq('init', '${metaPixelId}');
-              `}
-            </Script>
-            {/* Non-JS fallback — fires a single PageView pixel request only for browsers without JS */}
-            <noscript>
-              <img
-                height="1"
-                width="1"
-                style={{ display: "none" }}
-                src={`https://www.facebook.com/tr?id=${metaPixelId}&ev=PageView&noscript=1`}
-                alt=""
-              />
-            </noscript>
-          </>
+          <noscript>
+            <img
+              height="1"
+              width="1"
+              style={{ display: "none" }}
+              src={`https://www.facebook.com/tr?id=${metaPixelId}&ev=PageView&noscript=1`}
+              alt=""
+            />
+          </noscript>
         )}
 
         {/* ============================================================

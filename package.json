@@ -7,6 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
+    "check:fonts": "node scripts/check-font-preloads.mjs",
     "pseo:generate": "tsx scripts/pseo/generate.ts 3",
     "pseo:report": "tsx scripts/pseo/weekly-report.ts",
     "pseo:verify": "tsx scripts/pseo/weekly-report.ts --verify"

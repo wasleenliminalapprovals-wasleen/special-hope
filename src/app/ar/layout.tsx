@@ -1,6 +1,4 @@
 import type { Metadata, Viewport } from "next";
-import Script from "next/script";
-import { GoogleTagManager } from "@next/third-parties/google";
 import { SITE, AR } from "@/lib/constants";
 import { fontVariables } from "@/lib/fonts";
 import { siteConfig } from "@/lib/site-config";
@@ -89,7 +87,7 @@ export default function ArabicRootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const { gtmId, gaId, sitewideSchema } = siteConfig("ar");
+  const { sitewideSchema } = siteConfig("ar");
 
   return (
     <>
@@ -117,26 +115,8 @@ export default function ArabicRootLayout({
         {/* Global floating WhatsApp button */}
         <FloatingWhatsApp />
 
-        {/* Google Tag Manager */}
-        {gtmId && <GoogleTagManager gtmId={gtmId} />}
-
-        {/* GA4 Direct Google Tag — for Google Analytics cross-page detection */}
-        {gaId && (
-          <>
-            <Script
-              src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}
-              strategy="afterInteractive"
-            />
-            <Script id="ga4-init" strategy="afterInteractive">
-              {`
-                window.dataLayer = window.dataLayer || [];
-                function gtag(){dataLayer.push(arguments);}
-                gtag('js', new Date());
-                gtag('config', '${gaId}');
-              `}
-            </Script>
-          </>
-        )}
+        {/* Analytics (GTM + GA4) load once via the root layout for ALL routes
+            including /ar — never duplicate third-party scripts in nested layouts. */}
 
         {/* ============================================================
            Sitewide JSON-LD Schema — injected once in Arabic layout
