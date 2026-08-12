@@ -595,12 +595,17 @@ export interface StaticPageSchemaInput {
  */
 export function staticPageSchema(input: StaticPageSchemaInput, locale: "en" | "ar" = "en") {
   const lp = localePrefix(locale);
+  // NOTE: callers always pass a full path in `input.url` (already including the
+  // locale prefix, e.g. "/ar/about-us"), so we must NOT prepend `lp` here —
+  // doing so produced the "/ar/ar/..." double-prefix bug. `lp` is only applied
+  // to the site-root @id references (#website / #organization), which are
+  // locale-specific.
   return [
     {
       "@context": "https://schema.org",
       "@type": input.pageType,
-      "@id": `${BASE}${lp}${input.url}`,
-      url: `${BASE}${lp}${input.url}`,
+      "@id": `${BASE}${input.url}`,
+      url: `${BASE}${input.url}`,
       name: input.title,
       description: input.description,
       isPartOf: { "@id": `${BASE}${lp}/#website` },
