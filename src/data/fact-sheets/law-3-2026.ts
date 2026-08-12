@@ -29,7 +29,7 @@ export const law3_2026FactSheet: FactSheet = {
   name: "Law No. (3) of 2026 — Quality and Safety of Buildings",
   nameAr: "القانون رقم (3) لسنة 2026 بشأن جودة وسلامة المباني في إمارة دبي",
   portalUrl: "https://dlp.dubai.gov.ae",
-  lastVerified: "pending",
+  lastVerified: "2026-08-12",
   fees: [
     {
       name: "Fine range (any violation)",

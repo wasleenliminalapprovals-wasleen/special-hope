@@ -153,3 +153,24 @@ _Regenerated 2026-08-02: 9 pages scanned, 44 unverified figure(s) across 9 page(
 
 ## 2026-08-12 — who-needs-quality-safety-certificate-dubai (law-3-2026)
 - [ ] section "Key Eligibility Criteria and Triggers": "20 to 39 years" — not found in the Law No. (3) of 2026 — Quality and Safety of Buildings fact sheet
+
+## 2026-08-12 — repeat-violation-penalties-law-3-2026 (law-3-2026)
+- [ ] section "Understanding the 2-Year Repeat Window and Doubling Mechanism": "AED 500,000" — not found in the Law No. (3) of 2026 — Quality and Safety of Buildings fact sheet
+
+## 2026-08-12 — contractor-responsibilities-law-3-2026 (law-3-2026)
+- [ ] section "Penalties for Non-Compliance": "AED 10,000" — not found in the Law No. (3) of 2026 — Quality and Safety of Buildings fact sheet
+- [ ] section "Penalties for Non-Compliance": "AED 10,001" — not found in the Law No. (3) of 2026 — Quality and Safety of Buildings fact sheet
+- [ ] section "Penalties for Non-Compliance": "AED 100,000" — not found in the Law No. (3) of 2026 — Quality and Safety of Buildings fact sheet
+- [ ] section "Penalties for Non-Compliance": "AED 100,001" — not found in the Law No. (3) of 2026 — Quality and Safety of Buildings fact sheet
+
+## 2026-08-12 — landlord-obligations-building-safety-law-2026 (law-3-2026)
+- [ ] section "Key Deadlines and Certificate Validity": "20-39 years" — not found in the Law No. (3) of 2026 — Quality and Safety of Buildings fact sheet
+
+## 2026-08-12 — old-vs-new-building-safety-regulations-dubai (law-3-2026)
+- [ ] section "Fines and Penalties: Old vs New": "AED 500" — not found in the Law No. (3) of 2026 — Quality and Safety of Buildings fact sheet
+
+## 2026-08-12 — law-3-2026-faq (law-3-2026)
+- [ ] section "Who Needs a Quality and Safety Certificate?": "20–39 years" — not found in the Law No. (3) of 2026 — Quality and Safety of Buildings fact sheet
+
+## 2026-08-12 — buildings-over-40-years-safety-certificate (law-3-2026)
+- [ ] directAnswer: "39 years" — not found in the Law No. (3) of 2026 — Quality and Safety of Buildings fact sheet

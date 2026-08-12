@@ -1,0 +1,223 @@
+=== EN (pseo-pages.json) ===
+OK	dcd-noc-complete-guide	DA=1	para=4	secs=4	total=5
+      links: /approvals/dubai-civil-defense-approval | /approvals/interior-fit-out-approval | /approvals/dubai-municipality-building-permit | /guides/dcd-fire-safety-approval-documents | /services/cad-documentation
+OK	dewa-approval-connection-complete-guide	DA=1	para=4	secs=3	total=5
+      links: /approvals/dewa-approval | /guides/dewa-connection-process-guide | /approvals/dewa-connection-noc | /services/approval-management | /approvals/dewa-meter-installation
+OK	dm-building-permit-complete-guide	DA=1	para=5	secs=4	total=6
+      links: /approvals/dubai-municipality-building-permit | /approvals/dubai-civil-defense-approval | /services/2d-drawings | /approvals/dubai-municipality-preliminary-building-permit | /guides/dm-completion-certificate-steps | /guides/how-long-does-dm-building-permit-take
+OK	dda-fit-out-approval-complete-guide	DA=0	para=5	secs=5	total=5
+      links: /approvals/dda-approval | /guides/interior-fit-out-permit-process | /approvals/interior-fit-out-approval | /approvals/dubai-south-approval | /services/fit-outs
+OK	trade-license-approval-by-business-activity	DA=1	para=5	secs=4	total=6
+      links: /approvals/ded-approval | /approvals/ejari-registration | /guides/ejari-registration-complete-guide | /approvals/dtcm-tourism-approval | /approvals/food-control-department-approval | /services/approval-management
+OK	how-much-does-approval-cost-in-dubai	DA=1	para=5	secs=4	total=6
+      links: /guides/dubai-approval-fees-guide | /approvals/dubai-municipality-building-permit | /approvals/dewa-approval | /approvals/dubai-civil-defense-approval | /approvals/interior-fit-out-approval | /approvals
+OK	mainland-vs-free-zone-approval-comparison	DA=1	para=5	secs=3	total=6
+      links: /approvals/ded-approval | /approvals/dmcc-approval | /approvals/ejari-registration | /guides/ejari-registration-complete-guide | /approvals/jebel-ali-free-zone-approval | /guides/dmcc-free-zone-approval-process
+OK	restaurant-food-business-approval-checklist	DA=1	para=5	secs=4	total=6
+      links: /approvals/food-control-department-approval | /approvals/dubai-civil-defense-approval | /services/fit-outs | /guides/dubai-food-control-approval-guide | /approvals/restaurant-works-approval | /approvals/ded-approval
+OK	common-reasons-approvals-rejected-in-dubai	DA=1	para=4	secs=3	total=5
+      links: /guides/how-to-avoid-approval-rejection-dubai | /approvals/rta-approval | /services/approval-management | /approvals/dubai-municipality-building-permit | /approvals/dubai-civil-defense-approval
+OK	dm-noc-what-is-it-who-needs	DA=0	para=6	secs=4	total=6
+      links: /approvals/dubai-municipality-building-permit | /approvals/dubai-municipality-demolition-permit | /approvals/dewa-approval | /guides/dm-noc-for-renovation-guide | /services/approval-management | /approvals/dubai-municipality-noc
+OK	dm-building-permit-validity-period	DA=0	para=5	secs=4	total=5
+      links: /approvals/dubai-municipality-building-permit | /approvals/dubai-municipality-noc | /guides/how-long-does-dm-building-permit-take | /guides/dubai-approval-fees-guide | /services/approval-management
+OK	dcd-fire-noc-validity-duration	DA=0	para=6	secs=4	total=6
+      links: /approvals/dubai-civil-defense-approval | /approvals/interior-fit-out-approval | /guides/dcd-fire-safety-approval-documents | /approvals/dubai-municipality-building-permit | /approvals/dubai-municipality-civil-defense-noc | /services/approval-management
+OK	dewa-noc-cost-connection	DA=0	para=6	secs=3	total=6
+      links: /guides/dubai-approval-fees-guide | /approvals/dewa-meter-installation | /approvals/dewa-load-enhancement | /guides/dewa-connection-process-guide | /approvals/dewa-connection-noc | /approvals/dewa-approval
+OK	dewa-load-enhancement-process	DA=0	para=6	secs=4	total=6
+      links: /approvals/dewa-approval | /approvals/dubai-municipality-building-permit | /services/2d-drawings | /approvals/dewa-connection-noc | /guides/dewa-connection-process-guide | /approvals/dewa-load-enhancement
+OK	dda-fit-out-permit-documents	DA=0	para=6	secs=4	total=6
+      links: /approvals/dda-approval | /services/2d-drawings | /approvals/dubai-civil-defense-approval | /guides/interior-fit-out-permit-process | /approvals/interior-fit-out-approval | /services/approval-management
+OK	ded-trade-license-renewal-cost	DA=0	para=6	secs=5	total=6
+      links: /approvals/ded-approval | /approvals/ejari-registration | /guides/ejari-registration-complete-guide | /services/approval-management | /services/document-clearing | /guides/dubai-approval-fees-guide
+OK	ejari-renewal-how-to	DA=0	para=6	secs=4	total=6
+      links: /approvals/ejari-registration | /guides/ejari-registration-complete-guide | /approvals/title-deed-registration | /approvals/dubai-land-department-registration | /guides/title-deed-transfer-dubai | /approvals/rera-permit
+OK	rta-noc-driveway-access	DA=0	para=5	secs=4	total=5
+      links: /approvals/rta-approval | /guides/rta-approval-commercial-projects | /approvals/dubai-municipality-building-permit | /services/2d-drawings | /services/approval-management
+OK	dha-clinic-license-requirements	DA=0	para=6	secs=3	total=6
+      links: /approvals/dubai-health-authority-approval | /approvals/ded-approval | /approvals/interior-fit-out-approval | /services/2d-drawings | /services/approval-management | /guides/dha-healthcare-approval-guide
+OK	entertainment-license-process-dubai	DA=0	para=6	secs=5	total=6
+      links: /approvals/entertainment-license-approval | /approvals/food-control-department-approval | /services/2d-drawings | /approvals/dubai-police-approval | /approvals/dtcm-tourism-approval | /guides/dtcm-tourism-license-requirements
+OK	dubai-police-cctv-approval	DA=0	para=6	secs=3	total=6
+      links: /approvals/dubai-police-approval | /guides/how-to-avoid-approval-rejection-dubai | /approvals/ded-approval | /approvals/dubai-civil-defense-approval | /services/approval-management | /services/document-clearing
+OK	who-needs-quality-safety-certificate-dubai	DA=0	para=5	secs=4	total=5
+      links: /approvals/dubai-building-quality-safety-certificate | /approvals/dubai-municipality-completion-certificate | /approvals/dubai-civil-defense-approval | /guides/law-3-2026-penalties-fines-guide | /guides/building-safety-certificate-cost-dubai
+OK	how-to-get-building-safety-certificate-dubai	DA=0	para=5	secs=3	total=5
+      links: /guides/law-3-2026-compliance-deadline-guide | /guides/law-3-2026-penalties-fines-guide | /guides/building-safety-certificate-cost-dubai | /approvals/dubai-building-quality-safety-certificate | /approvals/dubai-municipality-completion-certificate
+OK	building-safety-certificate-cost-dubai	DA=0	para=5	secs=4	total=5
+      links: /approvals/dubai-building-quality-safety-certificate | /guides/what-happens-if-you-dont-get-safety-certificate | /approvals/dubai-civil-defense-approval | /guides/law-3-2026-compliance-deadline-guide | /guides/law-3-2026-penalties-fines-guide
+OK	what-happens-if-you-dont-get-safety-certificate	DA=0	para=6	secs=4	total=6
+      links: /guides/law-3-2026-penalties-fines-guide | /guides/building-safety-certificate-cost-dubai | /approvals/dubai-municipality-building-permit | /guides/law-3-2026-compliance-deadline-guide | /approvals/dubai-building-quality-safety-certificate | /approvals/dubai-land-department-registration
+OK	law-3-2026-penalties-fines-guide	DA=0	para=6	secs=6	total=6
+      links: /guides/law-3-2026-compliance-deadline-guide | /guides/who-needs-quality-safety-certificate-dubai | /approvals/dubai-municipality-completion-certificate | /approvals/dubai-civil-defense-approval | /guides/building-safety-certificate-cost-dubai | /approvals/dubai-building-quality-safety-certificate
+OK	law-3-2026-compliance-deadline-guide	DA=0	para=6	secs=4	total=6
+      links: /guides/who-needs-quality-safety-certificate-dubai | /guides/law-3-2026-penalties-fines-guide | /guides/how-to-get-building-safety-certificate-dubai | /guides/what-happens-if-you-dont-get-safety-certificate | /approvals/dubai-building-quality-safety-certificate | /approvals/dubai-municipality-completion-certificate
+OK	dubai-law-3-2026-complete-guide	DA=0	para=4	secs=4	total=4
+      links: /guides/law-3-2026-key-changes-explained | /guides/why-dubai-introduced-building-safety-law-2026 | /guides/how-to-get-building-safety-certificate-dubai | /approvals/dubai-building-quality-safety-certificate
+OK	why-dubai-introduced-building-safety-law-2026	DA=0	para=4	secs=4	total=4
+      links: /approvals/dubai-building-quality-safety-certificate | /guides/dubai-law-3-2026-complete-guide | /guides/law-3-2026-key-changes-explained | /guides/old-vs-new-building-safety-regulations-dubai
+OK	law-3-2026-key-changes-explained	DA=0	para=4	secs=4	total=4
+      links: /approvals/dubai-building-quality-safety-certificate | /guides/old-vs-new-building-safety-regulations-dubai | /guides/why-dubai-introduced-building-safety-law-2026 | /guides/dubai-law-3-2026-complete-guide
+OK	quality-safety-certificate-validity-renewal	DA=0	para=4	secs=4	total=4
+      links: /approvals/dubai-building-quality-safety-certificate | /guides/buildings-over-40-years-safety-certificate | /guides/how-to-get-building-safety-certificate-dubai | /guides/law-3-2026-compliance-deadline-guide
+OK	building-safety-certificate-compliance-checklist	DA=0	para=4	secs=4	total=4
+      links: /approvals/dubai-building-quality-safety-certificate | /guides/documents-required-quality-safety-certificate | /guides/how-to-get-building-safety-certificate-dubai | /guides/building-inspection-process-law-3-2026
+OK	documents-required-quality-safety-certificate	DA=0	para=4	secs=4	total=4
+      links: /approvals/dubai-building-quality-safety-certificate | /guides/how-to-get-building-safety-certificate-dubai | /guides/building-safety-certificate-compliance-checklist | /approvals/as-built-drawing-approval
+OK	building-inspection-process-law-3-2026	DA=0	para=4	secs=4	total=4
+      links: /approvals/dubai-building-quality-safety-certificate | /guides/how-to-get-building-safety-certificate-dubai | /guides/documents-required-quality-safety-certificate | /guides/mep-systems-law-3-2026-compliance
+OK	law-3-2026-free-zone-buildings-guide	DA=0	para=4	secs=4	total=4
+      links: /approvals/dubai-building-quality-safety-certificate | /guides/who-needs-quality-safety-certificate-dubai | /guides/jointly-owned-property-owners-safety-certificate | /guides/dubai-law-3-2026-complete-guide
+OK	jointly-owned-property-owners-safety-certificate	DA=0	para=4	secs=4	total=4
+      links: /approvals/dubai-building-quality-safety-certificate | /guides/who-needs-quality-safety-certificate-dubai | /guides/building-management-obligations-law-3-2026 | /guides/landlord-obligations-building-safety-law-2026
+OK	building-maintenance-obligations-law-3-2026	DA=0	para=4	secs=4	total=4
+      links: /guides/building-safety-certificate-compliance-checklist | /guides/quality-safety-certificate-validity-renewal | /approvals/dubai-building-quality-safety-certificate | /guides/buildings-over-40-years-safety-certificate
+OK	how-to-choose-licensed-engineering-office-dubai	DA=0	para=4	secs=4	total=4
+      links: /approvals/dubai-building-quality-safety-certificate | /guides/engineering-office-responsibilities-law-3-2026 | /guides/building-safety-certificate-cost-dubai | /guides/building-inspection-process-law-3-2026
+OK	law-3-2026-appeal-process-guide	DA=0	para=4	secs=4	total=4
+      links: /approvals/dubai-building-quality-safety-certificate | /guides/law-3-2026-penalties-fines-guide | /guides/what-happens-if-you-dont-get-safety-certificate | /guides/repeat-violation-penalties-law-3-2026
+OK	repeat-violation-penalties-law-3-2026	DA=0	para=4	secs=4	total=4
+      links: /approvals/dubai-building-quality-safety-certificate | /guides/law-3-2026-penalties-fines-guide | /guides/what-happens-if-you-dont-get-safety-certificate | /guides/law-3-2026-appeal-process-guide
+OK	building-permit-suspension-law-3-2026	DA=0	para=4	secs=4	total=4
+      links: /guides/what-happens-if-you-dont-get-safety-certificate | /guides/law-3-2026-penalties-fines-guide | /guides/repeat-violation-penalties-law-3-2026 | /approvals/dubai-building-quality-safety-certificate
+OK	contractor-responsibilities-law-3-2026	DA=0	para=4	secs=4	total=4
+      links: /approvals/dubai-building-quality-safety-certificate | /guides/engineering-office-responsibilities-law-3-2026 | /guides/building-management-obligations-law-3-2026 | /guides/building-inspection-process-law-3-2026
+OK	building-management-obligations-law-3-2026	DA=0	para=4	secs=4	total=4
+      links: /approvals/dubai-building-quality-safety-certificate | /guides/jointly-owned-property-owners-safety-certificate | /guides/landlord-obligations-building-safety-law-2026 | /guides/building-safety-certificate-compliance-checklist
+OK	landlord-obligations-building-safety-law-2026	DA=0	para=4	secs=4	total=4
+      links: /approvals/dubai-building-quality-safety-certificate | /guides/tenant-rights-demolition-law-3-2026 | /guides/jointly-owned-property-owners-safety-certificate | /guides/building-management-obligations-law-3-2026
+OK	tenant-rights-demolition-law-3-2026	DA=0	para=4	secs=4	total=4
+      links: /approvals/dubai-building-quality-safety-certificate | /guides/landlord-obligations-building-safety-law-2026 | /guides/buildings-over-40-years-safety-certificate | /guides/what-happens-if-you-dont-get-safety-certificate
+OK	mep-systems-law-3-2026-compliance	DA=0	para=4	secs=4	total=4
+      links: /approvals/dubai-building-quality-safety-certificate | /guides/building-inspection-process-law-3-2026 | /guides/engineering-office-responsibilities-law-3-2026 | /guides/building-safety-certificate-compliance-checklist
+OK	property-investors-law-3-2026-impact	DA=0	para=4	secs=4	total=4
+      links: /approvals/dubai-building-quality-safety-certificate | /guides/buying-property-without-safety-certificate-dubai | /guides/law-3-2026-free-zone-buildings-guide | /guides/quality-safety-certificate-validity-renewal
+OK	buying-property-without-safety-certificate-dubai	DA=0	para=4	secs=4	total=4
+      links: /approvals/dubai-building-quality-safety-certificate | /guides/what-happens-if-you-dont-get-safety-certificate | /guides/property-investors-law-3-2026-impact | /guides/building-permit-suspension-law-3-2026
+OK	dubai-municipality-digital-building-portal	DA=0	para=4	secs=4	total=4
+      links: /approvals/dubai-building-quality-safety-certificate | /guides/how-to-get-building-safety-certificate-dubai | /guides/building-inspection-process-law-3-2026 | /guides/law-3-2026-key-changes-explained
+OK	old-vs-new-building-safety-regulations-dubai	DA=0	para=4	secs=4	total=4
+      links: /approvals/dubai-building-quality-safety-certificate | /guides/law-3-2026-key-changes-explained | /guides/why-dubai-introduced-building-safety-law-2026 | /guides/buildings-over-40-years-safety-certificate
+OK	law-3-2026-faq	DA=0	para=4	secs=4	total=4
+      links: /guides/who-needs-quality-safety-certificate-dubai | /guides/how-to-get-building-safety-certificate-dubai | /guides/law-3-2026-penalties-fines-guide | /approvals/dubai-building-quality-safety-certificate
+OK	quality-safety-certificate-vs-completion-certificate-dubai	DA=0	para=4	secs=4	total=4
+      links: /approvals/dubai-building-quality-safety-certificate | /approvals/dubai-municipality-completion-certificate | /guides/how-to-get-building-safety-certificate-dubai | /guides/buildings-over-40-years-safety-certificate
+OK	dubai-building-safety-law-tenant-guide	DA=0	para=4	secs=4	total=4
+      links: /approvals/dubai-building-quality-safety-certificate | /guides/tenant-rights-demolition-law-3-2026 | /guides/landlord-obligations-building-safety-law-2026 | /guides/what-happens-if-you-dont-get-safety-certificate
+OK	buildings-over-40-years-safety-certificate	DA=0	para=4	secs=4	total=4
+      links: /approvals/dubai-building-quality-safety-certificate | /guides/quality-safety-certificate-validity-renewal | /guides/building-inspection-process-law-3-2026 | /guides/old-vs-new-building-safety-regulations-dubai
+OK	engineering-office-responsibilities-law-3-2026	DA=0	para=4	secs=4	total=4
+      links: /approvals/dubai-building-quality-safety-certificate | /guides/how-to-choose-licensed-engineering-office-dubai | /guides/contractor-responsibilities-law-3-2026 | /guides/building-inspection-process-law-3-2026
+
+=== AR (pseo-pages-ar.json) ===
+OK	dcd-noc-complete-guide	DA=1	para=4	secs=4	total=5
+      links: /ar/approvals/dubai-civil-defense-approval | /ar/approvals/interior-fit-out-approval | /ar/approvals/dubai-municipality-building-permit | /ar/guides/dcd-fire-safety-approval-documents | /ar/services/approval-management
+OK	dewa-approval-connection-complete-guide	DA=1	para=4	secs=3	total=5
+      links: /ar/approvals/dewa-approval | /ar/approvals/dewa-connection-noc | /ar/guides/dewa-connection-process-guide | /ar/approvals/dewa-meter-installation | /ar/services/approval-management
+OK	dm-building-permit-complete-guide	DA=1	para=4	secs=3	total=5
+      links: /ar/approvals/dubai-municipality-building-permit | /ar/approvals/dubai-civil-defense-approval | /ar/approvals/dubai-municipality-preliminary-building-permit | /ar/guides/dm-completion-certificate-steps | /ar/services/2d-drawings
+OK	dda-fit-out-approval-complete-guide	DA=1	para=5	secs=4	total=6
+      links: /ar/approvals/dda-approval | /ar/guides/interior-fit-out-permit-process | /ar/approvals/dubai-south-approval | /ar/approvals/interior-fit-out-approval | /ar/approvals/dubai-municipality-building-permit | /ar/approvals/dubai-civil-defense-approval
+OK	trade-license-approval-by-business-activity	DA=1	para=4	secs=4	total=5
+      links: /ar/approvals/ded-approval | /ar/approvals/ejari-registration | /ar/guides/ejari-registration-complete-guide | /ar/approvals/dewa-approval | /ar/services/approval-management
+OK	how-much-does-approval-cost-in-dubai	DA=1	para=4	secs=3	total=5
+      links: /ar/approvals/dubai-municipality-building-permit | /ar/guides/dm-building-permit-complete-guide | /ar/approvals/dubai-civil-defense-approval | /ar/guides/dewa-approval-connection-complete-guide | /ar/guides/interior-fit-out-permit-process
+OK	mainland-vs-free-zone-approval-comparison	DA=1	para=4	secs=4	total=5
+      links: /ar/approvals/ded-approval | /ar/guides/dmcc-free-zone-approval-process | /ar/approvals/ejari-registration | /ar/approvals/jebel-ali-free-zone-approval | /ar/services/approval-management
+OK	restaurant-food-business-approval-checklist	DA=1	para=5	secs=4	total=6
+      links: /ar/approvals/food-control-department-approval | /ar/approvals/dubai-civil-defense-approval | /ar/guides/dubai-food-control-approval-guide | /ar/services/fit-outs | /ar/approvals/restaurant-works-approval | /ar/approvals/ded-approval
+OK	common-reasons-approvals-rejected-in-dubai	DA=1	para=4	secs=3	total=5
+      links: /ar/guides/how-to-avoid-approval-rejection-dubai | /ar/approvals/dubai-municipality-building-permit | /ar/approvals/interior-fit-out-approval | /ar/approvals/dubai-civil-defense-approval | /ar/services/approval-management
+OK	dm-noc-what-is-it-who-needs	DA=1	para=4	secs=3	total=5
+      links: /ar/approvals/dubai-municipality-noc | /ar/approvals/dubai-municipality-building-permit | /ar/approvals/dubai-municipality-demolition-permit | /ar/approvals/dewa-approval | /ar/guides/dm-noc-for-renovation-guide
+OK	dm-building-permit-validity-period	DA=1	para=4	secs=3	total=5
+      links: /ar/approvals/dubai-municipality-building-permit | /ar/guides/how-long-does-dm-building-permit-take | /ar/approvals/dubai-municipality-noc | /ar/guides/dubai-approval-fees-guide | /ar/services/approval-management
+OK	dcd-fire-noc-validity-duration	DA=1	para=4	secs=3	total=5
+      links: /ar/approvals/dubai-civil-defense-approval | /ar/approvals/interior-fit-out-approval | /ar/approvals/dubai-municipality-building-permit | /ar/guides/dcd-fire-safety-approval-documents | /ar/services/approval-management
+OK	dewa-noc-cost-connection	DA=1	para=4	secs=3	total=5
+      links: /ar/approvals/dewa-approval | /ar/approvals/dewa-meter-installation | /ar/guides/dubai-approval-fees-guide | /ar/guides/dewa-connection-process-guide | /ar/approvals/dubai-municipality-building-permit
+OK	dewa-load-enhancement-process	DA=1	para=4	secs=3	total=5
+      links: /ar/approvals/dewa-load-enhancement | /ar/approvals/dewa-approval | /ar/guides/dewa-connection-process-guide | /ar/approvals/dubai-municipality-building-permit | /ar/services/2d-drawings
+OK	dda-fit-out-permit-documents	DA=1	para=4	secs=3	total=5
+      links: /ar/approvals/dda-approval | /ar/services/2d-drawings | /ar/approvals/dubai-civil-defense-approval | /ar/guides/interior-fit-out-permit-process | /ar/services/approval-management
+OK	ded-trade-license-renewal-cost	DA=1	para=4	secs=4	total=5
+      links: /ar/approvals/ded-approval | /ar/guides/dubai-approval-fees-guide | /ar/approvals/ejari-registration | /ar/services/document-clearing | /ar/services/approval-management
+OK	ejari-renewal-how-to	DA=1	para=4	secs=3	total=5
+      links: /ar/approvals/ejari-registration | /ar/approvals/rera-permit | /ar/guides/ejari-registration-complete-guide | /ar/approvals/title-deed-registration | /ar/guides/title-deed-transfer-dubai
+OK	rta-noc-driveway-access	DA=1	para=4	secs=3	total=5
+      links: /ar/approvals/rta-approval | /ar/guides/rta-approval-commercial-projects | /ar/services/2d-drawings | /ar/approvals/dubai-municipality-building-permit | /ar/services/approval-management
+OK	dha-clinic-license-requirements	DA=1	para=4	secs=4	total=5
+      links: /ar/approvals/ded-approval | /ar/approvals/dubai-health-authority-approval | /ar/guides/dha-healthcare-approval-guide | /ar/services/2d-drawings | /ar/services/approval-management
+OK	entertainment-license-process-dubai	DA=1	para=4	secs=3	total=5
+      links: /ar/approvals/entertainment-license-approval | /ar/guides/dtcm-tourism-license-requirements | /ar/approvals/food-control-department-approval | /ar/services/2d-drawings | /ar/approvals/dubai-police-approval
+OK	dubai-police-cctv-approval	DA=1	para=4	secs=4	total=5
+      links: /ar/guides/how-to-avoid-approval-rejection-dubai | /ar/services/approval-management | /ar/approvals/ded-approval | /ar/services/document-clearing | /ar/approvals/dubai-police-approval
+OK	who-needs-quality-safety-certificate-dubai	DA=0	para=5	secs=3	total=5
+      links: /ar/approvals/dubai-building-quality-safety-certificate | /ar/approvals/dubai-municipality-completion-certificate | /ar/approvals/dubai-civil-defense-approval | /ar/guides/law-3-2026-penalties-fines-guide | /ar/guides/building-safety-certificate-cost-dubai
+OK	how-to-get-building-safety-certificate-dubai	DA=0	para=5	secs=4	total=5
+      links: /ar/guides/law-3-2026-compliance-deadline-guide | /ar/approvals/dubai-municipality-completion-certificate | /ar/guides/who-needs-quality-safety-certificate-dubai | /ar/guides/law-3-2026-penalties-fines-guide | /ar/guides/building-safety-certificate-cost-dubai
+OK	building-safety-certificate-cost-dubai	DA=0	para=5	secs=4	total=5
+      links: /ar/approvals/dubai-building-quality-safety-certificate | /ar/guides/what-happens-if-you-dont-get-safety-certificate | /ar/approvals/dubai-civil-defense-approval | /ar/guides/law-3-2026-compliance-deadline-guide | /ar/guides/law-3-2026-penalties-fines-guide
+OK	what-happens-if-you-dont-get-safety-certificate	DA=0	para=4	secs=3	total=4
+      links: /ar/guides/law-3-2026-penalties-fines-guide | /ar/guides/building-safety-certificate-cost-dubai | /ar/approvals/dubai-municipality-building-permit | /ar/guides/law-3-2026-compliance-deadline-guide
+OK	law-3-2026-penalties-fines-guide	DA=0	para=5	secs=4	total=5
+      links: /ar/guides/law-3-2026-compliance-deadline-guide | /ar/guides/who-needs-quality-safety-certificate-dubai | /ar/approvals/dubai-building-quality-safety-certificate | /ar/approvals/dubai-municipality-completion-certificate | /ar/approvals/dubai-civil-defense-approval
+OK	law-3-2026-compliance-deadline-guide	DA=0	para=4	secs=3	total=4
+      links: /ar/guides/who-needs-quality-safety-certificate-dubai | /ar/guides/law-3-2026-penalties-fines-guide | /ar/guides/how-to-get-building-safety-certificate-dubai | /ar/guides/what-happens-if-you-dont-get-safety-certificate
+OK	dubai-law-3-2026-complete-guide	DA=0	para=4	secs=4	total=4
+      links: /ar/approvals/dubai-building-quality-safety-certificate | /ar/guides/law-3-2026-key-changes-explained | /ar/guides/why-dubai-introduced-building-safety-law-2026 | /ar/guides/how-to-get-building-safety-certificate-dubai
+OK	why-dubai-introduced-building-safety-law-2026	DA=0	para=4	secs=4	total=4
+      links: /approvals/dubai-building-quality-safety-certificate | /ar/approvals/dubai-building-quality-safety-certificate | /ar/guides/dubai-law-3-2026-complete-guide | /ar/guides/law-3-2026-key-changes-explained
+OK	law-3-2026-key-changes-explained	DA=0	para=4	secs=4	total=4
+      links: /ar/approvals/dubai-building-quality-safety-certificate | /ar/guides/old-vs-new-building-safety-regulations-dubai | /ar/guides/why-dubai-introduced-building-safety-law-2026 | /ar/guides/dubai-law-3-2026-complete-guide
+OK	quality-safety-certificate-validity-renewal	DA=0	para=4	secs=4	total=4
+      links: /ar/approvals/dubai-building-quality-safety-certificate | /ar/guides/buildings-over-40-years-safety-certificate | /ar/guides/how-to-get-building-safety-certificate-dubai | /ar/guides/law-3-2026-compliance-deadline-guide
+OK	building-safety-certificate-compliance-checklist	DA=0	para=4	secs=4	total=4
+      links: /ar/approvals/dubai-building-quality-safety-certificate | /ar/guides/documents-required-quality-safety-certificate | /ar/guides/how-to-get-building-safety-certificate-dubai | /ar/guides/building-inspection-process-law-3-2026
+OK	documents-required-quality-safety-certificate	DA=0	para=4	secs=4	total=4
+      links: /approvals/dubai-building-quality-safety-certificate | /ar/approvals/dubai-building-quality-safety-certificate | /ar/guides/how-to-get-building-safety-certificate-dubai | /approvals/as-built-drawing-approval
+OK	building-inspection-process-law-3-2026	DA=0	para=4	secs=4	total=4
+      links: /ar/approvals/dubai-building-quality-safety-certificate | /ar/guides/how-to-get-building-safety-certificate-dubai | /ar/guides/documents-required-quality-safety-certificate | /ar/guides/mep-systems-law-3-2026-compliance
+OK	law-3-2026-free-zone-buildings-guide	DA=0	para=4	secs=4	total=4
+      links: /ar/approvals/dubai-building-quality-safety-certificate | /ar/guides/who-needs-quality-safety-certificate-dubai | /ar/guides/jointly-owned-property-owners-safety-certificate | /ar/guides/dubai-law-3-2026-complete-guide
+OK	jointly-owned-property-owners-safety-certificate	DA=0	para=4	secs=4	total=4
+      links: /ar/approvals/dubai-building-quality-safety-certificate | /ar/guides/who-needs-quality-safety-certificate-dubai | /ar/guides/building-management-obligations-law-3-2026 | /ar/guides/landlord-obligations-building-safety-law-2026
+OK	building-maintenance-obligations-law-3-2026	DA=0	para=4	secs=4	total=4
+      links: /ar/approvals/dubai-building-quality-safety-certificate | /ar/guides/building-safety-certificate-compliance-checklist | /ar/guides/quality-safety-certificate-validity-renewal | /ar/guides/buildings-over-40-years-safety-certificate
+OK	how-to-choose-licensed-engineering-office-dubai	DA=0	para=4	secs=4	total=4
+      links: /ar/approvals/dubai-building-quality-safety-certificate | /ar/guides/engineering-office-responsibilities-law-3-2026 | /ar/guides/building-safety-certificate-cost-dubai | /ar/guides/building-inspection-process-law-3-2026
+OK	law-3-2026-appeal-process-guide	DA=0	para=4	secs=4	total=4
+      links: /ar/approvals/dubai-building-quality-safety-certificate | /ar/guides/law-3-2026-penalties-fines-guide | /ar/guides/what-happens-if-you-dont-get-safety-certificate | /ar/guides/repeat-violation-penalties-law-3-2026
+OK	repeat-violation-penalties-law-3-2026	DA=0	para=4	secs=4	total=4
+      links: /ar/approvals/dubai-building-quality-safety-certificate | /ar/guides/law-3-2026-penalties-fines-guide | /ar/guides/what-happens-if-you-dont-get-safety-certificate | /ar/guides/law-3-2026-appeal-process-guide
+OK	building-permit-suspension-law-3-2026	DA=0	para=4	secs=4	total=4
+      links: /ar/approvals/dubai-building-quality-safety-certificate | /ar/guides/what-happens-if-you-dont-get-safety-certificate | /ar/guides/law-3-2026-penalties-fines-guide | /ar/guides/repeat-violation-penalties-law-3-2026
+OK	contractor-responsibilities-law-3-2026	DA=0	para=4	secs=4	total=4
+      links: /ar/approvals/dubai-building-quality-safety-certificate | /ar/guides/engineering-office-responsibilities-law-3-2026 | /ar/guides/building-management-obligations-law-3-2026 | /ar/guides/building-inspection-process-law-3-2026
+OK	building-management-obligations-law-3-2026	DA=0	para=4	secs=4	total=4
+      links: /ar/approvals/dubai-building-quality-safety-certificate | /ar/guides/jointly-owned-property-owners-safety-certificate | /ar/guides/landlord-obligations-building-safety-law-2026 | /ar/guides/building-safety-certificate-compliance-checklist
+OK	landlord-obligations-building-safety-law-2026	DA=0	para=4	secs=4	total=4
+      links: /ar/approvals/dubai-building-quality-safety-certificate | /ar/guides/tenant-rights-demolition-law-3-2026 | /ar/guides/jointly-owned-property-owners-safety-certificate | /ar/guides/building-management-obligations-law-3-2026
+OK	tenant-rights-demolition-law-3-2026	DA=0	para=4	secs=4	total=4
+      links: /ar/approvals/dubai-building-quality-safety-certificate | /ar/guides/landlord-obligations-building-safety-law-2026 | /ar/guides/buildings-over-40-years-safety-certificate | /ar/guides/what-happens-if-you-dont-get-safety-certificate
+OK	mep-systems-law-3-2026-compliance	DA=0	para=4	secs=3	total=4
+      links: /ar/approvals/dubai-building-quality-safety-certificate | /ar/guides/building-inspection-process-law-3-2026 | /approvals/dubai-building-quality-safety-certificate | /approvals/mep-approval
+OK	property-investors-law-3-2026-impact	DA=0	para=4	secs=4	total=4
+      links: /ar/approvals/dubai-building-quality-safety-certificate | /ar/guides/buying-property-without-safety-certificate-dubai | /ar/guides/law-3-2026-free-zone-buildings-guide | /ar/guides/quality-safety-certificate-validity-renewal
+OK	buying-property-without-safety-certificate-dubai	DA=0	para=4	secs=4	total=4
+      links: /ar/approvals/dubai-building-quality-safety-certificate | /ar/guides/what-happens-if-you-dont-get-safety-certificate | /ar/guides/property-investors-law-3-2026-impact | /ar/guides/building-permit-suspension-law-3-2026
+OK	dubai-municipality-digital-building-portal	DA=0	para=4	secs=4	total=4
+      links: /ar/approvals/dubai-building-quality-safety-certificate | /ar/guides/how-to-get-building-safety-certificate-dubai | /ar/guides/building-inspection-process-law-3-2026 | /ar/guides/law-3-2026-key-changes-explained
+OK	old-vs-new-building-safety-regulations-dubai	DA=0	para=4	secs=4	total=4
+      links: /ar/approvals/dubai-building-quality-safety-certificate | /ar/guides/law-3-2026-key-changes-explained | /ar/guides/why-dubai-introduced-building-safety-law-2026 | /ar/guides/buildings-over-40-years-safety-certificate
+OK	law-3-2026-faq	DA=0	para=4	secs=4	total=4
+      links: /ar/approvals/dubai-building-quality-safety-certificate | /ar/guides/who-needs-quality-safety-certificate-dubai | /ar/guides/how-to-get-building-safety-certificate-dubai | /ar/guides/law-3-2026-penalties-fines-guide
+OK	quality-safety-certificate-vs-completion-certificate-dubai	DA=0	para=4	secs=4	total=4
+      links: /approvals/dubai-building-quality-safety-certificate | /approvals/dubai-municipality-completion-certificate | /ar/approvals/dubai-building-quality-safety-certificate | /ar/guides/how-to-get-building-safety-certificate-dubai
+OK	dubai-building-safety-law-tenant-guide	DA=0	para=4	secs=4	total=4
+      links: /ar/approvals/dubai-building-quality-safety-certificate | /ar/guides/tenant-rights-demolition-law-3-2026 | /ar/guides/landlord-obligations-building-safety-law-2026 | /ar/guides/what-happens-if-you-dont-get-safety-certificate
+OK	buildings-over-40-years-safety-certificate	DA=0	para=4	secs=4	total=4
+      links: /ar/approvals/dubai-building-quality-safety-certificate | /ar/guides/quality-safety-certificate-validity-renewal | /ar/guides/building-inspection-process-law-3-2026 | /ar/guides/old-vs-new-building-safety-regulations-dubai
+OK	engineering-office-responsibilities-law-3-2026	DA=0	para=4	secs=4	total=4
+      links: /ar/approvals/dubai-building-quality-safety-certificate | /ar/guides/how-to-choose-licensed-engineering-office-dubai | /ar/guides/contractor-responsibilities-law-3-2026 | /ar/guides/building-inspection-process-law-3-2026
