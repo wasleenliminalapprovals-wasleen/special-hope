@@ -168,6 +168,8 @@ function blockText(b: PseoBlock): string {
       return b.items.join(" ");
     case "table":
       return [...b.headers, ...b.rows.flat()].join(" ");
+    case "image":
+      return ""; // alt text is not factual content — never scanned for numbers
   }
 }
 

@@ -182,6 +182,13 @@ export interface ApprovalData {
   /** Related guide slugs for cross-linking approval pages to relevant guides */
   relatedGuideSlugs?: string[];
 
+  /**
+   * Optional topical images rendered on the approval page. First entry is the
+   * Section-1 hero image (priority), second entry renders mid-body. References
+   * the image registry (src/data/images.ts).
+   */
+  images?: ImageAssetRef[];
+
   /** Last updated date (ISO string, e.g., "2026-03-15") */
   lastUpdated: string;
 
@@ -422,7 +429,8 @@ export type PseoBlock =
   | { type: "heading"; level: 2 | 3; text: string }
   | { type: "list"; ordered?: boolean; items: string[] }
   | { type: "table"; headers: string[]; rows: string[][] }
-  | { type: "quote"; text: string };
+  | { type: "quote"; text: string }
+  | { type: "image"; image: ImageAssetRef };
 
 /** A content section (H2 + ordered blocks) inside a pSEO page */
 export interface PseoSection {

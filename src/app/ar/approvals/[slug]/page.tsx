@@ -40,6 +40,7 @@ import WhyChooseUs from "@/components/sections/WhyChooseUs";
 import FAQBlock from "@/components/sections/FAQBlock";
 import Badge from "@/components/ui/Badge";
 import CTASectionArabic from "@/components/sections/CTASectionArabic";
+import FramedImage from "@/components/sections/FramedImage";
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -250,6 +251,13 @@ export default async function ArabicApprovalPage({ params }: Props) {
               التكلفة التقريبية: <strong className="text-body-text">{ar.typicalCostRange}</strong>
             </span>
           </div>
+
+          {/* Hero image (optional — approval.images[0], above-the-fold priority) */}
+          {approval.images?.[0] && (
+            <div className="mt-8 max-w-4xl">
+              <FramedImage image={approval.images[0]} priority />
+            </div>
+          )}
         </div>
       </section>
 
@@ -300,6 +308,17 @@ export default async function ArabicApprovalPage({ params }: Props) {
           </div>
         </div>
       </section>
+
+      {/* Optional second topical image (approval.images[1], mid-body) */}
+      {approval.images?.[1] && (
+        <section className="bg-white">
+          <div className="max-w-6xl mx-auto px-4 py-12 md:px-8 md:py-16">
+            <div className="max-w-4xl mx-auto">
+              <FramedImage image={approval.images[1]} />
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* ============================================================
           SECTION 5 — Documents & Requirements Table (Arabic)

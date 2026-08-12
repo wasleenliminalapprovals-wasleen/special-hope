@@ -9,6 +9,7 @@ import type {
 import { getFactSheet } from "../../src/data/fact-sheets";
 import {
   getImageByFilename,
+  getImageBySrc,
   matchImageByAuthority,
   matchImageByTopic,
 } from "../../src/data/images";
@@ -70,6 +71,36 @@ function sanitizeBlocks(blocks: unknown): PseoBlock[] {
     if (t === "table") {
       const tb = b as { headers?: unknown; rows?: unknown };
       return Array.isArray(tb.headers) && Array.isArray(tb.rows);
+    }
+    if (t === "image") {
+      const ib = b as { image?: unknown };
+      if (!ib.image || typeof ib.image !== "object") return false;
+      const ref = ib.image as {
+        src?: unknown;
+        alt?: unknown;
+        caption?: unknown;
+        width?: unknown;
+        height?: unknown;
+      };
+      // The src must reference a real registered asset — a hallucinated
+      // filename would 404 at render time.
+      if (typeof ref.src !== "string" || !getImageBySrc(ref.src)) return false;
+      if (typeof ref.alt !== "string" || ref.alt.trim() === "") return false;
+      const clean: ImageAssetRef = { src: ref.src, alt: ref.alt };
+      if (typeof ref.caption === "string" && ref.caption.trim() !== "") {
+        clean.caption = ref.caption;
+      }
+      if (
+        typeof ref.width === "number" &&
+        Number.isFinite(ref.width) &&
+        typeof ref.height === "number" &&
+        Number.isFinite(ref.height)
+      ) {
+        clean.width = ref.width;
+        clean.height = ref.height;
+      }
+      ib.image = clean;
+      return true;
     }
     return false;
   });
@@ -189,6 +220,8 @@ function blockText(b: PseoBlock): string {
       return b.items.join(" ");
     case "table":
       return [...b.headers, ...b.rows.flat()].join(" ");
+    case "image":
+      return b.image.alt ?? "";
   }
 }
 

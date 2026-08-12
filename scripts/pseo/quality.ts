@@ -91,6 +91,8 @@ function sectionBlocksText(blocks: PseoBlock[]): string {
           return b.items.join(" ");
         case "table":
           return [...b.headers, ...b.rows.flat()].join(" ");
+        case "image":
+          return ""; // image blocks contribute no body text / word count
       }
     })
     .join("\n");

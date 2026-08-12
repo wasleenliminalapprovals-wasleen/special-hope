@@ -35,6 +35,7 @@ import FAQBlock from "@/components/sections/FAQBlock";
 import RelatedApprovals from "@/components/sections/RelatedApprovals";
 import RelatedGuides from "@/components/sections/RelatedGuides";
 import CTASection from "@/components/sections/CTASection";
+import FramedImage from "@/components/sections/FramedImage";
 import Badge from "@/components/ui/Badge";
 
 /* ============================================================
@@ -187,6 +188,13 @@ export default async function ApprovalPage({ params }: { params: Promise<{ slug:
               Typical cost: <strong className="text-body-text">{approval.typicalCostRange}</strong>
             </span>
           </div>
+
+          {/* Hero image (optional — approval.images[0], above-the-fold priority) */}
+          {approval.images?.[0] && (
+            <div className="mt-8 max-w-4xl">
+              <FramedImage image={approval.images[0]} priority />
+            </div>
+          )}
         </div>
       </section>
 
@@ -238,6 +246,17 @@ export default async function ApprovalPage({ params }: { params: Promise<{ slug:
           </div>
         </div>
       </section>
+
+      {/* Optional second topical image (approval.images[1], mid-body) */}
+      {approval.images?.[1] && (
+        <section className="bg-white">
+          <div className="max-w-6xl mx-auto px-4 py-12 md:px-8 md:py-16">
+            <div className="max-w-4xl mx-auto">
+              <FramedImage image={approval.images[1]} />
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* ============================================================
           SECTION 5 — Documents & Requirements Table

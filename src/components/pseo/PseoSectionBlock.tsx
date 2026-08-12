@@ -2,7 +2,7 @@
  * PseoSectionBlock — Renders a pSEO content section (H2 + ordered blocks).
  *
  * Supports every block type in the pSEO content contract:
- * paragraph, heading (H3), ordered/unordered list, table, and quote.
+ * paragraph, heading (H3), ordered/unordered list, table, quote, and image.
  * Inline `[text](url)` links are converted to real `<a>` tags via
  * `renderInlineLinks` (descriptive-anchor internal linking).
  *
@@ -11,6 +11,7 @@
 
 import type { PseoBlock, PseoSection } from "@/types";
 import { renderInlineLinks } from "@/lib/content";
+import PseoImageBlock from "./PseoImageBlock";
 
 function blockHtml(text: string): string {
   return renderInlineLinks(text);
@@ -92,6 +93,9 @@ function PseoBlockRenderer({ block }: { block: PseoBlock }) {
           {block.text}
         </blockquote>
       );
+
+    case "image":
+      return <PseoImageBlock image={block.image} />;
 
     default:
       return null;

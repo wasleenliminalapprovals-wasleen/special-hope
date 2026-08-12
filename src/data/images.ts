@@ -504,6 +504,156 @@ export const IMAGES: ImageAsset[] = [
       caption: "شهادة الإنجاز والتسليم في دبي",
     },
   },
+  /* ============================================================
+     PLANNED IMAGES — Law No. (3) of 2026 content cluster
+     status: "planned" → excluded from auto-matching until each
+     `.webp` is created in public/images/ and flipped to "available".
+     @see plans/law-3-2026-content-cluster-plan.md §7.3
+     ============================================================ */
+  {
+    filename: "building-safety-inspection-dubai.webp",
+    src: "/images/building-safety-inspection-dubai.webp",
+    alt: "Engineering inspection of an existing building in Dubai under Law No. (3) of 2026 quality and safety requirements",
+    caption: "Building safety inspection in Dubai — Law No. (3) of 2026",
+    topicTags: ["inspection", "structural", "engineering"],
+    status: "planned",
+    ar: {
+      alt: "فحص هندسي لمبنى قائم في دبي وفق متطلبات القانون رقم (3) لسنة 2026 لجودة وسلامة المباني",
+      caption: "فحص سلامة المباني في دبي — القانون رقم (3) لسنة 2026",
+    },
+  },
+  {
+    filename: "quality-safety-certificate-dubai-building.webp",
+    src: "/images/quality-safety-certificate-dubai-building.webp",
+    alt: "Quality and Safety Certificate for an existing Dubai building under Law No. (3) of 2026",
+    caption: "Quality and Safety Certificate — Dubai buildings",
+    topicTags: ["certificate", "compliance", "general"],
+    status: "planned",
+    ar: {
+      alt: "شهادة الجودة والسلامة لمبنى قائم في دبي وفق القانون رقم (3) لسنة 2026",
+      caption: "شهادة الجودة والسلامة — مباني دبي",
+    },
+  },
+  {
+    filename: "building-maintenance-dubai-exterior.webp",
+    src: "/images/building-maintenance-dubai-exterior.webp",
+    alt: "Periodic exterior maintenance of an existing building in Dubai under Law No. (3) of 2026",
+    caption: "Building maintenance in Dubai",
+    topicTags: ["maintenance", "repair", "contractor"],
+    status: "planned",
+    ar: {
+      alt: "الصيانة الدورية للواجهات الخارجية لمبنى قائم في دبي وفق القانون رقم (3) لسنة 2026",
+      caption: "صيانة المباني في دبي",
+    },
+  },
+  {
+    filename: "dubai-old-building-40-years.webp",
+    src: "/images/dubai-old-building-40-years.webp",
+    alt: "Older Dubai building more than 40 years old subject to the Law No. (3) of 2026 Quality and Safety Certificate",
+    caption: "Buildings over 40 years old in Dubai",
+    topicTags: ["old-building", "40-years", "structural"],
+    status: "planned",
+    ar: {
+      alt: "مبنى قديم في دبي يتجاوز عمره 40 عاماً ويخضع لشهادة الجودة والسلامة وفق القانون رقم (3) لسنة 2026",
+      caption: "المباني التي يتجاوز عمرها 40 عاماً في دبي",
+    },
+  },
+  {
+    filename: "dubai-free-zone-building.webp",
+    src: "/images/dubai-free-zone-building.webp",
+    alt: "Commercial free zone building in Dubai (DIFC) within the scope of Law No. (3) of 2026",
+    caption: "Free zone buildings in Dubai",
+    topicTags: ["freezone", "difc", "commercial"],
+    status: "planned",
+    ar: {
+      alt: "مبنى تجاري في منطقة حرة بدبي (DIFC) ضمن نطاق القانون رقم (3) لسنة 2026",
+      caption: "مباني المناطق الحرة في دبي",
+    },
+  },
+  {
+    filename: "engineering-office-dubai-assessment.webp",
+    src: "/images/engineering-office-dubai-assessment.webp",
+    alt: "DM-registered engineering office preparing a technical report for a Dubai building under Law No. (3) of 2026",
+    caption: "Engineering office technical assessment in Dubai",
+    topicTags: ["engineering", "technical-report", "inspection"],
+    status: "planned",
+    ar: {
+      alt: "مكتب هندسي مرخّص لدى بلدية دبي يعد تقريراً فنياً لمبنى وفق القانون رقم (3) لسنة 2026",
+      caption: "التقييم الفني للمكاتب الهندسية في دبي",
+    },
+  },
+  {
+    filename: "dubai-municipality-digital-portal.webp",
+    src: "/images/dubai-municipality-digital-portal.webp",
+    alt: "Dubai Municipality digital portal for the Quality and Safety Certificate application under Law No. (3) of 2026",
+    caption: "Dubai Municipality digital window",
+    topicTags: ["portal", "digital", "dm"],
+    status: "planned",
+    ar: {
+      alt: "البوابة الرقمية لبلدية دبي لتقديم طلب شهادة الجودة والسلامة وفق القانون رقم (3) لسنة 2026",
+      caption: "النافذة الرقمية لبلدية دبي",
+    },
+  },
+  {
+    filename: "building-compliance-penalties-dubai.webp",
+    src: "/images/building-compliance-penalties-dubai.webp",
+    alt: "Building compliance and penalty enforcement for Dubai building owners under Law No. (3) of 2026",
+    caption: "Building compliance and penalties in Dubai",
+    topicTags: ["penalty", "enforcement", "compliance"],
+    status: "planned",
+    ar: {
+      alt: "الامتثال وغرامات المخالفات لأصحاب المباني في دبي وفق القانون رقم (3) لسنة 2026",
+      caption: "الامتثال وغرامات المباني في دبي",
+    },
+  },
+  {
+    filename: "jointly-owned-property-dubai-strata.webp",
+    src: "/images/jointly-owned-property-dubai-strata.webp",
+    alt: "Jointly owned property (strata) residential building in Dubai under Law No. (3) of 2026 obligations",
+    caption: "Jointly owned property in Dubai",
+    topicTags: ["jop", "strata", "residential"],
+    status: "planned",
+    ar: {
+      alt: "مبنى سكني مملوك على المشاع (strata) في دبي ضمن التزامات القانون رقم (3) لسنة 2026",
+      caption: "الملكية المشتركة في دبي",
+    },
+  },
+  {
+    filename: "dubai-building-demolition.webp",
+    src: "/images/dubai-building-demolition.webp",
+    alt: "Building demolition and redevelopment route for an existing Dubai building under Law No. (3) of 2026",
+    caption: "Building demolition route in Dubai",
+    topicTags: ["demolition", "redevelopment"],
+    status: "planned",
+    ar: {
+      alt: "مسار هدم وإعادة تطوير مبنى قائم في دبي وفق القانون رقم (3) لسنة 2026",
+      caption: "مسار هدم المباني في دبي",
+    },
+  },
+  {
+    filename: "mep-systems-dubai-building.webp",
+    src: "/images/mep-systems-dubai-building.webp",
+    alt: "MEP electrical and mechanical systems assessment for a Dubai building under Law No. (3) of 2026",
+    caption: "MEP systems inspection in Dubai",
+    topicTags: ["mep", "electrical", "mechanical"],
+    status: "planned",
+    ar: {
+      alt: "تقييم الأنظمة الكهربائية والميكانيكية (MEP) لمبنى في دبي وفق القانون رقم (3) لسنة 2026",
+      caption: "فحص الأنظمة الكهروميكانيكية في دبي",
+    },
+  },
+  {
+    filename: "building-safety-checklist-dubai.webp",
+    src: "/images/building-safety-checklist-dubai.webp",
+    alt: "Building safety and compliance checklist for the Dubai Quality and Safety Certificate under Law No. (3) of 2026",
+    caption: "Building safety checklist in Dubai",
+    topicTags: ["checklist", "compliance", "document"],
+    status: "planned",
+    ar: {
+      alt: "قائمة فحص السلامة والامتثال لمباني دبي للحصول على شهادة الجودة والسلامة وفق القانون رقم (3) لسنة 2026",
+      caption: "قائمة فحص سلامة المباني في دبي",
+    },
+  },
 ];
 
 /* ============================================================

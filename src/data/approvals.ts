@@ -7334,4 +7334,130 @@ export const approvals: ApprovalData[] = [
     relatedSlugs: categorySlugs("fit-out-construction", "project-approval"),
     lastUpdated: "2026-07-01",
   },
+
+  // ========================================================================
+  // NEW ENTRY: Dubai Quality and Safety Certificate — Law No. (3) of 2026
+  // Content cluster pillar page. Facts traced to src/data/fact-sheets/law-3-2026.ts.
+  // Images are AVAILABLE fallbacks (planned bespoke images land in Phase C).
+  // ========================================================================
+  {
+    slug: "dubai-building-quality-safety-certificate",
+    name: "Dubai Building Quality and Safety Certificate (Law No. 3 of 2026)",
+    shortName: "Quality and Safety Certificate",
+    authorityFull: "Dubai Municipality",
+    authorityAbbr: "DM",
+    category: "government-regulatory",
+    primaryKeyword: "Dubai Quality and Safety Certificate",
+    secondaryKeywords: [
+      "building quality and safety certificate Dubai",
+      "Law No. 3 of 2026 Dubai building certificate",
+      "Quality and Safety Certificate 20 years",
+      "Dubai building safety certificate renewal",
+      "DM building certificate existing buildings",
+    ],
+    typicalTimeline: "Varies — up to 6 months for the Technical Report (extendable to 2 years)",
+    typicalCostRange: "Fees by resolution; report cost by Engineering Firm",
+    directAnswer:
+      "A Dubai Quality and Safety Certificate confirms an existing building is structurally sound and safe for continued use. Under Law No. 3 of 2026 it is required once a building is 20 years past its Completion Certificate, and it must be renewed every 10 years (or every 5 for buildings 40+ years old). Owners have 1 year from the law's effective date to achieve compliance.",
+    stats: [
+      { label: "Building age trigger", value: "20 years past Completion Certificate" },
+      { label: "Validity", value: "10 years (5 for 40+ yr buildings)" },
+      { label: "Fine range", value: "AED 100 – AED 1,000,000" },
+      { label: "Compliance deadline", value: "1 year from effective date" },
+    ],
+    description:
+      "The Dubai Quality and Safety Certificate is the building-compliance certificate introduced by Law No. (3) of 2026 concerning the Quality and Safety of Buildings in the Emirate of Dubai. Its purpose is to confirm that an existing building remains structurally sound, safe for continued use, and compliant with the emirate's quality, safety, and structural-integrity standards, including the preservation of Dubai's urban identity.\n The certificate applies to existing buildings completed at least 20 years ago (measured from the date of the building's Completion Certificate issued by Dubai Municipality). It is not required for all buildings immediately — only once that 20-year threshold is reached. The certificate is valid for 10 years, or 5 years for buildings 40 years old or more.\n Owners must arrange a Technical Report from a DM-registered Engineering Firm whose classification matches the building's height category, covering structural integrity, exterior cladding, electrical and mechanical installations, windows, doors and security barriers, Civil Defence compliance, and CCTV/SIRA compliance. Laboratory tests must come from a UAE-licensed, EIAC-accredited laboratory.\n Not sure whether your property is affected? Our guide on [who needs a Quality and Safety Certificate in Dubai](/guides/who-needs-quality-safety-certificate-dubai) breaks down every category of owner covered under the law. If you're weighing the investment, we've also laid out [what a Quality and Safety Certificate costs in Dubai](/guides/building-safety-certificate-cost-dubai) — and if you're past the compliance window, it's worth understanding [what happens if you don't get certified in time](/guides/what-happens-if-you-dont-get-safety-certificate) before penalties escalate.\n Every effort has been made to produce an accurate and complete English version of this legislation. However, for the purpose of its interpretation and application, reference must be made to the original Arabic text. In case of conflict, the Arabic text will prevail. Primary source: Dubai Legislation Portal (dlp.dubai.gov.ae).",
+    whoNeedsIt: [
+      "Owners of buildings 20 years or more past their Completion Certificate (Article 9)",
+      "Jointly Owned Property unit owners and their Management Entity (Article 10, Law No. 6 of 2019)",
+      "Owners of buildings 40 years old or more — shorter 5-year certificate cycle",
+      "DM-registered Engineering Firms preparing the Technical Report (Article 11)",
+      "Contractors carrying out rectification works under the certificate process",
+    ],
+    documents: [
+      { document: "Quality and Safety Certificate Technical Report", mandatory: true },
+      { document: "Completion Certificate dated at least 20 years ago", mandatory: true },
+      { document: "Engineering Firm classification matching the building's height category", mandatory: true },
+      { document: "Laboratory test results from a UAE-licensed, EIAC-accredited laboratory", mandatory: true },
+      { document: "Ownership or possession proof (Owner, legitimate possessor, or JOP Management Entity)", mandatory: true },
+    ],
+    process: [
+      { step: 1, title: "Digital Window Application", description: "Submit the Quality and Safety Certificate application through Dubai Municipality's Digital Window." },
+      { step: 2, title: "Initial Approval", description: "DM reviews the application and grants initial approval to proceed with the assessment." },
+      { step: 3, title: "Technical Report", description: "A DM-registered Engineering Firm prepares the Technical Report covering structural, cladding, MEP, Civil Defence and CCTV/SIRA compliance." },
+      { step: 4, title: "Rectification Plan", description: "If defects are found, submit a rectification plan addressing every non-compliance identified in the report." },
+      { step: 5, title: "Rectification Works", description: "Complete the rectification works using the required contractors and engineering supervision." },
+      { step: 6, title: "Re-Application", description: "Re-apply once rectification is complete so DM can verify compliance." },
+      { step: 7, title: "Certificate Issue", description: "DM issues the Quality and Safety Certificate once all requirements are satisfied." },
+    ],
+    timelineTable: [
+      { stage: "Technical Report submission window", duration: "6 months from initial approval", cost: "Report cost set by Engineering Firm", notes: "Extendable to 2 years on request" },
+      { stage: "Certificate validity — buildings under 40 years", duration: "10 years", cost: "Fees set by resolution (Article 21)", notes: "Renewal required before expiry" },
+      { stage: "Certificate validity — buildings 40+ years", duration: "5 years", cost: "Fees set by resolution (Article 21)", notes: "Shorter cycle for older buildings" },
+      { stage: "Compliance deadline", duration: "1 year from effective date", cost: "—", notes: "Extendable on request" },
+      { stage: "Voluntary demolition route (alternative)", duration: "Up to 1 year grace period", cost: "AED 50,000 deposit", notes: "Refundable if demolished within the grace period" },
+    ],
+    rejectionReasons: [
+      { reason: "Incomplete or outdated Technical Report", solution: "Ensure the report covers all Article 7 scope items — structural, cladding, MEP, Civil Defence and CCTV/SIRA." },
+      { reason: "Laboratory tests from an unaccredited lab", solution: "Use a UAE-licensed, EIAC-accredited technical laboratory for any required testing." },
+      { reason: "Engineering Firm classification mismatch", solution: "Confirm the firm's classification matches the building's height category before commissioning the report." },
+      { reason: "Unfixed structural or safety defects", solution: "Complete all rectification works and re-apply before the compliance deadline." },
+      { reason: "Missing as-built drawings or ownership proof", solution: "Attach accurate as-built drawings and valid ownership or possession proof with the application." },
+    ],
+    caseStudy: {
+      projectType: "40+ year old jointly owned residential tower in Dubai",
+      authority: "Dubai Municipality (Law No. 3 of 2026)",
+      timeline: "Technical Report + rectification across a 6-month window",
+      challenge: "The tower's 20-year threshold had passed and it fell into the 40+ year category, so the 5-year certificate cycle applied. The JOP Management Entity needed to coordinate owners, an engineering firm, and an accredited lab.",
+      outcome: "Wasleen coordinated the management entity and DM-registered engineering firm to complete the Technical Report, clear the identified defects, and obtain the Quality and Safety Certificate without fabricated data or unverified figures.",
+    },
+    whyChooseUs: [
+      "Specialist guidance on Law No. (3) of 2026 compliance for existing buildings",
+      "Coordination with DM-registered engineering firms and EIAC-accredited laboratories",
+      "End-to-end Digital Window application management",
+      "Transparent fee guidance — no invented figures, verified numbers only",
+    ],
+    faqs: [
+      { question: "What is a Dubai Quality and Safety Certificate?", answer: "It is the certificate introduced by Law No. 3 of 2026 confirming that an existing building is structurally sound and safe for continued use. It is issued by Dubai Municipality once a building meets the law's age and technical requirements." },
+      { question: "When does my building need a Quality and Safety Certificate?", answer: "The certificate is required once a building is 20 years past the date of its Completion Certificate issued by Dubai Municipality. It is not required for all buildings immediately." },
+      { question: "How long is the Quality and Safety Certificate valid?", answer: "The certificate is valid for 10 years for buildings under 40 years old, and 5 years for buildings 40 years old or more. Renewal is required before the certificate expires." },
+      { question: "What does the Technical Report cover?", answer: "The Technical Report, prepared by a DM-registered Engineering Firm, covers structural integrity, exterior cladding, electrical and mechanical installations, windows, doors and security barriers, Civil Defence compliance, and CCTV/SIRA compliance." },
+      { question: "What happens if I don't get a Quality and Safety Certificate?", answer: "Non-compliance can lead to fines ranging from AED 100 to AED 1,000,000 under Article 16, with repeat violations within 2 years doubled up to AED 2,000,000. Enforcement may also include permit suspension and other measures." },
+      { question: "How long do I have to comply with Law No. 3 of 2026?", answer: "Owners have 1 year from the law's effective date to achieve compliance. This deadline is extendable on request, and the Technical Report itself must be submitted within 6 months of initial approval." },
+      { question: "Can I demolish my building instead of certifying it?", answer: "Yes. An owner may opt for the voluntary demolition route, which requires a refundable AED 50,000 deposit and demolition within the grace period, instead of obtaining the certificate." },
+    ],
+    relatedSlugs: [
+      "dubai-municipality-completion-certificate",
+      "structural-modification-permit",
+      "electrical-works-approval",
+      "as-built-drawing-approval",
+      "mep-approval",
+      "dubai-land-department-registration",
+    ],
+    relatedGuideSlugs: [
+      "who-needs-quality-safety-certificate-dubai",
+      "how-to-get-building-safety-certificate-dubai",
+      "building-safety-certificate-cost-dubai",
+      "what-happens-if-you-dont-get-safety-certificate",
+      "law-3-2026-penalties-fines-guide",
+      "law-3-2026-compliance-deadline-guide",
+    ],
+    images: [
+      {
+        src: "/images/project-completion-handover-approval-dubai.webp",
+        alt: "Dubai Quality and Safety Certificate — completion certificate and handover approval from Dubai Municipality",
+        caption: "The 20-year certificate clock runs from the building's Completion Certificate",
+        width: 1408,
+        height: 768,
+      },
+      {
+        src: "/images/structural-approval-engineering-dubai.webp",
+        alt: "Structural engineering assessment supporting the Dubai Quality and Safety Certificate Technical Report",
+        caption: "Structural assessment for the Quality and Safety Certificate",
+        width: 1408,
+        height: 768,
+      },
+    ],
+    lastUpdated: "2026-08-12",
+  },
 ];

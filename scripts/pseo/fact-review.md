@@ -150,3 +150,6 @@ _Regenerated 2026-08-02: 9 pages scanned, 44 unverified figure(s) across 9 page(
 - [ ] directAnswer: "AED 200" — not found in the Dubai Police fact sheet
 - [ ] directAnswer: "AED 1,000" — not found in the Dubai Police fact sheet
 - [ ] FAQ "What is the cost of Dubai Police CCTV approval?": "AED 200" — not found in the Dubai Police fact sheet
+
+## 2026-08-12 — who-needs-quality-safety-certificate-dubai (law-3-2026)
+- [ ] section "Key Eligibility Criteria and Triggers": "20 to 39 years" — not found in the Law No. (3) of 2026 — Quality and Safety of Buildings fact sheet

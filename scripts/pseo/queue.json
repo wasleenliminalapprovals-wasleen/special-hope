@@ -819,6 +819,250 @@
       },
       "attempts": 1,
       "generatedAt": "2026-08-09T07:59:51.232Z"
+    },
+    {
+      "id": "q-022",
+      "slug": "who-needs-quality-safety-certificate-dubai",
+      "kind": "qa",
+      "title": "Who Needs a Quality and Safety Certificate in Dubai?",
+      "authority": "law-3-2026",
+      "priority": 10,
+      "scheduledDate": "2026-08-12",
+      "status": "done",
+      "primaryKeyword": "who needs a Quality and Safety Certificate in Dubai",
+      "secondaryKeywords": [
+        "building safety certificate requirements Dubai",
+        "Quality and Safety Certificate 20 years",
+        "Dubai building certificate owners",
+        "free zone building certificate"
+      ],
+      "topicTags": [
+        "law-3-2026",
+        "quality-safety-certificate",
+        "ownership",
+        "eligibility"
+      ],
+      "targetWordCount": 900,
+      "imageHint": "project-completion-handover-approval-dubai.webp",
+      "faqCount": 6,
+      "relatedApprovalSlugs": [
+        "dubai-building-quality-safety-certificate",
+        "dubai-municipality-completion-certificate"
+      ],
+      "ar": {
+        "title": "من يحتاج إلى شهادة الجودة والسلامة في دبي؟",
+        "primaryKeyword": "من يحتاج شهادة الجودة والسلامة في دبي",
+        "secondaryKeywords": [
+          "متطلبات شهادة سلامة المباني دبي",
+          "شهادة الجودة والسلامة 20 عاماً دبي",
+          "شهادة مباني دبي للملاك"
+        ]
+      },
+      "attempts": 1,
+      "generatedAt": "2026-08-12T07:48:28.274Z"
+    },
+    {
+      "id": "q-023",
+      "slug": "how-to-get-building-safety-certificate-dubai",
+      "kind": "guide",
+      "title": "How to Get a Building Safety Certificate in Dubai (Step-by-Step)",
+      "authority": "law-3-2026",
+      "priority": 10,
+      "scheduledDate": "2026-08-12",
+      "status": "done",
+      "primaryKeyword": "how to get a building safety certificate in Dubai",
+      "secondaryKeywords": [
+        "Quality and Safety Certificate process",
+        "DM building certificate application",
+        "steps to get safety certificate",
+        "Digital Window application"
+      ],
+      "topicTags": [
+        "law-3-2026",
+        "quality-safety-certificate",
+        "process",
+        "dm"
+      ],
+      "targetWordCount": 1100,
+      "imageHint": "dm-building-permit-dubai-municipality.webp",
+      "faqCount": 6,
+      "relatedApprovalSlugs": [
+        "dubai-building-quality-safety-certificate",
+        "dubai-municipality-completion-certificate"
+      ],
+      "ar": {
+        "title": "كيفية الحصول على شهادة سلامة المباني في دبي (خطوة بخطوة)",
+        "primaryKeyword": "كيفية الحصول على شهادة سلامة المباني في دبي",
+        "secondaryKeywords": [
+          "إجراءات شهادة الجودة والسلامة",
+          "تقديم طلب شهادة بلدية دبي",
+          "خطوات الحصول على شهادة السلامة"
+        ]
+      },
+      "attempts": 1,
+      "generatedAt": "2026-08-12T07:49:09.737Z"
+    },
+    {
+      "id": "q-024",
+      "slug": "building-safety-certificate-cost-dubai",
+      "kind": "cost",
+      "title": "Building Safety Certificate Cost in Dubai (2026 Fee Guide)",
+      "authority": "law-3-2026",
+      "priority": 10,
+      "scheduledDate": "2026-08-12",
+      "status": "done",
+      "primaryKeyword": "building safety certificate cost Dubai",
+      "secondaryKeywords": [
+        "Quality and Safety Certificate fees",
+        "cost of technical report Dubai",
+        "engineering firm cost Dubai",
+        "AED 50,000 demolition deposit"
+      ],
+      "topicTags": [
+        "law-3-2026",
+        "quality-safety-certificate",
+        "cost",
+        "fees"
+      ],
+      "targetWordCount": 1000,
+      "imageHint": "approval-cost-fees-budget-dubai.webp",
+      "faqCount": 6,
+      "relatedApprovalSlugs": [
+        "dubai-building-quality-safety-certificate"
+      ],
+      "ar": {
+        "title": "تكلفة شهادة سلامة المباني في دبي (دليل الرسوم 2026)",
+        "primaryKeyword": "تكلفة شهادة سلامة المباني دبي",
+        "secondaryKeywords": [
+          "رسوم شهادة الجودة والسلامة",
+          "تكلفة التقرير الفني دبي",
+          "تكلفة المكتب الهندسي دبي"
+        ]
+      },
+      "attempts": 1,
+      "generatedAt": "2026-08-12T07:49:58.824Z"
+    },
+    {
+      "id": "q-025",
+      "slug": "what-happens-if-you-dont-get-safety-certificate",
+      "kind": "qa",
+      "title": "What Happens If You Don't Get a Safety Certificate in Dubai?",
+      "authority": "law-3-2026",
+      "priority": 10,
+      "scheduledDate": "2026-08-12",
+      "status": "done",
+      "primaryKeyword": "what happens if you don't get a safety certificate in Dubai",
+      "secondaryKeywords": [
+        "building safety certificate penalty",
+        "no safety certificate Dubai",
+        "permit suspension Dubai",
+        "lease attestation blocked"
+      ],
+      "topicTags": [
+        "law-3-2026",
+        "quality-safety-certificate",
+        "penalty",
+        "compliance"
+      ],
+      "targetWordCount": 900,
+      "imageHint": "approval-rejection-reasons-dubai.webp",
+      "faqCount": 5,
+      "relatedApprovalSlugs": [
+        "dubai-building-quality-safety-certificate",
+        "dubai-land-department-registration"
+      ],
+      "ar": {
+        "title": "ماذا يحدث إذا لم تحصل على شهادة السلامة في دبي؟",
+        "primaryKeyword": "ماذا يحدث إذا لم تحصل على شهادة السلامة في دبي",
+        "secondaryKeywords": [
+          "غرامة شهادة سلامة المباني",
+          "عدم الحصول على شهادة السلامة دبي",
+          "تعليق التصاريح دبي"
+        ]
+      },
+      "attempts": 1,
+      "generatedAt": "2026-08-12T07:50:33.045Z"
+    },
+    {
+      "id": "q-026",
+      "slug": "law-3-2026-penalties-fines-guide",
+      "kind": "guide",
+      "title": "Law 3 of 2026 Dubai Building Fines — Penalty Guide",
+      "authority": "law-3-2026",
+      "priority": 10,
+      "scheduledDate": "2026-08-12",
+      "status": "done",
+      "primaryKeyword": "Law 3 of 2026 Dubai building fines",
+      "secondaryKeywords": [
+        "building safety law penalties Dubai",
+        "AED 1,000,000 fine Dubai building",
+        "repeat violation double fine",
+        "Law 3 2026 violation"
+      ],
+      "topicTags": [
+        "law-3-2026",
+        "penalty",
+        "fines",
+        "enforcement"
+      ],
+      "targetWordCount": 1000,
+      "imageHint": "approval-rejection-reasons-dubai.webp",
+      "faqCount": 6,
+      "relatedApprovalSlugs": [
+        "dubai-building-quality-safety-certificate"
+      ],
+      "ar": {
+        "title": "غرامات القانون رقم (3) لسنة 2026 في دبي للمباني — دليل المخالفات",
+        "primaryKeyword": "غرامات القانون رقم 3 لسنة 2026 دبي",
+        "secondaryKeywords": [
+          "غرامات قانون سلامة المباني دبي",
+          "غرامة مليون درهم مباني دبي",
+          "مضاعفة غرامة المخالفة المتكررة"
+        ]
+      },
+      "attempts": 1,
+      "generatedAt": "2026-08-12T07:51:16.595Z"
+    },
+    {
+      "id": "q-027",
+      "slug": "law-3-2026-compliance-deadline-guide",
+      "kind": "timeline",
+      "title": "Law 3 of 2026 Compliance Deadline in Dubai — Key Dates",
+      "authority": "law-3-2026",
+      "priority": 10,
+      "scheduledDate": "2026-08-12",
+      "status": "done",
+      "primaryKeyword": "Law 3 of 2026 compliance deadline Dubai",
+      "secondaryKeywords": [
+        "building safety certificate deadline",
+        "1 year compliance Dubai",
+        "law effective date 60 days",
+        "extendable compliance deadline"
+      ],
+      "topicTags": [
+        "law-3-2026",
+        "deadline",
+        "compliance",
+        "timeline"
+      ],
+      "targetWordCount": 900,
+      "imageHint": "1773529249805.webp",
+      "faqCount": 5,
+      "relatedApprovalSlugs": [
+        "dubai-building-quality-safety-certificate",
+        "dubai-municipality-completion-certificate"
+      ],
+      "ar": {
+        "title": "الموعد النهائي للامتثال للقانون رقم (3) لسنة 2026 في دبي — التواريخ الرئيسية",
+        "primaryKeyword": "الموعد النهائي للامتثال للقانون رقم 3 لسنة 2026 دبي",
+        "secondaryKeywords": [
+          "الموعد النهائي شهادة سلامة المباني",
+          "الامتثال خلال سنة دبي",
+          "تاريخ نفاذ القانون 60 يوماً"
+        ]
+      },
+      "attempts": 1,
+      "generatedAt": "2026-08-12T07:52:31.222Z"
     }
   ]
 }

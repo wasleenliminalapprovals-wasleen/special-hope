@@ -1,5 +1,10 @@
 import type { FactSheet } from "../../src/types";
 import type { GeneratedPseoContent, PseoQueueItem } from "./types";
+import {
+  getImageByFilename,
+  matchImageByAuthority,
+  matchImageByTopic,
+} from "../../src/data/images";
 
 /**
  * Prompt builders for the pSEO engine.
@@ -31,7 +36,8 @@ export const EN_JSON_SHAPE = `{
         {"type": "heading", "level": 3, "text": "H3 subheading"},
         {"type": "list", "ordered": true, "items": ["..."]},
         {"type": "table", "headers": ["..."], "rows": [["..."]]},
-        {"type": "quote", "text": "..."}
+        {"type": "quote", "text": "..."},
+        {"type": "image", "image": {"src": "/images/<one available src, exactly as listed>", "alt": "unique descriptive alt (never 'logo'/'image')", "caption": "optional short caption"}}
       ]
     }
   ],
@@ -78,6 +84,20 @@ function formatLinkTargets(relatedApprovalSlugs: string[], parentApprovalSlug?: 
     .join("\n");
 }
 
+/** Candidate in-body image srcs (available assets only) the model may reference
+ *  in an image block. Deduplicated; falls back to the generic pool via matchers. */
+function formatAvailableImages(item: PseoQueueItem): string {
+  const srcs = new Set<string>();
+  const add = (img: { src?: string } | undefined) => {
+    if (img?.src) srcs.add(img.src);
+  };
+  add(item.imageHint ? getImageByFilename(item.imageHint) : undefined);
+  add(matchImageByAuthority(item.authority));
+  add(matchImageByTopic(item.topicTags));
+  if (srcs.size === 0) return "(none — omit the in-body image block)";
+  return [...srcs].map((src) => `- ${src}`).join("\n");
+}
+
 export function buildEnSystemPrompt(): string {
   return `You are a senior SEO content writer for Wasleen Approvals, Dubai's approval-consultancy experts (dubaiapprovalconsultants.com). You write factual, E-E-A-T content that ranks #1 on Google AND gets quoted verbatim by AI answer engines (Google AI Overviews, ChatGPT Search, Perplexity).
 
@@ -91,7 +111,8 @@ ${EN_JSON_SHAPE}
 6. Every ~150-200 words include one concrete, quotable fact (number, duration, or document).
 7. Tone: confident, precise, Emirati-professional. Never fabricate stats, reviews, ratings, or awards.
 8. metaTitle 50-60 chars; metaDescription 140-160 chars.
-9. Write for extraction: tables and lists over long prose.`;
+9. Write for extraction: tables and lists over long prose.
+10. Include EXACTLY ONE in-body image block ({"type": "image", ...}) inside the most relevant section (next to the process/checklist table, the fines table, or a related subsection). Its "src" MUST be one of the AVAILABLE IMAGE SRCS listed in the user prompt — never invent a src. Give it a unique, descriptive alt (never "logo"/"image") and omit width/height (the renderer supplies safe dimensions). If the user prompt lists no available srcs, omit the image block entirely.`;
 }
 
 export function buildEnUserPrompt(item: PseoQueueItem, sheet: FactSheet | undefined): string {
@@ -110,6 +131,9 @@ ${formatFactSheet(sheet)}
 
 AVAILABLE INTERNAL LINK TARGETS (use at least 3, verbatim, descriptive anchor text):
 ${formatLinkTargets(item.relatedApprovalSlugs)}
+
+AVAILABLE IMAGE SRCS (for the single in-body image block — use ONLY these, verbatim):
+${formatAvailableImages(item)}
 
 Return the complete JSON object for this page.`;
 }
@@ -134,7 +158,8 @@ ${AR_JSON_SHAPE}
 7. كل 150-200 كلمة، ضع حقيقة ملموسة قابلة للاقتباس (رقم، مدة، مستند).
 8. النبرة: مهنية، دقيقة، عربية فصيحة بمسحة خليجية، بلا حشو تسويقي.
 9. عنوان الميتا 50-60 حرفاً؛ وصف الميتا 140-160 حرفاً.
-10. اتجاه النص عربي (RTL) طبيعي، وعلامات الترقيم عربية سليمة.`;
+10. اتجاه النص عربي (RTL) طبيعي، وعلامات الترقيم عربية سليمة.
+11. أضف كتلة صورة واحدة بالضبط داخل القسم الأنسب (قرب جدول المستندات/الخطوات أو جدول الرسوم). يجب أن يكون حقل src مطابقاً حرفياً لأحد عناوين الصور المتاحة (AVAILABLE IMAGE SRCS) المرفقة في رسالة المستخدم — لا تخترع أي src، ولا تضع أبعاداً (width/height)؛ الموقع يضيفها تلقائياً. إن لم توجد صور متاحة، احذف كتلة الصورة تماماً.`;
 }
 
 export function buildArUserPrompt(
@@ -157,6 +182,9 @@ ${formatFactSheet(sheet)}
 
 الروابط الداخلية المتاحة (استخدم 3 على الأقل بنصوص وصفية):
 ${formatLinkTargets(item.relatedApprovalSlugs)}
+
+عناوين الصور المتاحة (لكتلة الصورة الواحدة داخل النص — استخدمها حرفياً فقط):
+${formatAvailableImages(item)}
 
 المسودة الإنجليزية (للاستئناس فقط — أعد الكتابة بالعربية السياقية، لا تترجم حرفياً):
 ---

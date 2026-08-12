@@ -9,6 +9,7 @@ import { rtaFactSheet } from "./rta";
 import { dubaiPoliceFactSheet } from "./dubai-police";
 import { dhaFactSheet } from "./dha";
 import { dtcmFactSheet } from "./dtcm";
+import { law3_2026FactSheet } from "./law-3-2026";
 
 /**
  * Per-authority fact sheets — single source of truth for verified fees,
@@ -32,6 +33,7 @@ export const FACT_SHEETS: FactSheet[] = [
   dubaiPoliceFactSheet,
   dhaFactSheet,
   dtcmFactSheet,
+  law3_2026FactSheet,
 ];
 
 /** Lookup a fact sheet by authority key (matches AUTHORITY_BY_APPROVAL values). */
