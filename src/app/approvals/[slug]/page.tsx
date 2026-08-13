@@ -61,6 +61,15 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 
   const canonical = `${SITE.url}/approvals/${approval.slug}`;
 
+  // Special OG image for the Quality & Safety Certificate (Law No. 3 of 2026) cluster
+  const qscCluster = approval.slug === "dubai-building-quality-safety-certificate";
+  const ogImage = {
+    url: "/images/og-building-quality-safety-certificate-v3.jpg",
+    width: 1200,
+    height: 630,
+    alt: "Dubai Quality and Safety Certificate for buildings — Law No. 3 of 2026",
+  };
+
   return {
     title: seoTitle,
     description,
@@ -71,11 +80,13 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       url: canonical,
       type: "website",
       siteName: SITE.name,
+      ...(qscCluster ? { images: [ogImage] } : {}),
     },
     twitter: {
       card: "summary_large_image",
       title: seoTitle,
       description: description.substring(0, 160),
+      ...(qscCluster ? { images: [ogImage.url] } : {}),
     },
   };
 }

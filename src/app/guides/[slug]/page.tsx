@@ -60,6 +60,16 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       `${pseoPage.primaryKeyword} | ${SITE.name}`.substring(0, 60);
     const description = (pseoPage.metaDescription || pseoPage.directAnswer || "").substring(0, 160);
     const canonical = `${SITE.url}/guides/${pseoPage.slug}`;
+
+    // Special OG image for the Quality & Safety Certificate (Law No. 3 of 2026) cluster
+    const qscCluster = pseoPage.parentApprovalSlug === "dubai-building-quality-safety-certificate";
+    const ogImage = {
+      url: "/images/og-building-quality-safety-certificate-v3.jpg",
+      width: 1200,
+      height: 630,
+      alt: "Dubai Quality and Safety Certificate for buildings — Law No. 3 of 2026",
+    };
+
     return {
       title: seoTitle,
       description,
@@ -70,11 +80,13 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
         url: canonical,
         type: "article",
         siteName: SITE.name,
+        ...(qscCluster ? { images: [ogImage] } : {}),
       },
       twitter: {
         card: "summary_large_image",
         title: seoTitle,
         description,
+        ...(qscCluster ? { images: [ogImage.url] } : {}),
       },
     };
   }

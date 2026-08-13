@@ -71,6 +71,16 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     const seoTitle = `${ar.metaTitle || `${ar.primaryKeyword} | ${AR.siteShortName}`}`.substring(0, 60);
     const description = (ar.metaDescription || ar.directAnswer || "").substring(0, 160);
     const canonical = `${SITE.url}/ar/guides/${slug}`;
+
+    // Special OG image for the Quality & Safety Certificate (Law No. 3 of 2026) cluster
+    const qscCluster = pseoPage.parentApprovalSlug === "dubai-building-quality-safety-certificate";
+    const ogImage = {
+      url: "/images/og-building-quality-safety-certificate-v3.jpg",
+      width: 1200,
+      height: 630,
+      alt: "شهادة جودة وسلامة المباني في دبي — القانون رقم (3) لسنة 2026",
+    };
+
     return {
       title: seoTitle,
       description,
@@ -82,11 +92,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         type: "article",
         siteName: SITE.name,
         locale: "ar_AE",
+        ...(qscCluster ? { images: [ogImage] } : {}),
       },
       twitter: {
         card: "summary_large_image",
         title: seoTitle,
         description: description.substring(0, 160),
+        ...(qscCluster ? { images: [ogImage.url] } : {}),
       },
     };
   }
