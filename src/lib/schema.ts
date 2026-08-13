@@ -19,6 +19,7 @@
 
 import { SITE, NAP, AR, LICENSE, SOCIAL } from "@/lib/constants";
 import { localePrefix } from "@/lib/locale";
+import type { GuideAuthor, GuideAuthorId } from "@/data/authors";
 import type {
   FAQItem,
   ProcessStep,
@@ -41,6 +42,24 @@ function crumb(position: number, name: string, slug: string) {
     name,
     item: `${BASE}${slug}`,
   };
+}
+
+/**
+ * Resolve the JSON-LD `@id` reference for a guide author.
+ *   - Persons → locale-prefixed `#author-{id}`
+ *   - "organization" → the sitewide `#organization` entity
+ *   - absent → `undefined` (no author field emitted)
+ *
+ * @see plans/gsc-qa-author-schema-fix-plan.md §3.2.1 (@id vs sameAs decision)
+ */
+function authorEntityRef(
+  authorId: GuideAuthorId | undefined,
+  locale: "en" | "ar",
+): string | undefined {
+  if (!authorId) return undefined;
+  const lp = localePrefix(locale);
+  if (authorId === "organization") return `${BASE}${lp}/#organization`;
+  return `${BASE}${lp}/#author-${authorId}`;
 }
 
 /* ── sitewide schemas (injected once in root layout) ─────── */
@@ -113,6 +132,29 @@ export function websiteSchema(locale: "en" | "ar" = "en") {
     name: locale === "ar" ? AR.siteName : SITE.name,
     publisher: { "@id": `${BASE}${lp}/#organization` },
     inLanguage: locale === "ar" ? "ar-AE" : "en-AE",
+  };
+}
+
+/**
+ * Person schema — sitewide author entity, referenced by `#author-{id}` @id.
+ *
+ * Registered once in the root layout (via `siteConfig`) for both locales. The
+ * QAPage `author` refs point here; `worksFor` always targets this site's
+ * #organization (keeps the graph self-consistent and NAP-clean). External
+ * profiles (LinkedIn / Gravatar) live ONLY in `sameAs` — never as the @id.
+ *
+ * @see plans/gsc-qa-author-schema-fix-plan.md §3.2 / §3.2.1
+ */
+export function personSchema(person: GuideAuthor, locale: "en" | "ar" = "en") {
+  const lp = localePrefix(locale);
+  return {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "@id": `${BASE}${lp}/#author-${person.id}`,
+    name: person.name,
+    ...(person.jobTitle ? { jobTitle: person.jobTitle } : {}),
+    worksFor: { "@id": `${BASE}${lp}/#organization` },
+    ...(person.sameAs && person.sameAs.length > 0 ? { sameAs: person.sameAs } : {}),
   };
 }
 
@@ -216,13 +258,26 @@ export interface QAPageSchemaInput {
   answer: string;
   title: string;
   description: string;
+  /** GuideAuthorId — emits `author` on Question + Answer (via @id ref) */
+  authorId?: GuideAuthorId;
+  /** ISO date — emits `datePublished` on Question + Answer */
+  datePublished?: string;
+  /** Full canonical URL — emits `acceptedAnswer.url` */
+  url?: string;
 }
 
 /**
  * QAPage schema — used on guide/Q&A pages of type "qa".
+ *
+ * Emits the full set of fields Google expects on a single-question Q&A page:
+ * `answerCount`, `author` (Question + Answer), `datePublished` (Question +
+ * Answer), `acceptedAnswer.url`, and neutral `upvoteCount: 0`.
+ *
+ * @see plans/gsc-qa-author-schema-fix-plan.md §3.1 (target JSON-LD)
  */
 export function qaPageSchema(data: QAPageSchemaInput, locale: "en" | "ar" = "en") {
   const lp = localePrefix(locale);
+  const authorRef = authorEntityRef(data.authorId, locale);
   return {
     "@context": "https://schema.org",
     "@type": "QAPage",
@@ -231,9 +286,17 @@ export function qaPageSchema(data: QAPageSchemaInput, locale: "en" | "ar" = "en"
       "@type": "Question",
       name: data.question,
       text: data.question,
+      answerCount: 1,
+      ...(authorRef ? { author: { "@id": authorRef } } : {}),
+      ...(data.datePublished ? { datePublished: data.datePublished } : {}),
+      upvoteCount: 0,
       acceptedAnswer: {
         "@type": "Answer",
         text: data.answer,
+        ...(data.url ? { url: data.url } : {}),
+        ...(authorRef ? { author: { "@id": authorRef } } : {}),
+        ...(data.datePublished ? { datePublished: data.datePublished } : {}),
+        upvoteCount: 0,
       },
     },
   };
@@ -326,6 +389,10 @@ export interface GuideSchemaStackInput {
   guideData: Pick<GuideData, "type" | "question" | "answer">;
   breadcrumbs: BreadcrumbItem[];
   dateModified: string;
+  /** GuideAuthorId — threaded into QAPage schema for "qa" guides */
+  authorId?: GuideAuthorId;
+  /** ISO date — threaded into QAPage schema as `datePublished` */
+  datePublished?: string;
 }
 
 /**
@@ -357,6 +424,9 @@ export function guideSchemaStack(
           answer: input.guideData.answer,
           title: input.title,
           description: input.description,
+          authorId: input.authorId,
+          datePublished: input.datePublished,
+          url: input.url,
         },
         locale,
       ),
@@ -440,6 +510,10 @@ export interface PseoSchemaStackInput {
   /** Optional explicit breadcrumbs; auto-built from parentApproval when omitted */
   breadcrumbs?: BreadcrumbItem[];
   dateModified: string;
+  /** GuideAuthorId — threaded into QAPage schema for kind:"qa" pages */
+  authorId?: GuideAuthorId;
+  /** ISO date — threaded into QAPage schema as `datePublished` */
+  datePublished?: string;
 }
 
 /**
@@ -540,6 +614,9 @@ export function pseoSchemaStack(
           answer: input.directAnswer ?? input.description,
           title: input.title,
           description: input.description,
+          authorId: input.authorId,
+          datePublished: input.datePublished,
+          url: input.url,
         },
         locale,
       ),

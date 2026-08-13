@@ -20,6 +20,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft, HelpCircle, BookOpen, ArrowRight } from "lucide-react";
 import { guides } from "@/data/guides";
+import { getGuideAuthor } from "@/data/authors";
 import { approvals } from "@/data/approvals";
 import { SITE, HUB_SLUGS } from "@/lib/constants";
 import { hreflangAlternates } from "@/lib/locale";
@@ -180,6 +181,7 @@ function renderPseoPage(page: PseoPage) {
   const canonical = `${SITE.url}/guides/${page.slug}`;
   const parentApproval = getParentApproval(page.parentApprovalSlug);
   const relatedItems = resolvePseoRelated(page);
+  const author = getGuideAuthor(page.slug);
 
   const schemas = pseoSchemaStack(
     {
@@ -195,6 +197,8 @@ function renderPseoPage(page: PseoPage) {
         ? { name: parentApproval.name, slug: parentApproval.slug }
         : undefined,
       dateModified: schemaDate(page.lastVerified),
+      authorId: author.id,
+      datePublished: schemaDate(page.lastVerified),
     },
     "en",
   );
@@ -222,6 +226,7 @@ function renderPseoPage(page: PseoPage) {
             ? { name: parentApproval.name, href: `/approvals/${parentApproval.slug}` }
             : null
         }
+        author={{ name: author.name, title: author.titleEn }}
       />
     </>
   );
@@ -245,6 +250,7 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
 
   const canonical = `${SITE.url}/guides/${guide.slug}`;
   const parentApproval = getParentApproval(guide.parentApprovalSlug);
+  const author = getGuideAuthor(guide.slug);
 
   /* ── Compute related approvals ─────────────────────────── */
   const relatedApprovalEntries = (() => {
@@ -288,6 +294,8 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
       { position: 3, name: guide.title, slug: `/guides/${guide.slug}` },
     ],
       dateModified: guide.lastUpdated,
+      authorId: author.id,
+      datePublished: schemaDate(guide.lastUpdated),
     },
     "en",
   );
@@ -340,6 +348,11 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
           {/* Description / subtitle */}
           <p className="text-body-lg text-body-text max-w-4xl leading-relaxed mb-4">
             {guide.description}
+          </p>
+
+          {/* Author byline */}
+          <p className="text-caption text-body-text/70 font-montserrat mb-4">
+            By {author.name} — {author.titleEn}
           </p>
 
           {/* Link back to parent approval */}

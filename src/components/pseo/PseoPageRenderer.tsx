@@ -45,6 +45,8 @@ interface PseoPageRendererProps {
   related?: PseoRelatedItem[];
   /** Optional pillar approval "back to" link */
   parentApproval?: { name: string; href: string } | null;
+  /** Optional visible author byline (name must match schema author name) */
+  author?: { name: string; title: string } | null;
   /** Optional image override (e.g., Arabic alt/caption variant) */
   image?: ImageAssetRef;
 }
@@ -55,6 +57,7 @@ export default function PseoPageRenderer({
   breadcrumbs,
   related = [],
   parentApproval,
+  author,
   image,
 }: PseoPageRendererProps) {
   const isAr = locale === "ar";
@@ -91,6 +94,15 @@ export default function PseoPageRenderer({
           <p className="text-body-lg text-body-text max-w-4xl leading-relaxed mb-4">
             {description}
           </p>
+
+          {/* Visible author byline — name must match the schema `author` name */}
+          {author && (
+            <p className="text-caption text-body-text/70 font-montserrat mb-4">
+              {isAr
+                ? `بقلم ${author.name} — ${author.title}`
+                : `By ${author.name} — ${author.title}`}
+            </p>
+          )}
 
           {parentApproval && (
             <Link

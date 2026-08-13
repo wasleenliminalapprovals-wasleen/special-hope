@@ -23,6 +23,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft, HelpCircle, BookOpen } from "lucide-react";
 import { guides } from "@/data/guides";
+import { getGuideAuthor } from "@/data/authors";
 import { guides as guidesAr } from "@/data/guides-ar";
 import { approvals } from "@/data/approvals";
 import { approvals as approvalsAr } from "@/data/approvals-ar";
@@ -198,6 +199,7 @@ function renderPseoPageAr(page: PseoPage, arEntry: PseoArabicEntry) {
   const canonical = `${SITE.url}/ar/guides/${page.slug}`;
   const parentApproval = getParentApproval(page.parentApprovalSlug);
   const relatedItems = resolvePseoRelatedAr(page);
+  const author = getGuideAuthor(page.slug);
   const ar = arEntry.ar;
 
   const schemas = pseoSchemaStack(
@@ -214,6 +216,8 @@ function renderPseoPageAr(page: PseoPage, arEntry: PseoArabicEntry) {
         ? { name: parentApproval.name, slug: parentApproval.slug }
         : undefined,
       dateModified: schemaDate(page.lastVerified),
+      authorId: author.id,
+      datePublished: schemaDate(page.lastVerified),
     },
     "ar",
   );
@@ -244,6 +248,7 @@ function renderPseoPageAr(page: PseoPage, arEntry: PseoArabicEntry) {
             ? { name: parentApproval.name, href: `/ar/approvals/${parentApproval.slug}` }
             : null
         }
+        author={{ name: author.arabicName, title: author.titleAr }}
       />
     </>
   );
@@ -270,6 +275,7 @@ export default async function ArabicGuidePage({ params }: Props) {
   const ar = arEntry.ar;
   const canonical = `${SITE.url}/ar/guides/${slug}`;
   const parentApproval = getParentApproval(guide.parentApprovalSlug);
+  const author = getGuideAuthor(guide.slug);
 
   /* ── Compute related approvals (Arabic names, /ar/ paths) ──── */
   const relatedApprovalEntries = (() => {
@@ -324,6 +330,8 @@ export default async function ArabicGuidePage({ params }: Props) {
         { position: 3, name: ar.title, slug: `/ar/guides/${slug}` },
       ],
       dateModified: guide.lastUpdated,
+      authorId: author.id,
+      datePublished: schemaDate(guide.lastUpdated),
     },
     "ar",
   );
@@ -376,6 +384,11 @@ export default async function ArabicGuidePage({ params }: Props) {
           {/* Description / subtitle */}
           <p className="text-body-lg text-body-text max-w-4xl leading-relaxed mb-4">
             {ar.description}
+          </p>
+
+          {/* Author byline (Arabic) */}
+          <p className="text-caption text-body-text/70 font-montserrat mb-4">
+            بقلم {author.arabicName} — {author.titleAr}
           </p>
 
           {/* Link back to parent approval (Arabic) */}

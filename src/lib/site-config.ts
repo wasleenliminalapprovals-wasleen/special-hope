@@ -14,7 +14,8 @@
  */
 
 import { GTM_ID, GA_MEASUREMENT_ID, META_PIXEL_ID } from "@/lib/constants";
-import { organizationSchema, websiteSchema } from "@/lib/schema";
+import { organizationSchema, websiteSchema, personSchema } from "@/lib/schema";
+import { AUTHOR_REGISTRY } from "@/data/authors";
 
 export interface SiteConfig {
   /** Google Tag Manager container ID */
@@ -24,8 +25,10 @@ export interface SiteConfig {
   /** Meta Pixel ID (Facebook / Meta ads attribution) */
   metaPixelId: string;
   /**
-   * Sitewide JSON-LD schema objects (Organization + WebSite).
+   * Sitewide JSON-LD schema objects (Organization + WebSite + Person entities).
    * These are injected once in the root <body> via <script type="application/ld+json">.
+   * The two Person entities (Jamsheed, Kavya) back the `#author-{id}` refs used
+   * by QAPage schema on /guides pages. #organization is NOT re-registered here.
    */
   sitewideSchema: Record<string, unknown>[];
 }
@@ -47,6 +50,8 @@ export function siteConfig(locale: "en" | "ar" = "en"): SiteConfig {
     sitewideSchema: [
       organizationSchema(locale),
       websiteSchema(locale),
+      personSchema(AUTHOR_REGISTRY["jamsheed-khalid"], locale),
+      personSchema(AUTHOR_REGISTRY["kavya-ramachandran"], locale),
     ],
   };
 }
