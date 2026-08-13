@@ -74,6 +74,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   const canonical = `${SITE.url}/ar/services/${service.slug}`;
 
+  // Dedicated OG image for every service page
+  const ogImage = {
+    url: "/images/OG%20Image%202.jpg",
+    width: 1200,
+    height: 630,
+    alt: ar.name,
+  };
+
   return {
     title,
     description,
@@ -85,11 +93,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       type: "website",
       siteName: "وسلين للموافقات",
       locale: "ar_AE",
+      images: [ogImage],
     },
     twitter: {
       card: "summary_large_image",
       title: title.substring(0, 60),
       description: description.substring(0, 160),
+      images: [ogImage.url],
     },
   };
 }
