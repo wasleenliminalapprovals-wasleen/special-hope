@@ -288,7 +288,7 @@ export default async function BlogArticlePage({ params }: ArticlePageProps) {
 
       <article className="post-article" aria-labelledby="post-title">
         {/* §5.2 — post hero */}
-        <header className="post-hero fade-in">
+        <header className="post-hero">
           <div className="post-hero-glow" aria-hidden="true" />
           <span className="post-cat-tag">{getCategoryName(post.categoryId)}</span>
           <h1 id="post-title">{post.title}</h1>
@@ -316,7 +316,7 @@ export default async function BlogArticlePage({ params }: ArticlePageProps) {
 
         {/* §5.3 — hero image */}
         {hero && (
-          <figure className="post-hero-image fade-in">
+          <figure className="post-hero-image">
             <Image
               src={hero.src}
               alt={hero.alt}
@@ -329,7 +329,7 @@ export default async function BlogArticlePage({ params }: ArticlePageProps) {
 
         {/* §5.4 — stats strip (real post data only) */}
         {post.stats && post.stats.length > 0 && (
-          <div className="stats-strip fade-in" role="list" aria-label="Key facts">
+          <div className="stats-strip" role="list" aria-label="Key facts">
             {post.stats.map((stat, i) => (
               <div className="stat-cell" role="listitem" key={i}>
                 <span className="stat-value">{stat.value}</span>

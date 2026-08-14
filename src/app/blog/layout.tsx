@@ -22,6 +22,7 @@ import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import "./blog.css";
 import BlogShell from "@/components/blog/BlogShell";
+import ScrollReveal from "@/components/blog/ScrollReveal";
 
 export const metadata: Metadata = {
   title: {
@@ -31,5 +32,10 @@ export const metadata: Metadata = {
 };
 
 export default function BlogLayout({ children }: { children: ReactNode }) {
-  return <BlogShell>{children}</BlogShell>;
+  return (
+    <BlogShell>
+      <ScrollReveal />
+      {children}
+    </BlogShell>
+  );
 }

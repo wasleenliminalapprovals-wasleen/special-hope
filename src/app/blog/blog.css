@@ -428,11 +428,12 @@
   }
 
   /* 7. .btn-scta — accent fill → --accent-dark FILL + GLOW (sidebar CTA) */
-  .btn-scta {
+  /* `.blog-dark a` (§2) overrides `.btn-scta` white text — re-assert */
+  .blog-dark .btn-scta {
     background: var(--accent);
     color: #ffffff;
   }
-  .btn-scta:hover {
+  .blog-dark .btn-scta:hover {
     background: var(--accent-dark);
     box-shadow: 0 0 24px var(--glow);
   }
