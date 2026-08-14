@@ -21,6 +21,8 @@ import { guides as guidesAr } from "@/data/guides-ar";
 import { services } from "@/data/services";
 import { services as servicesAr } from "@/data/services-ar";
 import { AR, NAP, SITE } from "@/lib/constants";
+import type { BlogPost } from "@/types";
+import { getLiveArabicPosts } from "@/lib/blog-ar";
 
 export const dynamic = "force-static";
 
@@ -286,6 +288,91 @@ function formatServiceForArabicLlms(
   return lines.join("\n");
 }
 
+/* ── Blog post formatter ── */
+
+/**
+ * Format a single Arabic blog post for the Arabic llms-full.txt knowledge
+ * base. Renders the post's direct-answer lead, metadata table, full body
+ * (images are skipped — text-only file), and FAQ block.
+ */
+function formatBlogForArabicLlms(post: BlogPost): string {
+  const lines: string[] = [];
+  const url = `/ar/blog/${post.slug}`;
+
+  lines.push("---");
+  lines.push(`## ${post.title}`);
+  lines.push(`> ${url}`);
+  lines.push("");
+
+  // Direct Answer
+  if (post.lead) {
+    lines.push("### الإجابة المباشرة");
+    lines.push("");
+    lines.push(post.lead);
+    lines.push("");
+  }
+
+  // Metadata
+  const metaRows: string[][] = [
+    ["تاريخ النشر", post.publishedAt],
+    ["آخر تحديث", post.lastUpdated],
+    ["مدة القراءة", `${post.readTime} دقيقة`],
+  ];
+  if (post.tags && post.tags.length > 0) {
+    metaRows.push(["الوسوم", post.tags.join("، ")]);
+  }
+  lines.push(tableToMarkdown(["الحقل", "القيمة"], metaRows));
+  lines.push("");
+
+  // Body sections
+  for (const block of post.body) {
+    switch (block.type) {
+      case "paragraph":
+        lines.push(block.text);
+        lines.push("");
+        break;
+      case "heading":
+        lines.push(`${"#".repeat(block.level)} ${block.text}`);
+        lines.push("");
+        break;
+      case "list":
+        for (const item of block.items) {
+          lines.push(`${block.ordered ? "1." : "-"} ${item}`);
+        }
+        lines.push("");
+        break;
+      case "table":
+        lines.push(tableToMarkdown(block.headers, block.rows));
+        lines.push("");
+        break;
+      case "quote":
+        lines.push(`> ${block.text}`);
+        lines.push("");
+        break;
+      case "expert-insight":
+        lines.push(`> **رؤية الخبراء:** ${block.text}`);
+        lines.push("");
+        break;
+      case "image":
+        // Skip images — llms-full.txt is a text-only knowledge base.
+        break;
+    }
+  }
+
+  // FAQ
+  if (post.faqs && post.faqs.length > 0) {
+    lines.push("### الأسئلة الشائعة");
+    lines.push("");
+    for (const faq of post.faqs) {
+      lines.push(`س: ${faq.question}`);
+      lines.push(`ج: ${faq.answer}`);
+      lines.push("");
+    }
+  }
+
+  return lines.join("\n");
+}
+
 /* ── License page — Arabic ── */
 
 /**
@@ -407,6 +494,12 @@ export async function GET() {
   for (const service of services) {
     const arEntry = servicesAr.find((s) => s.slug === service.slug);
     blocks.push(formatServiceForArabicLlms(service, arEntry?.ar));
+  }
+
+  // ── Blog Posts ──
+
+  for (const post of getLiveArabicPosts()) {
+    blocks.push(formatBlogForArabicLlms(post));
   }
 
   const content = blocks.join("\n");

@@ -26,6 +26,7 @@ import type {
   StatFact,
   RejectionReason,
   PseoPage,
+  BlogPost,
 } from "@/types";
 import { LICENSE, NAP } from "@/lib/constants";
 
@@ -480,7 +481,8 @@ export function buildLlmsIndex(
   allApprovals: ApprovalData[],
   allGuides: GuideData[],
   allServices: ServiceData[],
-  allPseo: PseoPage[] = []
+  allPseo: PseoPage[] = [],
+  allBlog: BlogPost[] = []
 ): string {
   const lines: string[] = [];
 
@@ -569,6 +571,17 @@ export function buildLlmsIndex(
   }
   lines.push("");
 
+  // ── Blog Posts ──
+
+  lines.push(`## Blog Posts — ${allBlog.length} articles`);
+  lines.push("");
+
+  for (const post of allBlog) {
+    const snippet = (post.lead || post.description || post.title).split(".")[0].trim() + ".";
+    lines.push(`- [${post.title}](/blog/${post.slug}): ${snippet}`);
+  }
+  lines.push("");
+
   // ── Information Pages ──
 
   lines.push("## Information Pages");
@@ -604,7 +617,8 @@ export function buildLlmsFull(
   allApprovals: ApprovalData[],
   allGuides: GuideData[],
   allServices: ServiceData[],
-  allPseo: PseoPage[] = []
+  allPseo: PseoPage[] = [],
+  allBlog: BlogPost[] = []
 ): string {
   const blocks: string[] = [];
 
@@ -648,6 +662,12 @@ export function buildLlmsFull(
 
   for (const service of allServices) {
     blocks.push(formatServiceForLlmsFull(service));
+  }
+
+  // ── Blog Posts ──
+
+  for (const post of allBlog) {
+    blocks.push(formatBlogForLlmsFull(post));
   }
 
   return blocks.join("\n");
@@ -904,6 +924,91 @@ function formatServiceForLlmsFull(service: ServiceData): string {
       const [q, a] = faq.split("\n");
       lines.push(`${q}`);
       lines.push(`${a}`);
+      lines.push("");
+    }
+  }
+
+  return lines.join("\n");
+}
+
+/**
+ * Format a single blog post for llms-full.txt. Renders the post's
+ * direct-answer lead, metadata table, full body (images are skipped —
+ * this is a text-only knowledge base), and FAQ block so AI engines can
+ * cite the post's key facts verbatim.
+ */
+function formatBlogForLlmsFull(post: BlogPost): string {
+  const lines: string[] = [];
+
+  lines.push("---");
+  lines.push(`## ${post.title}`);
+  lines.push(`> /blog/${post.slug}`);
+  lines.push("");
+
+  // Direct Answer
+  if (post.lead) {
+    lines.push("### Direct Answer");
+    lines.push("");
+    lines.push(post.lead);
+    lines.push("");
+  }
+
+  // Metadata
+  const metaRows: string[][] = [
+    ["Published", post.publishedAt],
+    ["Last updated", post.lastUpdated],
+    ["Read time", `${post.readTime} min`],
+    ["Category", post.categoryId],
+  ];
+  if (post.tags && post.tags.length > 0) {
+    metaRows.push(["Tags", post.tags.join(", ")]);
+  }
+  lines.push(tableToMarkdown([["Field", "Value"], ...metaRows]));
+  lines.push("");
+
+  // Body sections
+  for (const block of post.body) {
+    switch (block.type) {
+      case "paragraph":
+        lines.push(block.text);
+        lines.push("");
+        break;
+      case "heading":
+        lines.push(`${"#".repeat(block.level)} ${block.text}`);
+        lines.push("");
+        break;
+      case "list":
+        for (const item of block.items) {
+          lines.push(`${block.ordered ? "1." : "-"} ${item}`);
+        }
+        lines.push("");
+        break;
+      case "table":
+        lines.push(tableToMarkdown([block.headers, ...block.rows]));
+        lines.push("");
+        break;
+      case "quote":
+        lines.push(`> ${block.text}`);
+        lines.push("");
+        break;
+      case "expert-insight":
+        lines.push(`> **Expert insight:** ${block.text}`);
+        lines.push("");
+        break;
+      case "image":
+        // Skip images — llms-full.txt is a text-only knowledge base.
+        break;
+    }
+  }
+
+  // FAQ
+  if (post.faqs && post.faqs.length > 0) {
+    lines.push("### FAQ");
+    lines.push("");
+    for (const faq of post.faqs) {
+      lines.push(`Q: ${faq.question}`);
+      lines.push("");
+      lines.push(`A: ${faq.answer}`);
       lines.push("");
     }
   }

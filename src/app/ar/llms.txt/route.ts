@@ -17,6 +17,7 @@ import { guides as guidesAr } from "@/data/guides-ar";
 import { services } from "@/data/services";
 import { services as servicesAr } from "@/data/services-ar";
 import { AR } from "@/lib/constants";
+import { getLiveArabicPosts } from "@/lib/blog-ar";
 import { loadPseoArabicEntries } from "@/lib/pseo-data";
 
 export const dynamic = "force-static";
@@ -130,6 +131,18 @@ export async function GET() {
     lines.push(
       `- [${arName}](/ar/services/${service.slug}): ${snippet}`
     );
+  }
+  lines.push("");
+
+  // ── Blog Posts (Arabic) ──
+
+  const blogAr = getLiveArabicPosts();
+  lines.push(`## مقالات المدونة — ${blogAr.length} مقال`);
+  lines.push("");
+
+  for (const post of blogAr) {
+    const snippet = (post.lead || post.description || post.title).split(".")[0].trim() + ".";
+    lines.push(`- [${post.title}](/ar/blog/${post.slug}): ${snippet}`);
   }
   lines.push("");
 

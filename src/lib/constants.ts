@@ -93,6 +93,7 @@ export const WHATSAPP_LICENSE_MESSAGE =
 export const HUB_SLUGS = {
   approvals: "/approvals",
   guides: "/guides",
+  blog: "/blog",
   services: "/services",
   aboutUs: "/about-us",
   contactUs: "/contact-us",
@@ -140,6 +141,7 @@ export const AR = {
     approvals: "الموافقات",
     services: "الخدمات",
     guides: "الأدلة",
+    blog: "المدونة",
     aboutUs: "من نحن",
     contactUs: "اتصل بنا",
     whatsapp: "واتساب",

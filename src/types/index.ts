@@ -614,3 +614,184 @@ export interface FactSheet {
   /** Notes / disclaimer (regulations change — re-verify annually) */
   notes?: string;
 }
+
+/* ============================================================
+   Blog Data — Categories, Posts, Sections, Images
+   @see plans/blog-pre-build-plan.md §9 Phase 6 (data layer)
+   @see plans/blog-categories-topics-urls.md (categories source of truth)
+   ============================================================ */
+
+/**
+ * Blog category id — the 8 APPROVED categories (A–H) from the categories
+ * file (plans/blog-categories-topics-urls.md §3). B, D, F are empty this
+ * wave — never force topics into them.
+ */
+export type BlogCategoryId =
+  | "approval-news" // A — Approval News & Regulation Updates
+  | "comparisons" // B — Approval Comparisons (EMPTY this wave)
+  | "project-journeys" // C — Project-Type Approval Journeys
+  | "costs-timelines" // D — Approval Costs & Timeline Stories (EMPTY this wave)
+  | "authority-deep-dives" // E — Authority Deep-Dives
+  | "rejection-stories" // F — Rejection & Mistake Stories (EMPTY this wave)
+  | "free-zones" // G — Free Zones & Developer Communities
+  | "docs-drawings"; // H — Documentation & Drawing Insights
+
+/**
+ * Publish lifecycle (draft → ready → live, plan §0.5).
+ * The index renders everything except `draft` (so `ready` posts are
+ * verifiable during the build); ONLY `live` posts enter `sitemap.xml`.
+ */
+export type BlogStatus = "draft" | "ready" | "live";
+
+/** One approved blog category (categories file §3 — single source of truth). */
+export interface BlogCategory {
+  /** Stable category id — also the `/blog?category={slug}` filter value. */
+  id: BlogCategoryId;
+  /** Letter id A–H from the categories file. */
+  code: "A" | "B" | "C" | "D" | "E" | "F" | "G" | "H";
+  /** Display name (EN). */
+  name: string;
+  /** Short description shown in the ZONE 4 category grid / ZONE 7 silos. */
+  description: string;
+  /** SEO-friendly slug used for filtering (equals the id). */
+  slug: string;
+  /** Grid / silo display order (active categories first). */
+  order: number;
+  /** Example queries the category owns (categories file §3). */
+  exampleQueries: string[];
+  /** True when the category has approved posts this wave (A/E/G/C/H). */
+  active: boolean;
+}
+
+/** Where a post image renders on the article page (2–3 per post, varied). */
+export type BlogImagePosition = "hero" | "inline" | "end";
+
+/**
+ * A single post image — explicit dimensions prevent CLS (plan §0.3 dims gate).
+ * Hero assets must be ≥1200px wide (blog set: 1600×900 / 1200×675).
+ */
+export interface BlogImage {
+  /** Public path, e.g. "/images/dubai-approval-consultants-Blogs/.../file.webp" */
+  src: string;
+  /** Descriptive alt text (never fake) — required for SEO. */
+  alt: string;
+  /** Placement on the article page (hero / inline / end). */
+  position: BlogImagePosition;
+  /** Explicit width (next/image, prevents CLS). */
+  width: number;
+  /** Explicit height (next/image, prevents CLS). */
+  height: number;
+  /** Optional visible figcaption. */
+  caption?: string;
+}
+
+/** A contextual internal link to a money page (2–4 per post, descriptive anchor). */
+export interface BlogLinkOut {
+  /** Relative href to the money page (approval/guide/service). */
+  href: string;
+  /** Descriptive anchor text — never "click here". */
+  label: string;
+}
+
+/** Ordered content blocks for a post body (13-section anatomy, filled in Phase 7). */
+export type BlogSection =
+  | { type: "paragraph"; text: string }
+  | { type: "heading"; level: 2 | 3; text: string }
+  | { type: "list"; ordered?: boolean; items: string[] }
+  | { type: "table"; headers: string[]; rows: string[][] }
+  | { type: "quote"; text: string }
+  | { type: "image"; image: BlogImage }
+  | { type: "expert-insight"; text: string };
+
+/** Blog FAQ item — visible text mirrors FAQPage schema word-for-word. */
+export interface BlogFAQ {
+  question: string;
+  answer: string;
+}
+
+/**
+ * One stat fact for the article §5.4 stats strip (4–5 per post).
+ * Values MUST come from real, verifiable data — never fabricated (master
+ * rule §4: no fake numbers). Phase 7 writers fill these per post.
+ */
+export interface BlogStat {
+  /** Short compact value — e.g. "5–7 days", "AED 1,500+", "52 approvals". */
+  value: string;
+  /** Short label under the value — e.g. "DM approval timeline". */
+  label: string;
+}
+
+/** One approved blog post (19 EN + 19 AR = 38 URLs, categories file §4). */
+export interface BlogPost {
+  /** URL slug (e.g., "dubai-building-regulations-2026-updates"). */
+  slug: string;
+  /** Category this post belongs to. */
+  categoryId: BlogCategoryId;
+  /** Page title / H1. */
+  title: string;
+  /**
+   * Meta title base — keyword front-loaded; the blog layout template appends
+   * " | Wasleen Approvals" so the stored value stays ≤ ~41 chars (final ≤60).
+   */
+  seoTitle: string;
+  /** Meta description — 140–160 chars, one concrete number, CTA. */
+  description: string;
+  /** Direct-answer lead — 2–3 sentences, quotable in isolation (AI extraction). */
+  lead: string;
+  /** Full content body (13-section anatomy — populated in Phase 7). */
+  body: BlogSection[];
+  /** FAQ block (5–8) — mirrors FAQPage schema. Populated in Phase 7. */
+  faqs: BlogFAQ[];
+  /** Topic tags (3–4 per post). */
+  tags: string[];
+  /** Author from the verified registry (src/data/authors.ts — plan §0.2). */
+  authorId: "jamsheed-khalid" | "kavya-ramachandran" | "organization";
+  /** Optional reviewer — same registry (E-E-A-T review line). */
+  reviewerId?: "jamsheed-khalid" | "kavya-ramachandran" | "organization";
+  /** Estimated read time in minutes. */
+  readTime: number;
+  /** Actual live URL date (ISO) — stamped by PM at publish (plan §0.4). */
+  publishedAt: string;
+  /** Last updated date (ISO) — visible "last updated" = dateModified. */
+  lastUpdated: string;
+  /** Publish lifecycle (draft → ready → live). */
+  status: BlogStatus;
+  /** 2–3 images, varied positions. Phase 7 fills fully; index uses hero images. */
+  images: BlogImage[];
+  /** 2–4 contextual money-page links (descriptive anchors). */
+  linkOuts: BlogLinkOut[];
+  /** 1–2 sibling blog post slugs for internal linking. */
+  relatedPostSlugs: string[];
+  /** ZONE 3 featured pick (single post). */
+  featured?: boolean;
+  /** ZONE 6 trending pick. */
+  trending?: boolean;
+  /** 4–5 facts for the §5.4 stats strip — real data, never fabricated. */
+  stats?: BlogStat[];
+}
+
+/** Arabic content for a blog post — native-Arabic SEO rewrite, NOT translation. */
+export interface BlogArabicContent {
+  /** Arabic-script slug (mirrors English: /ar/blog/{slug}). */
+  slug: string;
+  /** Arabic title / H1. */
+  title: string;
+  /** Arabic meta title base. */
+  seoTitle: string;
+  /** Arabic meta description. */
+  description: string;
+  /** Arabic direct-answer lead. */
+  lead: string;
+  /** Arabic content body. */
+  body: BlogSection[];
+  /** Arabic FAQ block. */
+  faqs: BlogFAQ[];
+  /** Arabic topic tags. */
+  tags: string[];
+}
+
+/** Stub entry type for Arabic blog data files (parity with approvals-ar pattern). */
+export interface BlogArabicEntry {
+  slug: string;
+  ar: BlogArabicContent;
+}

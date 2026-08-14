@@ -23,6 +23,7 @@ function getNavLinks(locale: "en" | "ar") {
     return [
       { label: AR.nav.home, href: "/ar" },
       { label: AR.nav.guides, href: "/ar/guides" },
+      { label: AR.nav.blog, href: "/ar/blog" },
       { label: AR.nav.aboutUs, href: "/ar/about-us" },
       { label: AR.nav.contactUs, href: "/ar/contact-us" },
     ];
@@ -30,6 +31,7 @@ function getNavLinks(locale: "en" | "ar") {
   return [
     { label: "Home", href: "/" },
     { label: "Guides", href: "/guides" },
+    { label: "Blog", href: "/blog" },
     { label: "About Us", href: "/about-us" },
     { label: "Contact Us", href: "/contact-us" },
   ];

@@ -31,12 +31,13 @@ import { approvals } from "@/data/approvals";
 import { guides } from "@/data/guides";
 import { services } from "@/data/services";
 import { buildLlmsFull } from "@/lib/geo";
+import { getLivePosts } from "@/lib/blog";
 import { loadPseoPages } from "@/lib/pseo-data";
 
 export const dynamic = "force-static";
 
 export async function GET() {
-  const content = buildLlmsFull(approvals, guides, services, loadPseoPages());
+  const content = buildLlmsFull(approvals, guides, services, loadPseoPages(), getLivePosts());
 
   return new NextResponse(content, {
     status: 200,

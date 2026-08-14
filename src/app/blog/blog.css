@@ -1,0 +1,2745 @@
+/* ============================================================
+   BLOG DESIGN SYSTEM — SCOPED STYLESHEET
+   ============================================================
+   File    : src/app/blog/blog.css
+   Phase   : Blog pre-build plan — Phase 1 (Design System)
+   Plan    : plans/blog-pre-build-plan.md §3 (Design System Spec)
+   DNA     : reference details/blog-design-dna-implementation-plan.md §1 + §6
+   Rules   : .roo/rules/02-DESIGN-TOKEN-SYSTEM.md (site tokens)
+             .roo/rules/03-SEO-AI-SEARCH-MASTER.md (perf / a11y)
+
+   OWNER-LOCKED DECISIONS (plan §0, 2026-08-13):
+   - DNA token ROLE names are kept exactly (--accent, --surface, --border, …)
+     so a future theme swap is a one-file change (DNA §1 implementation note).
+   - Values are mapped to the CURRENT SITE theme per DNA RULE 1.
+   - --bg stays BLACK + dark-blue gradient (DNA RULE 1 — FIXED, never change).
+   - Playfair editorial font is OMITTED (perf budget <50KB fonts, plan §0.6);
+     article body uses Roboto 400 for consistency.
+   - NO raw hex in component rules — ONLY var(--token) references. Raw hex
+     appears exclusively in the :root token map below.
+   - Scoped inside @layer blog + .blog-dark so the white-site @theme in
+     src/app/globals.css stays untouched. Imported ONLY by
+     src/app/blog/layout.tsx (Phase 2).
+   ============================================================ */
+
+@layer blog {
+  /* ============================================================
+     1. TOKEN ROLE MAP — single :root (DNA §1.1, plan §3.1)
+     ============================================================ */
+  :root {
+    /* ---- Fonts (wired to next/font variables from src/lib/fonts.ts) ---- */
+    --font-h: var(--font-montserrat);      /* headings — weight 800 */
+    --font-b: var(--font-roboto);          /* body — 400/500 */
+    --font-a: var(--font-montserrat);      /* labels / CTAs / eyebrows — 700 uppercase */
+    --font-mono: var(--font-roboto-mono);  /* codes / numbers */
+
+    /* ---- Canvas (FIXED: black + dark-blue gradient, DNA RULE 1) ---- */
+    --bg: #000000;          /* base — never change */
+    --bg-deep: #060A14;     /* deepest dark-blue */
+    --bg-soft: #0A0F1E;     /* soft dark-blue (hero/newsletter base) */
+
+    /* ---- Surfaces (glassmorphism) ---- */
+    --surface: rgba(16, 26, 46, 0.6); /* dark glass tint of brand-blue */
+
+    /* ---- Text ---- */
+    --text: #F5F8FF;        /* near-white primary text */
+    --text-dim: #8B9BB8;    /* muted secondary text */
+
+    /* ---- Light-inversion (signature contrast device) ---- */
+    --alt-bg: #f8fafc;          /* light-bg */
+    --alt-bg-strong: #EAF1FB;   /* card-bg */
+    --alt-text: #1A2233;        /* body-text on alt blocks */
+
+    /* ---- Accents (site-mapped) ---- */
+    --accent: #4D8DFF;      /* light brand-blue — primary accent */
+    --accent-2: #F5A623;    /* cta-amber — gradient partner */
+    --accent-dark: #003366; /* brand-blue-hover — hover/state fills */
+    --accent-rgb: 77, 141, 255;   /* rgb() alpha helper for --accent */
+    --accent-2-rgb: 245, 166, 35; /* rgb() alpha helper for --accent-2 */
+
+    /* ---- UI-approved green for gradient mixes (success-green) ---- */
+    --c-green: #2E9E5B;
+
+    /* ---- Hairlines & glow ---- */
+    --border: rgba(77, 141, 255, 0.18);  /* 1px-gap grids / hairlines */
+    --border-strong: rgba(77, 141, 255, 0.30); /* glass shells / pill borders */
+    --glow: rgba(77, 141, 255, 0.15);    /* hover shadow tint */
+
+    /* ---- Layout ---- */
+    --sidebar-w: 320px;
+
+    /* ============================================================
+       1.2 GRADIENT TOKENS (plan §3.3, site-mapped)
+       ============================================================ */
+    /* Canvas gradient — deep blue radial glows over dark linear base */
+    --grad-canvas:
+      radial-gradient(1200px 600px at 15% -5%, rgba(var(--accent-rgb), 0.10), transparent 60%),
+      radial-gradient(900px 500px at 85% 10%, rgba(var(--accent-2-rgb), 0.06), transparent 55%),
+      linear-gradient(180deg, var(--bg-soft) 0%, var(--bg-deep) 100%);
+
+    --grad-hero: linear-gradient(180deg, var(--bg-soft) 0%, var(--bg-deep) 100%);
+    --grad-newsletter: linear-gradient(135deg, var(--bg-soft), var(--bg-deep));
+    --grad-nl-bottom: linear-gradient(135deg, var(--bg-soft), var(--bg-deep));
+    --grad-accent: linear-gradient(135deg, var(--accent), var(--accent-2));
+    --grad-slide-overlay: linear-gradient(to top, rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0) 70%);
+    --grad-table-row: linear-gradient(90deg, #101A2E, #1A2233);
+
+    /* 7 no-results gradient pills — blue / amber / green mixes (plan §3.3) */
+    --wg-01: linear-gradient(135deg, var(--accent), var(--accent-2));
+    --wg-02: linear-gradient(135deg, var(--accent), var(--c-green));
+    --wg-03: linear-gradient(135deg, var(--accent-2), var(--c-green));
+    --wg-04: linear-gradient(135deg, var(--c-green), var(--accent));
+    --wg-05: linear-gradient(135deg, var(--accent-2), var(--accent));
+    --wg-06: linear-gradient(135deg, var(--accent), var(--accent-dark));
+    --wg-07: linear-gradient(135deg, var(--c-green), var(--accent-2));
+  }
+
+  /* ============================================================
+     2. CANVAS + FONT ROLE MAPPING (plan §3.1 canvas / §3.2)
+     .blog-dark wraps the whole blog content area (BlogShell, Phase 2).
+     ============================================================ */
+  .blog-dark {
+    background: var(--grad-canvas);
+    background-color: var(--bg);
+    color: var(--text);
+    font-family: var(--font-b);
+    font-size: 1rem;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Headings — Montserrat 800 (plan §3.2 font role --font-h) */
+  .blog-dark h1,
+  .blog-dark h2,
+  .blog-dark h3,
+  .blog-dark h4,
+  .blog-dark .blog-h {
+    font-family: var(--font-h);
+    font-weight: 800;
+    color: var(--text);
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+    margin: 0;
+  }
+
+  /* Body copy — Roboto 400/500 (--font-b) */
+  .blog-dark p {
+    color: var(--text);
+    font-family: var(--font-b);
+    font-weight: 400;
+  }
+
+  .blog-dark strong { font-weight: 700; }
+  .blog-dark em { font-style: italic; }
+
+  /* Links — accent, hover lifts to near-white (base, buttons override) */
+  .blog-dark a {
+    color: var(--accent);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+  .blog-dark a:hover { color: var(--text); }
+
+  /* Mono (--font-mono) — codes / numbers */
+  .blog-mono {
+    font-family: var(--font-mono);
+    font-size: 0.875rem;
+  }
+
+  /* ============================================================
+     3. INVERSION RULE (DNA §1.3, plan §3.4)
+     Light blocks flip text to black — signature contrast device.
+     ============================================================ */
+  .blog-alt {
+    background: var(--alt-bg);
+    color: var(--alt-text);
+  }
+  .blog-alt h1,
+  .blog-alt h2,
+  .blog-alt h3,
+  .blog-alt h4,
+  .blog-alt p,
+  .blog-alt li,
+  .blog-alt a {
+    color: var(--alt-text);
+  }
+
+  /* ============================================================
+     4. SIGNATURE PATTERNS ×10 (DNA §6.3, plan §3.7)
+     ============================================================ */
+
+  /* 4.1 — 1px-gap tile grids (cat-grid, results-grid, bento, related) */
+  .blog-tile-grid {
+    display: grid;
+    gap: 1px;
+    background: var(--border);
+  }
+
+  /* 4.2 — Glassmorphism (sticky pill bar, trending shell, sidebar cards) */
+  .blog-glass {
+    background: var(--surface);
+    -webkit-backdrop-filter: blur(16px);
+    backdrop-filter: blur(16px);
+    border: 1px solid var(--border-strong);
+  }
+
+  /* 4.3 — Dual-layer gradient focus ring
+     (search form, newsletter, sidebar search) — padding-box fill +
+     border-box gradient border + glow on focus-within */
+  .blog-dual-border {
+    border: 2px solid transparent;
+    background:
+      linear-gradient(var(--bg-soft), var(--bg-soft)) padding-box,
+      var(--grad-accent) border-box;
+    transition: box-shadow 0.3s ease;
+  }
+  .blog-dual-border:focus-within {
+    box-shadow: 0 0 0 1px var(--border-strong), 0 0 28px var(--glow);
+  }
+
+  /* 4.4 — Accent hover mechanic (hairline → accent edge, scaleX 0→1) */
+  .blog-accent-edge { position: relative; }
+  .blog-accent-edge::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--accent);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+  }
+  .blog-accent-edge:hover::after,
+  .blog-accent-edge.is-open::after { transform: scaleX(1); }
+
+  /* 4.5 — Eyebrow + rule label (uppercase label + short rule) */
+  .blog-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-family: var(--font-a);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-size: 0.75rem;
+    color: var(--accent);
+  }
+  .blog-eyebrow::before {
+    content: "";
+    width: 32px;
+    height: 2px;
+    background: var(--accent);
+    flex: none;
+  }
+
+  /* 4.6 — Light inversion blocks (silo .alt, .all-categories) — see §3 */
+
+  /* 4.7 — Gradient avatars / rings (author) */
+  .blog-avatar-ring {
+    border-radius: 50%;
+    padding: 3px;
+    background: conic-gradient(
+      from 180deg,
+      var(--accent),
+      var(--accent-2),
+      var(--c-green),
+      var(--accent)
+    );
+  }
+  .blog-avatar-ring > * {
+    border-radius: 50%;
+    display: block;
+  }
+
+  /* 4.8 — Slow zoom on hover (overflow-hidden wrapper) */
+  .blog-zoom { overflow: hidden; }
+  .blog-zoom > * {
+    transition: transform 0.6s ease;
+    will-change: transform;
+  }
+  .blog-zoom:hover > * { transform: scale(1.03); }
+
+  /* 4.9 — Hover-pause scrollers (marquee, ticker, trending) */
+  .blog-scroller:hover .blog-scroller-track,
+  .blog-scroller:hover .blog-marquee-track,
+  .blog-scroller:hover .ticker-track,
+  .blog-scroller:hover .trending-track { animation-play-state: paused; }
+
+  /* 4.10 — Sticky elements (pill bar top-0 z-100 blur; sidebar top 24px) */
+  .blog-sticky-top {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(20px);
+  }
+  .blog-sticky-sidebar {
+    position: sticky;
+    top: 24px;
+  }
+
+  /* ============================================================
+     5. THE 12 BUTTONS (DNA §6.1, plan §3.5) — exact hover states
+     ============================================================ */
+
+  /* Shared button base — reset + typography */
+  .btn-read,
+  .btn-load-more,
+  .btn-quote,
+  .silo-cta,
+  .btn-scta,
+  .btn-scta-outline,
+  .nl-submit {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    border-radius: 999px;
+    font-family: var(--font-a);
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 0.06em;
+    border: 1px solid transparent;
+    cursor: pointer;
+    line-height: 1;
+    transition:
+      background 0.3s ease,
+      color 0.3s ease,
+      border-color 0.3s ease,
+      box-shadow 0.3s ease,
+      transform 0.3s ease;
+  }
+
+  /* 1. .btn-read — featured CTA: outline/accent → INVERT + arrow slide */
+  .btn-read {
+    background: transparent;
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+  .btn-read .btn-arrow {
+    display: inline-block;
+    transition: transform 0.3s ease;
+  }
+  .btn-read:hover {
+    background: var(--accent);
+    color: var(--bg-soft);
+    border-color: var(--accent);
+  }
+  .btn-read:hover .btn-arrow { transform: translateX(4px); }
+
+  /* 2. .btn-load-more — dark + accent border → GLOW (accent shadow) */
+  .btn-load-more {
+    background: var(--surface);
+    border-color: var(--border-strong);
+    color: var(--text);
+  }
+  .btn-load-more:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+    box-shadow: 0 0 8px var(--glow), 0 0 24px var(--glow);
+  }
+
+  /* 3. .btn-quote — accent fill → LIFT + GLOW (services bridge) */
+  .btn-quote {
+    background: var(--grad-accent);
+    color: #ffffff;
+    border-color: transparent;
+  }
+  .btn-quote:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px var(--glow);
+  }
+
+  /* 4. .silo-cta — outline → FILL (accent) */
+  .silo-cta {
+    background: transparent;
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+  .silo-cta:hover {
+    background: var(--accent);
+    color: var(--bg-soft);
+    border-color: var(--accent);
+  }
+
+  /* 5. .cat-pill — ghost pill; active underline + color shift */
+  .cat-pill {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    white-space: nowrap;
+    padding: 0.5rem 1.25rem;
+    border-radius: 999px;
+    border: 1px solid var(--border-strong);
+    background: transparent;
+    color: var(--text-dim);
+    font-family: var(--font-a);
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 0.06em;
+    cursor: pointer;
+    transition: color 0.3s ease, border-color 0.3s ease, background 0.3s ease;
+  }
+  .cat-pill::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: 5px;
+    width: 24px;
+    height: 2px;
+    background: var(--accent);
+    transform: translateX(-50%) scaleX(0);
+    transform-origin: center;
+    transition: transform 0.3s ease;
+  }
+  .cat-pill:hover,
+  .cat-pill.is-active {
+    color: var(--text);
+    border-color: var(--accent);
+  }
+  .cat-pill:hover::after,
+  .cat-pill.is-active::after { transform: translateX(-50%) scaleX(1); }
+
+  /* 6. .cat-pill-full — light-inversion pill → ACCENT hover */
+  .cat-pill-full {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    border-radius: 999px;
+    background: var(--alt-bg);
+    color: var(--alt-text);
+    font-family: var(--font-a);
+    font-weight: 700;
+    font-size: 0.8rem;
+    transition: background 0.3s ease, color 0.3s ease, transform 0.3s ease;
+  }
+  .cat-pill-full:hover {
+    background: var(--accent);
+    color: #ffffff;
+    transform: translateY(-2px);
+  }
+
+  /* 7. .btn-scta — accent fill → --accent-dark FILL + GLOW (sidebar CTA) */
+  .btn-scta {
+    background: var(--accent);
+    color: #ffffff;
+  }
+  .btn-scta:hover {
+    background: var(--accent-dark);
+    box-shadow: 0 0 24px var(--glow);
+  }
+
+  /* 8. .btn-scta-outline — outline → ACCENT fill/outline flip */
+  .btn-scta-outline {
+    background: transparent;
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+  .btn-scta-outline:hover {
+    background: var(--accent);
+    color: var(--bg-soft);
+    border-color: var(--accent);
+  }
+
+  /* 9. .nl-submit — gradient fill → --accent-dark FILL + GLOW */
+  .nl-submit {
+    background: var(--grad-accent);
+    color: #ffffff;
+    border-color: transparent;
+  }
+  .nl-submit:hover {
+    background: var(--accent-dark);
+    box-shadow: 0 0 24px var(--glow);
+  }
+
+  /* 10. .share-btn — ghost icon chip → ACCENT border/fill */
+  .share-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1px solid var(--border-strong);
+    background: transparent;
+    color: var(--text-dim);
+    cursor: pointer;
+    transition: border-color 0.3s ease, background 0.3s ease, color 0.3s ease;
+  }
+  .share-btn:hover {
+    border-color: var(--accent);
+    background: var(--accent);
+    color: #ffffff;
+  }
+
+  /* 11. .tag-chip — border chip → ACCENT tint */
+  .tag-chip {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.3rem 0.85rem;
+    border-radius: 999px;
+    border: 1px solid var(--border-strong);
+    background: transparent;
+    color: var(--text-dim);
+    font-size: 0.75rem;
+    transition: border-color 0.3s ease, color 0.3s ease, background 0.3s ease;
+  }
+  .tag-chip:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+    background: var(--glow);
+  }
+
+  /* 12. .post-cat-tag — pill tag → ACCENT hover underline */
+  .post-cat-tag {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    padding: 0.35rem 0.9rem;
+    border-radius: 999px;
+    background: rgba(var(--accent-rgb), 0.12);
+    color: var(--accent);
+    font-family: var(--font-a);
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.7rem;
+    letter-spacing: 0.08em;
+    transition: color 0.3s ease;
+  }
+  .post-cat-tag::after {
+    content: "";
+    position: absolute;
+    left: 20%;
+    right: 20%;
+    bottom: 4px;
+    height: 2px;
+    background: var(--accent);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+  }
+  .post-cat-tag:hover { color: var(--text); }
+  .post-cat-tag:hover::after { transform: scaleX(1); }
+
+  /* ============================================================
+     6. KEYFRAME CONSUMERS (DNA §6.2, plan §3.6)
+     @keyframes themselves are declared at the top level below so
+     name resolution is unambiguous across cascade layers.
+     ============================================================ */
+
+  /* meshPulse — hero mesh radial glows (8s) */
+  .hero-mesh { animation: meshPulse 8s ease-in-out infinite; }
+
+  /* blink — ticker dot indicator (1.5s) */
+  .ticker-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--accent);
+    animation: blink 1.5s infinite;
+  }
+
+  /* tickerUp — vertical hero ticker (40s, hover-pause via .blog-scroller) */
+  .ticker-track { animation: tickerUp 40s linear infinite; }
+
+  /* scrollLeft — marquee + trending track (50s, hover-pause) */
+  .blog-scroller-track,
+  .blog-marquee-track,
+  .trending-track { animation: scrollLeft 50s linear infinite; }
+
+  /* gradientBorder — featured deco ring (6s rotating conic) */
+  .featured-deco-inner {
+    position: relative;
+    overflow: hidden;
+    border-radius: 24px;
+  }
+  .featured-deco-inner::before {
+    content: "";
+    position: absolute;
+    inset: -150%;
+    z-index: 0;
+    background: conic-gradient(
+      from 0deg,
+      var(--accent),
+      var(--accent-2),
+      var(--accent-dark),
+      var(--c-green),
+      var(--accent)
+    );
+    animation: gradientBorder 6s linear infinite;
+  }
+
+  /* scrollbarGlow — category pill bar gradient scrollbar (3s) */
+  .cat-pill-bar {
+    scrollbar-width: thin;
+    scrollbar-color: var(--accent) transparent;
+  }
+  .cat-pill-bar::-webkit-scrollbar { height: 4px; }
+  .cat-pill-bar::-webkit-scrollbar-track { background: transparent; }
+  .cat-pill-bar::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background: var(--grad-accent);
+    animation: scrollbarGlow 3s ease-in-out infinite;
+  }
+
+  /* gradientShift — animated gradients, 200% bg-size (pills 4s / rows 15s) */
+  .wg-pill {
+    background-size: 200% 200%;
+    animation: gradientShift 4s ease infinite;
+  }
+  .animated-row {
+    background-image: var(--grad-table-row);
+    background-size: 200% 100%;
+    animation: gradientShift 15s ease infinite;
+  }
+
+  /* crossfade — hero slideshow transition (1.4s) */
+  .hero-slide {
+    opacity: 0;
+    transition: opacity 1.4s ease;
+    pointer-events: none;
+  }
+  .hero-slide.is-active {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  /* footerDividerGlow — shared footer divider glow (plan §4.3) */
+  .footer-divider-glow {
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--accent), var(--accent-2), transparent);
+    background-size: 200% 100%;
+    animation: footerDividerGlow 8s ease-in-out infinite;
+  }
+
+  /* waPulse — WhatsApp floating button pulse ring (plan §4.3) */
+  .wa-pulse { animation: waPulse 2.5s ease-in-out infinite; }
+
+  /* Scroll reveals — IntersectionObserver (0.6s / 0.5s) */
+  .fade-in {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  .fade-in.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+  .reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ============================================================
+     7. FAQ ACCORDION PRIMITIVES (ZONE 11 / plan §3, DNA §3 zone 11)
+     + to × via rotate(45deg); max-height 0 → 300px; one-at-a-time JS.
+     ============================================================ */
+  .faq-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: 1px solid var(--border-strong);
+    color: var(--accent);
+    background: transparent;
+    cursor: pointer;
+    transition: transform 0.3s ease, border-color 0.3s ease, background 0.3s ease;
+  }
+  .faq-toggle.is-open {
+    transform: rotate(45deg);
+    border-color: var(--accent);
+    background: var(--accent);
+    color: #ffffff;
+  }
+  .faq-a {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+  }
+  .faq-a.is-open { max-height: 300px; }
+
+  /* ============================================================
+     8. TICKER / MARQUEE / TRENDING STRUCTURAL PRIMITIVES
+     (ZONE 1b / ZONE 1 right / ZONE 6 — reused by later phases)
+     ============================================================ */
+  .ticker-track {
+    display: flex;
+    flex-direction: column;
+    will-change: transform;
+  }
+  .blog-scroller-track,
+  .blog-marquee-track,
+  .trending-track {
+    display: flex;
+    gap: 1rem;
+    width: max-content;
+    will-change: transform;
+  }
+
+  /* ============================================================
+     8.1 SHARED LAYOUT STRUCTURE (Phase 2 — BlogShell, breadcrumbs,
+     marquee, container). Content-agnostic wrappers reused by every
+     /blog page; token-driven only (plan §4.2 / §4.4, DNA §2).
+     ============================================================ */
+
+  /* Content column — max-width centered, used by all page zones */
+  .blog-container {
+    max-width: 1200px;
+    margin-inline: auto;
+    padding-inline: 1rem;
+  }
+  @media (min-width: 640px) {
+    .blog-container { padding-inline: 1.5rem; }
+  }
+  @media (min-width: 992px) {
+    .blog-container { padding-inline: 2rem; }
+  }
+
+  /* Marquee — seamless loop: track holds two identical copies; each
+     copy carries its own gap + trailing padding so translateX(-50%)
+     lands exactly on the copy boundary (no visible seam jump). */
+  .blog-marquee {
+    width: 100%;
+    padding: 0.85rem 0;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    background: rgba(6, 10, 20, 0.35);
+  }
+  .blog-scroller {
+    overflow: hidden;
+  }
+  .blog-marquee-track {
+    gap: 0; /* override shared primitive — seam is copy-padded */
+  }
+  .blog-marquee-copy {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding-right: 1rem;
+    flex: none;
+  }
+  .blog-marquee-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    white-space: nowrap;
+    font-family: var(--font-a);
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-dim);
+  }
+  .blog-marquee-item::before {
+    content: "";
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--accent);
+    flex: none;
+  }
+
+  /* Breadcrumbs — semantic nav/ol (BlogBreadcrumbs, plan §4.4) */
+  .blog-crumbs {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem 0;
+    font-size: 0.8rem;
+    color: var(--text-dim);
+  }
+  .blog-crumbs li {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .blog-crumbs-sep { color: var(--text-dim); opacity: 0.55; }
+  .blog-crumbs a {
+    color: var(--text-dim);
+    transition: color 0.2s ease;
+  }
+  .blog-crumbs a:hover { color: var(--text); }
+  .blog-crumbs [aria-current="page"] {
+    color: var(--text);
+    font-weight: 500;
+    max-width: 220px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  /* ============================================================
+     8.2 ZONE LAYOUT — Phase 3 blog index (plan §5, DNA §3)
+     Layout-only classes for the 11 index zones + marquee.
+     Animations live in §6, buttons in §5, shared patterns in §4,
+     shared layout in §8.1 — this section composes those primitives
+     and is authored token-driven exclusively (no raw hex except
+     #ffffff / #000 used for text-on-accent and masks).
+     Element-base rules are `.blog-dark`-scoped so they win over the
+     base element selectors (`.blog-dark p/a/h*`) at §2.
+     ============================================================ */
+
+  /* ── Shared zone primitives ────────────────────────────────── */
+  .zone-head {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+    margin-bottom: 1.75rem;
+  }
+  .zone-title {
+    font-family: var(--font-h);
+    font-size: clamp(1.6rem, 3.4vw, 2.3rem);
+    font-weight: 800;
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+    color: var(--text);
+    margin: 0;
+  }
+  /* Eyebrow accent — wins over `.blog-dark p` (§2) */
+  .blog-dark .blog-eyebrow { color: var(--accent); }
+
+  /* Visually-hidden label (search input, plan §5 zone 1) */
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  /* Consistent zone rhythm — every zone section */
+  .featured-zone,
+  .cat-grid-zone,
+  .bento-zone,
+  .trending-zone,
+  .silos-zone,
+  .author-section,
+  .newsletter-zone,
+  .srv-zone,
+  .faq-zone {
+    padding-block: 3.5rem 1rem;
+  }
+
+  /* ============================================================
+     ZONE 1 — BlogHero (plan §5.1)
+     ============================================================ */
+  .blog-hero {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    padding: 2.5rem 0 3rem;
+    background: var(--grad-hero);
+  }
+  .blog-hero .blog-container { position: relative; z-index: 1; }
+
+  /* mesh — layered radial glows (animation already in §6) */
+  .hero-mesh {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    background:
+      radial-gradient(640px 360px at 15% -10%, rgba(var(--accent-rgb), 0.18), transparent 60%),
+      radial-gradient(560px 320px at 85% 12%, rgba(var(--accent-2-rgb), 0.1), transparent 60%),
+      radial-gradient(480px 300px at 50% 115%, rgba(var(--accent-rgb), 0.12), transparent 60%);
+  }
+  .hero-grain {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    opacity: 0.03;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+  .hero-grid-lines {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    opacity: 0.5;
+    background-image:
+      linear-gradient(rgba(var(--accent-rgb), 0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(var(--accent-rgb), 0.05) 1px, transparent 1px);
+    background-size: 60px 60px;
+    -webkit-mask-image: linear-gradient(180deg, #000 0%, transparent 85%);
+    mask-image: linear-gradient(180deg, #000 0%, transparent 85%);
+  }
+
+  .hero-inner {
+    display: grid;
+    gap: 1.5rem;
+  }
+  .hero-left { min-width: 0; }
+  .blog-dark .hero-title {
+    font-size: clamp(1.9rem, 4.2vw, 2.9rem);
+    line-height: 1.12;
+    letter-spacing: -0.01em;
+    margin: 1rem 0 1.75rem;
+    max-width: 20ch;
+  }
+
+  /* Slideshow — crossfade layer (opacity transition in §6) */
+  .hero-slideshow {
+    position: relative;
+    height: 300px;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    background: var(--bg-deep);
+    box-shadow: 0 18px 50px rgba(0, 0, 0, 0.35);
+  }
+  .hero-slide {
+    position: absolute;
+    inset: 0;
+  }
+  .hero-slide-bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .hero-slide-fallback {
+    display: grid;
+    place-items: center;
+    background: var(--grad-hero);
+  }
+  .hero-slide-fallback span {
+    font-size: 5.5rem;
+    line-height: 1;
+  }
+  .hero-slide-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: var(--grad-slide-overlay);
+  }
+  .hero-slide-content {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 2;
+    padding: 1.5rem;
+  }
+  .blog-dark .hero-slide-title {
+    font-size: clamp(1.1rem, 2.2vw, 1.5rem);
+    line-height: 1.25;
+    margin: 0.6rem 0 0.4rem;
+  }
+  .blog-dark .hero-slide-title a { color: var(--text); }
+  .blog-dark .hero-slide-title a:hover { color: var(--accent); }
+  .blog-dark .hero-slide-meta {
+    display: flex;
+    gap: 0.5rem;
+    font-size: 0.8rem;
+    color: var(--text-dim);
+    margin: 0;
+  }
+
+  .hero-dots {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 1rem;
+  }
+  .hero-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: 1px solid var(--border-strong);
+    background: transparent;
+    padding: 0;
+    cursor: pointer;
+    transition: background 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
+  }
+  .hero-dot:hover { border-color: var(--accent); transform: scale(1.15); }
+  .hero-dot.is-active { background: var(--accent); border-color: var(--accent); }
+
+  .hero-stats {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    margin: 1.75rem 0 0;
+  }
+  .hero-stat {
+    background: rgba(10, 15, 30, 0.7);
+    padding: 0.85rem 1rem;
+  }
+  .hero-stat-value {
+    font-family: var(--font-mono);
+    font-size: 1.15rem;
+    font-weight: 500;
+    color: var(--accent);
+  }
+  .hero-stat-label {
+    margin: 0.2rem 0 0;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--text-dim);
+  }
+
+  /* Right column — search + vertical ticker */
+  .hero-right {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+  .sidebar-search {
+    border-radius: 14px;
+    padding: 1.25rem;
+  }
+  .sidebar-search-title {
+    font-family: var(--font-h);
+    font-size: 1rem;
+    margin: 0 0 0.9rem;
+  }
+  .sidebar-search-form {
+    display: flex;
+    gap: 0.5rem;
+  }
+  .sidebar-search-form input {
+    flex: 1;
+    min-width: 0;
+    padding: 0.6rem 0.9rem;
+    border-radius: 999px;
+    border: 1px solid var(--border);
+    background: rgba(255, 255, 255, 0.04);
+    color: var(--text);
+    font-size: 0.85rem;
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+  .sidebar-search-form input::placeholder { color: var(--text-dim); }
+  .sidebar-search-form input:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px var(--glow);
+  }
+  .blog-dark .sidebar-search-hint {
+    margin: 0.75rem 0 0;
+    font-size: 0.75rem;
+    color: var(--text-dim);
+  }
+
+  .hero-ticker { min-width: 0; }
+  .blog-dark .ticker-heading {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: var(--font-a);
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-dim);
+    margin: 0 0 0.75rem;
+  }
+  .hero-ticker .blog-scroller {
+    height: 300px;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    background: rgba(10, 15, 30, 0.55);
+    padding: 0.5rem 0.75rem;
+  }
+  .blog-dark .ticker-item {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.45rem 0.25rem;
+    font-size: 0.82rem;
+    line-height: 1.4;
+    color: var(--text-dim);
+    transition: color 0.2s ease, padding-left 0.2s ease;
+  }
+  .blog-dark .ticker-item:hover { color: var(--text); padding-left: 0.5rem; }
+  .ticker-item-dot {
+    flex: none;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--accent);
+  }
+  .ticker-seam {
+    height: 1.5rem;
+    flex: none;
+  }
+
+  /* ============================================================
+     ZONE 2 — BlogCategoryNav (plan §5.2)
+     ============================================================ */
+  .cat-pill-bar {
+    background: rgba(6, 10, 20, 0.72);
+    border-bottom: 1px solid var(--border);
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .cat-pill-row {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    width: max-content;
+    min-width: 100%;
+    padding: 0.8rem 0;
+  }
+
+  /* ============================================================
+     ZONE 3 — FeaturedCard (plan §5.3)
+     ============================================================ */
+  .featured-card { min-height: 420px; }
+  .featured-deco-inner { min-height: 420px; }
+  .featured-bg {
+    position: absolute;
+    inset: 2px;
+    z-index: 1;
+    border-radius: 22px;
+  }
+  .featured-bg-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .featured-bg-fallback {
+    display: grid;
+    place-items: center;
+    background: var(--grad-hero);
+  }
+  .featured-bg-fallback span {
+    font-size: 5.5rem;
+    line-height: 1;
+  }
+  .featured-overlay {
+    position: absolute;
+    inset: 2px;
+    z-index: 2;
+    border-radius: 22px;
+    background: var(--grad-slide-overlay);
+  }
+  .featured-body {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.6rem;
+    padding: 1.5rem;
+  }
+  .blog-dark .featured-title {
+    font-size: clamp(1.5rem, 3vw, 2.2rem);
+    line-height: 1.15;
+    margin: 0;
+  }
+  .blog-dark .featured-title a { color: var(--text); }
+  .blog-dark .featured-title a:hover { color: var(--accent); }
+  .blog-dark .featured-lead {
+    color: rgba(245, 248, 255, 0.82);
+    font-size: 1rem;
+    line-height: 1.55;
+    margin: 0;
+    max-width: 56ch;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  .blog-dark .featured-meta {
+    display: flex;
+    gap: 0.5rem;
+    font-size: 0.8rem;
+    color: var(--text-dim);
+    margin: 0;
+  }
+
+  /* ============================================================
+     ZONE 4 — BlogCategoryGrid (plan §5.4)
+     ============================================================ */
+  .cat-grid {
+    grid-template-columns: repeat(1, 1fr);
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  .cat-card {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+    padding: 1.5rem;
+    background: var(--bg-soft);
+    transition: transform 0.25s ease, background 0.25s ease;
+  }
+  .cat-card:hover {
+    transform: translateY(-2px);
+    background: var(--surface);
+  }
+  .cat-code {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    letter-spacing: 0.08em;
+    color: var(--accent);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 0.2rem 0.45rem;
+  }
+  .cat-name {
+    font-size: 1.05rem;
+    line-height: 1.3;
+    margin: 0.25rem 0 0;
+  }
+  .blog-dark .cat-desc {
+    font-size: 0.85rem;
+    line-height: 1.5;
+    color: var(--text-dim);
+    margin: 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  .blog-dark .cat-count {
+    margin: auto 0 0;
+    padding-top: 0.5rem;
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-weight: 700;
+    color: var(--accent);
+  }
+
+  /* ============================================================
+     ZONE 5 — BentoGrid (plan §5.5)
+     ============================================================ */
+  .bento-grid {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 1.25rem;
+  }
+  .bento-span-2 { grid-column: span 1; }
+  .bento-more[hidden] { display: none; }
+  .bento-more .bento-grid { margin-top: 1.25rem; }
+  .bento-more-actions {
+    display: flex;
+    justify-content: center;
+    margin-top: 1.5rem;
+  }
+  .btn-load-more-count { opacity: 0.65; }
+
+  .post-card {
+    display: flex;
+    flex-direction: column;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-top: 2px solid transparent;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+  }
+  .post-card:hover {
+    border-top-color: var(--accent);
+    border-color: var(--border-strong);
+    transform: translateY(-3px);
+    box-shadow: 0 14px 34px rgba(0, 0, 0, 0.3);
+  }
+  .post-thumb {
+    position: relative;
+    display: block;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    background: var(--bg-soft);
+  }
+  .post-thumb-emoji {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    font-size: 3rem;
+    opacity: 0.15;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+  .post-card:hover .post-thumb-emoji { transform: scale(1.1); }
+  .post-thumb-img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .post-body {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+    padding: 1.1rem 1.2rem 1.25rem;
+  }
+  .post-title {
+    font-size: 1.02rem;
+    line-height: 1.3;
+    margin: 0;
+  }
+  .blog-dark .post-title a { color: var(--text); }
+  .blog-dark .post-title a:hover { color: var(--accent); }
+  .blog-dark .post-meta {
+    display: flex;
+    gap: 0.5rem;
+    font-size: 0.78rem;
+    color: var(--text-dim);
+    margin: 0;
+  }
+
+  /* ============================================================
+     ZONE 6 — TrendingSection (plan §5.6)
+     ============================================================ */
+  .trending-zone { overflow: hidden; }
+  .trending-shell {
+    border-radius: 24px;
+    padding: 1.5rem 1rem;
+    overflow: hidden;
+  }
+  .trending-head { margin-bottom: 1.5rem; }
+  .trending-track {
+    gap: 0; /* override shared primitive — seam is copy-padded */
+  }
+  .trending-copy {
+    display: flex;
+    align-items: stretch;
+    gap: 1rem;
+    padding-right: 1rem;
+    flex: none;
+  }
+  .blog-dark .trending-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    white-space: nowrap;
+    padding: 0.65rem 1.1rem;
+    border-radius: 999px;
+    border: 1px solid var(--border);
+    background: rgba(16, 26, 46, 0.6);
+    color: var(--text-dim);
+    font-size: 0.85rem;
+    transition: border-color 0.2s ease, color 0.2s ease, background 0.2s ease;
+  }
+  .blog-dark .trending-item:hover {
+    border-color: var(--accent);
+    color: var(--text);
+    background: rgba(var(--accent-rgb), 0.08);
+  }
+  .trending-rank {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    font-weight: 500;
+    color: var(--accent);
+  }
+
+  /* ============================================================
+     ZONE 7 — SiloBlocks (plan §5.7) — light-inversion on `.alt`
+     ============================================================ */
+  .silos-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  .silo-block {
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    background: var(--bg-soft);
+    padding: 1.75rem;
+  }
+  /* Re-assert alt inversion (`.blog-alt` §3 loses to `.silo-block` order) */
+  .silo-block.blog-alt { background: var(--alt-bg); }
+  .silo-head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.25rem;
+  }
+  .silo-code {
+    flex: none;
+    width: 44px;
+    height: 44px;
+    display: grid;
+    place-items: center;
+    font-family: var(--font-mono);
+    font-weight: 500;
+    font-size: 0.9rem;
+    color: var(--accent);
+    background: rgba(var(--accent-rgb), 0.1);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+  }
+  .silo-heading { flex: 1 1 240px; }
+  .silo-name {
+    font-size: 1.25rem;
+    margin: 0 0 0.3rem;
+  }
+  .blog-dark .silo-desc {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: var(--text-dim);
+    margin: 0;
+  }
+  .silo-posts {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    border-top: 1px solid var(--border);
+  }
+  .silo-posts li + li { border-top: 1px solid var(--border); }
+  .silo-post-row {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+    padding: 0.8rem 0.25rem;
+    transition: padding-left 0.2s ease;
+  }
+  .silo-post-row:hover { padding-left: 0.75rem; }
+  .silo-post-date {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--text-dim);
+    flex: none;
+  }
+  .silo-post-title {
+    color: var(--text);
+    line-height: 1.45;
+    font-size: 0.95rem;
+    transition: color 0.2s ease;
+  }
+  .silo-post-row:hover .silo-post-title { color: var(--accent); }
+  /* Light-inversion overrides — alt-text for readability on light bg */
+  .silo-block.blog-alt .silo-post-date { color: var(--alt-text); opacity: 0.65; }
+  .silo-block.blog-alt .silo-post-title { color: var(--alt-text); }
+  .silo-block.blog-alt .silo-post-row:hover .silo-post-title { color: var(--accent-dark); }
+  .silo-block.blog-alt .silo-desc { color: var(--alt-text); opacity: 0.7; }
+  .silo-block.blog-alt .silo-cta {
+    color: var(--accent-dark);
+    border-color: rgba(0, 64, 128, 0.35);
+  }
+  .silo-block.blog-alt .silo-cta:hover {
+    background: var(--accent-dark);
+    border-color: var(--accent-dark);
+    color: #ffffff;
+  }
+
+  /* ============================================================
+     ZONE 8 — AuthorSection (plan §5.8) — E-E-A-T
+     ============================================================ */
+  .blog-dark .eeat-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin: 0 0 1.5rem;
+    padding: 0.5rem 1rem;
+    border-radius: 999px;
+    border: 1px solid var(--border-strong);
+    background: rgba(var(--accent-rgb), 0.08);
+    color: var(--text-dim);
+    font-size: 0.78rem;
+  }
+  .eeat-badge span { color: var(--c-green); font-weight: 700; }
+  .author-grid {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 1.25rem;
+  }
+  .author-card {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1.75rem;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    background: var(--bg-soft);
+    transition: border-color 0.25s ease, transform 0.25s ease;
+  }
+  .author-card:hover {
+    border-color: var(--border-strong);
+    transform: translateY(-2px);
+  }
+  .author-photo { width: 80px; height: 80px; }
+  .author-monogram {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    place-items: center;
+    background: var(--bg-deep);
+    color: var(--text);
+    font-family: var(--font-a);
+    font-weight: 800;
+    font-size: 1.4rem;
+    letter-spacing: 0.04em;
+  }
+  .author-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+  .author-name { font-size: 1.1rem; }
+  .blog-dark .author-title {
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: 700;
+    color: var(--accent);
+    margin: 0;
+  }
+  .blog-dark .author-bio {
+    font-size: 0.88rem;
+    line-height: 1.55;
+    color: var(--text-dim);
+    margin: 0;
+  }
+  .author-links {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin: 0.5rem 0 0;
+    padding: 0;
+  }
+  .blog-dark .author-links a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    padding: 0.4rem 0.9rem;
+    border-radius: 999px;
+    border: 1px solid var(--border-strong);
+    color: var(--text-dim);
+    font-size: 0.75rem;
+    transition: border-color 0.25s ease, color 0.25s ease, background 0.25s ease;
+  }
+  .blog-dark .author-links a:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+    background: var(--glow);
+  }
+  .blog-dark .author-links-internal {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    margin-top: 0.5rem;
+    font-weight: 700;
+    font-size: 0.85rem;
+    color: var(--accent);
+  }
+  .blog-dark .author-links-internal:hover { color: var(--text); }
+
+  /* ============================================================
+     ZONE 9 — NewsletterSection (plan §5.9) — WhatsApp capture
+     ============================================================ */
+  .newsletter {
+    position: relative;
+    max-width: 760px;
+    margin-inline: auto;
+    border-radius: 24px;
+    padding: 2.5rem 1.5rem;
+    text-align: center;
+    overflow: hidden;
+  }
+  .newsletter .zone-head {
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+  .nl-stars {
+    display: flex;
+    justify-content: center;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+    color: var(--accent-2);
+    font-size: 1.4rem;
+    line-height: 1;
+  }
+  .blog-dark .nl-lead {
+    max-width: 46ch;
+    margin: 0 auto;
+    line-height: 1.6;
+    color: var(--text-dim);
+  }
+  .nl-form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    max-width: 460px;
+    margin: 1.25rem auto 0;
+  }
+  .nl-input {
+    flex: 1;
+    min-width: 0;
+    padding: 0.75rem 1rem;
+    border-radius: 999px;
+    border: 1px solid var(--border);
+    background: rgba(255, 255, 255, 0.04);
+    color: var(--text);
+    font-size: 0.9rem;
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+  .nl-input::placeholder { color: var(--text-dim); }
+  .nl-input:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px var(--glow);
+  }
+  .blog-dark .nl-hint {
+    margin: 0.9rem auto 0;
+    font-size: 0.78rem;
+    color: var(--text-dim);
+    max-width: 40ch;
+  }
+
+  /* ============================================================
+     ZONE 10 — ServicesBridge (plan §5.10)
+     ============================================================ */
+  .srv-grid {
+    grid-template-columns: repeat(1, 1fr);
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  .srv-card {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.6rem;
+    padding: 1.5rem;
+    background: var(--bg-soft);
+    transition: transform 0.25s ease, background 0.25s ease;
+  }
+  .srv-card:hover {
+    transform: translateY(-2px);
+    background: var(--surface);
+  }
+  .srv-icon {
+    display: grid;
+    place-items: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    background: rgba(var(--accent-rgb), 0.1);
+    border: 1px solid var(--border);
+    color: var(--accent);
+    margin-bottom: 0.4rem;
+  }
+  .srv-title {
+    font-size: 1.05rem;
+    margin: 0;
+  }
+  .blog-dark .srv-desc {
+    font-size: 0.85rem;
+    line-height: 1.5;
+    color: var(--text-dim);
+    margin: 0;
+  }
+  .srv-card .btn-quote { margin-top: auto; }
+  /* `.blog-dark a` (§2) overrides `.btn-quote` white text — re-assert */
+  .blog-dark .srv-card .btn-quote { color: #ffffff; }
+  .blog-dark .srv-card .btn-quote:hover { color: #ffffff; }
+
+  /* ============================================================
+     ZONE 11 — BlogFAQ (plan §5.11) — primitives in §7
+     ============================================================ */
+  .faq-list {
+    max-width: 720px;
+    margin-inline: auto;
+  }
+  .faq-item { border-bottom: 1px solid var(--border); }
+  .faq-item:first-child { border-top: 1px solid var(--border); }
+  .faq-q {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 0;
+    padding: 1.1rem 0;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--text);
+  }
+  .faq-q .faq-toggle { flex: none; }
+  .faq-a { padding-inline: 3rem 0; }
+  .blog-dark .faq-a p {
+    margin: 0;
+    padding-bottom: 1.1rem;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: var(--text-dim);
+  }
+
+  /* ============================================================
+     RESPONSIVE — mobile-first breakpoints (plan §5 responsive)
+     ============================================================ */
+  @media (min-width: 640px) {
+    .zone-head { margin-bottom: 2rem; }
+    .hero-slideshow { height: 340px; }
+    .hero-ticker .blog-scroller { height: 340px; }
+    .hero-stats { grid-template-columns: repeat(4, 1fr); }
+    .cat-grid { grid-template-columns: repeat(2, 1fr); }
+    .srv-grid { grid-template-columns: repeat(2, 1fr); }
+    .bento-grid { grid-template-columns: repeat(2, 1fr); }
+    .author-grid { grid-template-columns: repeat(2, 1fr); }
+    .silo-post-row { flex-direction: row; align-items: baseline; gap: 1.25rem; }
+    .silo-post-date { min-width: 7.5rem; }
+    .nl-form { flex-direction: row; }
+    .trending-shell {
+      border-radius: 40px;
+      padding: 2rem 1.5rem;
+    }
+  }
+
+  @media (min-width: 992px) {
+    .featured-zone,
+    .cat-grid-zone,
+    .bento-zone,
+    .trending-zone,
+    .silos-zone,
+    .author-section,
+    .newsletter-zone,
+    .srv-zone,
+    .faq-zone {
+      padding-block: 5rem 1.5rem;
+    }
+    .hero-inner {
+      grid-template-columns: 1fr 380px;
+      gap: 2rem;
+      align-items: start;
+    }
+    .hero-right {
+      position: sticky;
+      top: 96px;
+      align-self: start;
+    }
+    .hero-slideshow { height: 380px; }
+    .hero-title { margin: 1.25rem 0 2rem; }
+    .cat-grid { grid-template-columns: repeat(4, 1fr); }
+    .srv-grid { grid-template-columns: repeat(4, 1fr); }
+    .bento-grid { grid-template-columns: repeat(3, 1fr); }
+    .bento-span-2 { grid-column: span 2; }
+    .author-grid { grid-template-columns: repeat(3, 1fr); }
+    .featured-card { min-height: 480px; }
+    .featured-deco-inner { min-height: 480px; }
+    .featured-body { padding: 2rem; }
+  }
+
+  /* ============================================================
+     8.2b 1200px breakpoint (plan §9.1 / DNA §8) — full desktop:
+     wider container, hero-right gets more room (not stacked),
+     taller hero slideshow + ticker, larger featured card, and
+     bigger grid gaps so 4-col rows breathe on large screens.
+     ============================================================ */
+  @media (min-width: 1200px) {
+    .blog-container { max-width: 1320px; }
+    .hero-inner {
+      grid-template-columns: 1fr 440px;
+      gap: 3rem;
+    }
+    .hero-slideshow,
+    .hero-ticker .blog-scroller { height: 460px; }
+    .blog-dark .hero-title {
+      font-size: clamp(2.1rem, 4vw, 3.2rem);
+      margin: 1.5rem 0 2.25rem;
+    }
+    .bento-grid,
+    .author-grid { gap: 1.5rem; }
+    .featured-card,
+    .featured-deco-inner { min-height: 560px; }
+    .featured-body { padding: 2.25rem; }
+  }
+
+  /* ============================================================
+     8.3 SEARCH PAGE (plan §6, DNA §4) — route: /blog/search
+     Signature dual-layer search form, 1px-gap auto-fill results
+     grid with <mark> context highlighting, and the no-results
+     state with 7 gradient pills (--wg-01..07). Reuses the shared
+     primitives from §4 (blog-dual-border, blog-eyebrow, btn-scta,
+     post-cat-tag, btn-read, wg-pill + gradientShift).
+     ============================================================ */
+
+  .search-page { padding: 2rem 0 4.5rem; }
+
+  .search-hero { padding-bottom: 2.25rem; }
+  .search-hero .blog-eyebrow { margin-bottom: 1rem; }
+  .search-hero-title {
+    font-family: var(--font-h);
+    font-weight: 800;
+    font-size: clamp(1.8rem, 4vw, 2.75rem);
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+    color: var(--text);
+    margin: 0.5rem 0 0.75rem;
+  }
+  .search-hero-title em { color: var(--accent); font-style: normal; }
+  .search-count {
+    display: block;
+    font-family: var(--font-a);
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-dim);
+    margin: 0 0 1.5rem;
+  }
+  .search-count strong { color: var(--accent); }
+
+  /* Signature dual-layer gradient search form (blog-dual-border) */
+  .search-form {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    max-width: 720px;
+    border-radius: 14px;
+    padding: 0.5rem 0.5rem 0.5rem 1.1rem;
+  }
+  .search-form input {
+    flex: 1;
+    min-width: 0;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: var(--text);
+    font-family: var(--font-b);
+    font-size: 1rem;
+    padding: 0.7rem 0;
+  }
+  .search-form input::placeholder { color: var(--text-dim); }
+  .search-form .btn-scta {
+    flex: none;
+    border-radius: 10px;
+    padding: 0.72rem 1.4rem;
+    font-size: 0.85rem;
+  }
+
+  /* Results — 1px-gap auto-fill grid (DNA §4, plan §6.3) */
+  .results-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(340px, 100%), 1fr));
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    overflow: hidden;
+  }
+  .result-card {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    padding: 1.5rem;
+    background: var(--surface);
+    -webkit-backdrop-filter: blur(14px);
+    backdrop-filter: blur(14px);
+    transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+  }
+  .result-card:hover {
+    z-index: 2;
+    transform: translateY(-2px);
+    background: var(--bg-soft);
+    box-shadow: 0 12px 32px var(--glow);
+  }
+  .result-card-meta {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .result-card .post-cat-tag { font-size: 0.72rem; }
+  .result-card-date {
+    font-size: 0.78rem;
+    color: var(--text-dim);
+  }
+  .result-card-title {
+    font-family: var(--font-h);
+    font-weight: 800;
+    font-size: 1.15rem;
+    line-height: 1.3;
+    color: var(--text);
+    margin: 0;
+  }
+  .result-card-title a { color: inherit; }
+  .result-card-title a:hover { color: var(--accent); }
+  .result-card-excerpt {
+    margin: 0;
+    font-size: 0.92rem;
+    line-height: 1.6;
+    color: var(--text-dim);
+  }
+  .search-highlight {
+    background: transparent;
+    color: var(--accent);
+    font-weight: 700;
+    text-decoration: underline;
+    text-decoration-color: var(--accent-2);
+    text-underline-offset: 3px;
+  }
+  .result-card .btn-read { margin-top: auto; align-self: flex-start; }
+
+  /* No results — empty state + 7 gradient pills (--wg-01..07) */
+  .no-results {
+    padding: 1px;
+    border-radius: 16px;
+    background: var(--border);
+  }
+  .no-results-inner {
+    padding: 3rem 1.5rem;
+    border-radius: 15px;
+    background: var(--bg-soft);
+    text-align: center;
+  }
+  .no-results-title {
+    font-family: var(--font-h);
+    font-weight: 800;
+    font-size: 1.5rem;
+    color: var(--text);
+    margin: 0 0 0.5rem;
+  }
+  .no-results-title em { color: var(--accent); font-style: normal; }
+  .blog-dark .no-results-inner p {
+    max-width: 520px;
+    margin: 0 auto 1.75rem;
+    color: var(--text-dim);
+  }
+  .no-results-pills {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.75rem;
+  }
+  /* Text-on-gradient white (documented exception, plan §3.3 / blog.css header) */
+  .blog-dark .wg-pill {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.55rem 1.1rem;
+    border-radius: 999px;
+    color: #ffffff;
+    font-family: var(--font-a);
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+  .blog-dark .wg-pill:hover {
+    color: #ffffff;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 24px var(--glow);
+  }
+  .wg-pill-1 { background-image: var(--wg-01); }
+  .wg-pill-2 { background-image: var(--wg-02); }
+  .wg-pill-3 { background-image: var(--wg-03); }
+  .wg-pill-4 { background-image: var(--wg-04); }
+  .wg-pill-5 { background-image: var(--wg-05); }
+  .wg-pill-6 { background-image: var(--wg-06); }
+  .wg-pill-7 { background-image: var(--wg-07); }
+
+  /* ============================================================
+     8.4  ARTICLE PAGE (plan §7 / §5.1–5.13)
+     Reading progress bar, post hero, stats strip, content grid,
+     sticky sidebar (TOC scroll-spy), tags/share, author bio,
+     prev/next, all-categories (light inversion), newsletter bottom.
+     ============================================================ */
+
+  /* §5.1 — reading progress bar (fixed top, gradient fill) */
+  .progress-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    width: 0;
+    height: 3px;
+    background: var(--grad-accent);
+    box-shadow: 0 0 12px var(--glow);
+    pointer-events: none;
+  }
+
+  .post-article {
+    position: relative;
+    padding-bottom: 0.5rem;
+  }
+
+  /* §5.2 — post hero (centered, mesh glow, clamp H1) */
+  .post-hero {
+    position: relative;
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 3.5rem 1rem 1.5rem;
+    text-align: center;
+  }
+  .post-hero-glow {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(520px 260px at 50% 0%, rgba(var(--accent-rgb), 0.14), transparent 70%),
+      radial-gradient(420px 220px at 82% 22%, rgba(var(--accent-2-rgb), 0.06), transparent 60%);
+    pointer-events: none;
+    animation: meshPulse 8s ease-in-out infinite;
+  }
+  .post-hero .post-cat-tag {
+    position: relative;
+    z-index: 1;
+    margin-bottom: 1.1rem;
+  }
+  .post-hero h1 {
+    position: relative;
+    z-index: 1;
+    margin: 0 0 1rem;
+    font-size: clamp(2.2rem, 4.5vw, 3.8rem);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    text-wrap: balance;
+  }
+  .post-lead {
+    position: relative;
+    z-index: 1;
+    max-width: 680px;
+    margin: 0 auto 1.5rem;
+    font-size: 1.125rem;
+    color: var(--text-dim);
+  }
+  .post-meta {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.6rem 0.75rem;
+    font-size: 0.875rem;
+    color: var(--text-dim);
+  }
+  .meta-avatar {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    flex: none;
+    border-radius: 50%;
+    font-family: var(--font-h);
+    font-weight: 800;
+    font-size: 1rem;
+    color: var(--bg);
+    background: var(--grad-accent);
+  }
+  .meta-author {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-start;
+    line-height: 1.25;
+  }
+  .meta-author-name {
+    font-family: var(--font-a);
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text);
+  }
+  .meta-author-title { font-size: 0.75rem; color: var(--text-dim); }
+  .meta-sep { color: var(--border-strong); }
+  .meta-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    white-space: nowrap;
+  }
+  .meta-item svg { color: var(--accent); }
+
+  /* §5.3 — hero image (bordered, rounded, deep shadow) */
+  .post-hero-image {
+    max-width: 1100px;
+    margin: 0 auto 2rem;
+    padding: 0 1rem;
+  }
+  .post-hero-image img {
+    width: 100%;
+    height: auto;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    box-shadow: 0 24px 70px rgba(0, 0, 0, 0.45);
+  }
+
+  /* §5.4 — stats strip (1px-gap grid, glass cells) */
+  .stats-strip {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1px;
+    max-width: 1100px;
+    margin: 0 auto 2.5rem;
+    padding: 0 1rem;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    background: var(--border);
+    overflow: hidden;
+  }
+  .stat-cell {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.3rem;
+    padding: 1.3rem 1rem;
+    background: var(--surface);
+    text-align: center;
+  }
+  .stat-value {
+    font-family: var(--font-h);
+    font-weight: 800;
+    font-size: 1.45rem;
+    line-height: 1.1;
+    background: var(--grad-accent);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
+  .stat-label {
+    font-size: 0.8rem;
+    line-height: 1.3;
+    color: var(--text-dim);
+  }
+
+  /* §5.5 — content + sidebar grid (desktop); collapses to 1 col < 992px */
+  .post-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) var(--sidebar-w);
+    gap: 2.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+  .post-main { min-width: 0; }
+
+  /* §5.6 — post content typography */
+  .post-content {
+    font-family: var(--font-b);
+    font-size: 1.0625rem;
+    line-height: 1.75;
+    color: var(--text);
+  }
+  .post-content > * + * { margin-top: 1.5rem; }
+  .post-content h2 {
+    margin: 2.75rem 0 1rem;
+    padding-top: 0.85rem;
+    border-top: 1px solid var(--border);
+    font-size: 1.75rem;
+    line-height: 1.2;
+    scroll-margin-top: 90px;
+  }
+  .post-content h3 {
+    margin: 2.25rem 0 0.85rem;
+    padding-left: 0.9rem;
+    border-left: 3px solid var(--accent);
+    font-size: 1.3rem;
+    line-height: 1.3;
+    scroll-margin-top: 90px;
+  }
+  .post-content a {
+    color: var(--accent);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    text-decoration-color: rgba(var(--accent-rgb), 0.4);
+  }
+  .post-content a:hover { color: var(--text); }
+  .post-content .post-list { margin: 1.5rem 0; }
+  .post-content .post-list li { margin: 0.5rem 0; }
+  .post-content .post-list li::marker { color: var(--accent); }
+  .post-content blockquote {
+    margin: 1.5rem 0;
+    padding: 1rem 1.25rem;
+    border-left: 4px solid var(--accent-2);
+    border-radius: 0 12px 12px 0;
+    background: var(--surface);
+    font-style: italic;
+    color: var(--text-dim);
+  }
+
+  /* §5.6 — tables (gradient .animated-row + hairline borders) */
+  .table-wrap {
+    margin: 1.5rem 0;
+    overflow-x: auto;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+  }
+  .table-wrap table {
+    width: 100%;
+    margin: 0;
+    border-collapse: collapse;
+  }
+  .table-wrap th,
+  .table-wrap td {
+    padding: 0.85rem 1rem;
+    border-bottom: 1px solid var(--border);
+    text-align: left;
+    font-size: 0.92rem;
+  }
+  .table-wrap thead th {
+    font-family: var(--font-a);
+    font-size: 0.74rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--accent);
+  }
+  .table-wrap tbody tr:last-child th,
+  .table-wrap tbody tr:last-child td { border-bottom: none; }
+
+  /* §5.6 — figures + expert callout */
+  .post-figure { margin: 2rem 0; }
+  .post-figure img {
+    width: 100%;
+    height: auto;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+  }
+  .post-figure figcaption {
+    margin-top: 0.6rem;
+    font-size: 0.82rem;
+    text-align: center;
+    color: var(--text-dim);
+  }
+  .expert-insight {
+    margin: 2rem 0;
+    padding: 1.4rem 1.5rem;
+    border: 1px solid var(--border-strong);
+    border-left: 6px solid var(--accent);
+    border-radius: 12px;
+    background: var(--surface);
+    box-shadow: 0 10px 30px var(--glow);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .expert-insight:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 40px var(--glow);
+  }
+  .expert-insight p { margin: 0; }
+
+  /* §5.6 — FAQ block (native <details> expanders, a11y) */
+  .article-faq { margin: 1.5rem 0; }
+  .article-faq-item {
+    margin: 0.75rem 0;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: var(--surface);
+    overflow: hidden;
+  }
+  .article-faq-item summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1rem 1.25rem;
+    cursor: pointer;
+    list-style: none;
+    font-family: var(--font-h);
+    font-weight: 700;
+    font-size: 1rem;
+    line-height: 1.35;
+  }
+  .article-faq-item summary::-webkit-details-marker { display: none; }
+  .article-faq-item summary::after {
+    content: "+";
+    flex: none;
+    font-size: 1.3rem;
+    font-weight: 400;
+    color: var(--accent);
+    transition: transform 0.25s ease;
+  }
+  .article-faq-item[open] summary::after { transform: rotate(45deg); }
+  .article-faq-item p {
+    margin: 0;
+    padding: 0 1.25rem 1.25rem;
+    color: var(--text-dim);
+  }
+
+  /* §5.7 — article footer (tags + share) */
+  .article-footer {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-top: 2.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border);
+  }
+  .article-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+  .article-share {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .share-label {
+    margin-right: 0.25rem;
+    font-family: var(--font-a);
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--text-dim);
+  }
+  .share-copy { border-style: dashed; }
+
+  /* §5.8 — author bio card (E-E-A-T) */
+  .author-bio-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.25rem;
+    margin-top: 2.5rem;
+    padding: 1.5rem;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    background: var(--surface);
+  }
+  .author-bio-avatar {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 64px;
+    height: 64px;
+    flex: none;
+    font-family: var(--font-h);
+    font-weight: 800;
+    font-size: 1.5rem;
+    color: var(--bg);
+  }
+  .author-bio-body { min-width: 0; }
+  .author-bio-name { margin: 0 0 0.25rem; font-size: 1.1rem; }
+  .author-bio-role {
+    margin: 0 0 0.6rem;
+    font-family: var(--font-a);
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--accent);
+  }
+  .author-bio-text { margin: 0; font-size: 0.95rem; color: var(--text-dim); }
+  .author-bio-reviewer {
+    margin: 0.6rem 0 0;
+    padding-left: 0.75rem;
+    border-left: 3px solid var(--accent-2);
+    font-size: 0.85rem;
+    color: var(--text-dim);
+  }
+
+  /* §5.9 — sticky sidebar rail (TOC scroll-spy + facts + related + CTA) */
+  .sidebar {
+    position: sticky;
+    top: 24px;
+    align-self: start;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    min-width: 0;
+  }
+  .toc {
+    padding: 1.25rem;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    background: var(--surface);
+  }
+  .toc-title {
+    margin: 0 0 0.75rem;
+    font-family: var(--font-a);
+    font-size: 0.82rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--accent);
+  }
+  .toc-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .toc-link {
+    display: block;
+    padding: 0.35rem 0.6rem;
+    border-left: 2px solid transparent;
+    border-radius: 6px;
+    font-size: 0.88rem;
+    line-height: 1.35;
+    color: var(--text-dim);
+    transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+  }
+  .toc-link:hover {
+    background: rgba(var(--accent-rgb), 0.08);
+    color: var(--text);
+  }
+  .toc-link.is-h3 { padding-left: 1.2rem; font-size: 0.83rem; }
+  .toc-link.is-active {
+    border-left-color: var(--accent);
+    background: rgba(var(--accent-rgb), 0.08);
+    color: var(--accent);
+    font-weight: 500;
+  }
+  .sidebar-facts {
+    padding: 0.5rem 1.25rem;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    background: var(--surface);
+  }
+  .fact-item {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.8rem 0;
+    font-size: 0.88rem;
+  }
+  .fact-item + .fact-item { border-top: 1px solid var(--border); }
+  .fact-item svg { flex: none; color: var(--accent); }
+  .fact-label { color: var(--text-dim); }
+  .fact-value {
+    margin-left: auto;
+    text-align: right;
+    font-weight: 500;
+    color: var(--text);
+  }
+  .sidebar-related {
+    padding: 1.25rem;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    background: var(--surface);
+  }
+  .sidebar-related-title {
+    margin: 0 0 0.85rem;
+    font-family: var(--font-a);
+    font-size: 0.82rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--accent);
+  }
+  .sb-related-item {
+    display: flex;
+    gap: 0.75rem;
+    padding: 0.6rem 0;
+    text-decoration: none;
+    color: var(--text);
+  }
+  .sb-related-item + .sb-related-item { border-top: 1px solid var(--border); }
+  .sb-related-thumb {
+    width: 72px;
+    height: 48px;
+    flex: none;
+    object-fit: cover;
+    border-radius: 8px;
+    background: var(--grad-table-row);
+  }
+  .sb-related-thumb-fallback {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-h);
+    font-weight: 800;
+    color: var(--accent);
+  }
+  .sb-related-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    min-width: 0;
+  }
+  .sb-related-title { font-size: 0.88rem; line-height: 1.3; }
+  .sb-related-meta { font-size: 0.75rem; color: var(--text-dim); }
+  .sb-related-item:hover .sb-related-title { color: var(--accent); }
+  .sidebar-resources {
+    padding: 1.25rem;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    background: var(--surface);
+  }
+  .sidebar-resources-title {
+    margin: 0 0 0.85rem;
+    font-family: var(--font-a);
+    font-size: 0.82rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--accent);
+  }
+  .sidebar-resources-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .sidebar-resources-list li + li { border-top: 1px solid var(--border); }
+  .sb-resource-link {
+    display: flex;
+    align-items: baseline;
+    gap: 0.5rem;
+    padding: 0.7rem 0;
+    font-size: 0.88rem;
+    line-height: 1.4;
+    color: var(--text);
+    text-decoration: none;
+  }
+  .sb-resource-link::before {
+    content: "→";
+    flex: none;
+    color: var(--accent);
+    font-weight: 700;
+  }
+  .sb-resource-link:hover { color: var(--accent); }
+  .sidebar-cta-card {
+    padding: 1.4rem;
+    border: 1px solid var(--border-strong);
+    border-radius: 14px;
+    background: var(--surface);
+    text-align: center;
+  }
+  .sidebar-cta-title { margin: 0 0 0.5rem; font-size: 1.05rem; }
+  .sidebar-cta-text { margin: 0 0 1rem; font-size: 0.88rem; color: var(--text-dim); }
+  .sidebar-cta-card .btn-scta,
+  .sidebar-cta-card .btn-scta-outline { width: 100%; margin-top: 0.5rem; }
+
+  /* §5.10 — prev/next rail (deterministic server links) */
+  .prev-next {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    max-width: 1200px;
+    margin: 3rem auto 0;
+    padding: 0 1rem;
+  }
+  .prev-next-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    padding: 1.25rem 1.5rem;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    background: var(--surface);
+    text-decoration: none;
+    color: var(--text);
+    transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+  }
+  .prev-next-card:hover {
+    transform: translateY(-3px);
+    border-color: var(--accent);
+    box-shadow: 0 12px 32px var(--glow);
+  }
+  .prev-next-card.next { align-items: flex-end; text-align: right; }
+  .prev-next-card.is-empty { visibility: hidden; }
+  .prev-next-direction {
+    font-family: var(--font-a);
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--accent);
+  }
+  .prev-next-title {
+    font-family: var(--font-h);
+    font-weight: 700;
+    font-size: 1rem;
+    line-height: 1.35;
+  }
+  .prev-next-meta { font-size: 0.8rem; color: var(--text-dim); }
+
+  /* §5.11 — all-categories (light inversion; reuses .cat-pill-full) */
+  .all-categories {
+    margin-top: 3.5rem;
+    padding: 3rem 0;
+    background: var(--alt-bg);
+    color: var(--alt-text);
+  }
+  .all-categories .blog-container { text-align: center; }
+  .all-categories-title {
+    margin: 0 0 0.6rem;
+    font-size: 1.6rem;
+    color: var(--alt-text);
+  }
+  .all-categories-text {
+    max-width: 560px;
+    margin: 0 auto 1.75rem;
+    color: var(--alt-text);
+    opacity: 0.75;
+  }
+  .all-categories-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.75rem;
+  }
+
+  /* §5.12 — newsletter bottom (gradient glass panel) */
+  .nl-bottom { margin-top: 3.5rem; }
+  .nl-bottom-inner {
+    padding: 2.5rem 1.5rem;
+    border-radius: 20px;
+    background: var(--grad-nl-bottom);
+    text-align: center;
+  }
+  .nl-bottom-title { margin: 0 0 0.6rem; font-size: 1.5rem; }
+  .nl-bottom-text {
+    max-width: 520px;
+    margin: 0 auto 1.5rem;
+    color: var(--text-dim);
+  }
+
+  /* §5.9 — 992px breakpoint: content stacks, sidebar un-sticks */
+  @media (max-width: 992px) {
+    .post-layout {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+    .sidebar {
+      position: static;
+      margin-top: 2rem;
+    }
+    .prev-next { grid-template-columns: 1fr; }
+  }
+}
+
+/* ============================================================
+   9. KEYFRAMES ×11 (DNA §6.2, plan §3.6) — declared at top level
+   so animations resolve across all cascade layers.
+   ============================================================ */
+
+/* meshPulse — 8s ease-in-out infinite — hero mesh glows */
+@keyframes meshPulse {
+  0%, 100% { transform: translate3d(0, 0, 0) scale(1); opacity: 0.85; }
+  50% { transform: translate3d(2%, -3%, 0) scale(1.08); opacity: 1; }
+}
+
+/* blink — 1.5s infinite — ticker dot */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.2; }
+}
+
+/* tickerUp — 40s linear infinite — vertical hero ticker (hover pause) */
+@keyframes tickerUp {
+  from { transform: translateY(0); }
+  to { transform: translateY(-50%); }
+}
+
+/* scrollLeft — 50s linear infinite — marquee + trending track (hover pause) */
+@keyframes scrollLeft {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+/* gradientBorder — 6s — featured deco ring (rotating conic) */
+@keyframes gradientBorder {
+  to { transform: rotate(360deg); }
+}
+
+/* scrollbarGlow — 3s — category pill bar scrollbar */
+@keyframes scrollbarGlow {
+  0%, 100% { box-shadow: 0 0 4px var(--glow); }
+  50% { box-shadow: 0 0 12px var(--glow); }
+}
+
+/* gradientShift — 4s pills / 15s table rows (200% bg-size) */
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* crossfade — 1.4s — hero slideshow transition */
+@keyframes crossfade {
+  0% { opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+/* footerDividerGlow — footer divider glow (shared component) */
+@keyframes footerDividerGlow {
+  0%, 100% { background-position: 0% 50%; opacity: 0.6; }
+  50% { background-position: 100% 50%; opacity: 1; }
+}
+
+/* waPulse — WhatsApp button pulse ring */
+@keyframes waPulse {
+  0% { box-shadow: 0 0 0 0 var(--glow); }
+  70% { box-shadow: 0 0 0 14px rgba(var(--accent-rgb), 0); }
+  100% { box-shadow: 0 0 0 0 rgba(var(--accent-rgb), 0); }
+}
+
+/* ============================================================
+   10. RESPECT PREFERS-REDUCED-MOTION (plan §3.6 / §9.3 / §10)
+   Decorative keyframes off; scrollers STATIC (no jump to end);
+   reveals forced visible so content is never hidden.
+   ============================================================ */
+@media (prefers-reduced-motion: reduce) {
+  .hero-mesh,
+  .ticker-dot,
+  .featured-deco-inner::before,
+  .cat-pill-bar::-webkit-scrollbar-thumb,
+  .wg-pill,
+  .animated-row,
+  .hero-slide,
+  .footer-divider-glow,
+  .wa-pulse { animation: none !important; }
+
+  /* Scrollers become static — no translate jump, no hidden content */
+  .ticker-track,
+  .blog-scroller-track,
+  .blog-marquee-track,
+  .trending-track { animation: none !important; transform: none !important; }
+
+  /* Reveals always visible */
+  .fade-in,
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
+  /* Hover-pause + transitions disabled */
+  .blog-zoom > *,
+  .btn-read .btn-arrow,
+  .faq-toggle,
+  .faq-a { transition: none !important; }
+}
+
+  /* ============================================================
+     11. FOCUS STATES (plan §9.3) — explicit keyboard focus ring
+     scoped to the blog dark canvas. globals.css carries no
+     :focus-visible rule, so links/buttons/inputs in the blog
+     theme rely on this accent outline for keyboard navigation.
+     ============================================================ */
+  .blog-dark a:focus-visible,
+  .blog-dark button:focus-visible,
+  .blog-dark input:focus-visible,
+  .blog-dark textarea:focus-visible,
+  .blog-dark select:focus-visible,
+  .blog-dark summary:focus-visible,
+  .blog-dark [role="button"]:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+    border-radius: 6px;
+  }

@@ -12,6 +12,7 @@
  *   4. Approval pages (52 services × 2 languages = 104)
  *   5. Service pages (5 × 2 = 10)
  *   6. Guide / Q&A pages (30+ × 2 = 60+)
+ *   7. Blog (live posts en/ar pairs — hub + every live post URL)
  *
  * SEO best practices applied:
  *   - Every <url> includes self-referencing hreflang (en/ar) + x-default
@@ -30,6 +31,8 @@ import { guides } from "@/data/guides";
 import { services } from "@/data/services";
 import { loadPseoPages, getPseoArabicEntry } from "@/lib/pseo-data";
 import { SITE } from "@/lib/constants";
+import { getLivePosts } from "@/lib/blog";
+import { getLiveArabicPosts } from "@/lib/blog-ar";
 
 const BASE_URL = SITE.url;
 
@@ -151,7 +154,44 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     });
   }
 
-  /* ── 7. pSEO pages (en + ar when Arabic exists) ───────────── */
+  /* ── 7. Blog (plan §8.3) ───────────────────────────────────── */
+  // Only `live` posts enter sitemap.xml (plan §9 Phase 0 #5; PM flips
+  // status "ready" → "live" at deploy). lastModified = post.lastUpdated.
+  // /blog/search and /ar/blog/search are noindex and excluded. Now that
+  // /ar/blog routes ship, both hubs and every live post URL are emitted as
+  // en/ar hreflang pairs (38 article URLs at publish: 19 en + 19 ar). The
+  // AR URL is only emitted when an Arabic rewrite actually exists (defensive
+  // guard mirrors the pSEO section below).
+  const liveBlog = getLivePosts();
+  const liveArabicBlog = getLiveArabicPosts();
+  const liveArabicSlugs = new Set(liveArabicBlog.map((p) => p.slug));
+  const blogHubDate = liveBlog[0]?.lastUpdated || "2026-07-28";
+
+  pushPair(entries, "/blog", "/ar/blog", blogHubDate, blogHubDate);
+
+  for (const post of liveBlog) {
+    const enUrl = `${BASE_URL}/blog/${post.slug}`;
+    const arUrl = `${BASE_URL}/ar/blog/${post.slug}`;
+    const hasAr = liveArabicSlugs.has(post.slug);
+
+    entries.push({
+      url: enUrl,
+      lastModified: new Date(post.lastUpdated),
+      alternates: hasAr
+        ? alt(enUrl, arUrl)
+        : { languages: { en: enUrl, "x-default": enUrl } },
+    });
+
+    if (hasAr) {
+      entries.push({
+        url: arUrl,
+        lastModified: new Date(post.lastUpdated),
+        alternates: alt(enUrl, arUrl),
+      });
+    }
+  }
+
+  /* ── 8. pSEO pages (en + ar when Arabic exists) ───────────── */
   // pSEO pages render under /guides/{slug}. Slugs are deduped by the
   // generation engine, but we guard against collisions with existing
   // guides so the sitemap never lists a URL twice.

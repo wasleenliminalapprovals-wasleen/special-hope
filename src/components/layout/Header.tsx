@@ -26,6 +26,7 @@ function getNavItems(locale: "en" | "ar") {
       { label: AR.nav.approvals, href: "/ar/approvals", hasMegaMenu: true as const },
       { label: AR.nav.services, href: "/ar/services", hasMegaMenu: true as const },
       { label: AR.nav.guides, href: "/ar/guides" },
+      { label: AR.nav.blog, href: "/ar/blog" },
       { label: AR.nav.aboutUs, href: "/ar/about-us" },
       { label: AR.nav.contactUs, href: "/ar/contact-us" },
     ];
@@ -35,6 +36,7 @@ function getNavItems(locale: "en" | "ar") {
     { label: "Approvals", href: "/approvals", hasMegaMenu: true as const },
     { label: "Services", href: "/services", hasMegaMenu: true as const },
     { label: "Guides", href: "/guides" },
+    { label: "Blog", href: "/blog" },
     { label: "About Us", href: "/about-us" },
     { label: "Contact Us", href: "/contact-us" },
   ];
