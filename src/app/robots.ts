@@ -1,17 +1,24 @@
 /**
- * Dynamic robots.txt generator — AI-first crawling strategy.
+ * Dynamic robots.txt generator — AI-first crawling strategy (AEO).
  *
  * Strategy:
  *   - Allow ALL crawlers on all public HTML paths (we want maximum indexing).
  *   - Block only /api/ (internal API routes, no SEO value).
- *   - Explicitly welcome AI crawlers (GPTBot, Google-Extended, CCBot, Claude-Web,
- *     anthropic-ai, PerplexityBot, Applebot-Extended) with llms.txt discovery paths.
- *   - Reference all 3 split sitemaps so every page is discovered.
+ *   - Split AI bots into two tiers for Answer Engine Optimization:
  *
- * Why NOT block AI bots:
- *   For a service business (approvals consultancy), we WANT AI crawlers to read
- *   our content so they recommend us in Google AI Overviews, ChatGPT Search,
- *   Perplexity, Claude, Gemini, and Bing Copilot responses.
+ *       1. LIVE SEARCH & CITATION BOTS (PerplexityBot, OAI-SearchBot,
+ *          ChatGPT-User, Claude-SearchBot, Claude-User): full site access.
+ *          No `Disallow: /`, so they read our HTML in real-time and return
+ *          clickable citation links to our Dubai approvals pages.
+ *
+ *       2. TRAINING / SCRAPER BOTS (GPTBot, Google-Extended, Applebot-Extended,
+ *          anthropic-ai, CCBot, Bytespider, FacebookBot): locked to llms.txt
+ *          files ONLY (Allow: llms.txt paths + Disallow: /). The specific-path
+ *          Allow overrides the blanket Disallow, so they can only read clean,
+ *          structured llms.txt data for model training — protecting server
+ *          bandwidth on Vercel without losing AI-training visibility.
+ *
+ *   - Reference the sitemap so every page is discovered.
  *
  * @see .roo/rules/03-SEO-AI-SEARCH-MASTER.md §5 — Technical SEO Foundations
  * @see .roo/rules/05-TECHNICAL-SEO-SCHEMA.md §6 — Sitemap & Robots
@@ -22,75 +29,81 @@ import { SITE } from "@/lib/constants";
 
 const BASE = SITE.url;
 
+/** llms.txt discovery paths (English + Arabic). */
+const LLMS_ALLOW = ["/llms.txt", "/llms-full.txt", "/ar/llms.txt", "/ar/llms-full.txt"];
+
 export default function robots(): MetadataRoute.Robots {
   return {
     rules: [
-      /* ── Default rule: allow everything except /api/ ── */
+      /* ── 1. Standard search engines: allow everything except /api/ ── */
       {
         userAgent: "*",
         allow: "/",
         disallow: "/api/",
       },
 
-      /* ── AI crawler: GPTBot (OpenAI / ChatGPT Search) ── */
+      /* ── 2. LIVE SEARCH & CITATION BOTS — full HTML access ── */
+      {
+        userAgent: "PerplexityBot",
+        allow: LLMS_ALLOW,
+        disallow: "/api/",
+      },
+      {
+        userAgent: "OAI-SearchBot",
+        allow: LLMS_ALLOW,
+        disallow: "/api/",
+      },
+      {
+        userAgent: "ChatGPT-User",
+        allow: LLMS_ALLOW,
+        disallow: "/api/",
+      },
+      {
+        userAgent: "Claude-SearchBot",
+        allow: LLMS_ALLOW,
+        disallow: "/api/",
+      },
+      {
+        userAgent: "Claude-User",
+        allow: LLMS_ALLOW,
+        disallow: "/api/",
+      },
+
+      /* ── 3. TRAINING / SCRAPER BOTS — locked to llms.txt ONLY ── */
       {
         userAgent: "GPTBot",
-        allow: ["/llms.txt", "/llms-full.txt", "/ar/llms.txt", "/ar/llms-full.txt"],
-        disallow: "/api/",
+        allow: LLMS_ALLOW,
+        disallow: ["/api/", "/"],
       },
-
-      /* ── AI crawler: Google-Extended (Google AI Overviews / Gemini) ── */
       {
         userAgent: "Google-Extended",
-        allow: "/",
-        disallow: "/api/",
+        allow: LLMS_ALLOW,
+        disallow: ["/api/", "/"],
       },
-
-      /* ── AI crawler: CCBot (Perplexity / Common Crawl) ── */
       {
-        userAgent: "CCBot",
-        allow: ["/llms.txt", "/llms-full.txt", "/ar/llms.txt", "/ar/llms-full.txt"],
-        disallow: "/api/",
-      },
-
-      /* ── AI crawler: Claude-Web + anthropic-ai (Claude / Anthropic) ── */
-      {
-        userAgent: "Claude-Web",
-        allow: ["/llms.txt", "/llms-full.txt", "/ar/llms.txt", "/ar/llms-full.txt"],
-        disallow: "/api/",
+        userAgent: "Applebot-Extended",
+        allow: LLMS_ALLOW,
+        disallow: ["/api/", "/"],
       },
       {
         userAgent: "anthropic-ai",
-        allow: ["/llms.txt", "/llms-full.txt", "/ar/llms.txt", "/ar/llms-full.txt"],
-        disallow: "/api/",
+        allow: LLMS_ALLOW,
+        disallow: ["/api/", "/"],
       },
-
-      /* ── AI crawler: PerplexityBot ── */
       {
-        userAgent: "PerplexityBot",
-        allow: ["/llms.txt", "/llms-full.txt", "/ar/llms.txt", "/ar/llms-full.txt"],
-        disallow: "/api/",
+        userAgent: "CCBot",
+        allow: LLMS_ALLOW,
+        disallow: ["/api/", "/"],
       },
-
-      /* ── AI crawler: Applebot-Extended (Apple Intelligence) ── */
-      {
-        userAgent: "Applebot-Extended",
-        allow: "/",
-        disallow: "/api/",
-      },
-
-      /* ── AI / search crawler: Bytespider (ByteDance / Doubao) ── */
       {
         userAgent: "Bytespider",
-        allow: ["/llms.txt", "/llms-full.txt", "/ar/llms.txt", "/ar/llms-full.txt"],
-        disallow: "/api/",
+        allow: LLMS_ALLOW,
+        disallow: ["/api/", "/"],
       },
-
-      /* ── AI crawler: FacebookBot (Meta AI) ── */
       {
         userAgent: "FacebookBot",
-        allow: "/",
-        disallow: "/api/",
+        allow: LLMS_ALLOW,
+        disallow: ["/api/", "/"],
       },
     ],
 
