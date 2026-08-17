@@ -8,6 +8,7 @@ import FloatingWhatsApp from "@/components/sections/FloatingWhatsApp";
 import AnalyticsLoader from "@/components/analytics/AnalyticsLoader";
 import PageViewTracker from "@/components/analytics/PageViewTracker";
 import MetaPixelTracker from "@/components/analytics/MetaPixelTracker";
+import PopupProvider from "@/components/popup/PopupProvider";
 import "./globals.css";
 
 /* ============================================================
@@ -168,6 +169,11 @@ export default function RootLayout({
 
         {/* Global floating WhatsApp button */}
         <FloatingWhatsApp />
+
+        {/* Dynamic lead-capture popup — Phase A: 8 rollout service pages only.
+            Provider (~3KB) is eager; the popup UI is lazy-loaded via next/dynamic
+            only after a trigger fires (see plans/dynamic-popup-implementation-plan.md). */}
+        <PopupProvider />
 
         {/* Third-party analytics (GTM + Meta Pixel) — loaded AFTER LCP via idle
             scheduling instead of lazyOnload (see AnalyticsLoader) to keep

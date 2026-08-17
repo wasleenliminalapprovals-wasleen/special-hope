@@ -166,6 +166,23 @@
   }
 }
 
+/* Popup bottom sheet: full-height slide-up (distinct from 12px fade-in-up).
+   Used on mobile for the dynamic lead-capture popup card. On desktop the
+   same card switches to animate-fade-in. Reduced-motion is handled globally
+   by the prefers-reduced-motion block at the bottom of this file. */
+@keyframes popup-sheet-up {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+.animate-popup-sheet-up {
+  animation: popup-sheet-up 0.24s ease-out;
+}
+
 /* Stamp press: scale down with slight bounce */
 @keyframes stamp-press {
   0% {
