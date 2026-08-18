@@ -783,7 +783,7 @@ export const aboutContent: AboutContent = {
         address: "Office 401, Darwish Building, Al Qusais, Dubai",
         embedSrc:
           "https://www.google.com/maps?q=Office%20401%2C%20Darwish%20Building%2C%20Al%20Qusais%2C%20Dubai&output=embed",
-        directionsUrl: "https://share.google/XXAqVwLdUWyHJ3nG7",
+        directionsUrl: "https://maps.app.goo.gl/rXPMW76p6HLcB8zm6",
       },
       {
         id: "pergola-parking",
