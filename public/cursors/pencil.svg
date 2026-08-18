@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48">
+  <!-- Drafting-pencil cursor (A7) — tip hot-spot at (24,40).
+       Drawn pointing straight down, rotated +45° around the tip so it
+       points down-left (matches the drawing gesture). <2KB. -->
+  <g transform="rotate(45 24 40)">
+    <!-- graphite tip -->
+    <polygon points="24,40 21,32 27,32" fill="#2b2b2b"/>
+    <!-- wood -->
+    <polygon points="21,32 27,32 28,26 20,26" fill="#d9a05b"/>
+    <!-- casing (brand blue) -->
+    <polygon points="20,26 28,26 28,10 20,10" fill="#004080"/>
+    <!-- ferrule -->
+    <polygon points="20,10 28,10 27,7 21,7" fill="#c8d6e5"/>
+    <!-- eraser (cta amber) -->
+    <polygon points="21,7 27,7 25.5,4 22.5,4" fill="#f5a623"/>
+  </g>
+</svg>

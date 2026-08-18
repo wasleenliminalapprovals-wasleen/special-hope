@@ -1,0 +1,1466 @@
+/* ============================================================
+   About Us — "The Living Blueprint" page-scoped stylesheet
+   Plan: plans/about-us-redesign-mega-plan.md
+   Imported only by the /about-us and /ar/about-us pages.
+
+   All colors flow through the semantic --about-* custom
+   properties so the cyanotype day/night toggle (A1) can swap the
+   whole drawing-set palette by flipping one data-theme attribute
+   — component classes never reference raw hex.
+
+   RULES:
+   - Reference --about-* vars (raw tokens live in globals.css @theme)
+   - Logical properties only (no physical left/right in About code)
+   - Respect prefers-reduced-motion (local + global gates)
+   ============================================================ */
+
+/* ── 1. Semantic palette (A1) ─────────────────────────────
+   data-theme="day"|"night" lives on <html> — set pre-paint by the
+   Q1 inline script in src/app/layout.tsx and kept in sync by
+   CyanotypeProvider. Values map the raw @theme cyano-* tokens. */
+:root,
+:root[data-theme="day"] {
+  --about-bg: var(--color-cyano-day-bg);
+  --about-bg-deep: var(--color-cyano-day-bg);
+  --about-surface: var(--color-cyano-day-surface);
+  --about-card: var(--color-cyano-day-card);
+  --about-ink: var(--color-cyano-day-ink);
+  --about-ink-soft: var(--color-cyano-day-ink-soft);
+  --about-grid: var(--color-cyano-day-grid);
+  --about-text: var(--color-cyano-day-text);
+  --about-heading: var(--color-cyano-day-heading);
+  --about-line: var(--color-cyano-day-line);
+  --about-amber: var(--color-cyano-day-amber);
+  --about-amber-ink: var(--color-brand-black);
+}
+
+:root[data-theme="night"] {
+  --about-bg: var(--color-cyano-night-bg);
+  --about-bg-deep: var(--color-cyano-night-bg-deep);
+  --about-surface: var(--color-cyano-night-surface);
+  --about-card: var(--color-cyano-night-card);
+  --about-ink: var(--color-cyano-night-ink);
+  --about-ink-soft: var(--color-cyano-night-ink-soft);
+  --about-grid: var(--color-cyano-night-grid);
+  --about-text: var(--color-cyano-night-text);
+  --about-heading: var(--color-cyano-night-heading);
+  --about-line: var(--color-cyano-night-line);
+  --about-amber: var(--color-cyano-night-amber);
+  --about-amber-ink: var(--color-brand-black);
+}
+
+/* ── 2. Page root + A1 crossfade ──────────────────────────
+   The about page wrapper carries class="about-page" (assembly).
+   A 300–400ms crossfade on background/color when data-theme
+   swaps; snaps instantly under reduced motion. Heading colors are
+   set by components via text-(--about-heading) so this low-
+   specificity base never fights utility classes. */
+.about-page {
+  background-color: var(--about-bg);
+  color: var(--about-text);
+}
+
+/* Opt-in crossfade for every token-coloured surface (A1) */
+.about-blueprint-grid,
+.about-drafting-frame,
+.about-frame-caption,
+.about-crop-mark,
+.about-toggle,
+.about-sheet-rail,
+.about-sheet-rail-link {
+  transition: background-color 350ms ease, border-color 350ms ease,
+    color 350ms ease;
+}
+
+/* ── 3. BlueprintGrid (B1) ──────────────────────────────── */
+.about-blueprint-grid {
+  position: relative;
+}
+
+.about-blueprint-grid::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(var(--about-grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--about-grid) 1px, transparent 1px);
+  background-size: 32px 32px;
+  pointer-events: none;
+}
+
+.about-blueprint-fade::after {
+  content: "";
+  position: absolute;
+  inset-inline: 0;
+  bottom: 0;
+  height: 4rem;
+  background-image: linear-gradient(to top, var(--about-bg), transparent);
+  pointer-events: none;
+}
+
+/* ── 4. Corner crop marks (B1) ────────────────────────────
+   Positioning (top/bottom + start/end) is applied by the component
+   via Tailwind logical utilities; these classes supply the ink
+   colour + corner shape only. */
+.about-crop-mark {
+  pointer-events: none;
+  width: 0.625rem;
+  height: 0.625rem;
+  border: 2px solid var(--about-ink);
+}
+.about-crop-mark--tl { border-width: 2px 0 0 2px; }
+.about-crop-mark--tr { border-width: 2px 2px 0 0; }
+.about-crop-mark--bl { border-width: 0 0 2px 2px; }
+.about-crop-mark--br { border-width: 0 2px 2px 0; }
+
+/* ── 5. DraftingFrame (B1) ──────────────────────────────── */
+.about-drafting-frame {
+  background-color: var(--about-surface);
+  border: 1px solid var(--about-line);
+}
+
+.about-frame-caption {
+  color: var(--about-ink-soft);
+  border-color: var(--about-line);
+}
+
+.about-frame-meta {
+  color: var(--about-ink);
+}
+
+/* ── 6. CyanotypeToggle (A1) — colour + focus ring only; the
+   layout (padding, mono type, icon size) is Tailwind in the
+   component. Kept here so token colours never hit ambiguous
+   Tailwind border-(...) shorthand. */
+.about-toggle {
+  color: var(--about-ink);
+  background-color: var(--about-card);
+  border: 1px solid var(--about-line);
+}
+.about-toggle:hover {
+  border-color: var(--about-ink);
+}
+.about-toggle:focus-visible {
+  outline: 2px solid var(--about-ink);
+  outline-offset: 2px;
+}
+
+/* ── 7. Q4 — first-visit toggle pulse ─────────────────────
+   Fires once on the very first visit while the default night theme
+   is showing (state managed by CyanotypeProvider via the dedicated
+   about-toggle-pulse-seen key). 1.6s, two rings, ease-out. */
+@keyframes about-toggle-pulse {
+  0% { box-shadow: 0 0 0 0 var(--about-amber); }
+  70% { box-shadow: 0 0 0 14px transparent; }
+  100% { box-shadow: 0 0 0 0 transparent; }
+}
+.about-toggle-pulse {
+  animation: about-toggle-pulse 1.6s ease-out 2;
+}
+
+/* ── 8. Q8 — night-mode photo filter (static, GPU-friendly) ─
+   Photos tagged class="about-photo" read as part of the night
+   blueprint instead of being pasted on top: no blur, no animation. */
+:root[data-theme="night"] .about-photo {
+  filter: brightness(0.92) saturate(0.85);
+}
+
+/* ── 9. A7 — drafting-pencil cursor (hover/fine pointers only) ─
+   Class .about-cursor-enabled is applied to the page root at
+   assembly, gated by ABOUT_SIGNATURE_LAYER (Q13). SVG cursor with
+   a rasterized PNG fallback (SVG cursor support varies across
+   browsers); hotspot at (24,40) — the pencil tip. Never touches
+   focus rings or interactive-element cursors. */
+@media (hover: hover) and (pointer: fine) {
+  .about-cursor-enabled {
+    cursor: url("/cursors/pencil.svg") 24 40, url("/cursors/pencil.png") 24 40,
+      auto;
+  }
+}
+
+/* ── 10. Q9 — pre-rendered linen texture overlay ──────────
+   Class .about-linen applied to the page root at assembly (gated by
+   ABOUT_SIGNATURE_LAYER). Uses the pre-rendered public/textures/
+   linen.webp tile — no live feTurbulence. The ::before overlay is
+   absolutely positioned with z-index:1 and pointer-events:none so
+   the ~3% opacity applies ONLY to the texture, never to page
+   children. */
+.about-linen {
+  position: relative;
+}
+.about-linen::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background-image: url("/textures/linen.webp");
+  background-size: 160px 160px;
+  opacity: 0.03;
+  pointer-events: none;
+}
+
+/* ── 11. GradientMesh (B2) — drifting colour wash ────────
+   Decorative and theme-agnostic — references the --color-grad-* tokens
+   directly, NOT the cyanotype palette (single token set, no day/night
+   variant). Compositor-friendly: each blob animates ONLY
+   `transform: translate3d` (no filter/opacity keyframes) over a long
+   18–24s alternate loop; static opacity keeps the wash subtle. Blobs
+   are symmetric radial washes so logical inline placement never
+   mirrors anything visually. The component is aria-hidden; blobs never
+   capture events. */
+.about-grad-mesh {
+  isolation: isolate;
+}
+
+.about-grad-blob {
+  position: absolute;
+  border-radius: 9999px;
+  pointer-events: none;
+  will-change: transform;
+}
+
+.about-grad-blob--deep {
+  inset-block-start: -22vmax;
+  inset-inline-start: -18vmax;
+  width: 56vmax;
+  height: 56vmax;
+  opacity: 0.5;
+  background: radial-gradient(
+    circle at 50% 50%,
+    var(--color-grad-blue-01),
+    transparent 70%
+  );
+  animation: about-grad-drift-1 24s ease-in-out infinite alternate;
+}
+
+.about-grad-blob--steel {
+  inset-block-end: -24vmax;
+  inset-inline-end: -16vmax;
+  width: 48vmax;
+  height: 48vmax;
+  opacity: 0.4;
+  background: radial-gradient(
+    circle at 50% 50%,
+    var(--color-grad-blue-02),
+    transparent 70%
+  );
+  animation: about-grad-drift-2 21s ease-in-out infinite alternate;
+}
+
+.about-grad-blob--sky {
+  inset-block-start: 18vmax;
+  inset-inline-end: -14vmax;
+  width: 40vmax;
+  height: 40vmax;
+  opacity: 0.35;
+  background: radial-gradient(
+    circle at 50% 50%,
+    var(--color-grad-sky),
+    transparent 70%
+  );
+  animation: about-grad-drift-3 19s ease-in-out infinite alternate;
+}
+
+.about-grad-blob--amber {
+  inset-block-end: 4vmax;
+  inset-inline-start: 22vmax;
+  width: 22vmax;
+  height: 22vmax;
+  opacity: 0.22;
+  background: radial-gradient(
+    circle at 50% 50%,
+    var(--color-grad-amber),
+    transparent 70%
+  );
+  animation: about-grad-drift-2 23s ease-in-out infinite alternate-reverse;
+}
+
+@keyframes about-grad-drift-1 {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(9vmax, 5vmax, 0);
+  }
+}
+@keyframes about-grad-drift-2 {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-7vmax, 6vmax, 0);
+  }
+}
+@keyframes about-grad-drift-3 {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(6vmax, -5vmax, 0);
+  }
+}
+
+/* ── 12. DimensionLineStat (A3) — Sheet 05 dimension-line band ─
+   Architectural measurement annotation: number above → vertical
+   leader with an up-pointing arrowhead → horizontal dimension line
+   with end ticks → label. Numbers stay real DOM text via CountUp
+   (screen reader + AI parse; Q10 no-JS shows the SSR final value).
+   The line draws in once via a transform-only keyframe; the
+   arrowhead flips vertically in RTL (Q6). */
+.about-dim-number {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.125rem;
+}
+.about-dim-suffix {
+  color: var(--about-amber);
+}
+
+.about-dim-leader {
+  position: relative;
+  display: block;
+  width: 2px;
+  height: 1.75rem;
+  margin-block: 0.375rem 0.25rem;
+  background-color: var(--about-ink);
+}
+.about-dim-leader::after {
+  content: "";
+  position: absolute;
+  top: -0.5rem;
+  inset-inline-start: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-inline: 0.375rem solid transparent;
+  border-block-end: 0.5rem solid var(--about-ink); /* up arrowhead */
+}
+[dir="rtl"] .about-dim-leader::after {
+  border-block-end: none;
+  border-block-start: 0.5rem solid var(--about-ink); /* arrow flips down */
+}
+
+.about-dim-line {
+  position: relative;
+  display: block;
+  width: min(100%, 10rem);
+  margin-inline: auto;
+  height: 0;
+  border-block-start: 2px solid var(--about-ink);
+  animation: about-dim-draw 700ms ease-out 1 both;
+}
+.about-dim-line::before,
+.about-dim-line::after {
+  content: "";
+  position: absolute;
+  inset-block-start: -0.375rem;
+  width: 2px;
+  height: 0.75rem;
+  background-color: var(--about-ink);
+}
+.about-dim-line::before {
+  inset-inline-start: 0;
+}
+.about-dim-line::after {
+  inset-inline-end: 0;
+}
+
+@keyframes about-dim-draw {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+.about-dim-label {
+  margin-block-start: 0.375rem;
+}
+
+/* ── 13. Sheet 01 hero — A2 scroll-scrubbed drawing (C1) ──
+   The `.about-hero-scrub` wrapper permanently disables SceneA's CSS
+   animations so the JS scrub drives stroke-dashoffset instead. Labels,
+   compass, title block and stamp are forced to their final state so the
+   blueprint is a complete static drawing until the scrub takes over. */
+
+/* Client update #2 — dark hero in night mode: the hero canvas always sits on
+   the deep blueprint background (--about-bg-deep resolves to white in day and
+   #06223C navy in night), never on a hardcoded light fill. */
+.about-hero {
+  background-color: var(--about-bg-deep);
+}
+
+.about-hero-eyebrow {
+  color: var(--about-amber);
+}
+
+.about-hero-scrub .animate-draw-line,
+.about-hero-scrub .animate-wall-glow-loop,
+.about-hero-scrub .animate-fade-in,
+.about-hero-scrub .animate-fade-in-up,
+.about-hero-scrub .animate-rotate-in,
+.about-hero-scrub .animate-stamp-loop,
+.about-hero-scrub .animate-pulse-opacity {
+  animation: none !important;
+}
+
+/* SceneA sets inline `opacity: 0` on these before animating; with the
+   animations disabled they would stay invisible, so force the final
+   state (stylesheet !important beats the inline non-important style). */
+.about-hero-scrub .animate-fade-in,
+.about-hero-scrub .animate-fade-in-up,
+.about-hero-scrub .animate-rotate-in,
+.about-hero-scrub .animate-stamp-loop {
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+/* Division strip (title block) */
+.about-division-strip {
+  border: 1px solid var(--about-line);
+  background-color: var(--about-card);
+}
+
+.about-division-item {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.875rem 0.5rem;
+  color: var(--about-ink-soft);
+  text-align: center;
+}
+
+/* Logical separators — 2-col mobile grid */
+.about-division-item:nth-child(even) {
+  border-inline-start: 1px solid var(--about-line);
+}
+.about-division-item:nth-child(n + 3) {
+  border-block-start: 1px solid var(--about-line);
+}
+
+/* 4-col desktop grid */
+@media (min-width: 640px) {
+  .about-division-item {
+    padding: 1rem 0.5rem;
+  }
+  .about-division-item:nth-child(even) {
+    border-inline-start: none;
+  }
+  .about-division-item:nth-child(n + 3) {
+    border-block-start: none;
+  }
+  .about-division-item:nth-child(4n + 2),
+  .about-division-item:nth-child(4n + 3),
+  .about-division-item:nth-child(4n + 4) {
+    border-inline-start: 1px solid var(--about-line);
+  }
+  .about-division-item:nth-child(n + 5) {
+    border-block-start: 1px solid var(--about-line);
+  }
+}
+
+.about-division-item--active {
+  background-color: var(--about-surface);
+  color: var(--about-amber);
+}
+.about-division-item--active .about-division-icon,
+.about-division-item--active .about-division-label {
+  color: var(--about-amber);
+}
+.about-division-item--active .about-division-label {
+  font-weight: 700;
+}
+
+/* Client update #3 — non-active divisions are real outbound <a> links.
+   Keep the shared flex-column layout, strip the underline, and give links
+   keyboard focus + hover ink states (day and night both resolve via tokens). */
+a.about-division-item {
+  text-decoration: none;
+}
+a.about-division-item:focus-visible {
+  outline: 2px solid var(--about-amber);
+  outline-offset: -2px;
+}
+@media (hover: hover) {
+  a.about-division-item:hover {
+    color: var(--about-ink);
+    background-color: var(--about-surface);
+  }
+  a.about-division-item:hover .about-division-icon,
+  a.about-division-item:hover .about-division-label {
+    color: var(--about-ink);
+  }
+}
+
+.about-division-here {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  color: var(--about-amber);
+  font-family: var(--font-roboto-mono);
+  font-size: 0.625rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.about-here-dot {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 9999px;
+  background-color: var(--about-amber);
+  animation: about-here-pulse 2s ease-in-out infinite;
+}
+
+@keyframes about-here-pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.35;
+  }
+}
+
+/* ── 14. Sheet 02 · Story — revision log + timeline rail ── */
+.about-sheet-tag {
+  color: var(--about-amber);
+}
+.about-revlog {
+  position: relative;
+  overflow: hidden;
+  background: var(--about-card);
+  color: var(--about-ink);
+}
+.about-revlog-border {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+.about-revlog-rect {
+  /* Perimeter = 4 × 318 = 1272; default 1300 > perimeter = solid line (the
+     static no-JS / reduced-motion state). Only under .about-revlog--draw does
+     the dashoffset animate, drawing the border in from its start corner. */
+  stroke-dasharray: var(--revlog-length, 1300);
+}
+.about-revlog--draw .about-revlog-rect {
+  animation: about-revlog-draw 1.2s ease-out both;
+}
+.about-revlog--draw .about-revlog-row {
+  opacity: 0;
+  animation: fade-in 0.6s ease-out both;
+  animation-delay: var(--revlog-row-delay, 0s);
+}
+@keyframes about-revlog-draw {
+  from {
+    stroke-dashoffset: var(--revlog-length, 1300);
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+.about-revlog-title {
+  color: var(--about-ink-soft);
+  padding-block-end: 0.625rem;
+  border-block-end: 1px solid var(--about-line);
+}
+.about-revlog-rows {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.about-revlog-row {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: baseline;
+  gap: 0.75rem;
+  padding-block: 0.75rem;
+  border-block-end: 1px solid var(--about-line);
+}
+.about-revlog-row:last-child {
+  border-block-end: none;
+}
+.about-revlog-rev {
+  font-family: var(--font-roboto-mono);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--about-amber);
+}
+.about-revlog-desc {
+  font-family: var(--font-roboto-mono);
+  font-size: 0.75rem;
+  color: var(--about-ink);
+}
+.about-revlog-dot {
+  color: var(--about-ink-soft);
+}
+.about-revlog-status {
+  font-family: var(--font-roboto-mono);
+  font-size: 0.625rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--about-ink-soft);
+  white-space: nowrap;
+}
+.about-approved-stamp {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  border: 2px solid var(--color-success-green);
+  box-shadow: inset 0 0 0 1px var(--color-success-green);
+  color: var(--color-success-green);
+  background: var(--about-surface);
+  padding: 0.375rem 0.75rem;
+  border-radius: 2px;
+  font-family: var(--font-roboto-mono);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+.about-timeline-title {
+  color: var(--about-ink-soft);
+  text-align: center;
+}
+.about-timeline-nodes {
+  display: flex;
+  justify-content: space-between;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.about-timeline-node {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  text-align: center;
+}
+.about-timeline-year {
+  font-size: 0.875rem;
+  font-weight: 700;
+  line-height: 1.25rem;
+  color: var(--about-ink);
+}
+.about-timeline-dot {
+  width: 0.75rem;
+  height: 0.75rem;
+  border: 2px solid var(--about-amber);
+  background: var(--about-bg);
+  border-radius: 9999px;
+}
+.about-timeline-label {
+  font-size: 0.625rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--about-ink-soft);
+}
+.about-timeline-track {
+  /* Dot centre = year line-height 1.25rem + gap 0.5rem + half-dot 0.375rem
+     = 2.125rem; minus 1px so the 2px track sits centred on the dot. */
+  position: absolute;
+  inset-block-start: 2.0625rem;
+  height: 2px;
+  background: var(--about-line);
+  pointer-events: none;
+}
+
+/* ── 15. Sheet 03 · Wasleen Group — revision-log table ── */
+.about-revlog-table-wrap {
+  -webkit-overflow-scrolling: touch;
+}
+.about-revlog-table {
+  border-collapse: collapse;
+  color: var(--about-ink);
+}
+.about-revlog-table-caption {
+  caption-side: top;
+  text-align: start;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--about-ink-soft);
+  padding-block-end: 0.75rem;
+}
+.about-revlog-table-head {
+  border-block-end: 2px solid var(--about-amber);
+  padding-block: 0.5rem;
+  padding-inline-end: 1rem;
+  text-align: start;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--about-ink);
+  white-space: nowrap;
+}
+.about-revlog-table-row {
+  border-block-end: 1px solid var(--about-line);
+}
+.about-revlog-table-row:last-child {
+  border-block-end: none;
+}
+@media (hover: hover) {
+  .about-revlog-table-row:hover > td,
+  .about-revlog-table-row:hover > th {
+    background: var(--about-card);
+  }
+}
+.about-revlog-table-rev {
+  padding-block: 0.75rem;
+  padding-inline-end: 1rem;
+  text-align: start;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--about-amber);
+  white-space: nowrap;
+}
+.about-revlog-table-division {
+  font-weight: 700;
+  color: var(--about-ink);
+}
+.about-revlog-table-scope {
+  color: var(--about-ink-soft);
+}
+.about-revlog-table-status {
+  color: var(--about-ink-soft);
+  white-space: nowrap;
+}
+.about-revlog-table-division,
+.about-revlog-table-scope,
+.about-revlog-table-status {
+  padding-block: 0.75rem;
+  padding-inline-end: 1rem;
+  vertical-align: baseline;
+}
+.about-revlog-table-row--here {
+  border-inline-start: 2px solid var(--about-amber);
+}
+.about-revlog-table-row--here .about-revlog-table-division {
+  color: var(--about-heading);
+}
+.about-revlog-table-row--here .about-revlog-table-status {
+  font-weight: 700;
+  color: var(--about-amber);
+}
+.about-revlog-table-status-text {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.about-revlog-table-row--here .about-here-dot {
+  flex-shrink: 0;
+}
+
+/* ── 16. Sheet 03 · Wasleen Group — parcel grid (border-draw cards) ── */
+.about-revlog-table-box {
+  padding: 1rem;
+  background: var(--about-surface);
+  box-shadow: inset 0 0 0 1px var(--about-line);
+}
+.about-parcel {
+  position: relative;
+  background: var(--about-card);
+  box-shadow: inset 0 0 0 1px var(--about-line);
+  color: var(--about-amber);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.about-parcel--active {
+  box-shadow: inset 0 0 0 1px var(--about-amber);
+}
+.about-parcel-rect {
+  stroke-dasharray: 400;
+  stroke-dashoffset: 400;
+  transition: stroke-dashoffset 0.45s ease;
+}
+.about-parcel--active .about-parcel-rect {
+  stroke-dashoffset: 0;
+}
+@media (hover: hover) {
+  .about-parcel:hover {
+    transform: translateY(-2px);
+    box-shadow:
+      inset 0 0 0 1px var(--about-amber),
+      0 6px 16px rgba(0, 0, 0, 0.12);
+  }
+  .about-parcel:hover .about-parcel-rect {
+    stroke-dashoffset: 0;
+  }
+}
+.about-parcel-media {
+  overflow: hidden;
+  border-block-end: 1px solid var(--about-line);
+}
+.about-parcel-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-block: 2.75rem;
+  color: var(--about-ink-soft);
+  border-block-end: 1px solid var(--about-line);
+}
+.about-parcel-icon--active {
+  color: var(--about-amber);
+}
+.about-parcel-here {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-roboto-mono);
+  font-size: 0.625rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--about-amber);
+}
+.about-parcel-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  font-family: var(--font-roboto-mono);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--about-ink-soft);
+  transition: color 0.2s ease;
+}
+@media (hover: hover) {
+  .about-parcel-link:hover {
+    color: var(--about-amber);
+  }
+}
+.about-parcel-link-icon {
+  flex-shrink: 0;
+}
+.about-parcel-quote {
+  max-width: 44rem;
+  margin-inline: auto;
+  border-block-start: 1px solid var(--about-line);
+  padding-block-start: 1.5rem;
+}
+
+/* ── 17. Sheet 03b · Selected Work — physical-photo bento (A4) ── */
+.about-photo-frame {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: var(--about-surface);
+  box-shadow:
+    0 10px 24px rgba(0, 0, 0, 0.18),
+    0 2px 6px rgba(0, 0, 0, 0.08);
+  transform: rotate(
+    calc(var(--about-photo-rot, 0deg) * var(--about-photo-mirror, 1))
+  );
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  will-change: transform;
+}
+/* Q6 — RTL mirrors the photo rotation direction via a separate factor
+   (negating `--about-photo-rot` inline would be a var self-reference). */
+[dir="rtl"] .about-photo-frame {
+  --about-photo-mirror: -1;
+}
+.about-photo-frame--large,
+.about-photo-frame--square {
+  aspect-ratio: 1 / 1;
+}
+.about-photo-frame--wide {
+  aspect-ratio: 2 / 1;
+}
+.about-photo-frame--large {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+.about-photo-frame--wide {
+  grid-column: span 2;
+}
+.about-photo-media {
+  position: relative;
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+}
+.about-photo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* Blueprint-muted at rest → full-color bloom on hover (plan line 32). */
+  filter: saturate(0.85) brightness(0.97);
+  transition: filter 0.3s ease;
+}
+@media (hover: hover) {
+  .about-photo-frame:hover {
+    transform: rotate(0deg) translateY(-4px);
+    box-shadow:
+      0 16px 32px rgba(0, 0, 0, 0.22),
+      0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  .about-photo-frame:hover .about-photo-img {
+    filter: saturate(1) brightness(1);
+  }
+}
+/* Q8 — night-mode photo filter: photos sit on navy instead of floating. */
+:root[data-theme="night"] .about-photo-img {
+  filter: brightness(0.92) saturate(0.85);
+}
+@media (hover: hover) {
+  :root[data-theme="night"] .about-photo-frame:hover .about-photo-img {
+    filter: brightness(1) saturate(1);
+  }
+}
+.about-photo-tape {
+  position: absolute;
+  z-index: 1;
+  width: 3.25rem;
+  height: 0.9rem;
+  background: rgba(245, 166, 35, 0.3);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.18);
+  transform: rotate(-45deg);
+  pointer-events: none;
+}
+.about-photo-tape--tl {
+  inset-block-start: -0.45rem;
+  inset-inline-start: -0.6rem;
+}
+/* Q6 — tape corner mirrors across the vertical axis in RTL. */
+[dir="rtl"] .about-photo-tape {
+  transform: scaleX(-1) rotate(-45deg);
+}
+.about-photo-caption {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  flex-shrink: 0;
+  gap: 1rem;
+  padding: 0.5rem 0.75rem;
+  border-block-start: 1px solid var(--about-line);
+  background: var(--about-surface);
+  font-family: var(--font-roboto-mono);
+  font-size: 0.625rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--about-ink-soft);
+}
+.about-photo-caption-meta {
+  flex-shrink: 0;
+  color: var(--about-amber);
+}
+
+/* ── 19. Sheet rail (A5) + Q11 smooth scroll ────────────────
+   Desktop ≥1024px only (hidden below). Positioned at the page edge via
+   logical properties so RTL (Q6) automatically mirrors it to the left
+   edge. The compact rail + 0.25rem inset stay inside the section
+   px-8 (2rem) horizontal padding at every ≥1024px width, so the fixed
+   rail never overlaps content on smaller desktop widths. */
+[id^="sheet-"] {
+  scroll-margin-top: 6rem;
+}
+.about-sheet-rail {
+  position: fixed;
+  inset-block-start: 50%;
+  inset-inline-end: 0.25rem;
+  transform: translateY(-50%);
+  z-index: 40;
+  display: none;
+}
+@media (min-width: 1024px) {
+  .about-sheet-rail {
+    display: block;
+  }
+}
+.about-sheet-rail-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  list-style: none;
+  margin: 0;
+  padding: 0.25rem 0.125rem;
+  border: 1px solid var(--about-line);
+  border-radius: 0.5rem;
+  background-color: var(--about-surface);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+.about-sheet-rail-item {
+  margin: 0;
+  padding: 0;
+}
+.about-sheet-rail-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 1.375rem;
+  height: 1.25rem;
+  padding: 0 0.25rem;
+  border-radius: 0.25rem;
+  font-family: var(--font-roboto-mono);
+  font-size: 0.625rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  color: var(--about-ink-soft);
+  text-decoration: none;
+}
+.about-sheet-rail-link:hover {
+  background-color: var(--about-card);
+  color: var(--about-ink);
+}
+.about-sheet-rail-link:focus-visible {
+  outline: 2px solid var(--about-amber);
+  outline-offset: 2px;
+}
+.about-sheet-rail-link.is-active {
+  background-color: var(--about-amber);
+  color: var(--about-amber-ink);
+}
+
+/* ── 20. Sheet 04 — Both Sides drafting-circle grid (E1) ──
+   The four FeaturePoints render as a 2×2 icon grid on a light
+   background (bg-(--about-bg)). No cards: each icon sits inside a
+   drafting note circle — a line circle with an amber leader tick
+   rising from the top edge, like a dimension leader to a drawn
+   note. Icon + border resolve through --about-* so both cyanotype
+   themes render correctly. */
+.about-both-sides-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.about-draft-circle {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 4.25rem;
+  height: 4.25rem;
+  border-radius: 9999px;
+  border: 1px solid var(--about-heading);
+  background: transparent;
+  color: var(--about-heading);
+}
+/* leader tick — drawing-note circle leader, amber in both themes */
+.about-draft-circle::before {
+  content: "";
+  position: absolute;
+  inset-block-start: -0.625rem;
+  inset-inline-start: 50%;
+  width: 1px;
+  height: 0.625rem;
+  background: var(--about-amber);
+}
+ 
+/* ── 21. Sheet 06 — Why Choose blueprint cards (E3) ───────
+   The four WhyCards keep their unchanged copy but are restyled as
+   blueprint cards: themed grid gradient (--about-card → --about-surface),
+   inset 1px line border and corner crop marks. The gradient resolves
+   correctly in both day and night so card text keeps WCAG AA contrast.
+   On hover the top/bottom borders draw in via a compositor-only scaleX
+   transform (origin at the inline-start edge, mirrored to inline-end in
+   RTL via the explicit override below) and the card lifts 2px. */
+.about-why-card {
+  background: linear-gradient(160deg, var(--about-card), var(--about-surface));
+  box-shadow: inset 0 0 0 1px var(--about-line);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.about-why-card::before,
+.about-why-card::after {
+  content: "";
+  position: absolute;
+  inset-inline: 0;
+  height: 2px;
+  background: var(--about-amber);
+  transform: scaleX(0);
+  transform-origin: 0 50%;
+  transition: transform 0.3s ease;
+  pointer-events: none;
+}
+.about-why-card::before {
+  inset-block-start: -1px;
+}
+.about-why-card::after {
+  inset-block-end: -1px;
+}
+/* Q6 — scaleX is physical, so RTL draws from the mirrored edge. */
+[dir="rtl"] .about-why-card::before,
+[dir="rtl"] .about-why-card::after {
+  transform-origin: 100% 50%;
+}
+@media (hover: hover) {
+  .about-why-card:hover {
+    transform: translateY(-2px);
+    box-shadow:
+      inset 0 0 0 1px var(--about-amber),
+      0 6px 16px rgba(0, 0, 0, 0.12);
+  }
+  .about-why-card:hover::before,
+  .about-why-card:hover::after {
+    transform: scaleX(1);
+  }
+}
+ 
+/* ── 22. Sheet 07 — The People founder cards (F1) ────────
+   Two portrait photos in drafting-frame people cards. Each card reuses
+   the shared .about-crop-mark corners, frames the photo on a line border
+   (--about-card + inset 1px line) with a 3/4 portrait ratio, and carries
+   a title-block caption strip (NAME / ROLE / REV) separated by hairlines.
+   Photo color treatment mirrors PhysicalPhotoFrame: blueprint-muted at
+   rest, full-color bloom on hover, and the Q8 night-mode filter when
+   data-theme="night". */
+.about-founder-card {
+  background: var(--about-card);
+  box-shadow: inset 0 0 0 1px var(--about-line);
+}
+.about-founder-media {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 3 / 4;
+  background: var(--about-surface);
+}
+.about-founder-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: saturate(0.85) brightness(0.97);
+  transition: filter 0.3s ease;
+}
+@media (hover: hover) {
+  .about-founder-card:hover .about-founder-img {
+    filter: saturate(1) brightness(1);
+  }
+}
+/* Q8 — night-mode photo filter (same as .about-photo-img). */
+:root[data-theme="night"] .about-founder-img {
+  filter: brightness(0.92) saturate(0.85);
+}
+@media (hover: hover) {
+  :root[data-theme="night"] .about-founder-card:hover .about-founder-img {
+    filter: brightness(1) saturate(1);
+  }
+}
+/* Title-block caption strip — NAME / ROLE / REV rows. */
+.about-founder-caption {
+  border-top: 1px solid var(--about-line);
+  font-family: var(--font-roboto-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.about-founder-caption-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.5rem 0.75rem;
+  border-bottom: 1px solid var(--about-line);
+}
+.about-founder-caption-row:last-child {
+  border-bottom: none;
+}
+.about-founder-caption-key {
+  flex-shrink: 0;
+  color: var(--about-ink-soft);
+}
+.about-founder-caption-value {
+  min-width: 0;
+  color: var(--about-ink);
+  text-align: end;
+  overflow-wrap: anywhere;
+}
+.about-founder-caption-rev {
+  margin-inline-start: auto;
+  color: var(--about-amber);
+}
+/* E-E-A-T reviewer credit line. */
+.about-founder-reviewed {
+  color: var(--about-ink-soft);
+  border-top: 1px solid var(--about-line);
+  padding-top: 1rem;
+}
+
+/* ── 23. Sheet 08 — Credentials document-review frame + A6 stamp (F2) ── */
+.about-doc-review {
+  position: relative;
+  background: var(--about-card);
+  border: 1px solid var(--about-line);
+}
+.about-doc-review-strip {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 0.75rem 1rem;
+  background: var(--about-surface);
+  border-bottom: 1px solid var(--about-line);
+}
+@media (min-width: 640px) {
+  .about-doc-review-strip {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+.about-doc-review-title {
+  color: var(--about-ink-soft);
+  font-family: var(--font-roboto-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+.about-doc-review-stamp {
+  width: 9rem;
+  flex-shrink: 0;
+}
+@media (min-width: 640px) {
+  .about-doc-review-stamp {
+    width: 11rem;
+  }
+}
+.about-doc-review-body {
+  padding: 1.25rem 1rem 1.5rem;
+}
+.about-doc-review-body p + p {
+  margin-top: 1rem;
+}
+.about-doc-link {
+  color: var(--about-amber);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.about-doc-disclaimer {
+  color: var(--about-ink-soft);
+  font-style: italic;
+}
+/* A6 — single-use APPROVED stamp. Static ink-bleed SVG + one-shot thud. */
+.about-stamp {
+  display: block;
+  width: 100%;
+  height: auto;
+  color: var(--color-success-green);
+  transform: rotate(-6deg);
+}
+.about-stamp-text {
+  font-family: var(--font-montserrat);
+  font-weight: 800;
+  letter-spacing: 0.14em;
+}
+/* Arabic stamp text — connected script must never be letter-spaced (spacing
+   breaks the joining) and Montserrat has no Arabic glyphs, so fall back to a
+   system Arabic face. Applied via a data-driven --ar modifier (set by
+   ApprovalStamp when the label contains Arabic), not :lang(), so it holds
+   during SSR/hydration when <html lang> is still "en". */
+.about-stamp-text--ar {
+  letter-spacing: 0;
+  font-family: "Segoe UI", "Tahoma", system-ui, sans-serif;
+}
+.about-stamp--hidden {
+  opacity: 0;
+  transform: scale(1.6) rotate(-12deg);
+}
+.about-stamp--fired {
+  animation: about-stamp-thud 200ms cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+@keyframes about-stamp-thud {
+  0% {
+    opacity: 0;
+    transform: scale(1.6) rotate(-12deg);
+  }
+  60% {
+    opacity: 1;
+    transform: scale(0.94) rotate(-4deg);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) rotate(-6deg);
+  }
+}
+
+/* ── 24. Sheet 09 — Closing CTA + group directory (F2) ── */
+.about-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  font-family: var(--font-montserrat);
+  font-weight: 600;
+  transition: background-color 200ms ease, color 200ms ease, border-color 200ms ease;
+}
+.about-cta:focus-visible {
+  outline: 2px solid var(--about-amber);
+  outline-offset: 2px;
+}
+.about-cta--primary {
+  background-color: var(--about-amber);
+  color: var(--about-amber-ink);
+}
+.about-cta--primary:hover {
+  background-color: var(--color-cta-amber-hover);
+  color: var(--about-amber-ink);
+}
+.about-cta--outline {
+  border: 2px solid var(--about-ink);
+  color: var(--about-ink);
+}
+.about-cta--outline:hover {
+  background-color: var(--about-ink);
+  color: var(--about-bg-deep);
+}
+.about-directory-title {
+  color: var(--about-ink-soft);
+  font-family: var(--font-roboto-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+.about-directory-link {
+  color: var(--about-ink-soft);
+  border-bottom: 1px solid transparent;
+  transition: color 200ms ease, border-bottom-color 200ms ease;
+}
+.about-directory-link:hover {
+  color: var(--about-amber);
+  border-bottom-color: var(--about-amber);
+}
+
+/* ── 25. Print — B/W technical sheet (Q7/Q12) ── */
+/* Q7: print is always the day, high-contrast B/W technical sheet regardless
+   of the on-screen theme. Q12: hard overrides below win over data-theme.
+   Hardcoded hex is intentional here — print must not depend on JS/theme. */
+@page {
+  margin: 1.5cm;
+}
+@media print {
+  :root,
+  :root[data-theme="day"],
+  :root[data-theme="night"] {
+    --about-bg: #ffffff;
+    --about-bg-deep: #ffffff;
+    --about-surface: #f2f2f2;
+    --about-card: #ffffff;
+    --about-ink: #111111;
+    --about-ink-soft: #444444;
+    --about-grid: #dddddd;
+    --about-text: #111111;
+    --about-heading: #111111;
+    --about-line: #cccccc;
+    --about-amber: #111111;
+    --about-amber-ink: #ffffff;
+  }
+  .about-page {
+    background: #fff !important;
+    color: #111 !important;
+  }
+  .about-toggle,
+  .about-sheet-rail,
+  .about-grad-mesh,
+  .about-grad-blob,
+  .about-linen,
+  .about-toggle-pulse {
+    display: none !important;
+  }
+  .about-photo-img,
+  .about-founder-img {
+    filter: none !important;
+  }
+  .about-stamp,
+  .about-stamp--hidden,
+  .about-stamp--fired {
+    color: #111 !important;
+    opacity: 1 !important;
+    transform: rotate(-6deg) !important;
+    animation: none !important;
+  }
+  .about-doc-review,
+  .about-founder-card,
+  .about-why-card,
+  .about-parcel,
+  .about-photo-frame,
+  .about-revlog {
+    break-inside: avoid;
+  }
+  .about-doc-link,
+  .about-directory-link,
+  a {
+    color: #111 !important;
+    text-decoration: underline;
+  }
+}
+
+/* ── 26. Sheet 10 — FAQ accordion (F3) ── */
+/* Remap global color tokens inside the .about-faq subtree so the shared
+   Accordion adapts to the cyanotype day/night palette without touching the
+   shared component. */
+.about-faq {
+  --color-heading-text: var(--about-heading);
+  --color-body-text: var(--about-text);
+  --color-brand-blue: var(--about-ink);
+  --color-brand-blue-hover: var(--about-ink-soft);
+  --color-border-light: var(--about-line);
+}
+.about-faq a {
+  color: var(--about-amber);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.about-faq a:hover {
+  color: var(--about-amber);
+}
+
+/* ── 27. Reduced motion — A1 crossfade snaps, no drift/pulse ── */
+@media (prefers-reduced-motion: reduce) {
+  .about-blueprint-grid,
+  .about-drafting-frame,
+  .about-frame-caption,
+  .about-crop-mark,
+  .about-toggle,
+  .about-parcel,
+  .about-parcel-rect,
+  .about-photo-frame,
+  .about-photo-img,
+  .about-founder-img,
+  .about-sheet-rail,
+  .about-sheet-rail-link,
+  .about-why-card,
+  .about-why-card::before,
+  .about-why-card::after,
+  .about-cta,
+  .about-directory-link,
+  .about-doc-review,
+  .about-doc-link {
+    transition: none;
+  }
+  .about-toggle-pulse {
+    animation: none;
+  }
+  .about-grad-blob {
+    animation: none;
+  }
+  .about-dim-line {
+    animation: none;
+  }
+  .about-here-dot {
+    animation: none;
+  }
+  .about-revlog--draw .about-revlog-rect,
+  .about-revlog--draw .about-revlog-row {
+    animation: none;
+  }
+  .about-revlog--draw .about-revlog-row {
+    opacity: 1;
+  }
+  .about-stamp--hidden {
+    opacity: 1;
+    transform: rotate(-6deg);
+  }
+  .about-stamp--fired {
+    animation: none;
+  }
+  .about-faq [class*="transition-"] {
+    transition: none;
+  }
+}

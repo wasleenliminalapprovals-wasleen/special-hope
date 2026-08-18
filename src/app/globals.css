@@ -76,6 +76,46 @@
   --shadow-card: 0 2px 8px rgba(0, 0, 0, 0.08);
   --shadow-dropdown: 0 4px 16px rgba(0, 0, 0, 0.12);
   --shadow-sticky: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+  /* ----
+     Cyanotype palette (A1 — About Us "Living Blueprint")
+     RAW named tokens only. The semantic --about-* custom properties that
+     switch on `data-theme="day"|"night"` live in the page-scoped
+     about.css and reference these tokens (never inline hex in components).
+     Rule: .roo/rules/02-DESIGN-TOKEN-SYSTEM.md
+     Plan: plans/about-us-redesign-mega-plan.md §1 / §7 A1
+     ---- */
+
+  /* Day — diazo print (blue ink on white), mirrors existing brand tokens */
+  --color-cyano-day-bg: #ffffff;
+  --color-cyano-day-surface: #f8fafc;
+  --color-cyano-day-card: #eaf1fb;
+  --color-cyano-day-ink: #004080;
+  --color-cyano-day-ink-soft: #4a7bb0;
+  --color-cyano-day-grid: rgba(0, 64, 128, 0.1);
+  --color-cyano-day-text: #1a2233;
+  --color-cyano-day-heading: #004080;
+  --color-cyano-day-line: #d6e4f0;
+  --color-cyano-day-amber: #f5a623;
+
+  /* Night — cyanotype (pale ink on Prussian blue) */
+  --color-cyano-night-bg: #0a2f52;
+  --color-cyano-night-bg-deep: #06223c;
+  --color-cyano-night-surface: #0f3a63;
+  --color-cyano-night-card: #0e3457;
+  --color-cyano-night-ink: #d7e6f8;
+  --color-cyano-night-ink-soft: #8fb3d9;
+  --color-cyano-night-grid: rgba(215, 230, 248, 0.09);
+  --color-cyano-night-text: #eaf3fc;
+  --color-cyano-night-heading: #d0e3f8;
+  --color-cyano-night-line: rgba(215, 230, 248, 0.22);
+  --color-cyano-night-amber: #f5a623;
+
+  /* ---- Gradient Mesh (B2) — compositor-friendly drift layers ---- */
+  --color-grad-blue-01: #004080;
+  --color-grad-blue-02: #1a5fa8;
+  --color-grad-sky: #7dd3fc;
+  --color-grad-amber: #f5a623;
 }
 
 /* ============================================================

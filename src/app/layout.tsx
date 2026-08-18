@@ -9,6 +9,7 @@ import AnalyticsLoader from "@/components/analytics/AnalyticsLoader";
 import PageViewTracker from "@/components/analytics/PageViewTracker";
 import MetaPixelTracker from "@/components/analytics/MetaPixelTracker";
 import PopupProvider from "@/components/popup/PopupProvider";
+import { ABOUT_SIGNATURE_LAYER, ABOUT_THEME_KEY } from "@/lib/feature-flags";
 import "./globals.css";
 
 /* ============================================================
@@ -103,7 +104,11 @@ export default function RootLayout({
   const { gtmId, metaPixelId, sitewideSchema } = siteConfig("en");
 
   return (
-    <html lang="en-AE" className={fontVariables("en")}>
+    <html
+      lang="en-AE"
+      className={fontVariables("en")}
+      suppressHydrationWarning
+    >
       {/* ============================================================
           Manual font preloads (critical path).
           Next.js 15.x extracts the next/font @font-face CSS into a shared
@@ -148,6 +153,22 @@ export default function RootLayout({
         crossOrigin="anonymous"
       />
       <body className="font-roboto antialiased">
+        {/* Q1 — About Us cyanotype pre-paint theme (ISOLATED scope addition;
+            everything else in this file is untouched). Sets <html data-theme>
+            synchronously during HTML parse — before first paint — so a saved
+            day theme never flashes to night on /about-us or /ar/about-us.
+            Night is the first-visit default (day is opt-in). Path-gated
+            internally; also gated by the ABOUT_SIGNATURE_LAYER feature flag
+            (Q13). Same localStorage key across locales. */}
+        {ABOUT_SIGNATURE_LAYER ? (
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `(function(){var p=location.pathname;if(p!=="/about-us"&&p!=="/ar/about-us")return;var t="night";try{t=localStorage.getItem(${JSON.stringify(
+                ABOUT_THEME_KEY
+              )})||"night";}catch(e){}document.documentElement.setAttribute("data-theme",t);})();`,
+            }}
+          />
+        ) : null}
         {/* Early dataLayer init — GTM's gtm.js and @next/third-parties
             sendGTMEvent both rely on window.dataLayer. It must exist before
             any analytics script runs; this tiny inline script executes during
