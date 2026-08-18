@@ -70,10 +70,17 @@ export const metadata: Metadata = {
     type: "website",
     locale: getOgLocale("ar"),
     siteName: AR.siteName,
-    // ملاحظة: الخطة §3.1/§3.4.2 تريد صورة og فريدة
-    // `/public/images/og-about-us.jpg` (1200×630). لم تُنشأ بعد — نرث
-    // الصورة العامة `/logos/og.jpg` من التخطيط الجذري لتجنب صورة معطوبة.
-    // أضف `images` هنا فور إنشاء الأصل (مهمة ما بعد البناء).
+    // صورة OG مخصصة لصفحة من نحن (أصل "المخطط الحي" — محايدة لغويًا،
+    // تُستخدم نفس صورة النسخة الإنجليزية). تُحل إلى رابط مطلق عبر
+    // metadataBase في التخطيط الجذري (SITE.url).
+    images: [
+      {
+        url: "/images/about-us/pergola/about-us-og-image-wasleen-liminal-approval.webp",
+        width: 1200,
+        height: 675,
+        alt: "Wasleen Liminal Approval Consultants — The Living Blueprint, About Us",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",

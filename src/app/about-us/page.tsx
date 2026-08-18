@@ -74,10 +74,16 @@ export const metadata: Metadata = {
     type: "website",
     locale: getOgLocale("en"),
     siteName: SITE.name,
-    // NOTE: plan §3.1 / §3.4.2 wants a unique `/public/images/og-about-us.jpg`
-    // (1200×630, blueprint-tinted villa). Not generated yet — inherit the
-    // sitewide `/logos/og.jpg` from the root layout to avoid a broken OG
-    // image. Add `images` here once that asset is created (post-build task).
+    // Dedicated OG image for the About Us page ("The Living Blueprint" asset).
+    // Resolves to an absolute URL via the root layout's metadataBase (SITE.url).
+    images: [
+      {
+        url: "/images/about-us/pergola/about-us-og-image-wasleen-liminal-approval.webp",
+        width: 1200,
+        height: 675,
+        alt: "Wasleen Liminal Approval Consultants — The Living Blueprint, About Us",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",

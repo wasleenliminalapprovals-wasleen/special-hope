@@ -4,11 +4,14 @@
  * OfficeMaps — Sheet 11 · Our Offices.
  *
  * Three Wasleen locations rendered as drafting-framed cards (one frame per
- * location). Each card carries a lazy aspect-box Google Maps embed (no CLS),
- * a mono "OFFICE nn" caption strip, the business name, the postal address and
- * a real outbound "GET DIRECTIONS" link that fires an `outbound_click`
- * analytics event with the office id (`office: approval | pergola-parking |
- * cinemaxsky`).
+ * location). Each card carries a lazy aspect-box Google Maps embed (no CLS)
+ * as a NON-INTERACTIVE preview (`pointer-events-none`) so clicks can never
+ * land inside the cross-origin embed (browsers popup-block that path as
+ * `about:blank#blocked`). A real, full-cover overlay `<a>` sits above the
+ * preview and opens `directionsUrl` in a new tab — real anchors are never
+ * popup-blocked. A second real "GET DIRECTIONS" link sits below the address.
+ * Both fire an `outbound_click` analytics event with the office id
+ * (`office: approval | pergola-parking | cinemaxsky`).
  *
  * 1-col mobile → 3-col desktop (equal-height cards via h-full + the shared
  * DraftingFrame flex column). Locale-agnostic: all copy arrives via the
@@ -33,6 +36,19 @@ interface OfficeMapsProps {
 }
 
 export default function OfficeMaps({ offices, sheet }: OfficeMapsProps) {
+  const handleDirectionsClick = (id: string) => {
+    try {
+      trackEvent({
+        action: "outbound_click",
+        category: "navigation",
+        label: id,
+        office: id,
+      });
+    } catch {
+      // Analytics is best-effort and must never cancel the map navigation.
+    }
+  };
+
   return (
     <section
       id={sheet.id}
@@ -63,9 +79,20 @@ export default function OfficeMaps({ offices, sheet }: OfficeMapsProps) {
                   title={office.name}
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
-                  allowFullScreen
-                  className="absolute inset-0 h-full w-full border-0"
+                  className="pointer-events-none absolute inset-0 h-full w-full border-0"
                 />
+                <a
+                  href={office.directionsUrl}
+                  target="_blank"
+                  rel="noopener"
+                  aria-label={`${offices.directionsLabel} — ${office.name}`}
+                  className="group absolute inset-0 z-10 flex items-end justify-center p-4"
+                  onClick={() => handleDirectionsClick(office.id)}
+                >
+                  <span className="inline-flex items-center gap-2 rounded-md border border-(--about-amber) bg-(--about-surface) px-4 py-2 font-roboto-mono text-xs font-medium uppercase tracking-[0.2em] text-(--about-amber) transition-colors group-hover:bg-(--about-amber) group-hover:text-(--about-ink)">
+                    {offices.directionsLabel}
+                  </span>
+                </a>
               </div>
               <div className="flex flex-1 flex-col gap-2 p-5">
                 <h3 className="font-montserrat text-h4 font-bold leading-tight text-(--about-heading)">
@@ -79,14 +106,7 @@ export default function OfficeMaps({ offices, sheet }: OfficeMapsProps) {
                   target="_blank"
                   rel="noopener"
                   className="mt-auto inline-flex items-center gap-2 font-roboto-mono text-xs font-medium uppercase tracking-[0.2em] text-(--about-amber) transition-colors hover:text-(--about-ink)"
-                  onClick={() =>
-                    trackEvent({
-                      action: "outbound_click",
-                      category: "navigation",
-                      label: office.id,
-                      office: office.id,
-                    })
-                  }
+                  onClick={() => handleDirectionsClick(office.id)}
                 >
                   {offices.directionsLabel}
                 </a>
