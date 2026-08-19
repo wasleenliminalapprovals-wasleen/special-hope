@@ -52,9 +52,9 @@ export default function ArabicNotFoundPage() {
         <div className="absolute bottom-16 end-[-6%] h-96 w-96 rounded-full bg-cyano-night-ink/10 blur-3xl" />
       </div>
 
-      <div className="relative mx-auto max-w-6xl px-4 py-14 md:px-8 md:py-20">
+      <div className="relative mx-auto flex w-full max-w-6xl min-h-[80vh] flex-col justify-center px-4 py-8 md:px-8">
         {/* ---- Animated drawing scene (decorative, aria-hidden) ---------- */}
-        <NotFoundScene />
+        <NotFoundScene className="min-h-0 flex-1" />
 
         {/* ---- Content block --------------------------------------------- */}
         <div className="mx-auto mt-10 max-w-3xl text-center">

@@ -423,11 +423,13 @@ export default function NotFoundScene({ className = "" }: NotFoundSceneProps) {
            REJECTION STAMP — "REVISION NOT FOUND / RESUBMIT"
            Pressed over the missing area (looping stamp animation).
            ============================================================ */}
-        <g
-          transform="translate(200, 455) rotate(-10)"
-          className="text-cyano-night-amber animate-stamp-loop"
-          style={{ opacity: 0 }}
-        >
+        {/* Outer <g> holds the static position/tilt so the CSS stamp-loop
+            animation (transform on the inner <g>) cannot override it. */}
+        <g transform="translate(400, 270) rotate(-10)">
+          <g
+            className="text-cyano-night-amber animate-stamp-loop"
+            style={{ opacity: 0 }}
+          >
           {/* Outer + inner rings */}
           <rect
             x="-95"
@@ -515,6 +517,7 @@ export default function NotFoundScene({ className = "" }: NotFoundSceneProps) {
           <line x1="-70" y1="-34" x2="-82" y2="-22" stroke="currentColor" strokeWidth="1.5" />
           <line x1="82" y1="22" x2="70" y2="34" stroke="currentColor" strokeWidth="1.5" />
           <line x1="70" y1="22" x2="82" y2="34" stroke="currentColor" strokeWidth="1.5" />
+          </g>
         </g>
       </svg>
     </div>
