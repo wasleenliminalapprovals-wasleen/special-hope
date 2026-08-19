@@ -240,6 +240,20 @@ export const AR = {
     goHome: "العودة إلى الرئيسية",
     loading: "جارٍ التحميل...",
     copies: "نسخ",
+    /** 404 "Lost Night Sheet" copy — dark cyanotype */
+    notFoundErrorLabel: "رمز الخطأ: 404",
+    notFoundEyebrow: "لوحة التصميم المفقودة",
+    notFoundTitle: "لم يتم العثور على هذه اللوحة",
+    notFoundSubtitle:
+      "ربما تم نقل الصفحة أو حذفها أو أُدخل الرابط بشكل غير صحيح. ابحث أدناه عن الموافقة أو الخدمة أو الدليل الذي تبحث عنه.",
+    notFoundSearchPlaceholder: "ابحث عن موافقة أو خدمة أو دليل...",
+    notFoundSearchNoResults:
+      "لا توجد نتائج مطابقة. جرّب كلمة أخرى أو تصفح الفئات بالأسفل.",
+    notFoundPopular: "الموافقات الأكثر طلباً",
+    notFoundCategories: "تصفح حسب الفئة",
+    notFoundBrowseAll: "تصفح جميع الموافقات",
+    notFoundBrowseApprovals: "تصفح الموافقات",
+    notFoundContact: "تواصل معنا",
   },
 
   /** WhatsApp pre-filled message in Arabic */

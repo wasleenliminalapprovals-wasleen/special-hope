@@ -307,6 +307,26 @@
   }
 }
 
+/* Scan sweep: a vertical scanner bar travels across the sheet.
+   The element must span the full drawing width so translateX(%)
+   resolves against the sheet, not the thin bar. */
+@keyframes scan-sweep {
+  0% {
+    transform: translateX(-120%);
+    opacity: 0;
+  }
+  15% {
+    opacity: 1;
+  }
+  85% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(120%);
+    opacity: 0;
+  }
+}
+
 /* ============================================================
    UTILITY CLASSES FOR DRAWING ANIMATIONS
    ============================================================ */
@@ -350,6 +370,16 @@
   animation: stamp-loop 6.8s cubic-bezier(0.34, 1.56, 0.64, 1) 5.5s infinite;
 }
 
+/* Scan sweep: sweeping scanner line for the 404 "lost sheet" scene */
+.animate-scan-sweep {
+  animation: scan-sweep 4.5s ease-in-out 2.2s infinite;
+}
+
+/* In RTL (Arabic) sweep right-to-left instead of left-to-right */
+[dir="rtl"] .animate-scan-sweep {
+  animation-direction: reverse;
+}
+
 /* ============================================================
    PERFORMANCE GATE — defer drawing animations until post-LCP
 
@@ -369,7 +399,8 @@
 .drawing-deferred .animate-rotate-in,
 .drawing-deferred .animate-glow-pulse,
 .drawing-deferred .animate-wall-glow-loop,
-.drawing-deferred .animate-pulse-opacity {
+.drawing-deferred .animate-pulse-opacity,
+.drawing-deferred .animate-scan-sweep {
   animation: none;
 }
 
