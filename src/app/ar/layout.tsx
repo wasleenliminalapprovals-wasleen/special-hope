@@ -1,10 +1,8 @@
 import type { Metadata, Viewport } from "next";
 import { SITE, AR } from "@/lib/constants";
 import { fontVariables } from "@/lib/fonts";
-import { siteConfig } from "@/lib/site-config";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
-import FloatingWhatsApp from "@/components/sections/FloatingWhatsApp";
 import ArabicDocumentAttributes from "@/components/layout/ArabicDocumentAttributes";
 
 /* ============================================================
@@ -87,8 +85,6 @@ export default function ArabicRootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const { sitewideSchema } = siteConfig("ar");
-
   return (
     <>
       {/* Sync <html lang="ar-AE" dir="rtl"> after hydration (root layout owns <html>) */}
@@ -112,25 +108,8 @@ export default function ArabicRootLayout({
         {/* Site footer — localized Arabic */}
         <Footer locale="ar" />
 
-        {/* Global floating WhatsApp button */}
-        <FloatingWhatsApp />
-
         {/* Analytics (GTM + GA4) load once via the root layout for ALL routes
             including /ar — never duplicate third-party scripts in nested layouts. */}
-
-        {/* ============================================================
-           Sitewide JSON-LD Schema — injected once in Arabic layout
-           ============================================================ */}
-
-        {sitewideSchema.map((schema, index) => (
-          <script
-            key={index}
-            type="application/ld+json"
-            dangerouslySetInnerHTML={{
-              __html: JSON.stringify(schema),
-            }}
-          />
-        ))}
       </div>
     </>
   );

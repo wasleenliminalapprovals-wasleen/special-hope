@@ -184,10 +184,10 @@ function offerCatalogSchema(locale: "en" | "ar") {
     inLanguage: isAr ? "ar-AE" : "en-AE",
     itemListElement: list.map((s) => ({
       "@type": "Service",
-      "@id": `${BASE}/services/${s.slug}`,
+      "@id": `${BASE}${lp}/services/${s.slug}`,
       name: s.name,
       description: s.description,
-      url: `${BASE}/services/${s.slug}`,
+      url: `${BASE}${lp}/services/${s.slug}`,
       provider: { "@id": `${BASE}${lp}/#organization` },
     })),
   };

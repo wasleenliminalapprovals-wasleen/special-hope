@@ -816,7 +816,7 @@ export function homepageSchema(input: HomepageSchemaInput, locale: "en" | "ar" =
   return [
     webPageSchema(
       {
-        url: "/",
+        url: locale === "ar" ? "/ar" : "/",
         title: input.title,
         description: input.description,
         dateModified: input.dateModified,
