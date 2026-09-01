@@ -8,6 +8,8 @@
     "start": "next start -p 3100",
     "lint": "next lint",
     "check:fonts": "node scripts/check-font-preloads.mjs",
+    "test:tracking": "node tests/tracking-regression.js",
+    "test:tracking:ci": "next build && node tests/tracking-regression.js",
     "pseo:generate": "tsx scripts/pseo/generate.ts 3",
     "pseo:report": "tsx scripts/pseo/weekly-report.ts",
     "pseo:verify": "tsx scripts/pseo/weekly-report.ts --verify"
@@ -28,6 +30,7 @@
     "@types/react-dom": "^19.0.0",
     "eslint": "^9.0.0",
     "lighthouse": "^13.4.1",
+    "puppeteer-core": "^25.4.0",
     "sharp": "^0.35.3",
     "tailwindcss": "^4.1.4",
     "tsx": "^4.23.4",

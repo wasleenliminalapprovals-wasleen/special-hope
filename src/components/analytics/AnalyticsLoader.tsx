@@ -1,6 +1,8 @@
 /**
- * AnalyticsLoader — defers third-party analytics (GTM + Meta Pixel) until the
- * main thread is idle, i.e. AFTER first paint / LCP.
+ * AnalyticsLoader — manages third-party analytics (GTM + Meta Pixel) loading.
+ * GTM is injected at NORMAL timing (NOT deferred to idle — see injectGtm
+ * docstring for why). The Meta Pixel base code is deferred until the main
+ * thread is idle, i.e. AFTER first paint / LCP.
  *
  * Previously GTM and the Meta Pixel base script were loaded with
  * `next/script` `strategy="lazyOnload"`, which still parses and executes them
@@ -34,8 +36,16 @@ import { drainFbqQueue } from "@/lib/meta-pixel";
 
 /**
  * Inject the Google Tag Manager container script. The official GTM snippet is
- * asynchronous and never blocks rendering, but we still defer it to idle time
- * to keep its execution off the critical path.
+ * asynchronous and never blocks rendering.
+ *
+ * IMPORTANT: GTM must load at NORMAL timing — NOT deferred to idle. Deferring
+ * gtm.js to idle causes the GA4 Configuration tag (__googtag, tag 5) to throw
+ * a tag error (TE2) on gtm.init, so the container-mode gtag.js never receives
+ * its config command and the GA4 client never initializes (no collect, gaGlobal
+ * stays null). This was diagnosed in Phase 1: commit ae6afb4 deferred GTM to
+ * idle here while also removing the direct gtag.js that had been masking the
+ * failure. Test 16 proved the same GTM + GA4 container collects correctly when
+ * gtm.js loads at normal timing.
  */
 function injectGtm(gtmId: string): void {
   if (!gtmId) return;
@@ -84,16 +94,25 @@ export default function AnalyticsLoader({
   metaPixelId: string;
 }) {
   // Module-lifetime guard: even if this component remounts (e.g. React
-  // StrictMode double-invoke in dev), the scripts are only injected once.
+  // StrictMode double-invoke in dev), the Meta Pixel script is only injected
+  // once. (injectGtm/injectMetaPixel also self-guard via DOM id checks.)
   const injectedRef = useRef(false);
 
+  // GTM — injected immediately at NORMAL timing. Must NOT be idle-deferred:
+  // deferred idle loading breaks the GA4 Configuration tag (see injectGtm
+  // docstring). This is the Phase 3 fix for the Aug 13 GA4 outage.
+  useEffect(() => {
+    injectGtm(gtmId);
+  }, [gtmId]);
+
+  // Meta Pixel — kept deferred to idle (non-critical, does not depend on GTM
+  // timing). Unchanged from the original design.
   useEffect(() => {
     let cancelled = false;
 
-    const inject = () => {
+    const injectMeta = () => {
       if (cancelled || injectedRef.current) return;
       injectedRef.current = true;
-      injectGtm(gtmId);
       injectMetaPixel(metaPixelId);
     };
 
@@ -106,19 +125,19 @@ export default function AnalyticsLoader({
 
     if (typeof window !== "undefined" && "requestIdleCallback" in window) {
       const w = window as IdleWindow;
-      const handle = w.requestIdleCallback(inject, { timeout: 2500 });
+      const handle = w.requestIdleCallback(injectMeta, { timeout: 2500 });
       return () => {
         cancelled = true;
         w.cancelIdleCallback(handle);
       };
     }
 
-    const timer = globalThis.setTimeout(inject, 2500);
+    const timer = globalThis.setTimeout(injectMeta, 2500);
     return () => {
       cancelled = true;
       globalThis.clearTimeout(timer);
     };
-  }, [gtmId, metaPixelId]);
+  }, [metaPixelId]);
 
   return null;
 }

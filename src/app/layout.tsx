@@ -172,10 +172,18 @@ export default function RootLayout({
         {/* Early dataLayer init — GTM's gtm.js and @next/third-parties
             sendGTMEvent both rely on window.dataLayer. It must exist before
             any analytics script runs; this tiny inline script executes during
-            HTML parse, before hydration and long before the deferred GTM load. */}
+            HTML parse, before hydration and long before GTM loads. The
+            `gtm.start` marker MUST be pushed here as dataLayer[0] (matching
+            the official GTM snippet): without it, GTM's GA4 Configuration tag
+            throws on gtm.init (GTM health beacon TE2), so the container-mode
+            gtag.js never receives its config command and the GA4 client never
+            initializes. Verified in Phase 1/3 tests: pushing this marker is
+            what makes GA4 collect. */}
         <script
           dangerouslySetInnerHTML={{
-            __html: "window.dataLayer = window.dataLayer || [];",
+            __html:
+              "window.dataLayer = window.dataLayer || [];" +
+              "window.dataLayer.push({'gtm.start': new Date().getTime(), event: 'gtm.js'});",
           }}
         />
         {/* RootLayoutClient conditionally renders Header/Footer only on non-Arabic routes */}

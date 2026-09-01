@@ -1,0 +1,53 @@
+# Tracking Regression — fails the build if the analytics pipeline breaks.
+#
+# Runs on every push to main (i.e., before/with every deploy) and on every
+# pull request. Loads the PRODUCTION build, asserts:
+#   1. dataLayer[0] is the gtm.start marker (event: "gtm.js")
+#   2. the GA4 Configuration tag reports no tag error (gl object + collect)
+#   3. a successful /free-quote submission pushes quote_submit_success
+# See tests/tracking-regression.js and TRACKING.md §0 for why this exists
+# (Aug 2026 GA4 outage root cause).
+#
+# GTM/GA4/Meta hit the real network here (exactly like GTM Preview mode), so
+# this job needs internet access. The GTM/GA/Meta IDs are PUBLIC client-side
+# identifiers (they ship in the rendered HTML) — not secrets.
+name: Tracking Regression
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  tracking-regression:
+    name: Tracking regression test (production build)
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      # puppeteer-core needs an external Chrome (it does not download one).
+      - name: Install Google Chrome
+        id: chrome
+        uses: browser-actions/setup-chrome@v1
+        with:
+          chrome-version: stable
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build + run tracking regression test
+        run: npm run test:tracking:ci
+        env:
+          CHROME: ${{ steps.chrome.outputs.chrome-path }}
+          NEXT_PUBLIC_SITE_URL: https://www.dubaiapprovalconsultants.com
+          NEXT_PUBLIC_GA_MEASUREMENT_ID: G-SJF4WHM8QJ
+          NEXT_PUBLIC_GTM_ID: GTM-P45BMK7J
+          NEXT_PUBLIC_META_PIXEL_ID: "4406234089664940"
