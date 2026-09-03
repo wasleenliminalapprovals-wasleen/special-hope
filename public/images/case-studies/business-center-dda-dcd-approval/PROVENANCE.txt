@@ -1,0 +1,6 @@
+Blueprint-style placeholder imagery (Case Studies pilot, Step 4.5).
+Sanctioned exception: plans/case-studies-mega-plan.md Part 17.2 — final-sized
+placeholder built from the site's blueprint/technical-drawing visual system.
+Not real project photos. Swap for consent-cleared photos when supplied.
+Generated 2026-09-01 from scripts/gen-case-study-placeholders.mjs (temp, deleted).
+Ref: LML/QTN/1114R1 — DDA & DCD approval, AED 14,000.

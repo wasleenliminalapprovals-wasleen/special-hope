@@ -1,0 +1,22 @@
+Case Study Image Assets — PROVENANCE
+====================================
+Slug:            dm-dcd-approval-dubai-marina-apartment
+Source:          LML/QTN/1075 (Quotation, 13 April 2026)
+Client:          Intelspace Contracting LLC (anonymized → "Confidential client — Contracting company")
+Location:        Apartment A22A, Dubai Marina, Dubai
+Subject:         QUOTATION FOR DM & DCD APPROVAL
+Status:          quoted (quotation only — no approval claimed)
+Publish status:  draft (not yet live; not in sitemap / llms.txt)
+
+Image inventory
+---------------
+hero.webp        — BLUEPRINT PLACEHOLDER (sanctioned by plan Part 17.2).
+                   Generic blueprint schematic; no client-identifying data.
+documents.webp   — BLUEPRINT PLACEHOLDER (sanctioned by plan Part 17.2).
+                   Generic document-checklist schematic; no client data.
+photo            — public/images/interior-fit-out-approval-consultants-in-dubai.webp
+                   (2336x1760, generic interior fit-out photo from the site
+                   image library; no client-identifying data).
+
+Honesty: no real project photographs are published. The client name appears
+nowhere on the page. Only `publishStatus: "live"` pages enter sitemap/llms.

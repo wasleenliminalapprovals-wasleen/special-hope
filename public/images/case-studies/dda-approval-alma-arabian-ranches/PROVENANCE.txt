@@ -1,0 +1,22 @@
+Case Study Image Assets — PROVENANCE
+====================================
+Slug:            dda-approval-alma-arabian-ranches
+Source:          LML/QTN/1049 (Quotation, 12 March 2026)
+Client:          British Builders (anonymized → "Confidential client — Residential villa")
+Location:        Alma, Arabian Ranches, Dubai
+Subject:         QUOTATION FOR DDA APPROVAL
+Status:          quoted (quotation only — no approval claimed)
+Publish status:  draft (not yet live; not in sitemap / llms.txt)
+
+Image inventory
+---------------
+hero.webp        — BLUEPRINT PLACEHOLDER (sanctioned by plan Part 17.2).
+                   Generic blueprint schematic; no client-identifying data.
+documents.webp   — BLUEPRINT PLACEHOLDER (sanctioned by plan Part 17.2).
+                   Generic document-checklist schematic; no client data.
+photo            — public/images/villa-renovation-approval-dubai.webp
+                   (1376x768, generic residential villa photo from the site
+                   image library; no client-identifying data).
+
+Honesty: no real project photographs are published. The client name appears
+nowhere on the page. Only `publishStatus: "live"` pages enter sitemap/llms.

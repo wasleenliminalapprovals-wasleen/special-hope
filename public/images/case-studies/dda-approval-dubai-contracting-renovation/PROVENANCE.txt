@@ -1,0 +1,12 @@
+Case Study: dda-approval-dubai-contracting-renovation
+Source quotation: LML/QTN/1078 (DDA Approval, AED 7,000)
+Quotation date: 16 April 2026
+Project status: quoted (draft) — approval scope engaged, not yet claimed
+
+Image provenance:
+- hero.webp       : BLUEPRINT PLACEHOLDER (copied from pilot business-center-dda-dcd-approval/hero.webp, 1600x900)
+- documents.webp  : BLUEPRINT PLACEHOLDER (copied from pilot business-center-dda-dcd-approval/documents.webp, 1200x900)
+- photo           : /images/dda-fit-out-approval-engineering.webp (1376x768, real site library image, DDA fit-out theme)
+
+Blueprint placeholders are sanctioned per case-studies-mega-plan Part 17.2.
+Replace with authentic project images when client consent is granted.

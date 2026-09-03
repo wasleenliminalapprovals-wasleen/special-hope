@@ -330,6 +330,13 @@ function FooterContactColumn({ locale = "en" }: { locale?: "en" | "ar" }) {
             {locale === "ar" ? `${AR.breadcrumb.guides} & Q&A` : "Guides & Q&A"}
           </Link>
         </li>
+        {locale === "en" && (
+          <li>
+            <Link href={`${prefix}/case-studies`} className="text-body-sm text-white/70 hover:text-white transition-colors">
+              Case Studies
+            </Link>
+          </li>
+        )}
         <li>
           <Link
             href={`${prefix}/license`}

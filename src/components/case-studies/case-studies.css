@@ -1,0 +1,1256 @@
+/* ============================================================
+   CASE STUDIES — Shared stylesheet (Part 6 + Part 7)
+   Location: src/components/case-studies/case-studies.css
+   Imported ONLY by the /case-studies pages (and later /ar twins).
+
+   Scope: everything is prefixed `cs-` to stay additive — no existing
+   selector is touched. Colors/spacing reference the sitewide design
+   tokens (globals.css @theme) — never raw hex.
+
+   Rule notes:
+   - Motion tokens (Part 6.1) live on :root once, reused everywhere.
+   - Every entrance fires once via IntersectionObserver({ once:true })
+     and never re-triggers on scroll direction. Components toggle
+     `.cs-is-visible`.
+   - prefers-reduced-motion:reduce renders the final state instantly
+     but keeps interactive controls (click-to-expand).
+   - Amber (cta-amber) appears ONLY on CTAs and the small PRO TIP chip
+     (the chip is an explicit carve-out in Part 7.2). Pending timeline
+     nodes therefore use brand-blue + a neutral glyph + text label
+     (Part 6.2 #6 "state never color-only"; Part 7.2 "amber never on
+     icons or charts").
+   - Before/after bars: planned = dashed brand-blue, actual = solid
+     uae-green (dashed = proposed, solid = as-built).
+   ============================================================ */
+
+/* ---- 6.1 Shared motion tokens ---- */
+:root {
+  --cs-ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --cs-spring-pop: cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  --cs-timeline-draw: 1.6s;
+  --cs-node-pop: 250ms;
+  --cs-stamp-rotate: 700ms;
+  --cs-accordion-speed: 280ms;
+}
+
+/* ============================================================
+   KEYFRAMES (timeline choreography + restrained sections)
+   ============================================================ */
+
+/* 1. Path draws left→right: stroke-dashoffset full → 0. */
+@keyframes cs-draw-line {
+  from {
+    stroke-dashoffset: var(--cs-dash, 1200);
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* 2. Node pop-in: scale 0 → 1, spring. */
+@keyframes cs-node-pop {
+  from {
+    transform: scale(0);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* 3. "Rejected → fixed" wobble (2–3°, ~300ms) on entry. */
+@keyframes cs-wobble {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(-2.5deg);
+  }
+  75% {
+    transform: rotate(2.5deg);
+  }
+}
+
+/* 4. ApprovalStamp overlay: rotate in from 15°, overshoot, plays once. */
+@keyframes cs-stamp-rotate {
+  0% {
+    transform: rotate(15deg) scale(1.6);
+    opacity: 0;
+  }
+  60% {
+    transform: rotate(-2deg) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: rotate(0deg) scale(1);
+    opacity: 1;
+  }
+}
+
+/* 6 What We Did — 60–80ms stagger fade/rise. */
+@keyframes cs-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 9 Results — 80ms stagger pop-fade per chip. */
+@keyframes cs-pop-fade {
+  from {
+    opacity: 0;
+    transform: scale(0.92);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* 7 Documents — row reveal. */
+@keyframes cs-row-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 7 Documents — draw-on checkmark (per required doc). */
+@keyframes cs-check-draw {
+  from {
+    stroke-dashoffset: 40;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* 3 "Rejected→fixed" — connecting arrow draws in. */
+@keyframes cs-arrow-draw {
+  from {
+    stroke-dashoffset: 60;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* ============================================================
+   REVEAL-ONCE HELPERS
+   Components add `.cs-is-visible` when the element enters the
+   viewport (IntersectionObserver, once). Final state = visible.
+   ============================================================ */
+
+.cs-reveal {
+  opacity: 0;
+}
+
+.cs-reveal.cs-is-visible {
+  opacity: 1;
+}
+
+/* Stagger container — children fade/rise 80ms apart (60–80ms spec). */
+.cs-stagger > * {
+  opacity: 0;
+}
+
+.cs-stagger.cs-is-visible > * {
+  animation: cs-fade-up 400ms var(--cs-ease-out-expo) forwards;
+}
+
+.cs-stagger.cs-is-visible > *:nth-child(1) {
+  animation-delay: 0ms;
+}
+.cs-stagger.cs-is-visible > *:nth-child(2) {
+  animation-delay: 80ms;
+}
+.cs-stagger.cs-is-visible > *:nth-child(3) {
+  animation-delay: 160ms;
+}
+.cs-stagger.cs-is-visible > *:nth-child(4) {
+  animation-delay: 240ms;
+}
+.cs-stagger.cs-is-visible > *:nth-child(5) {
+  animation-delay: 320ms;
+}
+.cs-stagger.cs-is-visible > *:nth-child(6) {
+  animation-delay: 400ms;
+}
+.cs-stagger.cs-is-visible > *:nth-child(7) {
+  animation-delay: 480ms;
+}
+.cs-stagger.cs-is-visible > *:nth-child(8) {
+  animation-delay: 560ms;
+}
+.cs-stagger.cs-is-visible > *:nth-child(9) {
+  animation-delay: 640ms;
+}
+.cs-stagger.cs-is-visible > *:nth-child(10) {
+  animation-delay: 720ms;
+}
+.cs-stagger.cs-is-visible > *:nth-child(11) {
+  animation-delay: 800ms;
+}
+.cs-stagger.cs-is-visible > *:nth-child(12) {
+  animation-delay: 880ms;
+}
+
+/* Results chips — pop-fade stagger (80ms). */
+.cs-pop-stagger > * {
+  opacity: 0;
+}
+
+.cs-pop-stagger.cs-is-visible > * {
+  animation: cs-pop-fade 320ms var(--cs-spring-pop) forwards;
+}
+
+.cs-pop-stagger.cs-is-visible > *:nth-child(1) {
+  animation-delay: 0ms;
+}
+.cs-pop-stagger.cs-is-visible > *:nth-child(2) {
+  animation-delay: 80ms;
+}
+.cs-pop-stagger.cs-is-visible > *:nth-child(3) {
+  animation-delay: 160ms;
+}
+.cs-pop-stagger.cs-is-visible > *:nth-child(4) {
+  animation-delay: 240ms;
+}
+.cs-pop-stagger.cs-is-visible > *:nth-child(5) {
+  animation-delay: 320ms;
+}
+.cs-pop-stagger.cs-is-visible > *:nth-child(6) {
+  animation-delay: 400ms;
+}
+
+/* ============================================================
+   PART 7.1 — DRAFTING-TABLE LAYOUT
+   Narrow reading column (~640px) + sticky spec rail (260px) +
+   full-bleed tinted data zones. Mobile: rail becomes a compact
+   horizontal strip under the hero (handled in component classes).
+   ============================================================ */
+
+.cs-reading-col {
+  max-width: 640px;
+}
+
+.cs-spec-rail {
+  width: 260px;
+  position: sticky;
+  top: 6rem;
+  align-self: start;
+}
+
+/* Full-bleed tinted data zone (Timeline + Before/After). */
+.cs-data-zone {
+  background: var(--color-light-bg);
+  border-block: 1px solid var(--color-border-light);
+}
+
+/* ============================================================
+   PART 6.2 — TIMELINE DIAGRAM (flagship)
+   ============================================================ */
+
+/* Track: draws left→right once. */
+.cs-timeline-track {
+  fill: none;
+  stroke: var(--color-brand-blue);
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-dasharray: var(--cs-dash, 1200);
+  stroke-dashoffset: var(--cs-dash, 1200);
+}
+
+.cs-timeline-track.cs-is-visible {
+  animation: cs-draw-line var(--cs-timeline-draw) var(--cs-ease-out-expo) forwards;
+}
+
+/* Node: pop in (scale 0→1, spring). Delay = draw fraction at the node's x,
+   supplied at runtime via the `--cs-node-delay` custom property (a motion
+   token, not an inline style). */
+.cs-timeline-node {
+  transform-box: fill-box;
+  transform-origin: center;
+  opacity: 0;
+}
+
+.cs-timeline-node.cs-is-visible {
+  animation: cs-node-pop var(--cs-node-pop) var(--cs-spring-pop) forwards;
+  animation-delay: var(--cs-node-delay, 0ms);
+}
+
+/* Rejected→fixed node: wobble on entry. */
+.cs-timeline-node.cs-is-visible.cs-timeline-node--rejected {
+  animation:
+    cs-wobble 300ms ease-in-out,
+    cs-node-pop var(--cs-node-pop) var(--cs-spring-pop) forwards;
+  animation-delay: var(--cs-node-delay, 0ms);
+}
+
+/* Green checkmark + connecting arrow beside the rejected node. */
+.cs-timeline-fix {
+  stroke: var(--color-success-green);
+  stroke-width: 2.5;
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 60;
+  stroke-dashoffset: 60;
+  opacity: 0;
+}
+
+.cs-timeline-fix.cs-is-visible {
+  opacity: 1;
+  animation: cs-arrow-draw 400ms var(--cs-ease-out-expo) forwards;
+}
+
+/* ApprovalStamp overlay — the payoff. */
+.cs-stamp {
+  transform-box: fill-box;
+  transform-origin: center;
+  opacity: 0;
+}
+
+.cs-stamp.cs-is-visible {
+  animation: cs-stamp-rotate var(--cs-stamp-rotate) var(--cs-ease-out-expo) forwards;
+}
+
+/* Node click target — 44px min (Part 6.2 #5). */
+.cs-node-btn {
+  min-width: 44px;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+}
+
+/* Node glyph (state never color-only — WCAG 1.4.1):
+   approved = green check, rejected = red cross, pending = brand-blue
+   gauge + always a text label beside it. Amber stays reserved for CTAs. */
+.cs-node-glyph--approved {
+  color: var(--color-success-green);
+}
+
+.cs-node-glyph--rejected {
+  color: var(--color-uae-red);
+}
+
+.cs-node-glyph--pending {
+  color: var(--color-brand-blue);
+}
+
+/* ============================================================
+   PART 6.3 — BEFORE/AFTER BARS (blueprint convention)
+   Planned = dashed brand-blue; Actual = solid uae-green.
+   True values are in SSR markup; bars are decorative.
+   ============================================================ */
+
+.cs-bar--planned {
+  border: 2px dashed var(--color-brand-blue);
+  background: transparent;
+}
+
+.cs-bar--actual {
+  border: 2px solid var(--color-uae-green);
+  background: var(--color-uae-green);
+}
+
+/* ============================================================
+   PART 7.2 — PRO TIP BOX
+   Perfectly square (right-angled), corner drafting ticks,
+   bg-card-bg + border-border-light, small amber PRO TIP chip.
+   No rotation, no tilt. Precision reads as competence.
+   ============================================================ */
+
+.cs-pro-tip {
+  position: relative;
+  background: var(--color-card-bg);
+  border: 1px solid var(--color-border-light);
+  border-radius: 0; /* right-angled — no rounding */
+}
+
+/* Corner drafting ticks — L-shaped marks at each corner. */
+.cs-pro-tip-tick {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  pointer-events: none;
+}
+
+.cs-pro-tip-tick--tl {
+  top: -1px;
+  left: -1px;
+  border-top: 2px solid var(--color-brand-blue);
+  border-left: 2px solid var(--color-brand-blue);
+}
+
+.cs-pro-tip-tick--tr {
+  top: -1px;
+  right: -1px;
+  border-top: 2px solid var(--color-brand-blue);
+  border-right: 2px solid var(--color-brand-blue);
+}
+
+.cs-pro-tip-tick--bl {
+  bottom: -1px;
+  left: -1px;
+  border-bottom: 2px solid var(--color-brand-blue);
+  border-left: 2px solid var(--color-brand-blue);
+}
+
+.cs-pro-tip-tick--br {
+  bottom: -1px;
+  right: -1px;
+  border-bottom: 2px solid var(--color-brand-blue);
+  border-right: 2px solid var(--color-brand-blue);
+}
+
+/* Small amber PRO TIP chip — the single amber carve-out (Part 7.2). */
+.cs-pro-tip-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.125rem 0.5rem;
+  font-size: var(--text-caption);
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-cta-amber);
+  border: 1px solid currentColor;
+}
+
+/* ============================================================
+   RESPONSIVE TABLE WRAP (CaseStudyTable primitive)
+   Horizontal scroll on 360–390px, semantic <table> preserved.
+   ============================================================ */
+
+.cs-table-wrap {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+}
+
+.cs-table-wrap table {
+  width: 100%;
+  min-width: 480px;
+  border-collapse: collapse;
+}
+
+/* ============================================================
+   7 Documents — row reveal + draw-on checkmark (Part 6.3).
+   Rows fade/rise 60ms apart once the table enters the viewport
+   (component toggles `.cs-is-visible`). Each required-doc
+   checkmark draws on at the same delay as its row. Only opacity
+   is animated on rows — no transforms, so table-row layout stays
+   stable in Firefox. Reduced-motion is handled below.
+   ============================================================ */
+
+.cs-doc-rows > tbody > tr {
+  opacity: 0;
+}
+
+.cs-doc-rows.cs-is-visible > tbody > tr {
+  animation: cs-row-reveal 320ms var(--cs-ease-out-expo) forwards;
+}
+
+.cs-doc-check {
+  stroke: var(--color-success-green);
+  stroke-width: 2.5;
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 40;
+  stroke-dashoffset: 40;
+}
+
+.cs-doc-rows.cs-is-visible .cs-doc-check {
+  animation: cs-check-draw 400ms var(--cs-ease-out-expo) forwards;
+}
+
+/* 60ms stagger, up to 12 rows — check draws with its row. */
+.cs-doc-rows.cs-is-visible > tbody > tr:nth-child(1),
+.cs-doc-rows.cs-is-visible > tbody > tr:nth-child(1) .cs-doc-check {
+  animation-delay: 0ms;
+}
+.cs-doc-rows.cs-is-visible > tbody > tr:nth-child(2),
+.cs-doc-rows.cs-is-visible > tbody > tr:nth-child(2) .cs-doc-check {
+  animation-delay: 60ms;
+}
+.cs-doc-rows.cs-is-visible > tbody > tr:nth-child(3),
+.cs-doc-rows.cs-is-visible > tbody > tr:nth-child(3) .cs-doc-check {
+  animation-delay: 120ms;
+}
+.cs-doc-rows.cs-is-visible > tbody > tr:nth-child(4),
+.cs-doc-rows.cs-is-visible > tbody > tr:nth-child(4) .cs-doc-check {
+  animation-delay: 180ms;
+}
+.cs-doc-rows.cs-is-visible > tbody > tr:nth-child(5),
+.cs-doc-rows.cs-is-visible > tbody > tr:nth-child(5) .cs-doc-check {
+  animation-delay: 240ms;
+}
+.cs-doc-rows.cs-is-visible > tbody > tr:nth-child(6),
+.cs-doc-rows.cs-is-visible > tbody > tr:nth-child(6) .cs-doc-check {
+  animation-delay: 300ms;
+}
+.cs-doc-rows.cs-is-visible > tbody > tr:nth-child(7),
+.cs-doc-rows.cs-is-visible > tbody > tr:nth-child(7) .cs-doc-check {
+  animation-delay: 360ms;
+}
+.cs-doc-rows.cs-is-visible > tbody > tr:nth-child(8),
+.cs-doc-rows.cs-is-visible > tbody > tr:nth-child(8) .cs-doc-check {
+  animation-delay: 420ms;
+}
+.cs-doc-rows.cs-is-visible > tbody > tr:nth-child(9),
+.cs-doc-rows.cs-is-visible > tbody > tr:nth-child(9) .cs-doc-check {
+  animation-delay: 480ms;
+}
+.cs-doc-rows.cs-is-visible > tbody > tr:nth-child(10),
+.cs-doc-rows.cs-is-visible > tbody > tr:nth-child(10) .cs-doc-check {
+  animation-delay: 540ms;
+}
+.cs-doc-rows.cs-is-visible > tbody > tr:nth-child(11),
+.cs-doc-rows.cs-is-visible > tbody > tr:nth-child(11) .cs-doc-check {
+  animation-delay: 600ms;
+}
+.cs-doc-rows.cs-is-visible > tbody > tr:nth-child(12),
+.cs-doc-rows.cs-is-visible > tbody > tr:nth-child(12) .cs-doc-check {
+  animation-delay: 660ms;
+}
+
+/* ============================================================
+   10 FAQ — CSS-only accordion (grid-template-rows 0fr → 1fr).
+   Icon rotates 45° → 180° (Part 6.4).
+   ============================================================ */
+
+.cs-accordion-item {
+  border: 1px solid var(--color-border-light);
+  background: var(--color-white, #ffffff);
+}
+
+.cs-accordion-body {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows var(--cs-accordion-speed) var(--cs-ease-out-expo);
+}
+
+.cs-accordion-item.cs-open .cs-accordion-body {
+  grid-template-rows: 1fr;
+}
+
+.cs-accordion-inner {
+  overflow: hidden;
+}
+
+.cs-accordion-icon {
+  transition: transform var(--cs-accordion-speed) var(--cs-ease-out-expo);
+}
+
+.cs-accordion-item.cs-open .cs-accordion-icon {
+  transform: rotate(180deg);
+}
+
+/* ============================================================
+   11 Related — underline-grow anchors + subtle card lift.
+   ============================================================ */
+
+.cs-underline-grow {
+  position: relative;
+}
+
+.cs-underline-grow::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 100%;
+  height: 2px;
+  background: var(--color-link-blue);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 220ms var(--cs-ease-out-expo);
+}
+
+.cs-underline-grow:hover::after,
+.cs-underline-grow:focus-visible::after {
+  transform: scaleX(1);
+}
+
+.cs-card-lift {
+  transition:
+    transform 220ms var(--cs-ease-out-expo),
+    box-shadow 220ms var(--cs-ease-out-expo);
+}
+
+.cs-card-lift:hover,
+.cs-card-lift:focus-visible {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-card);
+}
+
+/* ============================================================
+   PART 7.2 — REDACTION BLOCK
+   Faint diagonal hatch over brand-blue on sensitive document
+   fields — a designed signature, not an apology.
+   ============================================================ */
+
+.cs-redact {
+  background: repeating-linear-gradient(
+    45deg,
+    rgba(0, 64, 128, 0.14) 0 4px,
+    transparent 4px 8px
+  );
+  border: 1px solid var(--color-brand-blue);
+  color: transparent;
+  user-select: none;
+}
+
+/* ============================================================
+   PART 18.3 — "WHAT WE DID" GRADIENT CARDS
+   Owner-specified gradient (Part 18 item 3) — the exact CSS the
+   owner supplied. EXPLICIT carve-out: these raw hex values live
+   ONLY here in case-studies.css as `.cs-steps-card`, never inline.
+   The light mint→periwinkle gradient reads at ~11:1 with dark
+   body-text (WCAG AAA). The number badge stays brand-blue on white.
+   ============================================================ */
+
+.cs-steps-card {
+  background: #74ebd5; /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #ACB6E5, #74ebd5); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #ACB6E5, #74ebd5); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+/* ============================================================
+   PART 18.1 — ANIMATED GRADIENT BLUE TIMELINE BOXES
+   Each node renders as a rounded box filled with a vertical
+   gradient from #1e5db0 (lighter) to brand-blue #004080. Both
+   stops hold ~6.4:1+ contrast with the white glyph (WCAG AA/AAA),
+   so the gradient is decorative and the state stays text-identified.
+   The gradient "breathes" subtly (5s loop, decorative) and every
+   box has a slightly different incoming animation (variants a–d,
+   applied cyclically i % 4 in the component).
+   ============================================================ */
+
+.cs-node-grad-a {
+  stop-color: #1e5db0;
+}
+
+.cs-node-grad-b {
+  stop-color: var(--color-brand-blue);
+}
+
+/* The box rect itself (SVG) + white glyph for best contrast on blue. */
+.cs-node-box {
+  fill: url(#cs-node-grad);
+  stroke: var(--color-white);
+  stroke-opacity: 0.55;
+}
+
+.cs-node-glyph--on-box {
+  color: var(--color-white);
+}
+
+/* Mobile vertical-list chip mirrors the gradient boxes. */
+.cs-mobile-node-chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: var(--radius-md);
+  color: var(--color-white);
+  background: linear-gradient(180deg, #1e5db0 0%, #004080 100%);
+  animation: cs-mobile-chip-breathe 5s ease-in-out infinite;
+}
+
+@keyframes cs-mobile-chip-breathe {
+  0%,
+  100% {
+    filter: brightness(1);
+  }
+  50% {
+    filter: brightness(1.14);
+  }
+}
+
+.cs-timeline-node--box.cs-is-visible .cs-node-grad-a {
+  animation: cs-gradient-blue-a 5s ease-in-out infinite;
+}
+
+.cs-timeline-node--box.cs-is-visible .cs-node-grad-b {
+  animation: cs-gradient-blue-b 5s ease-in-out infinite;
+}
+
+@keyframes cs-gradient-blue-a {
+  0%,
+  100% {
+    stop-color: #1e5db0;
+  }
+  50% {
+    stop-color: #2f6cc4;
+  }
+}
+
+@keyframes cs-gradient-blue-b {
+  0%,
+  100% {
+    stop-color: #004080;
+  }
+  50% {
+    stop-color: #00386f;
+  }
+}
+
+/* Incoming variants — slightly different choreography per box. */
+@keyframes cs-node-in-a {
+  0% {
+    transform: scale(0.3) translateY(16px);
+    opacity: 0;
+  }
+  60% {
+    transform: scale(1.07) translateY(-3px);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes cs-node-in-b {
+  0% {
+    transform: scale(1.2) translateY(-12px);
+    opacity: 0;
+  }
+  65% {
+    transform: scale(0.97) translateY(3px);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes cs-node-in-c {
+  0% {
+    transform: scale(0.4) translateX(-18px);
+    opacity: 0;
+  }
+  60% {
+    transform: scale(1.05) translateX(4px);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1) translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes cs-node-in-d {
+  0% {
+    transform: scale(0.45) translateX(18px) rotate(3deg);
+    opacity: 0;
+  }
+  65% {
+    transform: scale(1.04) translateX(-4px) rotate(-1deg);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1) translateX(0) rotate(0deg);
+    opacity: 1;
+  }
+}
+
+/* The box variant rules out-rank the plain pop (higher specificity). */
+.cs-timeline-node--box.cs-is-visible.cs-node-in-a {
+  animation: cs-node-in-a 480ms var(--cs-spring-pop) forwards;
+  animation-delay: var(--cs-node-delay, 0ms);
+}
+.cs-timeline-node--box.cs-is-visible.cs-node-in-b {
+  animation: cs-node-in-b 500ms var(--cs-spring-pop) forwards;
+  animation-delay: var(--cs-node-delay, 0ms);
+}
+.cs-timeline-node--box.cs-is-visible.cs-node-in-c {
+  animation: cs-node-in-c 470ms var(--cs-spring-pop) forwards;
+  animation-delay: var(--cs-node-delay, 0ms);
+}
+.cs-timeline-node--box.cs-is-visible.cs-node-in-d {
+  animation: cs-node-in-d 510ms var(--cs-spring-pop) forwards;
+  animation-delay: var(--cs-node-delay, 0ms);
+}
+
+/* Dashed stem that lifts the quotation box above the track so it
+   never touches the line (Part 18.1 "place just above the line"). */
+.cs-timeline-stem {
+  stroke: var(--color-brand-blue);
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-dasharray: 120;
+  stroke-dashoffset: 120;
+  fill: none;
+  opacity: 0;
+}
+
+.cs-timeline-stem.cs-is-visible {
+  animation: cs-stem-grow 400ms var(--cs-ease-out-expo) forwards;
+  animation-delay: var(--cs-node-delay, 0ms);
+}
+
+@keyframes cs-stem-grow {
+  from {
+    opacity: 0;
+    stroke-dashoffset: 120;
+  }
+  to {
+    opacity: 1;
+    stroke-dashoffset: 0;
+  }
+}
+
+/* Two-line DONE / COMPLETED stamp (Part 18.1) — text classes only. */
+.cs-stamp-line--primary {
+  fill: var(--color-brand-blue);
+  font-size: 24px;
+  font-weight: 800;
+  letter-spacing: 6px;
+}
+
+.cs-stamp-line--secondary {
+  fill: var(--color-heading-text);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 4px;
+}
+
+/* ============================================================
+   PART 18.5 — TYPEWRITER CARET (stats strip)
+   Blinking block caret while a stat value types in. Hidden when
+   not active; disabled by reduced-motion (the component then shows
+   the full server-rendered value with no caret at all).
+   ============================================================ */
+
+.cs-typewriter-caret {
+  display: inline-block;
+  width: 2px;
+  height: 1em;
+  margin-left: 2px;
+  vertical-align: -0.125em;
+  border-radius: 1px;
+  background: var(--color-brand-blue);
+  opacity: 0;
+}
+
+.cs-typewriter-caret--active {
+  opacity: 1;
+  animation: cs-caret-blink 0.9s steps(2, start) infinite;
+}
+
+@keyframes cs-caret-blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+/* ============================================================
+   PART 18.6 — RELATED-PAGES SIDEBAR (desktop rail + mobile block)
+   Mirrors the blog sidebar pattern. Desktop = sticky rail inside
+   the "What We Did" section (.cs-spec-rail from Part 7.1); mobile
+   = a compact block below the same section.
+   ============================================================ */
+
+.cs-sb-card {
+  background: var(--color-card-bg);
+  border: 1px solid var(--color-border-light);
+  border-radius: var(--radius-md);
+  padding: 1.25rem;
+}
+
+.cs-sb-heading {
+  font-family: var(--font-montserrat);
+  font-size: var(--text-h4);
+  font-weight: 700;
+  color: var(--color-heading-text);
+}
+
+.cs-sb-list {
+  display: grid;
+  gap: 0.375rem;
+  margin-top: 0.75rem;
+}
+
+.cs-sb-link {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  padding: 0.5rem 0.625rem;
+  border-radius: var(--radius-sm);
+  font-size: var(--text-body-sm);
+  line-height: 1.5;
+  color: var(--color-link-blue);
+  transition: background-color 180ms var(--cs-ease-out-expo);
+}
+
+.cs-sb-link:hover,
+.cs-sb-link:focus-visible {
+  background: var(--color-white);
+  color: var(--color-brand-blue);
+}
+
+.cs-sb-badge {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+  margin-top: 2px;
+  padding: 0.125rem 0.375rem;
+  border-radius: var(--radius-sm);
+  background: var(--color-brand-blue);
+  color: var(--color-white);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+/* ============================================================
+   ACCESSIBILITY — prefers-reduced-motion
+   Render the final state instantly; keep interactive controls.
+   ============================================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  .cs-reveal,
+  .cs-stagger > *,
+  .cs-pop-stagger > *,
+  .cs-timeline-node,
+  .cs-timeline-fix,
+  .cs-stamp,
+  .cs-timeline-stem {
+    opacity: 1 !important;
+    transform: none !important;
+    animation: none !important;
+    transition: none !important;
+  }
+
+  /* Box nodes + gradient breathing hold their final state. */
+  .cs-timeline-node--box.cs-node-in-a,
+  .cs-timeline-node--box.cs-node-in-b,
+  .cs-timeline-node--box.cs-node-in-c,
+  .cs-timeline-node--box.cs-node-in-d,
+  .cs-timeline-node--box .cs-node-grad-a,
+  .cs-timeline-node--box .cs-node-grad-b {
+    animation: none !important;
+    transform: none !important;
+    opacity: 1 !important;
+  }
+
+  .cs-timeline-stem {
+    stroke-dashoffset: 0 !important;
+  }
+
+  .cs-timeline-track {
+    stroke-dashoffset: 0 !important;
+    animation: none !important;
+  }
+
+  .cs-typewriter-caret--active,
+  .cs-mobile-node-chip {
+    animation: none !important;
+  }
+
+  .cs-accordion-body {
+    transition: none !important;
+  }
+
+  .cs-pro-tip-tick,
+  .cs-underline-grow::after {
+    transition: none !important;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* ============================================================
+   PART 19 — HUB / PROJECT-REGISTER STYLES
+   (plans/case-studies-mega-plan.md §19.5 — appended 2026-09-02)
+   Additive only. Every selector is prefixed `cs-`. Colours come
+   from the design-token CSS vars in globals.css @theme — no raw
+   hex. Motion honours prefers-reduced-motion (final state snaps).
+   ============================================================ */
+
+/* ---- Z0 Faint blueprint-grid watermark ---- */
+.cs-hub-bg {
+  position: relative;
+  isolation: isolate;
+}
+
+.cs-hub-bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0.05;
+  background-image:
+    linear-gradient(var(--color-brand-blue) 1px, transparent 1px),
+    linear-gradient(90deg, var(--color-brand-blue) 1px, transparent 1px);
+  background-size: 42px 42px;
+  -webkit-mask-image: radial-gradient(
+    ellipse 95% 90% at 50% 0%,
+    #000 55%,
+    transparent 100%
+  );
+  mask-image: radial-gradient(
+    ellipse 95% 90% at 50% 0%,
+    #000 55%,
+    transparent 100%
+  );
+}
+
+.cs-hub-main {
+  position: relative;
+  z-index: 1;
+}
+
+/* ---- Z2 Aggregate stat tile ---- */
+.cs-stat-tile {
+  transition:
+    transform 220ms var(--cs-ease-out-expo),
+    box-shadow 220ms var(--cs-ease-out-expo);
+}
+
+.cs-stat-tile:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-card);
+}
+
+/* ---- Z3 Quick-jump pill row (horizontal scroll, no wrap at 360px) ---- */
+.cs-pill-row {
+  scrollbar-width: none;
+}
+
+.cs-pill-row::-webkit-scrollbar {
+  display: none;
+}
+
+/* ---- Z5 File-stamped card ---- */
+.cs-file-card {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Top accent bar — scales in from the left on hover/focus. */
+.cs-file-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--color-brand-blue);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 320ms var(--cs-ease-out-expo);
+}
+
+.cs-file-card:hover::before,
+.cs-file-card:focus-within::before {
+  transform: scaleX(1);
+}
+
+/* "View story →" arrow nudges +4px on hover/focus. */
+.cs-arrow-shift {
+  display: inline-flex;
+  transition: transform 220ms var(--cs-ease-out-expo);
+}
+
+.cs-file-card:hover .cs-arrow-shift,
+.cs-file-card:focus-within .cs-arrow-shift {
+  transform: translateX(4px);
+}
+
+/* File rule — dashed quotation → solid build (echoes Part 6.3). */
+.cs-file-rule {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.cs-rule--quote {
+  flex: 1 1 40%;
+  height: 2px;
+  border-radius: 9999px;
+  background: repeating-linear-gradient(
+    90deg,
+    var(--color-brand-blue) 0 6px,
+    transparent 6px 10px
+  );
+  transition: flex-basis 320ms var(--cs-ease-out-expo);
+}
+
+.cs-rule--build {
+  flex: 1 1 auto;
+  height: 2px;
+  border-radius: 9999px;
+  background: var(--color-success-green);
+}
+
+.cs-file-card:hover .cs-rule--quote {
+  flex-basis: 52%;
+}
+
+/* Redaction glyph — wobbles once on hover (cs-wobble exists above). */
+.cs-redact-glyph {
+  display: inline-flex;
+  align-items: center;
+}
+
+.cs-file-card:hover .cs-redact-glyph {
+  animation: cs-wobble 380ms var(--cs-ease-out-expo);
+}
+
+/* ---- Z6 Amber pattern-break CTA tile ---- */
+.cs-cta-tile {
+  position: relative;
+  overflow: hidden;
+}
+
+.cs-cta-tile::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: repeating-linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.09) 0 1px,
+    transparent 1px 12px
+  );
+}
+
+/* ---- Z4 Freshness strip ---- */
+.cs-fresh-row {
+  scrollbar-width: none;
+}
+
+.cs-fresh-row::-webkit-scrollbar {
+  display: none;
+}
+
+/* ---- Z7 Related-pages rail ---- */
+.cs-rail-box {
+  position: relative;
+  overflow: hidden;
+}
+
+.cs-rail-box::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 3px;
+  width: 100%;
+  background: linear-gradient(
+    90deg,
+    var(--color-brand-blue),
+    transparent 70%
+  );
+}
+
+/* ---- Z8 Smart empty state ---- */
+.cs-empty-hint {
+  border: 1px dashed var(--color-brand-blue);
+  background: var(--color-card-bg);
+  border-radius: 12px;
+}
+
+/* ---- Z9 Mobile bottom drawer ---- */
+.cs-drawer {
+  position: fixed;
+  inset: 0;
+  z-index: 80;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.cs-drawer.cs-drawer--open {
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.cs-drawer-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(26, 34, 51, 0.45);
+  opacity: 0;
+  transition: opacity 220ms var(--cs-ease-out-expo);
+}
+
+.cs-drawer--open .cs-drawer-backdrop {
+  opacity: 1;
+}
+
+.cs-drawer-panel {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  max-height: 88vh;
+  overflow-y: auto;
+  background: var(--color-light-bg);
+  border-radius: 16px 16px 0 0;
+  box-shadow: var(--shadow-dropdown);
+  transform: translateY(100%);
+  transition: transform 300ms var(--cs-ease-out-expo);
+}
+
+.cs-drawer--open .cs-drawer-panel {
+  transform: translateY(0);
+}
+
+/* ---- Z10 Hub FAQ (native <details> accordion) ---- */
+.cs-faq-chevron {
+  transition: transform 220ms var(--cs-ease-out-expo);
+}
+
+.cs-faq-item[open] .cs-faq-chevron {
+  transform: rotate(180deg);
+}
+
+/* ---- Part 19 reduced-motion guard ---- */
+@media (prefers-reduced-motion: reduce) {
+  .cs-stat-tile,
+  .cs-file-card::before,
+  .cs-arrow-shift,
+  .cs-rule--quote,
+  .cs-redact-glyph,
+  .cs-cta-tile::after,
+  .cs-drawer-backdrop,
+  .cs-drawer-panel,
+  .cs-faq-chevron {
+    transition: none !important;
+    animation: none !important;
+  }
+
+  .cs-file-card::before,
+  .cs-arrow-shift,
+  .cs-rule--quote,
+  .cs-drawer-panel {
+    transform: none !important;
+  }
+}

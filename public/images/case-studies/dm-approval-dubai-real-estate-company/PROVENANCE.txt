@@ -1,0 +1,12 @@
+Case Study: dm-approval-dubai-real-estate-company
+Source quotation: LML/QTN/1081 (DM Approval, AED 12,000)
+Quotation date: 22 April 2026
+Project status: quoted (draft) — approval scope engaged, not yet claimed
+
+Image provenance:
+- hero.webp       : BLUEPRINT PLACEHOLDER (copied from pilot business-center-dda-dcd-approval/hero.webp, 1600x900)
+- documents.webp  : BLUEPRINT PLACEHOLDER (copied from pilot business-center-dda-dcd-approval/documents.webp, 1200x900)
+- photo           : /images/interior-approvals-dubai-muncipality-consultants.webp (2336x1760, real site library image, DM interior approvals theme)
+
+Blueprint placeholders are sanctioned per case-studies-mega-plan Part 17.2.
+Replace with authentic project images when client consent is granted.

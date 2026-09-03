@@ -1,0 +1,25 @@
+PROVENANCE — fire-fighting-dcd-approval-al-quoz
+================================================
+
+Source: LML/QTN/1047 — QUOTATION FOR DCD APPROVAL, RAFFCO FIRE FIGHTING
+EQUIPMENT INSTALLATION LLC, Al Quoz, Dubai. AED 3,300. Issued 03/03/2026.
+
+Image status: BLUEPRINT-STYLE PLACEHOLDER (sanctioned exception, plan Part
+17.2 Image rule — final-sized placeholder imagery built from the site's
+existing blueprint/technical-drawing visual system; NOT stock photography,
+NOT real-but-unredacted project photos).
+
+- hero.webp (1600x900) and documents.webp (1200x900) copied verbatim from
+  the pilot placeholder set at
+  public/images/case-studies/business-center-dda-dcd-approval/ on
+  2026-09-02. They are the same blueprint-style placeholders used for the
+  pilot; replaced automatically if consent-cleared real site photos become
+  available for this project.
+
+Real site photo (placement: "photo") reused from existing approved asset:
+- public/images/fire-and-safety-approvals-in-dubai-dcd-consultants.webp
+  (2336x1760, registered in src/data/images.ts, alt/caption existing)
+
+Anonymized client (safe default, plan Part 2.2 / escalation rule 2):
+projectStatus "quoted" — only a quotation exists; no approval outcome is
+claimed. publishStatus "draft" — not in sitemap/llms.txt until owner sign-off.

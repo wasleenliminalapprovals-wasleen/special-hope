@@ -29,6 +29,7 @@ import type { MetadataRoute } from "next";
 import { approvals } from "@/data/approvals";
 import { guides } from "@/data/guides";
 import { services } from "@/data/services";
+import { caseStudies } from "@/data/case-studies";
 import { loadPseoPages, getPseoArabicEntry } from "@/lib/pseo-data";
 import { SITE } from "@/lib/constants";
 import { getLivePosts } from "@/lib/blog";
@@ -224,6 +225,40 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         alternates: alt(enUrl, arUrl),
       });
     }
+  }
+
+  /* ── 9. Case studies (EN only until AR pages ship in Steps 6-7) ── */
+  // Only `publishStatus: "live"` case studies enter sitemap.xml (per the
+  // existing rule at src/data/blog-posts.ts:12-18). The AR URL is NOT yet
+  // emitted because src/data/case-studies-ar.ts does not exist — the AR-pair
+  // emission is added in Step 7 (AR pages) alongside that data file, mirroring
+  // the defensive guard used by the blog / pSEO sections above.
+  // See plans/case-studies-mega-plan.md Step 8 — sitemap + llms.txt append.
+
+  // Hub URL first (EN only — no /ar/case-studies route exists yet). Its
+  // lastModified mirrors the register's freshest live file so search engines
+  // re-crawl the hub whenever a new case study ships.
+  const liveStudies = caseStudies.filter((s) => s.publishStatus === "live");
+  const hubLastMod =
+    liveStudies.reduce((max, s) => (s.lastUpdated > max ? s.lastUpdated : max), "2026-09-01");
+
+  entries.push({
+    url: `${BASE_URL}/case-studies`,
+    lastModified: new Date(hubLastMod),
+    alternates: {
+      languages: { en: `${BASE_URL}/case-studies`, "x-default": `${BASE_URL}/case-studies` },
+    },
+  });
+
+  for (const study of liveStudies) {
+    const enUrl = `${BASE_URL}/case-studies/${study.slug}`;
+    const lastMod = study.lastUpdated || "2026-09-01";
+
+    entries.push({
+      url: enUrl,
+      lastModified: new Date(lastMod),
+      alternates: { languages: { en: enUrl, "x-default": enUrl } },
+    });
   }
 
   return entries;

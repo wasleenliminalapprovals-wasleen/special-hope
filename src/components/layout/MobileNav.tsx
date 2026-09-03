@@ -32,6 +32,7 @@ function getNavLinks(locale: "en" | "ar") {
     { label: "Home", href: "/" },
     { label: "Guides", href: "/guides" },
     { label: "Blog", href: "/blog" },
+    { label: "Case Studies", href: "/case-studies" },
     { label: "About Us", href: "/about-us" },
     { label: "Contact Us", href: "/contact-us" },
   ];

@@ -1,0 +1,77 @@
+PROVENANCE — dda-approval-arabian-ranches-interior-modification
+================================================================
+Case-study slug:  dda-approval-arabian-ranches-interior-modification
+Source document:  LML/QTN/1105 (Liminal quotation PDF)
+Quotation date:   20/05/2026
+Source folder:    ../approval calculator page/Quotations from Liminal/LML-QTN-1105.pdf
+
+SOURCE OF TRUTH
+---------------
+The page content (fee, scope lines, limiting conditions, payment schedule,
+quotation date) is derived ONLY from the LML/QTN/1105 PDF. No figures,
+locations, client names or timelines were invented.
+
+- Client ("To") line on the quotation reads literally: "ARABIAN RANCHES".
+  No specific client company is stated on the quotation. The project is
+  therefore attributed to the Arabian Ranches community/location only, and
+  the page uses an anonymised clientLabel.
+- Subject: QUOTATION FOR DDA APPROVAL.
+- Scope:
+    1. Preparing drawings as per DDA regulation for interior modification — AED 6,000
+    2. Obtaining design approval from DDA
+    3. Conducting inspection from DDA, releasing completion certificate
+- Amount: AED 6,000 (SIX THOUSAND ONLY).
+- Limiting conditions (verbatim basis):
+    1. All other existing drawings, documents, and green files are to be
+       given by the client.
+    2. Additional price will be charged for exceptional approval requirements.
+    3. & 4. Additional charge will apply for a failed inspection or a design
+       revision.
+    5. VAT will be separate.
+    6. If Emaar NOC is received, work can be completed within 5 days. Any
+       comments or revisions may require additional time.
+- Payment: 50% advance / 40% during work progress / 10% after completion.
+
+CONSENT & ANONYMISATION
+-----------------------
+- consentGranted: false. No consent to name the client exists on the
+  quotation or in the project files.
+- No client company name is shown anywhere on the page or in this folder.
+  The clientLabel is "Confidential client — Residential property owner".
+- projectStatus: "quoted" (honest — this is a quotation, not a claimed
+  completed approval). publishStatus: "draft".
+
+RELATIONSHIP TO OTHER CASE STUDIES (FLAG FOR OWNER)
+---------------------------------------------------
+- dda-approval-alma-arabian-ranches (LML/QTN/1049, 12/03/2026, AED 5,500)
+  is an EARLIER quotation for a DDA approval in Arabian Ranches — that
+  quotation specified a villa in the Alma sub-community. LML/QTN/1105
+  (20/05/2026, AED 6,000) states only "Arabian Ranches" and describes the
+  scope as an interior modification; it does not name Alma or a villa.
+- The two quotations may describe the SAME engagement (a later, re-priced
+  quotation) OR a DIFFERENT property within Arabian Ranches. The evidence
+  in the PDFs cannot confirm either reading.
+- DECISION TAKEN: build LML/QTN/1105 as its own distinct case-study page
+  (each quotation is a real, distinct source document), with content that
+  does not assert a villa or the Alma sub-community. It is NOT cross-linked
+  from dda-approval-alma-arabian-ranches as a "related case study" to avoid
+  implying two separate completed projects when the relationship is unclear.
+- Owner should review whether these two quotations are the same engagement;
+  if they are, the two pages may later need a merge/reconciliation note.
+
+IMAGES
+------
+- hero.webp (1600x900) and documents.webp (1200x900) are blueprint-scene
+  placeholders copied from the approved pilot folder
+  (business-center-dda-dcd-approval) — identical convention used across all
+  case-study pages. They are illustrative drawings, not client documents.
+- Photo placement uses the site library image
+  /images/interior-fit-out-approval-service-dubai.webp (1200x1200) — an
+  interior fit-out approval service image (illustrative, not the client's
+  actual project).
+
+AUTHORSHIP
+----------
+Author: Jamsheed Khalid (Senior Fit-Out Consultant & Structural Engineer)
+Reviewer: Kavya Ramachandran (Interior Designer)
+Last content update: 2026-09-02

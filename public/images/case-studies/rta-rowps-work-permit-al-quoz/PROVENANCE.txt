@@ -1,0 +1,26 @@
+CASE STUDY IMAGE PROVENANCE
+===========================
+slug:             rta-rowps-work-permit-al-quoz
+sourceRef:        LML/QTN/1098
+source document:  ../approval calculator page/Quotations from Liminal/LML-QTN-1098.pdf (order date 11/05/2026)
+client:           WADI FAST TECHNICAL SERVICES CO
+                  (redacted on page — "Confidential client — Technical services company in Al Quoz")
+consent:          NOT granted — client anonymized per plan Part 2 honesty/status rules
+
+Image files
+-----------
+hero.webp       1600x900  Blueprint placeholder (copied from pilot business-center-dda-dcd-approval/hero.webp).
+                          No client-identifying content. Used as the case study hero image.
+documents.webp  1200x900  Blueprint placeholder (copied from pilot business-center-dda-dcd-approval/documents.webp).
+                          No client-identifying content. Used for the documents section.
+
+Photo placement
+---------------
+The entry's images array also references the site library photo:
+  /images/blueprint-drawing-submission-approval-dubai.webp  (1376x768)
+registered in src/data/images.ts as status "available". No new file is created for this placement.
+
+Provenance policy
+-----------------
+All images are in-house placeholders or site library photos. No client photographs, logos,
+documents, or identifying details are used anywhere in this case study.

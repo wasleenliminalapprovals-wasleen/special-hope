@@ -1,0 +1,33 @@
+CASE STUDY: dcd-approval-burlington-tower-3
+SOURCE REFERENCE: LML/QTN/1104
+SOURCE FILE: ../approval calculator page/Quotations from Liminal/LML-QTN-1104.pdf
+QUOTATION DATE: 18/05/2026
+CLIENT (source PDF): RAFFCO FIRE FIGHTING EQUIPMENT INSTALLATION LLC
+CLIENT (published, anonymized): Confidential client — Fire fighting equipment installation company
+PROJECT (source PDF): BURLINGTON TOWER 3, FLOOR 301 OFFICE
+SUBJECT (source PDF): QUOTATION FOR DCD APPROVAL
+QUOTED FEE: AED 3,200 (THREE THOUSAND TWO HUNDRED ONLY)
+AUTHORITY: Dubai Civil Defence (DCD)
+CONSENT: NOT GRANTED — client identity anonymized per Part 4 extraction rules
+PROJECT STATUS: quoted (approval scope engaged, completion not yet claimed)
+LOCATION BASIS: PDF states Burlington Tower 3, Floor 301 office; district not stated on PDF, so location recorded as "Burlington Tower 3, Dubai"
+
+IMAGES:
+- hero.webp (1600x900): copied from pilot folder business-center-dda-dcd-approval (generic approval blueprint artwork, no client-identifying content)
+- documents.webp (1200x900): copied from pilot folder business-center-dda-dcd-approval (generic approval document checklist artwork, no client-identifying content)
+- photo placement: /images/DCD-approval-consultants-in-dubai (1).webp (1920x1080) from site library public/images — Dubai Civil Defense approval consultants reviewing fire safety compliance
+
+SCOPE (verbatim from PDF):
+1. Preparing drawings as per DCD regulation — 3200 AED
+2. Obtaining design approval from DCD
+3. Conducting inspection from DCD, releasing completion certificate
+
+LIMITING CONDITIONS (verbatim from PDF):
+1. All other existing drawings, documents, and green files are to be given by the client.
+2. Additional price will be charged for exceptional approval requirements.
+3. Additional charge for inspection failure or design revision.
+4. VAT will be separate.
+
+PAYMENT (verbatim from PDF): 50% advance / 40% during work progress / 10% after completion.
+
+NOTE: Same source client as LML/QTN/1047 (fire-fighting-dcd-approval-al-quoz) — both quotations issued to RAFFCO FIRE FIGHTING EQUIPMENT INSTALLATION LLC.

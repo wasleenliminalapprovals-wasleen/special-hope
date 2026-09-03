@@ -1,0 +1,11 @@
+Case Study: dda-dcd-food-safety-approval-cafe
+Source quotation: LML/QTN/1083 (23/04/2026)
+Client (redacted): Confidential client — Cafe & restaurant company
+Scope: DDA + DCD + Food Safety approval (layout drawings, DDA/DCD design approval and inspection, food safety layout submission to Dubai Municipality)
+
+Image provenance:
+- hero.webp       = blueprint placeholder (copied from pilot business-center-dda-dcd-approval)
+- documents.webp  = blueprint placeholder (copied from pilot business-center-dda-dcd-approval)
+- photo (in data) = /images/restaurant-food-business-approval-dubai.webp (site library, 1376x768)
+
+No approval is claimed in this case study. It reflects a quotation only (projectStatus: "quoted").

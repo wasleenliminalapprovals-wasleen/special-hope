@@ -37,6 +37,7 @@ function getNavItems(locale: "en" | "ar") {
     { label: "Services", href: "/services", hasMegaMenu: true as const },
     { label: "Guides", href: "/guides" },
     { label: "Blog", href: "/blog" },
+    { label: "Case Studies", href: "/case-studies" },
     { label: "About Us", href: "/about-us" },
     { label: "Contact Us", href: "/contact-us" },
   ];

@@ -30,7 +30,9 @@ import { NextResponse } from "next/server";
 import { approvals } from "@/data/approvals";
 import { guides } from "@/data/guides";
 import { services } from "@/data/services";
+import { caseStudies } from "@/data/case-studies";
 import { buildLlmsFull } from "@/lib/geo";
+import { buildCaseStudiesLlmsFull } from "@/lib/case-studies";
 import { getLivePosts } from "@/lib/blog";
 import { loadPseoPages } from "@/lib/pseo-data";
 
@@ -38,8 +40,15 @@ export const dynamic = "force-static";
 
 export async function GET() {
   const content = buildLlmsFull(approvals, guides, services, loadPseoPages(), getLivePosts());
+  const caseStudiesSection = buildCaseStudiesLlmsFull(caseStudies);
+  // Append-only (Step 8, case-studies mega-plan): LIVE case-study URLs only.
+  // `src/lib/geo.ts` is untouched (addendum A.2). If no live case study exists
+  // yet, the section is empty and the manifest is unchanged.
+  const finalContent = caseStudiesSection
+    ? `${content}\n${caseStudiesSection}`
+    : content;
 
-  return new NextResponse(content, {
+  return new NextResponse(finalContent, {
     status: 200,
     headers: {
       "Content-Type": "text/plain; charset=utf-8",
