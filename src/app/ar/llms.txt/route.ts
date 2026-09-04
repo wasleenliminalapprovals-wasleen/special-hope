@@ -16,9 +16,11 @@ import { guides } from "@/data/guides";
 import { guides as guidesAr } from "@/data/guides-ar";
 import { services } from "@/data/services";
 import { services as servicesAr } from "@/data/services-ar";
+import { caseStudiesArabic } from "@/data/case-studies-ar";
 import { AR } from "@/lib/constants";
 import { getLiveArabicPosts } from "@/lib/blog-ar";
 import { loadPseoArabicEntries } from "@/lib/pseo-data";
+import { buildArabicCaseStudiesLlmsIndex } from "@/lib/case-studies";
 
 export const dynamic = "force-static";
 
@@ -159,6 +161,16 @@ export async function GET() {
     `- [الرخصة التجارية والتسجيل التنظيمي](/ar/license): ${AR.license.companyName} — رخصة تجارية من دائرة التنمية الاقتصادية رقم ${AR.license.licenseNumber} (عضوية غرفة دبي ${AR.license.dcciMembership})، سارية حتى ${AR.license.expiryDate}.`
   );
   lines.push("");
+
+  // ── Case Studies (Arabic) ──
+  // Append-only (Step 8, case-studies mega-plan): LIVE Arabic case-study URLs
+  // only — `publishStatus: "live"` in src/data/case-studies-ar.ts. `src/lib/
+  // geo.ts` is untouched (addendum A.2). If no live Arabic case study exists
+  // yet, the section is empty and the manifest is unchanged.
+  const caseStudiesSection = buildArabicCaseStudiesLlmsIndex(caseStudiesArabic);
+  if (caseStudiesSection) {
+    lines.push(caseStudiesSection);
+  }
 
   const content = lines.join("\n");
 

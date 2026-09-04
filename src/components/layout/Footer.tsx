@@ -13,6 +13,7 @@ import {
 import WasleenIcon from "@/components/logo/WasleenIcon";
 import SocialIconsRow from "@/components/sections/SocialIconsRow";
 import { AR, NAP, SITE } from "@/lib/constants";
+import { AR_CASE_STUDY_HUB_LABEL } from "@/components/case-studies/ar/ar-labels";
 
 /* ============================================================
    Footer — 5-column on desktop, single-column accordion on mobile
@@ -330,13 +331,11 @@ function FooterContactColumn({ locale = "en" }: { locale?: "en" | "ar" }) {
             {locale === "ar" ? `${AR.breadcrumb.guides} & Q&A` : "Guides & Q&A"}
           </Link>
         </li>
-        {locale === "en" && (
-          <li>
-            <Link href={`${prefix}/case-studies`} className="text-body-sm text-white/70 hover:text-white transition-colors">
-              Case Studies
-            </Link>
-          </li>
-        )}
+        <li>
+          <Link href={`${prefix}/case-studies`} className="text-body-sm text-white/70 hover:text-white transition-colors">
+            {locale === "ar" ? AR_CASE_STUDY_HUB_LABEL : "Case Studies"}
+          </Link>
+        </li>
         <li>
           <Link
             href={`${prefix}/license`}

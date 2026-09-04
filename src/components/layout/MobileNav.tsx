@@ -7,6 +7,10 @@ import { FileText, Phone, X } from "lucide-react";
 import MegaMenu from "./MegaMenu";
 import LanguageSwitcher from "./LanguageSwitcher";
 import { AR, NAP } from "@/lib/constants";
+import {
+  AR_CASE_STUDY_HUB_LABEL,
+  AR_CASE_STUDY_HUB_PATH,
+} from "@/components/case-studies/ar/ar-labels";
 
 /* ============================================================
    Mobile Navigation — slide-in drawer
@@ -24,6 +28,7 @@ function getNavLinks(locale: "en" | "ar") {
       { label: AR.nav.home, href: "/ar" },
       { label: AR.nav.guides, href: "/ar/guides" },
       { label: AR.nav.blog, href: "/ar/blog" },
+      { label: AR_CASE_STUDY_HUB_LABEL, href: AR_CASE_STUDY_HUB_PATH },
       { label: AR.nav.aboutUs, href: "/ar/about-us" },
       { label: AR.nav.contactUs, href: "/ar/contact-us" },
     ];

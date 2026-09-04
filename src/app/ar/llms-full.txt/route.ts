@@ -20,7 +20,10 @@ import { guides } from "@/data/guides";
 import { guides as guidesAr } from "@/data/guides-ar";
 import { services } from "@/data/services";
 import { services as servicesAr } from "@/data/services-ar";
+import { caseStudies } from "@/data/case-studies";
+import { caseStudiesArabic } from "@/data/case-studies-ar";
 import { AR, NAP, SITE } from "@/lib/constants";
+import { buildArabicCaseStudiesLlmsFull } from "@/lib/case-studies";
 import type { BlogPost } from "@/types";
 import { getLiveArabicPosts } from "@/lib/blog-ar";
 
@@ -500,6 +503,19 @@ export async function GET() {
 
   for (const post of getLiveArabicPosts()) {
     blocks.push(formatBlogForArabicLlms(post));
+  }
+
+  // ── Case Studies (Arabic) ──
+  // Append-only (Step 8, case-studies mega-plan): LIVE Arabic case-study
+  // blocks only — `publishStatus: "live"` in src/data/case-studies-ar.ts.
+  // `src/lib/geo.ts` is untouched (addendum A.2). If no live Arabic case
+  // study exists yet, the section is empty and the file is unchanged.
+  const caseStudiesSection = buildArabicCaseStudiesLlmsFull(
+    caseStudiesArabic,
+    caseStudies
+  );
+  if (caseStudiesSection) {
+    blocks.push(caseStudiesSection);
   }
 
   const content = blocks.join("\n");

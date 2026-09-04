@@ -9,6 +9,10 @@ import MegaMenu from "./MegaMenu";
 import MobileNav from "./MobileNav";
 import LanguageSwitcher from "./LanguageSwitcher";
 import { AR, NAP } from "@/lib/constants";
+import {
+  AR_CASE_STUDY_HUB_LABEL,
+  AR_CASE_STUDY_HUB_PATH,
+} from "@/components/case-studies/ar/ar-labels";
 
 /* ============================================================
    Header — Sticky, with desktop nav + mobile hamburger
@@ -27,6 +31,7 @@ function getNavItems(locale: "en" | "ar") {
       { label: AR.nav.services, href: "/ar/services", hasMegaMenu: true as const },
       { label: AR.nav.guides, href: "/ar/guides" },
       { label: AR.nav.blog, href: "/ar/blog" },
+      { label: AR_CASE_STUDY_HUB_LABEL, href: AR_CASE_STUDY_HUB_PATH },
       { label: AR.nav.aboutUs, href: "/ar/about-us" },
       { label: AR.nav.contactUs, href: "/ar/contact-us" },
     ];

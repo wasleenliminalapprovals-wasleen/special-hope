@@ -30,6 +30,7 @@ import { approvals } from "@/data/approvals";
 import { guides } from "@/data/guides";
 import { services } from "@/data/services";
 import { caseStudies } from "@/data/case-studies";
+import { caseStudiesArabic } from "@/data/case-studies-ar";
 import { loadPseoPages, getPseoArabicEntry } from "@/lib/pseo-data";
 import { SITE } from "@/lib/constants";
 import { getLivePosts } from "@/lib/blog";
@@ -227,38 +228,63 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     }
   }
 
-  /* ── 9. Case studies (EN only until AR pages ship in Steps 6-7) ── */
+  /* ── 9. Case studies (en/ar pairs — both hubs + every LIVE file) ── */
   // Only `publishStatus: "live"` case studies enter sitemap.xml (per the
-  // existing rule at src/data/blog-posts.ts:12-18). The AR URL is NOT yet
-  // emitted because src/data/case-studies-ar.ts does not exist — the AR-pair
-  // emission is added in Step 7 (AR pages) alongside that data file, mirroring
-  // the defensive guard used by the blog / pSEO sections above.
+  // existing rule at src/data/case-studies.ts). The AR twin pages ship under
+  // /ar/case-studies (hub + 16 detail routes, src/data/case-studies-ar.ts), so
+  // each LIVE EN study is emitted as an en/ar hreflang pair — the AR URL only
+  // when its own AR twin is `live` too (defensive guard mirrors the blog /
+  // pSEO sections above; AR entries flip `draft` → `live` after owner sign-off
+  // per mega-plan Part 17.4).
   // See plans/case-studies-mega-plan.md Step 8 — sitemap + llms.txt append.
 
-  // Hub URL first (EN only — no /ar/case-studies route exists yet). Its
-  // lastModified mirrors the register's freshest live file so search engines
-  // re-crawl the hub whenever a new case study ships.
   const liveStudies = caseStudies.filter((s) => s.publishStatus === "live");
+  const liveArabic = caseStudiesArabic.filter((s) => s.publishStatus === "live");
+  const liveArabicBySlug = new Map(liveArabic.map((s) => [s.slug, s]));
+  // Hub lastModified mirrors the register's freshest live file so search
+  // engines re-crawl the hub whenever a new case study ships.
   const hubLastMod =
     liveStudies.reduce((max, s) => (s.lastUpdated > max ? s.lastUpdated : max), "2026-09-01");
 
+  // English hub first (always — the register page exists and is canonical).
   entries.push({
     url: `${BASE_URL}/case-studies`,
     lastModified: new Date(hubLastMod),
-    alternates: {
-      languages: { en: `${BASE_URL}/case-studies`, "x-default": `${BASE_URL}/case-studies` },
-    },
+    alternates: liveArabic.length
+      ? alt(`${BASE_URL}/case-studies`, `${BASE_URL}/ar/case-studies`)
+      : { languages: { en: `${BASE_URL}/case-studies`, "x-default": `${BASE_URL}/case-studies` } },
   });
+
+  // Arabic hub — only once at least one Arabic twin is `live`.
+  if (liveArabic.length) {
+    entries.push({
+      url: `${BASE_URL}/ar/case-studies`,
+      lastModified: new Date(hubLastMod),
+      alternates: alt(`${BASE_URL}/case-studies`, `${BASE_URL}/ar/case-studies`),
+    });
+  }
 
   for (const study of liveStudies) {
     const enUrl = `${BASE_URL}/case-studies/${study.slug}`;
+    const arUrl = `${BASE_URL}/ar/case-studies/${study.slug}`;
     const lastMod = study.lastUpdated || "2026-09-01";
+    const arTwin = liveArabicBySlug.get(study.slug);
 
     entries.push({
       url: enUrl,
       lastModified: new Date(lastMod),
-      alternates: { languages: { en: enUrl, "x-default": enUrl } },
+      alternates: arTwin
+        ? alt(enUrl, arUrl)
+        : { languages: { en: enUrl, "x-default": enUrl } },
     });
+
+    if (arTwin) {
+      entries.push({
+        url: arUrl,
+        lastModified: new Date(lastMod),
+        alternates: alt(enUrl, arUrl),
+      });
+    }
   }
 
   return entries;

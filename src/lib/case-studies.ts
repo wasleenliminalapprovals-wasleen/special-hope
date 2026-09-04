@@ -36,6 +36,7 @@ import {
 } from "@/lib/schema";
 import type {
   ApprovalCaseStudy,
+  CaseStudyArabicContent,
   CaseStudyFacet,
   CaseStudyFilterOption,
   CaseStudyImage,
@@ -536,6 +537,163 @@ export function buildCaseStudiesLlmsFull(
       for (const faq of study.faqs) {
         lines.push(`Q: ${faq.question}`);
         lines.push(`A: ${faq.answer}`);
+        lines.push("");
+      }
+    }
+
+    blocks.push(lines.join("\n"));
+  }
+
+  return blocks.join("\n");
+}
+
+/* ============================================================
+   AR llms.txt / llms-full.txt builders (Step 8 continuation —
+   Arabic case-study sections for /ar/llms.txt + /ar/llms-full.txt).
+   Additive mirror of the EN builders above: LIVE Arabic entries only
+   (`publishStatus === "live"` in src/data/case-studies-ar.ts — flipped
+   after owner sign-off, Part 17.4). Arabic prose comes from
+   `CaseStudyArabicContent` (native writing, Part 10.2); the register's
+   few shared numeric fields (authorities, real projectStatus) are read
+   from the EN twin matched by slug so the Arabic file stays data-honest.
+   `src/lib/geo.ts` is untouched (addendum A.2).
+   ============================================================ */
+
+/** Arabic labels for the real per-file `projectStatus` — byte-for-byte the
+    visible text on /ar/case-studies/{slug} detail pages
+    (`AR_CASE_STUDY_STATUS_LABELS` in src/components/case-studies/ar/
+    ar-labels.ts). The hub register presents every file as "معتمد / مكتمل"
+    per owner directive 2026-09-02 (display-only) — llms registers always
+    carry the real per-entry label, matching the detail pages. */
+const ARABIC_CASE_STUDY_STATUS_LABELS: Record<string, string> = {
+  quoted: "عرض سعر فقط",
+  "in-progress": "قيد التنفيذ",
+  completed: "معتمد / مكتمل",
+};
+
+/**
+ * Arabic llms.txt — index section: one bullet per LIVE Arabic case study,
+ * matching the one-liner style of the Arabic index sections in
+ * src/app/ar/llms.txt/route.ts and the EN case-study index above.
+ */
+export function buildArabicCaseStudiesLlmsIndex(
+  arCaseStudies: CaseStudyArabicContent[]
+): string {
+  const live = arCaseStudies.filter((s) => s.publishStatus === "live");
+  if (live.length === 0) return "";
+
+  const lines: string[] = [];
+  lines.push(`## صفحات دراسات الحالة — ${live.length} صفحة`);
+  lines.push("");
+  lines.push(
+    `- [دراسات الحالة في دبي](/ar/case-studies): الصفحة الرئيسية — سجل ${live.length} مشاريع اعتماد حقيقية في دبي أدارتها وسلين للموافقات مع الرسوم المعروضة والمستندات المقدمة والجهات المعنية والنتائج.`
+  );
+
+  for (const study of live) {
+    const snippet = study.arDirectAnswer.split(".")[0].trim() + ".";
+    lines.push(
+      `- [${study.arTitle}](/ar/case-studies/${study.slug}): ${snippet}`
+    );
+  }
+  lines.push("");
+
+  return lines.join("\n");
+}
+
+/**
+ * Arabic llms-full.txt — hub register block + full per-page Arabic blocks,
+ * mirroring the EN `buildCaseStudiesLlmsFull` structure so AI agents get the
+ * same extraction-grade Arabic detail.
+ */
+export function buildArabicCaseStudiesLlmsFull(
+  arCaseStudies: CaseStudyArabicContent[],
+  enCaseStudies: ApprovalCaseStudy[]
+): string {
+  const live = arCaseStudies.filter((s) => s.publishStatus === "live");
+  if (live.length === 0) return "";
+
+  const enBySlug = new Map(enCaseStudies.map((s) => [s.slug, s]));
+  const blocks: string[] = [];
+
+  /* Hub block — mirrors the visible /ar/case-studies register. Register lines
+     carry the real per-file status label (like the detail pages); no
+     fabricated outcomes are added. */
+  const authorities = [
+    ...new Set(live.flatMap((s) => enBySlug.get(s.slug)?.authorities ?? [])),
+  ];
+  const hub: string[] = [];
+  hub.push("---");
+  hub.push("## دراسات الحالة في دبي");
+  hub.push("> /ar/case-studies");
+  hub.push("");
+  hub.push("### الإجابة المباشرة");
+  hub.push("");
+  hub.push(
+    `${live.length} مشاريع اعتماد حقيقية في دبي أدارتها وسلين للموافقات عبر ${authorities.length} جهات. يعرض كل ملف الرسوم المعروضة والمستندات المقدمة والنتيجة الفعلية — ويبقى العملاء مجهولين إلا بموافقة كتابية صريحة.`
+  );
+  hub.push("");
+  hub.push("### السجل");
+  hub.push("");
+  for (const study of live) {
+    const en = enBySlug.get(study.slug);
+    const auth = en ? en.authorities.join(", ") : "";
+    const status =
+      en ? ARABIC_CASE_STUDY_STATUS_LABELS[en.projectStatus] ?? en.projectStatus : "";
+    hub.push(
+      `- [${study.arTitle}](/ar/case-studies/${study.slug}) — ${study.arLocation} · ${auth} · ${study.arQuotedFee} · ${status}`
+    );
+  }
+  hub.push("");
+  blocks.push(hub.join("\n"));
+
+  for (const study of live) {
+    const lines: string[] = [];
+    lines.push("---");
+    lines.push(`## ${study.arTitle}`);
+    lines.push(`> /ar/case-studies/${study.slug}`);
+    lines.push("");
+
+    // Direct Answer
+    lines.push("### الإجابة المباشرة");
+    lines.push("");
+    lines.push(study.arDirectAnswer);
+    lines.push("");
+
+    // At a Glance (stats)
+    lines.push("### لمحة سريعة");
+    lines.push("");
+    lines.push("| المؤشر | القيمة |");
+    lines.push("|---|---|");
+    for (const stat of study.arStats) {
+      lines.push(`| ${stat.label} | ${stat.value} |`);
+    }
+    lines.push("");
+
+    // Challenge
+    if (study.arChallenge) {
+      lines.push("### التحدي");
+      lines.push("");
+      lines.push(study.arChallenge);
+      lines.push("");
+    }
+
+    // Process Steps
+    if (study.arSolutionSteps.length > 0) {
+      lines.push("### خطوات العملية");
+      lines.push("");
+      for (const step of study.arSolutionSteps) {
+        lines.push(`${step.step}. ${step.title} — ${step.description}`);
+      }
+      lines.push("");
+    }
+
+    // FAQ
+    if (study.arFaqs.length > 0) {
+      lines.push("### الأسئلة الشائعة");
+      lines.push("");
+      for (const faq of study.arFaqs) {
+        lines.push(`س: ${faq.question}`);
+        lines.push(`ج: ${faq.answer}`);
         lines.push("");
       }
     }

@@ -210,8 +210,12 @@ export interface ApprovalCaseStudy {
 /* ============================================================
    Arabic Case Study — CaseStudyArabicContent (Part 3.2)
    ============================================================
-   Mirrors the EN shape with native Arabic strings. Numeric values
-   (fee, dates, sourceRef) are shared; labels are always Arabic.
+   Mirrors the EN shape with native Arabic strings. `sourceRef`,
+   ISO dates and `slug` are shared with the EN twin; every string
+   that is VISIBLE on the `/ar/` page is authored in Arabic here so
+   the page renders 100% Arabic (native writing, Part 10.2) —
+   including the prose "fact values" that EN Sections 2 (Stats), 3
+   (At a Glance) and 5 (Timeline) and the AR hub cards display.
    ============================================================ */
 
 export interface CaseStudyArabicContent {
@@ -222,13 +226,42 @@ export interface CaseStudyArabicContent {
   publishStatus: "draft" | "live";
   arTitle: string;
   arDirectAnswer: string;
+
+  /* --- Arabic fact values (AR Section 3 "At a Glance" + hub cards) --- */
+  /** Arabic for EN `projectType` (e.g. "تشطيب مركز أعمال") */
+  arProjectType: string;
+  /** Arabic for EN `location` (e.g. "دبي إنترنت سيتي") */
+  arLocation: string;
+  /** Arabic for EN `sector` (e.g. "تجاري") */
+  arSector: string;
+  /** Arabic display of the quoted fee (e.g. "14,000 درهم إماراتي") */
+  arQuotedFee: string;
+
+  /* --- Arabic 4-fact strip (AR Section 2 — mirrors EN `stats`) --- */
+  arStats: CaseStudyStat[];
+
   arChallenge: string;
   arSolutionSteps: ProcessStep[];
+
+  /* --- Arabic animated-timeline milestones (AR Section 5) ---
+     Mirrors the optional EN `timeline` node array with Arabic
+     `title`/`detail` so the diagram text stays native. */
+  arTimeline: CaseStudyTimelineNode[];
+
   arDocumentsTable: CaseStudyDocumentRow[];
   arTimelineTable: CaseStudyTimelineRow[];
   arProTips: CaseStudyProTip[];
   arOutcome: CaseStudyStat[];
   arFaqs: FAQItem[];
+  /** Optional Arabic `alt` for the `placement:"photo"` image. The photo `src`
+      is shared with the EN twin (images are read at render — Part 3.2); its
+      alt/caption prose is authored natively here so the `/ar/` page stays
+      Arabic. Falls back to the EN `alt` when absent. */
+  arPhotoAlt?: string;
+  /** Optional Arabic caption beneath the post-hero photo. When absent the
+      Arabic Photo twin renders the image without a figcaption — the EN
+      caption is English and must never leak onto the `/ar/` page. */
+  arPhotoCaption?: string;
   arDescription: string;
   arPrimaryKeyword: string;
   arSecondaryKeywords: string[];
