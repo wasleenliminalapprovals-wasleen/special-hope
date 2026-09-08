@@ -1,0 +1,94 @@
+PROVENANCE — dda-damac-approval-dubai
+================================================================
+Case-study slug:  dda-damac-approval-dubai
+Source document:  LML/QTN/1135 (Liminal quotation PDF)
+Quotation date:   02/07/2026
+Source file:      LML-QTN-1135.pdf
+Source folder:    ../approval calculator page/Quotations from Liminal/
+
+OWNER-SUPPLIED CONTEXT (data-poor PDF — framing decision)
+---------------------------------------------------------
+The LML/QTN/1135 PDF is data-poor: it contains NO client name, NO property
+type and NO master community — only "LOCATION: DUBAI" and the subject
+"QUOTATION FOR DDA AND DAMAC APPROVAL" with amount AED 17,000.
+
+Per the owner's explicit instruction, the project is framed as:
+- Sector: Residential
+- Property: villa/apartment
+- Location: "DAMAC, Dubai" (community named, no specific sub-community such
+  as Damac Hills is invented in this case-study's content)
+- clientLabel: "Confidential client — Residential property owner in a
+  Damac-managed community"
+
+SOURCE OF TRUTH
+---------------
+The page content (fee, scope lines, limiting conditions, payment schedule,
+quotation date) is derived ONLY from the LML/QTN/1135 PDF. No figures,
+locations, client names or timelines were invented.
+
+- Client ("To") line: not stated on the quotation. The page therefore uses
+  an anonymised clientLabel and never invents a client name.
+- Subject: QUOTATION FOR DDA AND DAMAC APPROVAL.
+- Scope (verbatim basis — the PDF lists 7 items; note item 4 duplicates
+  item 3, so both are recorded as the PDF shows them):
+    1. Preparing documents and drawings for DAMAC
+    2. Submitting documents and drawings to DAMAC
+    3. Obtaining NOC from DDA
+    4. Preparing documents and drawings for DDA
+    5. Submitting documents and drawings to DDA
+    6. Obtaining work permit from DDA
+    7. Conducting final inspection from DDA
+- Amount: AED 17,000 (SEVENTEEN THOUSAND AED ONLY).
+- Limiting conditions (verbatim basis):
+    1. All other existing drawings, documents, and green files are to be
+       given by the client.
+    2. Additional price will be charged for exceptional approval
+       requirements.
+    3. Additional charge for inspection failure or design revision.
+    4. [Duplicate of condition 3 — repeated verbatim on the PDF.]
+    5. VAT will be separate.
+  NOTE: The scope ends at "final inspection from DDA". LML/QTN/1135 does
+  NOT contain a completion-certificate line (contrast the DDA & Emaar /
+  DDA & DCD quotations) and does NOT state any fixed completion-time or
+  NOC-timeline claim. The page therefore makes NO completion-certificate
+  overclaim and commits NO timeline.
+- Payment: 50% advance before starting work / 40% during work progress /
+  10% after completion of work.
+- Quotation issued by LIMINAL ARC INTERIORS L.L.C.
+
+CONSENT & ANONYMISATION
+-----------------------
+- consentGranted: false. No consent to name the client exists on the
+  quotation or in the project files.
+- No client name is shown anywhere on the page or in this folder. The
+  clientLabel is "Confidential client — Residential property owner in a
+  Damac-managed community".
+- projectStatus: "quoted" (honest — this is a quotation, not a claimed
+  completed approval). publishStatus: "live" (owner standing directive:
+  live after gates pass).
+- Authority model: DDA is the approval authority (authorities: ["DDA"],
+  primaryApprovalSlug "dda-approval"); Damac is the community developer
+  acting as the community gate for the residential property, matching the
+  DDA & Emaar precedent. No sub-community is invented in case content.
+
+RELATIONSHIP TO OTHER CASE STUDIES
+----------------------------------
+- This is a distinct, verified Dubai reference (LML/QTN/1135, 02/07/2026,
+  AED 17,000, DDA & Damac approval), separate from the DDA & Emaar page
+  (LML/QTN/1115). It is cross-linked to the real Damac approval hub page
+  /approvals/damac-properties-approval (which may mention Damac Hills) and
+  related DDA pages — but the case-study content itself stays at the
+  "DAMAC, Dubai" community level.
+- Related case-study links point to real DDA residential siblings
+  (dda-emaar-approval-arabian-ranches, dda-approval-dubai-contracting-
+  renovation, dda-approval-arabian-ranches-interior-modification).
+
+IMAGERY
+-------
+- hero.webp / documents.webp are blueprint-style placeholder imagery
+  (final-sized per plan Part 17.2 Image rule), identical generic files to
+  those used across all case-study folders (sanctioned placeholder
+  exception; no stock, no unredacted project photos).
+- The in-article "photo" image reuses the existing site library file
+  /images/villa-renovation-approval-dubai.webp (1376x768), the residential
+  villa photo used by the other DDA residential case studies.

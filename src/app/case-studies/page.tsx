@@ -79,11 +79,21 @@ export function generateMetadata(): Metadata {
       description,
       url: `${SITE.url}${CASE_STUDIES_HUB_PATH}`,
       type: "website",
+      // Same brand OG image as the Home page (root-layout default).
+      images: [
+        {
+          url: "/logos/og.jpg",
+          width: 1200,
+          height: 630,
+          alt: "Wasleen Liminal Approval Consultants — Dubai Approvals Expert",
+        },
+      ],
     },
     twitter: {
       card: "summary_large_image",
       title,
       description,
+      images: ["/logos/og.jpg"],
     },
   };
 }

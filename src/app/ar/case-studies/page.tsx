@@ -109,11 +109,21 @@ export function generateMetadata(): Metadata {
       url: `${SITE.url}${AR_CASE_STUDY_HUB_PATH}`,
       type: "website",
       locale: "ar_AE",
+      // Same brand OG image as the Arabic Home page (/ar layout default).
+      images: [
+        {
+          url: "/logos/og.jpg",
+          width: 1200,
+          height: 630,
+          alt: "وسلين ليمينال لاستشارات الموافقات — خبراء موافقات دبي",
+        },
+      ],
     },
     twitter: {
       card: "summary_large_image",
       title,
       description,
+      images: ["/logos/og.jpg"],
     },
   };
 }

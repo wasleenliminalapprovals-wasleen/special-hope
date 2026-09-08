@@ -4391,4 +4391,1773 @@ export const caseStudies: ApprovalCaseStudy[] = [
     lastUpdated: "2026-09-02",
     publishStatus: "live",
   },
+  {
+    slug: "dda-emaar-approval-arabian-ranches",
+    projectTitle: "DDA & Emaar Approval for a Property in Arabian Ranches",
+    seoTitle: "DDA & Emaar Approval in Arabian Ranches",
+    description:
+      "AED 22,000 DDA & Emaar approval quote at Arabian Ranches, Dubai: drawings, design approval, inspection and completion certificate. Get a free quote today.",
+    sourceRef: "LML/QTN/1115",
+    consentGranted: false,
+    clientLabel: "Confidential client — Residential property owner",
+    projectStatus: "quoted",
+    authorities: ["DDA"],
+    primaryApprovalSlug: "dda-approval",
+    projectType: "DDA & Emaar approval",
+    location: "Arabian Ranches, Dubai",
+    sector: "Residential",
+    directAnswer:
+      "This case study covers the quoted DDA & Emaar approval for a property in Arabian Ranches, Dubai. The AED 22,000 quotation, LML/QTN/1115 issued on 9 June 2026, covers preparing the drawings as per DDA & Emaar regulation, obtaining design approval from the Dubai Development Authority (DDA) and Emaar, and conducting the DDA inspection that releases the completion certificate.",
+    stats: [
+      { label: "Authorities", value: "DDA & Emaar" },
+      { label: "Quoted fee", value: "AED 22,000" },
+      { label: "Scope", value: "Drawings, approval & inspection" },
+      { label: "Status", value: "Quotation issued" },
+    ],
+    challenge:
+      "Arabian Ranches is an Emaar-managed residential community under the jurisdiction of the Dubai Development Authority (DDA). This quotation covers the full approval path a property there needs: the subject is a DDA & Emaar approval, so the drawing set has to be prepared as per DDA & Emaar regulation before design approval can be obtained from both, followed by a DDA inspection that releases the completion certificate.\nThe AED 22,000 fee is defined around the inputs the client controls. The client supplies the existing drawings, documents and green files; exceptional approval requirements, an inspection failure or a design revision each carry an additional charge; and VAT is separate. The quotation does not commit to a fixed completion timeline, so confirming the existing documents up front is what keeps the programme and the quoted price realistic.",
+    solutionSteps: [
+      {
+        step: 1,
+        title: "Site visit and document review",
+        description:
+          "Review the existing drawings, documents and green files supplied by the client, and confirm the current condition of the property in Arabian Ranches, Dubai.",
+      },
+      {
+        step: 2,
+        title: "Confirm Emaar community requirements",
+        description:
+          "Arabian Ranches is an Emaar-managed community, so the Emaar community approval requirements are confirmed before the drawing set is prepared.",
+      },
+      {
+        step: 3,
+        title: "Prepare drawings as per DDA & Emaar regulation",
+        description:
+          "Prepare the drawing set so it meets both Dubai Development Authority and Emaar regulation for the works at the Arabian Ranches property.",
+      },
+      {
+        step: 4,
+        title: "Obtain design approval from DDA & Emaar",
+        description:
+          "Submit the drawing set and supporting documents, and follow up until design approval is obtained from the DDA and Emaar.",
+      },
+      {
+        step: 5,
+        title: "Conduct inspection with DDA",
+        description:
+          "Arrange and attend the DDA inspection of the works, and resolve any findings so the inspection passes.",
+      },
+      {
+        step: 6,
+        title: "Release the completion certificate",
+        description:
+          "Once the inspection passes, finalise the DDA documentation and release the completion certificate.",
+      },
+    ],
+    timeline: [
+      {
+        title: "Quotation issued",
+        detail:
+          "Quotation LML/QTN/1115 issued on 9 June 2026 for the DDA & Emaar approval at AED 22,000.",
+        state: "approved",
+        date: "2026-06-09",
+      },
+      {
+        title: "Drawing review",
+        detail:
+          "Review the existing drawings, documents and green files supplied by the client.",
+        state: "pending",
+      },
+      {
+        title: "Emaar community requirements",
+        detail:
+          "Confirm the Emaar community approval requirements for the Arabian Ranches property.",
+        state: "pending",
+      },
+      {
+        title: "Drawings prepared",
+        detail: "Drawing set prepared as per DDA & Emaar regulation.",
+        state: "pending",
+      },
+      {
+        title: "Design approval",
+        detail:
+          "Design approval to be obtained from the Dubai Development Authority and Emaar.",
+        state: "pending",
+      },
+      {
+        title: "Inspection",
+        detail: "DDA inspection to be conducted once the drawings are approved.",
+        state: "pending",
+      },
+      {
+        title: "Completion",
+        detail: "Completion certificate to be released after the inspection passes.",
+        state: "pending",
+      },
+    ],
+    documentsTable: [
+      {
+        document: "Trade licence",
+        description: "Client's valid trade licence.",
+        providedBy: "client",
+      },
+      {
+        document: "Title deed or tenancy",
+        description: "Title deed or tenancy evidence for the property in Arabian Ranches.",
+        providedBy: "client",
+      },
+      {
+        document: "Existing drawings and green files",
+        description:
+          "Existing drawings, documents and green files required for the DDA & Emaar approval.",
+        providedBy: "client",
+      },
+      {
+        document: "Drawing set as per DDA & Emaar regulation",
+        description:
+          "Drawings prepared to meet both Dubai Development Authority and Emaar regulation for the Arabian Ranches property.",
+        providedBy: "wasleen",
+      },
+      {
+        document: "DDA applications",
+        description:
+          "Design approval and inspection applications submitted to the Dubai Development Authority.",
+        providedBy: "wasleen",
+      },
+      {
+        document: "Emaar design approval submission",
+        description:
+          "Design approval submission made to Emaar as the Arabian Ranches community authority.",
+        providedBy: "wasleen",
+      },
+    ],
+    timelineTable: [
+      {
+        stage: "Quotation issued",
+        planned: "—",
+        actual: "9 June 2026",
+      },
+      {
+        stage: "Drawings preparation",
+        planned: "To be confirmed",
+        actual: "—",
+        note: "No timeline commitment is stated in quotation LML/QTN/1115",
+      },
+      {
+        stage: "Design approval (DDA & Emaar)",
+        planned: "To be confirmed",
+        actual: "—",
+        note: "Indicative — typical DDA & Emaar timelines",
+      },
+      {
+        stage: "Inspection (DDA)",
+        planned: "To be confirmed",
+        actual: "—",
+        note: "Indicative — typical DDA timelines",
+      },
+      {
+        stage: "Completion certificate",
+        planned: "To be confirmed",
+        actual: "—",
+        note: "Indicative — typical DDA timelines",
+      },
+    ],
+    quotedFee: "AED 22,000",
+    feeAmountAED: 22000,
+    feeIncluded: [
+      "Preparing drawings as per DDA & Emaar regulation",
+      "Obtaining design approval from DDA & Emaar",
+      "Conducting inspection from DDA, releasing completion certificate",
+    ],
+    proTips: [
+      {
+        title: "Prepare one drawing set to both DDA & Emaar regulation",
+        body: "The approval subject is DDA & Emaar, so the same drawing set must satisfy the Dubai Development Authority and the Emaar community requirements. Aligning the drawings to both regulations before submission avoids a design revision and the additional charge that follows it.",
+      },
+      {
+        title: "Supply the complete existing documents to protect the AED 22,000 fee",
+        body: "The limiting conditions charge extra for exceptional approval requirements, an inspection failure or a design revision, with VAT separate. Handing over the full existing drawings, documents and green files up front keeps the quoted AED 22,000 price final.",
+      },
+    ],
+    outcome: [
+      { label: "Quoted fee", value: "AED 22,000" },
+      { label: "Approval authority", value: "Dubai Development Authority (DDA) & Emaar" },
+      {
+        label: "Scope",
+        value: "Drawings, DDA & Emaar design approval & DDA inspection",
+      },
+    ],
+    faqs: [
+      {
+        question: "What does the AED 22,000 DDA & Emaar approval quotation include?",
+        answer:
+          "The quotation covers preparing the drawings as per DDA & Emaar regulation, obtaining design approval from the Dubai Development Authority (DDA) and Emaar, and conducting the DDA inspection that releases the completion certificate.",
+      },
+      {
+        question: "Which authorities are involved in this Arabian Ranches approval?",
+        answer:
+          "The Dubai Development Authority (DDA) issues the design approval and conducts the inspection, and Emaar is the Arabian Ranches community authority whose approval is part of the same scope, as stated in quotation LML/QTN/1115.",
+      },
+      {
+        question: "Why does this approval require both DDA and Emaar?",
+        answer:
+          "Arabian Ranches is an Emaar-managed residential community under the Dubai Development Authority. The quotation is therefore prepared as per DDA & Emaar regulation, with design approval obtained from DDA and Emaar so the community and authority approvals are handled together.",
+      },
+      {
+        question: "What does the client need to provide for this approval?",
+        answer:
+          "The client provides the existing drawings, documents and green files. Wasleen prepares the drawing set as per DDA & Emaar regulation and handles the DDA and Emaar design approval and inspection applications.",
+      },
+      {
+        question: "When could additional charges apply to this quotation?",
+        answer:
+          "Additional charges apply for exceptional approval requirements, an inspection failure or a design revision, and VAT is separate as stated in the limiting conditions of quotation LML/QTN/1115.",
+      },
+      {
+        question: "Does the quotation commit to a fixed completion timeline?",
+        answer:
+          "No. Unlike some Arabian Ranches quotations, LML/QTN/1115 does not state a completion window in its limiting conditions, so the programme depends on the documents supplied and the DDA and Emaar approval process.",
+      },
+      {
+        question: "What is the payment schedule for this DDA & Emaar approval quotation?",
+        answer:
+          "Payment is 50% in advance before starting the work, 40% during work progress and 10% after completion of the work, as stated in quotation LML/QTN/1115.",
+      },
+      {
+        question: "What is the project status of this case study?",
+        answer:
+          "This case study reflects a quotation issued on 9 June 2026 for AED 22,000; the approval scope is engaged and the final approval is not yet claimed.",
+      },
+    ],
+    images: [
+      {
+        src: "/images/case-studies/dda-emaar-approval-arabian-ranches/hero.webp",
+        alt: "Blueprint drawing for a DDA & Emaar approval in Arabian Ranches, Dubai",
+        width: 1600,
+        height: 900,
+        placement: "hero",
+      },
+      {
+        src: "/images/case-studies/dda-emaar-approval-arabian-ranches/documents.webp",
+        alt: "Blueprint document checklist for a DDA & Emaar approval in Arabian Ranches",
+        width: 1200,
+        height: 900,
+        placement: "documents",
+      },
+      {
+        src: "/images/villa-renovation-approval-dubai.webp",
+        alt: "Villa renovation approval process for a residential DDA & Emaar approval in Arabian Ranches",
+        caption: "DDA & Emaar approval for a property in Arabian Ranches, Dubai",
+        width: 1376,
+        height: 768,
+        placement: "photo",
+      },
+    ],
+    relatedApprovalSlugs: [
+      "emaar-community-approval",
+      "interior-fit-out-approval",
+      "dubai-municipality-completion-certificate",
+    ],
+    relatedGuideSlugs: [
+      "emaar-community-design-guidelines",
+      "interior-fit-out-permit-process",
+      "cad-drawing-standards-dubai-guide",
+    ],
+    relatedServiceSlugs: ["2d-drawings", "approval-management", "document-clearing"],
+    relatedCaseStudySlugs: [
+      "business-center-dda-dcd-approval",
+      "dda-approval-dubai-contracting-renovation",
+      "dm-dcd-approval-dubai-marina-apartment",
+    ],
+    author: {
+      name: "Jamsheed Khalid",
+      credential: "Senior Fit-Out Consultant & Structural Engineer",
+      url: "https://www.linkedin.com/in/jamsheed-khalid-343148b6",
+    },
+    reviewedBy: {
+      name: "Kavya Ramachandran",
+      credential: "Interior Designer",
+    },
+    publishedAt: "2026-06-09",
+    lastUpdated: "2026-09-07",
+    publishStatus: "live",
+  },
+  {
+    slug: "dda-dcd-approval-business-bay",
+    projectTitle: "DDA & DCD Approval for a Property in Business Bay, Dubai",
+    seoTitle: "DDA & DCD Approval in Business Bay",
+    description:
+      "AED 7,000 DDA & DCD approval quote at Business Bay, Dubai: drawings, design approval, inspection and completion certificate. Get a free quote today.",
+    sourceRef: "LML/QTN/1118",
+    consentGranted: false,
+    clientLabel: "Confidential client — Commercial property",
+    projectStatus: "quoted",
+    authorities: ["DDA", "Dubai Civil Defence"],
+    primaryApprovalSlug: "dda-approval",
+    projectType: "DDA & DCD approval",
+    location: "Business Bay, Dubai",
+    sector: "Commercial",
+    directAnswer:
+      "This case study covers the quoted DDA & DCD approval for a property in Business Bay, Dubai. The AED 7,000 quotation, LML/QTN/1118 issued on 18 June 2026, covers preparing the drawings as per DDA and DCD regulation, obtaining design approval from the Dubai Development Authority (DDA) and Dubai Civil Defence (DCD), and conducting the inspection that releases the completion certificate.",
+    stats: [
+      { label: "Authorities", value: "DDA & DCD" },
+      { label: "Quoted fee", value: "AED 7,000" },
+      { label: "Scope", value: "Drawings, approval & inspection" },
+      { label: "Status", value: "Quotation issued" },
+    ],
+    challenge:
+      "Business Bay is a DDA master community of high-rise towers in central Dubai, and this quotation covers the DDA & DCD approval path a property there needs before fit-out work can be certified. The approval subject combines the Dubai Development Authority (DDA), which governs design approval within the community, with Dubai Civil Defence (DCD), which reviews the fire and life-safety aspects of the design, so one drawing set has to satisfy both regulators and be followed by an inspection that releases the completion certificate.\nThe AED 7,000 fee is defined around inputs the client controls. The client supplies all other existing drawings, documents and green files; exceptional approval requirements, an inspection failure or a design revision each carry an additional charge; and VAT is separate. The quotation also notes that if an NOC is required from the tower's building management, the price may differ — so confirming the building-management position early is what keeps the quoted AED 7,000 realistic. No fixed completion timeline is committed in the quotation.",
+    solutionSteps: [
+      {
+        step: 1,
+        title: "Site visit and document review",
+        description:
+          "Review the existing drawings, documents and green files supplied by the client, and confirm the current condition of the property in Business Bay, Dubai.",
+      },
+      {
+        step: 2,
+        title: "Confirm building management requirements",
+        description:
+          "Confirm whether an NOC from the tower's building management is required, since quotation LML/QTN/1118 states the price may differ if it is.",
+      },
+      {
+        step: 3,
+        title: "Prepare drawings as per DDA and DCD regulation",
+        description:
+          "Prepare the drawing set so it meets both Dubai Development Authority and Dubai Civil Defence regulation for the Business Bay property.",
+      },
+      {
+        step: 4,
+        title: "Obtain design approval from DDA and DCD",
+        description:
+          "Submit the drawing set and supporting documents, and follow up until design approval is obtained from the DDA and DCD.",
+      },
+      {
+        step: 5,
+        title: "Conduct inspection with DDA & DCD",
+        description:
+          "Arrange and attend the inspection with the DDA and DCD, and resolve any findings so the inspection passes.",
+      },
+      {
+        step: 6,
+        title: "Release the completion certificate",
+        description:
+          "Once the inspection passes, finalise the DDA & DCD documentation and release the completion certificate.",
+      },
+    ],
+    timeline: [
+      {
+        title: "Quotation issued",
+        detail:
+          "Quotation LML/QTN/1118 issued on 18 June 2026 for the DDA & DCD approval at AED 7,000.",
+        state: "approved",
+        date: "2026-06-18",
+      },
+      {
+        title: "Document & drawing review",
+        detail:
+          "Review the existing drawings, documents and green files supplied by the client.",
+        state: "pending",
+      },
+      {
+        title: "Building management requirements",
+        detail:
+          "Confirm whether an NOC from the tower's building management is required for the Business Bay property.",
+        state: "pending",
+      },
+      {
+        title: "Drawings prepared",
+        detail: "Drawing set prepared as per DDA and DCD regulation.",
+        state: "pending",
+      },
+      {
+        title: "Design approval",
+        detail:
+          "Design approval to be obtained from the Dubai Development Authority and Dubai Civil Defence.",
+        state: "pending",
+      },
+      {
+        title: "Inspection",
+        detail: "DDA & DCD inspection to be conducted once the drawings are approved.",
+        state: "pending",
+      },
+      {
+        title: "Completion",
+        detail: "Completion certificate to be released after the inspection passes.",
+        state: "pending",
+      },
+    ],
+    documentsTable: [
+      {
+        document: "Trade licence",
+        description: "Client's valid trade licence for the business occupying the Business Bay property.",
+        providedBy: "client",
+      },
+      {
+        document: "Title deed or tenancy",
+        description:
+          "Title deed or tenancy evidence for the property in Business Bay, Dubai.",
+        providedBy: "client",
+      },
+      {
+        document: "Existing drawings and green files",
+        description:
+          "Existing drawings, documents and green files required for the DDA & DCD approval.",
+        providedBy: "client",
+      },
+      {
+        document: "Building management NOC",
+        description:
+          "If required by the tower's building management, the NOC is confirmed up front — quotation LML/QTN/1118 notes the price may differ where it is needed.",
+        providedBy: "client",
+      },
+      {
+        document: "Drawing set as per DDA and DCD regulation",
+        description:
+          "Drawings prepared to meet both Dubai Development Authority and Dubai Civil Defence regulation for the Business Bay property.",
+        providedBy: "wasleen",
+      },
+      {
+        document: "DDA & DCD applications",
+        description:
+          "Design approval and inspection applications submitted to the Dubai Development Authority and Dubai Civil Defence.",
+        providedBy: "wasleen",
+      },
+    ],
+    timelineTable: [
+      {
+        stage: "Quotation issued",
+        planned: "—",
+        actual: "18 June 2026",
+      },
+      {
+        stage: "Drawings preparation",
+        planned: "To be confirmed",
+        actual: "—",
+        note: "No timeline commitment is stated in quotation LML/QTN/1118",
+      },
+      {
+        stage: "Design approval (DDA & DCD)",
+        planned: "To be confirmed",
+        actual: "—",
+        note: "Indicative — typical DDA & DCD timelines",
+      },
+      {
+        stage: "Inspection (DDA & DCD)",
+        planned: "To be confirmed",
+        actual: "—",
+        note: "Indicative — typical DDA & DCD timelines",
+      },
+      {
+        stage: "Completion certificate",
+        planned: "To be confirmed",
+        actual: "—",
+        note: "Indicative — typical DDA & DCD timelines",
+      },
+    ],
+    quotedFee: "AED 7,000",
+    feeAmountAED: 7000,
+    feeIncluded: [
+      "Preparing drawings as per DDA and DCD regulation",
+      "Obtaining design approval from DDA and DCD",
+      "Conducting inspection from DDA & DCD, releasing completion certificate",
+    ],
+    proTips: [
+      {
+        title: "Prepare one drawing set to both DDA and DCD regulation",
+        body: "The approval subject is DDA & DCD, so the same drawing set must satisfy the Dubai Development Authority and the Dubai Civil Defence fire and life-safety requirements. Aligning the drawings to both regulations before submission avoids a design revision and the additional charge that follows it.",
+      },
+      {
+        title: "Confirm the building management NOC before committing",
+        body: "Quotation LML/QTN/1118 states the price may differ if an NOC is required from the tower's building management. Handing over the full existing drawings, documents and green files and confirming the NOC position up front keeps the quoted AED 7,000 fee as close to final as possible.",
+      },
+    ],
+    outcome: [
+      { label: "Quoted fee", value: "AED 7,000" },
+      {
+        label: "Approval authority",
+        value: "Dubai Development Authority (DDA) & Dubai Civil Defence (DCD)",
+      },
+      {
+        label: "Scope",
+        value: "Drawings, DDA & DCD design approval & inspection",
+      },
+    ],
+    faqs: [
+      {
+        question: "What does the AED 7,000 DDA & DCD approval quotation include?",
+        answer:
+          "The quotation covers preparing the drawings as per DDA and DCD regulation, obtaining design approval from the Dubai Development Authority (DDA) and Dubai Civil Defence (DCD), and conducting the inspection that releases the completion certificate.",
+      },
+      {
+        question: "Which authorities are involved in this Business Bay approval?",
+        answer:
+          "The Dubai Development Authority (DDA) governs design approval within Business Bay and Dubai Civil Defence (DCD) reviews the fire and life-safety aspects, with both authorities carrying out the inspection that releases the completion certificate, as stated in quotation LML/QTN/1118.",
+      },
+      {
+        question: "Why does a Business Bay property need both DDA and DCD approval?",
+        answer:
+          "Business Bay is a DDA master community, so the DDA issues the design approval for work in the community. Dubai Civil Defence approval is also required so the fire and life-safety elements of the design are reviewed and signed off before the completion certificate can be released.",
+      },
+      {
+        question: "What does the client need to provide for this approval?",
+        answer:
+          "The client provides the existing drawings, documents and green files, and, if required by the tower's building management, the building management NOC. Wasleen prepares the drawing set as per DDA and DCD regulation and handles the DDA and DCD approval applications.",
+      },
+      {
+        question: "When could additional charges apply to this quotation?",
+        answer:
+          "Additional charges apply for exceptional approval requirements, an inspection failure or a design revision, and VAT is separate as stated in the limiting conditions of quotation LML/QTN/1118. The quotation also notes the price may differ if an NOC is required from the building management.",
+      },
+      {
+        question: "Does the quotation commit to a fixed completion timeline?",
+        answer:
+          "No. Quotation LML/QTN/1118 does not state a completion window, so the programme depends on the documents supplied, the building management NOC position and the DDA and DCD approval process.",
+      },
+      {
+        question: "What is the payment schedule for this DDA & DCD approval quotation?",
+        answer:
+          "Payment is 50% in advance before starting the work, 40% during work progress and 10% after completion of the work, as stated in quotation LML/QTN/1118.",
+      },
+      {
+        question: "What is the project status of this case study?",
+        answer:
+          "This case study reflects a quotation issued on 18 June 2026 for AED 7,000; the approval scope is engaged and the final approval is not yet claimed.",
+      },
+    ],
+    images: [
+      {
+        src: "/images/case-studies/dda-dcd-approval-business-bay/hero.webp",
+        alt: "Blueprint drawing for a DDA & DCD approval in Business Bay, Dubai",
+        width: 1600,
+        height: 900,
+        placement: "hero",
+      },
+      {
+        src: "/images/case-studies/dda-dcd-approval-business-bay/documents.webp",
+        alt: "Blueprint document checklist for a DDA & DCD approval in Business Bay",
+        width: 1200,
+        height: 900,
+        placement: "documents",
+      },
+      {
+        src: "/images/interior-fit-out-approval-consultants-in-dubai.webp",
+        alt: "Interior fit-out approval consultants in Dubai reviewing drawings for a DDA & DCD approval in Business Bay",
+        caption: "Preparing a DDA & DCD approval submission for a property in Business Bay, Dubai",
+        width: 2336,
+        height: 1760,
+        placement: "photo",
+      },
+    ],
+    relatedApprovalSlugs: [
+      "dubai-civil-defense-approval",
+      "interior-fit-out-approval",
+      "dubai-municipality-completion-certificate",
+    ],
+    relatedGuideSlugs: [
+      "dcd-fire-safety-approval-documents",
+      "interior-fit-out-permit-process",
+      "cad-drawing-standards-dubai-guide",
+    ],
+    relatedServiceSlugs: ["2d-drawings", "approval-management", "document-clearing"],
+    relatedCaseStudySlugs: [
+      "business-center-dda-dcd-approval",
+      "dcd-approval-burlington-tower-3",
+      "dda-approval-dubai-contracting-renovation",
+    ],
+    author: {
+      name: "Jamsheed Khalid",
+      credential: "Senior Fit-Out Consultant & Structural Engineer",
+      url: "https://www.linkedin.com/in/jamsheed-khalid-343148b6",
+    },
+    reviewedBy: {
+      name: "Kavya Ramachandran",
+      credential: "Interior Designer",
+    },
+    publishedAt: "2026-06-18",
+    lastUpdated: "2026-09-07",
+    publishStatus: "live",
+  },
+  {
+    slug: "dcd-as-built-drawings-showroom-dubai-design-district",
+    projectTitle: "DCD As-Built Drawings for a Showroom in D3, Dubai",
+    seoTitle: "DCD As-Built Drawings for a D3 Showroom",
+    description:
+      "Prepare DCD as-built drawings for a ground-floor showroom in Building 5, D3 Dubai from an AED 4,500 quote: site visit, as-built survey and DCD-ready drawings.",
+    sourceRef: "LML/QTN/1119-26",
+    consentGranted: false,
+    clientLabel: "Confidential client — Showroom in D3",
+    projectStatus: "quoted",
+    authorities: ["Dubai Civil Defence"],
+    primaryApprovalSlug: "dubai-civil-defense-approval",
+    projectType: "DCD as-built drawings preparation",
+    location: "Building 5, Dubai Design District (D3), Dubai",
+    sector: "Commercial",
+    directAnswer:
+      "This case study covers an AED 4,500 quotation, LML/QTN/1119-26 issued on 18 June 2026, to prepare DCD as-built drawings for a ground-floor showroom (GF 01) in Building 5 of Dubai Design District (D3). The fee covers a site visit, collecting the site as-built and existing drawings and details, and preparing the DCD drawings as per the regulations, with any required revision included.",
+    stats: [
+      { label: "Authorities", value: "Dubai Civil Defence" },
+      { label: "Quoted fee", value: "AED 4,500" },
+      { label: "Scope", value: "Site visit, as-built & DCD drawings" },
+      { label: "Status", value: "Quotation issued" },
+    ],
+    challenge:
+      "Dubai Design District (D3) is a creative community of showrooms and design studios, and this ground-floor showroom at Building 5 needed an as-built drawing set prepared for DCD approval. Because the space had already been fitted out, the drawings had to record the built condition rather than the original layout, so the site visit and the collection of the existing as-built and construction drawings were the foundation of the set.\nThe AED 4,500 fee is defined around inputs the client controls. The client supplies all other existing drawings, documents and green files; any revision required while preparing the DCD drawing set is included in the fee; exceptional approval requirements, an inspection failure or a design revision each carry an additional charge; VAT is separate; and the quotation notes that if an NOC is required from the building management, the price may differ. No fixed completion timeline is committed in the quotation.",
+    solutionSteps: [
+      {
+        step: 1,
+        title: "Conduct a site visit",
+        description:
+          "Visit the ground-floor showroom at Building 5, Dubai Design District (D3), and confirm the current built condition of the space.",
+      },
+      {
+        step: 2,
+        title: "Collect as-built and existing drawings and details",
+        description:
+          "Gather the site as-built and existing drawings and details, together with the other existing drawings, documents and green files supplied by the client.",
+      },
+      {
+        step: 3,
+        title: "Prepare the DCD drawing set as per regulations",
+        description:
+          "Prepare the DCD as-built drawings as per Dubai Civil Defence regulations so the set is ready for the DCD approval of the showroom.",
+      },
+      {
+        step: 4,
+        title: "Incorporate required revisions",
+        description:
+          "Apply any revision required to finalise the DCD drawing set — revisions are included in the quoted AED 4,500 fee per quotation LML/QTN/1119-26.",
+      },
+      {
+        step: 5,
+        title: "Confirm building management requirements",
+        description:
+          "Confirm whether an NOC from the building management is required, since quotation LML/QTN/1119-26 states the price may differ where it is.",
+      },
+      {
+        step: 6,
+        title: "Finalise and hand over the approved drawing set",
+        description:
+          "Finalise the DCD-approved as-built drawing set; the final payment under the quotation is due upon receiving the final approval.",
+      },
+    ],
+    timeline: [
+      {
+        title: "Quotation issued",
+        detail:
+          "Quotation LML/QTN/1119-26 issued on 18 June 2026 for preparation of DCD as-built drawings for the showroom at AED 4,500.",
+        state: "approved",
+        date: "2026-06-18",
+      },
+      {
+        title: "Site visit",
+        detail:
+          "Visit the ground-floor showroom at Building 5, Dubai Design District (D3) to record the built condition.",
+        state: "pending",
+      },
+      {
+        title: "As-built & existing drawing collection",
+        detail:
+          "Collect the site as-built and existing drawings and details, and the existing drawings, documents and green files supplied by the client.",
+        state: "pending",
+      },
+      {
+        title: "DCD drawings preparation",
+        detail:
+          "Prepare the DCD as-built drawing set as per Dubai Civil Defence regulations.",
+        state: "pending",
+      },
+      {
+        title: "Revisions incorporated",
+        detail:
+          "Apply any revision required to finalise the DCD drawing set, included in the quoted fee.",
+        state: "pending",
+      },
+      {
+        title: "Building management requirements",
+        detail:
+          "Confirm whether an NOC from the building management is required for the D3 showroom.",
+        state: "pending",
+      },
+      {
+        title: "Final approval",
+        detail:
+          "Receive the final approval of the DCD as-built drawing set for the showroom.",
+        state: "pending",
+      },
+    ],
+    documentsTable: [
+      {
+        document: "Existing drawings, documents and green files",
+        description:
+          "All other existing drawings, documents and green files are to be given by the client, as stated in the limiting conditions of quotation LML/QTN/1119-26.",
+        providedBy: "client",
+      },
+      {
+        document: "Site as-built drawings and details",
+        description:
+          "The as-built and existing drawings and details of the showroom collected during the site visit.",
+        providedBy: "client",
+      },
+      {
+        document: "Showroom access for the site visit",
+        description:
+          "Access to the ground-floor showroom at Building 5, Dubai Design District (D3) so the site visit can be conducted.",
+        providedBy: "client",
+      },
+      {
+        document: "Building management NOC",
+        description:
+          "If required by the building management, the NOC is confirmed up front — quotation LML/QTN/1119-26 notes the price may differ where it is needed.",
+        providedBy: "client",
+      },
+      {
+        document: "DCD as-built drawing set",
+        description:
+          "The DCD drawings prepared as per Dubai Civil Defence regulations for the showroom approval.",
+        providedBy: "wasleen",
+      },
+      {
+        document: "Approved DCD drawings",
+        description:
+          "The finalised DCD-approved drawing set, delivered once the final approval is received.",
+        providedBy: "wasleen",
+      },
+    ],
+    timelineTable: [
+      {
+        stage: "Quotation issued",
+        planned: "—",
+        actual: "18 June 2026",
+      },
+      {
+        stage: "Site visit & as-built collection",
+        planned: "To be confirmed",
+        actual: "—",
+        note: "No timeline commitment is stated in quotation LML/QTN/1119-26",
+      },
+      {
+        stage: "DCD drawings preparation",
+        planned: "To be confirmed",
+        actual: "—",
+        note: "No timeline commitment is stated in quotation LML/QTN/1119-26",
+      },
+      {
+        stage: "Revisions & finalisation",
+        planned: "To be confirmed",
+        actual: "—",
+        note: "Revisions required are included in the quoted fee",
+      },
+      {
+        stage: "Final approval",
+        planned: "To be confirmed",
+        actual: "—",
+        note: "Indicative — typical DCD drawing approval timelines",
+      },
+    ],
+    quotedFee: "AED 4,500",
+    feeAmountAED: 4500,
+    feeIncluded: [
+      "Conducting a site visit",
+      "Collecting the site as-built and existing drawings and details",
+      "Preparation of DCD drawings as per the regulations (any revision required included)",
+    ],
+    proTips: [
+      {
+        title: "Survey the as-built condition before drawing",
+        body: "The DCD drawing set must record the actual fitted-out condition of the showroom, not the original plan. An accurate site survey and a complete as-built and existing drawing set at the start reduce the revisions DCD may ask for and keep the quoted AED 4,500 fee realistic.",
+      },
+      {
+        title: "Confirm the building-management NOC early",
+        body: "Quotation LML/QTN/1119-26 states the price may differ if an NOC is required from the building management. Confirming that requirement and handing over the existing drawings, documents and green files up front avoids a price change later in the DCD drawings process.",
+      },
+    ],
+    outcome: [
+      { label: "Quoted fee", value: "AED 4,500" },
+      {
+        label: "Approval authority",
+        value: "Dubai Civil Defence (DCD)",
+      },
+      {
+        label: "Scope",
+        value: "DCD as-built drawings preparation for a D3 showroom",
+      },
+    ],
+    faqs: [
+      {
+        question: "What does the AED 4,500 DCD drawings quotation include?",
+        answer:
+          "The quotation covers conducting a site visit, collecting the site as-built and existing drawings and details, and preparing the DCD drawings as per the regulations, with any revision required included, as stated in quotation LML/QTN/1119-26.",
+      },
+      {
+        question: "Which authority is involved in this DCD drawings project?",
+        answer:
+          "The drawings are prepared for Dubai Civil Defence (DCD) approval of the ground-floor showroom at Building 5, Dubai Design District (D3), Dubai.",
+      },
+      {
+        question: "Why does a showroom in D3 need DCD as-built drawings?",
+        answer:
+          "Because the showroom had already been fitted out, the DCD approval needs an as-built drawing set that records the actual built condition of the space, prepared as per Dubai Civil Defence regulations.",
+      },
+      {
+        question: "What does the client need to provide for these DCD drawings?",
+        answer:
+          "The client provides all other existing drawings, documents and green files, access for the site visit, and the building management NOC if it is required. Wasleen conducts the site visit, collects the as-built details and prepares the DCD drawing set.",
+      },
+      {
+        question: "Are drawing revisions included in the quoted fee?",
+        answer:
+          "Yes. Quotation LML/QTN/1119-26 states that any revision required while preparing the DCD drawings is included in the AED 4,500 fee.",
+      },
+      {
+        question: "When could additional charges apply to this quotation?",
+        answer:
+          "Additional charges apply for exceptional approval requirements, an inspection failure or a design revision, and VAT is separate, as stated in the limiting conditions of quotation LML/QTN/1119-26. The price may also differ if an NOC is required from the building management.",
+      },
+      {
+        question: "Does the quotation commit to a completion timeline?",
+        answer:
+          "No. Quotation LML/QTN/1119-26 does not state a completion window, so the programme depends on the as-built details collected, the documents supplied and the DCD review of the drawing set.",
+      },
+      {
+        question: "What is the payment schedule for this DCD drawings quotation?",
+        answer:
+          "Payment is 50% in advance upon confirmation, 40% as progressive payments upon drawing handover and 10% as final payment upon receiving the final approval, as stated in quotation LML/QTN/1119-26.",
+      },
+    ],
+    images: [
+      {
+        src: "/images/case-studies/dcd-as-built-drawings-showroom-dubai-design-district/hero.webp",
+        alt: "Blueprint as-built drawing prepared for a DCD approval of a showroom in D3, Dubai",
+        width: 1600,
+        height: 900,
+        placement: "hero",
+      },
+      {
+        src: "/images/case-studies/dcd-as-built-drawings-showroom-dubai-design-district/documents.webp",
+        alt: "Blueprint document checklist for DCD as-built drawings of a showroom in D3",
+        width: 1200,
+        height: 900,
+        placement: "documents",
+      },
+      {
+        src: "/images/2d-drawings-for-dcd-approvals-in-dubai.webp",
+        alt: "2D drawings prepared for DCD approvals in Dubai for a showroom as-built set in D3",
+        caption: "Preparing DCD as-built drawings for a showroom in Dubai Design District (D3)",
+        width: 2336,
+        height: 1760,
+        placement: "photo",
+      },
+    ],
+    relatedApprovalSlugs: [
+      "dubai-civil-defense-approval",
+      "interior-fit-out-approval",
+      "dubai-municipality-completion-certificate",
+    ],
+    relatedGuideSlugs: [
+      "dcd-fire-safety-approval-documents",
+      "cad-drawing-standards-dubai-guide",
+      "interior-fit-out-permit-process",
+    ],
+    relatedServiceSlugs: ["2d-drawings", "approval-management", "document-clearing"],
+    relatedCaseStudySlugs: [
+      "dcd-approval-burlington-tower-3",
+      "fire-fighting-dcd-approval-jebel-ali",
+      "dm-dcd-approval-dubai-marina-apartment",
+    ],
+    author: {
+      name: "Jamsheed Khalid",
+      credential: "Senior Fit-Out Consultant & Structural Engineer",
+      url: "https://www.linkedin.com/in/jamsheed-khalid-343148b6",
+    },
+    reviewedBy: {
+      name: "Kavya Ramachandran",
+      credential: "Interior Designer",
+    },
+    publishedAt: "2026-06-18",
+    lastUpdated: "2026-09-07",
+    publishStatus: "live",
+  },
+  {
+    slug: "dso-dcd-office-approval-dubai-silicon-oasis",
+    projectTitle: "DSO & DCD Office Approval in Dubai Silicon Oasis",
+    seoTitle: "DSO & DCD Office Approval in Dubai",
+    description:
+      "DSO & DCD office approval in Dubai Silicon Oasis quoted at AED 10,000: registration, drawing modification, NOC and inspection fees. Contact us today.",
+    sourceRef: "LML/QTN/1120",
+    consentGranted: false,
+    clientLabel: "Confidential client — Institutional offices in Dubai Silicon Oasis",
+    projectStatus: "quoted",
+    authorities: ["Dubai Silicon Oasis Authority", "Dubai Civil Defence"],
+    primaryApprovalSlug: "dubai-silicon-oasis-approval",
+    projectType: "DSO & DCD office approval",
+    location: "Dubai Silicon Oasis",
+    sector: "Commercial",
+    directAnswer:
+      "This case study covers quotation LML/QTN/1120 issued on 19 June 2026 for DSO & DCD approval of the 1st and 2nd floor offices of an institutional client in Dubai Silicon Oasis. The AED 10,000 fee covers the DSO registration, drawing modification, obtaining the NOC from DSO & DCD, and conducting the inspection to release the completion certificate.",
+    stats: [
+      { label: "Authorities", value: "DSO & Dubai Civil Defence" },
+      { label: "Quoted fee", value: "AED 10,000" },
+      { label: "Scope", value: "Registration, drawings, NOC & inspection" },
+      { label: "Status", value: "Quotation issued" },
+    ],
+    challenge:
+      "Dubai Silicon Oasis is a technology free zone with its own authority, so an office fit-out approval inside the community runs through Dubai Silicon Oasis Authority (DSO) together with Dubai Civil Defence (DCD) for the fire and life-safety elements of the scheme. This project covers the 1st and 2nd floor offices of an institutional client in Dubai Silicon Oasis, and quotation LML/QTN/1120 issued on 19 June 2026 itemises the AED 10,000 fee into four lines: DSO registration, drawing modification, obtaining the NOC from DSO & DCD, and conducting the inspection and releasing the completion certificate.\nThe client supplies all other existing drawings, documents and green files; exceptional approval requirements and any inspection failure or design revision are charged extra; VAT is separate; and any additional works are charged extra. Payment follows a 50% advance, 40% progressive and 10% final schedule, and the quotation does not commit to a fixed completion timeline.",
+    solutionSteps: [
+      {
+        step: 1,
+        title: "Review scope and collect the client's documents",
+        description:
+          "Confirm the 1st and 2nd floor office scope and collect all other existing drawings, documents and green files supplied by the client as the basis for the DSO & DCD approval.",
+      },
+      {
+        step: 2,
+        title: "Register the project with DSO",
+        description:
+          "Register the project with Dubai Silicon Oasis Authority; the AED 2,000 DSO registration fee line in quotation LML/QTN/1120 covers this stage.",
+      },
+      {
+        step: 3,
+        title: "Prepare and modify the drawings for DSO & DCD",
+        description:
+          "Prepare the fit-out drawings for the two office floors and apply the drawing modifications required by DSO & DCD; the AED 3,000 drawing modification line covers this.",
+      },
+      {
+        step: 4,
+        title: "Obtain the NOC from DSO & DCD",
+        description:
+          "Obtain the No Objection Certificates required from Dubai Silicon Oasis Authority and Dubai Civil Defence as the approval proceeds; the AED 3,000 NOC line covers this.",
+      },
+      {
+        step: 5,
+        title: "Conduct the inspection and release the completion certificate",
+        description:
+          "Coordinate the DSO & DCD inspection of the completed office floors and release the completion certificate; the AED 2,000 inspection and completion line covers this.",
+      },
+      {
+        step: 6,
+        title: "Hand over and settle the final payment",
+        description:
+          "Hand over the approved documents and settle the final 10% payment under the 50% advance, 40% progressive and 10% final schedule of quotation LML/QTN/1120.",
+      },
+    ],
+    timeline: [
+      {
+        title: "Quotation issued",
+        detail:
+          "Quotation LML/QTN/1120 issued on 19 June 2026 for DSO & DCD approval of the 1st and 2nd floor offices in Dubai Silicon Oasis at AED 10,000.",
+        state: "approved",
+        date: "2026-06-19",
+      },
+      {
+        title: "Scope and documents confirmed",
+        detail:
+          "Client supplies all other existing drawings, documents and green files as the basis for the DSO & DCD approval.",
+        state: "pending",
+      },
+      {
+        title: "DSO registration",
+        detail:
+          "Project registered with Dubai Silicon Oasis Authority; the AED 2,000 registration fee is included in the quotation.",
+        state: "pending",
+      },
+      {
+        title: "Drawing modification",
+        detail:
+          "Fit-out drawings for the 1st and 2nd floor offices prepared and modified for the DSO & DCD approval; the AED 3,000 drawing modification line covers this.",
+        state: "pending",
+      },
+      {
+        title: "NOC from DSO & DCD",
+        detail:
+          "No Objection Certificates obtained from Dubai Silicon Oasis Authority and Dubai Civil Defence; the AED 3,000 NOC line covers this.",
+        state: "pending",
+      },
+      {
+        title: "Inspection and completion certificate",
+        detail:
+          "DSO & DCD inspection conducted and the completion certificate released; the AED 2,000 inspection and completion line covers this.",
+        state: "pending",
+      },
+      {
+        title: "Handover and final payment",
+        detail:
+          "Approved documents handed over and the final 10% payment settled on completion.",
+        state: "pending",
+      },
+    ],
+    documentsTable: [
+      {
+        document: "All other existing drawings, documents and green files",
+        description:
+          "The full existing project drawing and document set supplied by the client, as the basis for the DSO & DCD approval of the two office floors.",
+        providedBy: "client",
+      },
+      {
+        document: "Fit-out scope for the 1st and 2nd floor offices",
+        description:
+          "Confirmation of the fit-out scope and layout intent for the 1st and 2nd floor offices in Dubai Silicon Oasis so the drawing modification work can start.",
+        providedBy: "client",
+      },
+      {
+        document: "Premises access for the inspection",
+        description:
+          "Access to the fitted-out office floors in Dubai Silicon Oasis so the DSO & DCD inspection can be conducted and the completion certificate released.",
+        providedBy: "client",
+      },
+      {
+        document: "Modified drawing set",
+        description:
+          "The fit-out drawings prepared and modified for the DSO & DCD approval of the 1st and 2nd floor offices.",
+        providedBy: "wasleen",
+      },
+      {
+        document: "DSO & DCD NOCs",
+        description:
+          "The No Objection Certificates obtained from Dubai Silicon Oasis Authority and Dubai Civil Defence as the approval proceeds.",
+        providedBy: "wasleen",
+      },
+      {
+        document: "Completion certificate",
+        description:
+          "The completion certificate released after the DSO & DCD inspection of the fitted-out office floors.",
+        providedBy: "wasleen",
+      },
+    ],
+    timelineTable: [
+      {
+        stage: "Quotation issued",
+        planned: "—",
+        actual: "19 June 2026",
+      },
+      {
+        stage: "DSO registration & drawing modification",
+        planned: "To be confirmed",
+        actual: "—",
+        note: "No timeline commitment is stated in quotation LML/QTN/1120",
+      },
+      {
+        stage: "NOC from DSO & DCD",
+        planned: "To be confirmed",
+        actual: "—",
+        note: "No timeline commitment is stated in quotation LML/QTN/1120",
+      },
+      {
+        stage: "Inspection & completion certificate",
+        planned: "To be confirmed",
+        actual: "—",
+        note: "No timeline commitment is stated in quotation LML/QTN/1120",
+      },
+      {
+        stage: "Handover",
+        planned: "To be confirmed",
+        actual: "—",
+        note: "Indicative — typical DSO & DCD office approval timelines",
+      },
+    ],
+    quotedFee: "AED 10,000",
+    feeAmountAED: 10000,
+    feeIncluded: [
+      "DSO registration fee (AED 2,000)",
+      "Drawing modification for the DSO & DCD approval (AED 3,000)",
+      "Obtaining the NOC from DSO & DCD (AED 3,000)",
+      "Conducting the inspection and releasing the completion certificate (AED 2,000)",
+    ],
+    proTips: [
+      {
+        title: "Provide the complete existing drawing and green-file set early",
+        body:
+          "Quotation LML/QTN/1120 assumes the client supplies all other existing drawings, documents and green files. Handing over a complete set at the start keeps the DSO & DCD approval moving and avoids delay while documents are chased during the registration and NOC stages of the two-floor office project.",
+      },
+      {
+        title: "Plan for exceptional requirements and VAT outside the AED 10,000",
+        body:
+          "The quotation charges extra for any exceptional approval requirement and for any inspection failure or design revision, and VAT is separate. Confirming the scope up front and resolving drawing comments before inspection keeps the quoted AED 10,000 realistic for the DSO & DCD approval of the office floors.",
+      },
+    ],
+    outcome: [
+      { label: "Quoted fee", value: "AED 10,000" },
+      { label: "Approval authorities", value: "DSO & Dubai Civil Defence" },
+      { label: "Scope", value: "DSO & DCD approval for 1st & 2nd floor offices" },
+    ],
+    faqs: [
+      {
+        question: "What does the AED 10,000 DSO & DCD approval quotation include?",
+        answer:
+          "Quotation LML/QTN/1120 covers the DSO registration fee, drawing modification for the DSO & DCD approval, obtaining the NOC from DSO & DCD, and conducting the inspection and releasing the completion certificate for the 1st and 2nd floor offices in Dubai Silicon Oasis.",
+      },
+      {
+        question: "Which authorities are involved in this office approval?",
+        answer:
+          "The approval runs through Dubai Silicon Oasis Authority (DSO) and Dubai Civil Defence (DCD). Dubai Silicon Oasis is a free zone with its own authority, and DCD covers the fire and life-safety elements of the office fit-out scheme.",
+      },
+      {
+        question: "Why do offices in Dubai Silicon Oasis need DSO & DCD approval?",
+        answer:
+          "Because Dubai Silicon Oasis is a free zone community with its own authority, the office fit-out approval requires DSO's NOC and permitting process together with the DCD approval for fire and life safety before the completion certificate can be released.",
+      },
+      {
+        question: "What does the client need to provide for this approval?",
+        answer:
+          "The client supplies all other existing drawings, documents and green files, confirms the fit-out scope for the 1st and 2nd floor offices, and provides access to the premises for the inspection. Wasleen handles the DSO registration, drawing modification, NOC from DSO & DCD, and the inspection and completion certificate.",
+      },
+      {
+        question: "Are the drawing modifications included in the quoted fee?",
+        answer:
+          "Yes. The AED 3,000 drawing modification line in quotation LML/QTN/1120 covers preparing and modifying the fit-out drawings for the DSO & DCD approval of the two office floors.",
+      },
+      {
+        question: "When could additional charges apply to this quotation?",
+        answer:
+          "Quotation LML/QTN/1120 charges extra for exceptional approval requirements and for any inspection failure or design revision, VAT is separate, and any additional works are charged extra, as stated in the limiting conditions.",
+      },
+      {
+        question: "Does the quotation commit to a completion timeline?",
+        answer:
+          "No. Quotation LML/QTN/1120 does not state a completion window, so the programme depends on the documents supplied by the client and the DSO & DCD review and inspection of the office floors.",
+      },
+      {
+        question: "What is the payment schedule for this quotation?",
+        answer:
+          "Payment follows a 50% advance upon confirmation, 40% as progressive payments during the work and 10% as the final payment on completion, as stated in quotation LML/QTN/1120.",
+      },
+    ],
+    images: [
+      {
+        src: "/images/case-studies/dso-dcd-office-approval-dubai-silicon-oasis/hero.webp",
+        alt: "Blueprint approval drawings prepared for a DSO & DCD office approval in Dubai Silicon Oasis",
+        width: 1600,
+        height: 900,
+        placement: "hero",
+      },
+      {
+        src: "/images/case-studies/dso-dcd-office-approval-dubai-silicon-oasis/documents.webp",
+        alt: "Blueprint document checklist for the DSO & DCD office approval in Dubai Silicon Oasis",
+        width: 1200,
+        height: 900,
+        placement: "documents",
+      },
+      {
+        src: "/images/free-zone-community-noc-approval-dubai.webp",
+        alt: "Free zone community NOC approval for office floors in Dubai Silicon Oasis",
+        caption: "DSO & DCD approval for office floors in Dubai Silicon Oasis",
+        width: 1376,
+        height: 768,
+        placement: "photo",
+      },
+    ],
+    relatedApprovalSlugs: [
+      "dubai-silicon-oasis-approval",
+      "dubai-civil-defense-approval",
+      "interior-fit-out-approval",
+    ],
+    relatedGuideSlugs: [
+      "dso-fit-out-approval-guide",
+      "dcd-fire-safety-approval-documents",
+      "interior-fit-out-permit-process",
+    ],
+    relatedServiceSlugs: ["2d-drawings", "approval-management", "document-clearing"],
+    relatedCaseStudySlugs: [
+      "dda-dcd-approval-business-bay",
+      "business-center-dda-dcd-approval",
+      "dcd-approval-burlington-tower-3",
+    ],
+    author: {
+      name: "Jamsheed Khalid",
+      credential: "Senior Fit-Out Consultant & Structural Engineer",
+      url: "https://www.linkedin.com/in/jamsheed-khalid-343148b6",
+    },
+    reviewedBy: {
+      name: "Kavya Ramachandran",
+      credential: "Interior Designer",
+    },
+    publishedAt: "2026-06-19",
+    lastUpdated: "2026-09-07",
+    publishStatus: "live",
+  },
+  {
+    slug: "dda-dcd-approval-regional-hub-office-dubai",
+    projectTitle: "DDA & DCD Approval for Regional Hub Offices in Dubai",
+    seoTitle: "DDA & DCD Approval for Offices in Dubai",
+    description:
+      "AED 10,000 DDA & DCD approval quote for a Dubai regional hub office: drawings, design approval, inspection and completion certificate. Contact us today.",
+    sourceRef: "LML/QTN/1126",
+    consentGranted: false,
+    clientLabel: "Confidential client — Regional hub offices in Dubai",
+    projectStatus: "quoted",
+    authorities: ["DDA", "Dubai Civil Defence"],
+    primaryApprovalSlug: "dda-approval",
+    projectType: "DDA & DCD approval",
+    location: "Dubai",
+    sector: "Commercial",
+    directAnswer:
+      "This case study covers the quoted DDA & DCD approval for the regional hub offices of a technical services company in Dubai. The AED 10,000 quotation, LML/QTN/1126 issued on 24 June 2026, covers preparing the drawings as per DDA and DCD regulation, obtaining design approval from the Dubai Development Authority (DDA) and Dubai Civil Defence (DCD), and conducting the inspection that releases the completion certificate.",
+    stats: [
+      { label: "Authorities", value: "DDA & DCD" },
+      { label: "Quoted fee", value: "AED 10,000" },
+      { label: "Scope", value: "Drawings, approval & inspection" },
+      { label: "Status", value: "Quotation issued" },
+    ],
+    challenge:
+      "This quotation covers the DDA & DCD approval path the client's regional hub offices in Dubai need before the fit-out can be certified. The approval subject combines the Dubai Development Authority (DDA), which issues the design approval for the offices, with Dubai Civil Defence (DCD), which reviews the fire and life-safety aspects of the design, so one drawing set has to satisfy both regulators and be followed by an inspection that releases the completion certificate.\nThe AED 10,000 fee is defined around inputs the client controls. The client supplies all other existing drawings, documents and green files; exceptional approval requirements, an inspection failure or a design revision each carry an additional charge; and VAT is separate. The quotation also notes that where an NOC is required from the building management, the price may differ — so confirming the building-management position early is what keeps the quoted AED 10,000 realistic. No fixed completion timeline is committed in the quotation.",
+    solutionSteps: [
+      {
+        step: 1,
+        title: "Site visit and document review",
+        description:
+          "Review the existing drawings, documents and green files supplied by the client, and confirm the current condition of the regional hub offices in Dubai.",
+      },
+      {
+        step: 2,
+        title: "Confirm building management requirements",
+        description:
+          "Confirm whether an NOC from the building management is required, since quotation LML/QTN/1126 states the price may differ if it is.",
+      },
+      {
+        step: 3,
+        title: "Prepare drawings as per DDA and DCD regulation",
+        description:
+          "Prepare the drawing set so it meets both Dubai Development Authority and Dubai Civil Defence regulation for the offices.",
+      },
+      {
+        step: 4,
+        title: "Obtain design approval from DDA and DCD",
+        description:
+          "Submit the drawing set and supporting documents, and follow up until design approval is obtained from the DDA and DCD.",
+      },
+      {
+        step: 5,
+        title: "Conduct inspection with DDA & DCD",
+        description:
+          "Arrange and attend the inspection with the DDA and DCD, and resolve any findings so the inspection passes.",
+      },
+      {
+        step: 6,
+        title: "Release the completion certificate",
+        description:
+          "Once the inspection passes, finalise the DDA & DCD documentation and release the completion certificate.",
+      },
+    ],
+    timeline: [
+      {
+        title: "Quotation issued",
+        detail:
+          "Quotation LML/QTN/1126 issued on 24 June 2026 for the DDA & DCD approval at AED 10,000.",
+        state: "approved",
+        date: "2026-06-24",
+      },
+      {
+        title: "Document & drawing review",
+        detail:
+          "Review the existing drawings, documents and green files supplied by the client.",
+        state: "pending",
+      },
+      {
+        title: "Building management requirements",
+        detail:
+          "Confirm whether an NOC from the building management is required for the regional hub offices in Dubai.",
+        state: "pending",
+      },
+      {
+        title: "Drawings prepared",
+        detail: "Drawing set prepared as per DDA and DCD regulation.",
+        state: "pending",
+      },
+      {
+        title: "Design approval",
+        detail:
+          "Design approval to be obtained from the Dubai Development Authority and Dubai Civil Defence.",
+        state: "pending",
+      },
+      {
+        title: "Inspection",
+        detail: "DDA & DCD inspection to be conducted once the drawings are approved.",
+        state: "pending",
+      },
+      {
+        title: "Completion",
+        detail: "Completion certificate to be released after the inspection passes.",
+        state: "pending",
+      },
+    ],
+    documentsTable: [
+      {
+        document: "Trade licence",
+        description: "Client's valid trade licence for the business occupying the regional hub offices in Dubai.",
+        providedBy: "client",
+      },
+      {
+        document: "Title deed or tenancy",
+        description:
+          "Title deed or tenancy evidence for the regional hub offices in Dubai.",
+        providedBy: "client",
+      },
+      {
+        document: "Existing drawings and green files",
+        description:
+          "Existing drawings, documents and green files required for the DDA & DCD approval.",
+        providedBy: "client",
+      },
+      {
+        document: "Building management NOC",
+        description:
+          "If required by the building management, the NOC is confirmed up front — quotation LML/QTN/1126 notes the price may differ where it is needed.",
+        providedBy: "client",
+      },
+      {
+        document: "Drawing set as per DDA and DCD regulation",
+        description:
+          "Drawings prepared to meet both Dubai Development Authority and Dubai Civil Defence regulation for the regional hub offices.",
+        providedBy: "wasleen",
+      },
+      {
+        document: "DDA & DCD applications",
+        description:
+          "Design approval and inspection applications submitted to the Dubai Development Authority and Dubai Civil Defence.",
+        providedBy: "wasleen",
+      },
+    ],
+    timelineTable: [
+      {
+        stage: "Quotation issued",
+        planned: "—",
+        actual: "24 June 2026",
+      },
+      {
+        stage: "Drawings preparation",
+        planned: "To be confirmed",
+        actual: "—",
+        note: "No timeline commitment is stated in quotation LML/QTN/1126",
+      },
+      {
+        stage: "Design approval (DDA & DCD)",
+        planned: "To be confirmed",
+        actual: "—",
+        note: "Indicative — typical DDA & DCD timelines",
+      },
+      {
+        stage: "Inspection (DDA & DCD)",
+        planned: "To be confirmed",
+        actual: "—",
+        note: "Indicative — typical DDA & DCD timelines",
+      },
+      {
+        stage: "Completion certificate",
+        planned: "To be confirmed",
+        actual: "—",
+        note: "Indicative — typical DDA & DCD timelines",
+      },
+    ],
+    quotedFee: "AED 10,000",
+    feeAmountAED: 10000,
+    feeIncluded: [
+      "Preparing drawings as per DDA and DCD regulation",
+      "Obtaining design approval from DDA and DCD",
+      "Conducting inspection from DDA & DCD, releasing completion certificate",
+    ],
+    proTips: [
+      {
+        title: "Prepare one drawing set to both DDA and DCD regulation",
+        body: "The approval subject is DDA & DCD, so the same drawing set must satisfy the Dubai Development Authority and the Dubai Civil Defence fire and life-safety requirements. Aligning the drawings to both regulations before submission avoids a design revision and the additional charge that follows it.",
+      },
+      {
+        title: "Confirm the building management NOC before committing",
+        body: "Quotation LML/QTN/1126 states the price may differ if an NOC is required from the building management. Handing over the full existing drawings, documents and green files and confirming the NOC position up front keeps the quoted AED 10,000 fee as close to final as possible.",
+      },
+    ],
+    outcome: [
+      { label: "Quoted fee", value: "AED 10,000" },
+      {
+        label: "Approval authority",
+        value: "Dubai Development Authority (DDA) & Dubai Civil Defence (DCD)",
+      },
+      {
+        label: "Scope",
+        value: "Drawings, DDA & DCD design approval & inspection",
+      },
+    ],
+    faqs: [
+      {
+        question: "What does the AED 10,000 DDA & DCD approval quotation include?",
+        answer:
+          "The quotation covers preparing the drawings as per DDA and DCD regulation, obtaining design approval from the Dubai Development Authority (DDA) and Dubai Civil Defence (DCD), and conducting the inspection that releases the completion certificate.",
+      },
+      {
+        question: "Which authorities are involved in this Dubai office approval?",
+        answer:
+          "The Dubai Development Authority (DDA) issues the design approval for the regional hub offices and Dubai Civil Defence (DCD) reviews the fire and life-safety aspects, with both authorities carrying out the inspection that releases the completion certificate, as stated in quotation LML/QTN/1126.",
+      },
+      {
+        question: "Why do the regional hub offices need both DDA and DCD approval?",
+        answer:
+          "The Dubai Development Authority issues the design approval for the offices within its governed areas in Dubai, while Dubai Civil Defence approval is also required so the fire and life-safety elements of the design are reviewed and signed off before the completion certificate can be released.",
+      },
+      {
+        question: "What does the client need to provide for this approval?",
+        answer:
+          "The client provides the existing drawings, documents and green files and, where the building management requires it, the building management NOC. Wasleen prepares the drawing set as per DDA and DCD regulation and handles the DDA and DCD approval applications.",
+      },
+      {
+        question: "When could additional charges apply to this quotation?",
+        answer:
+          "Additional charges apply for exceptional approval requirements, an inspection failure or a design revision, and VAT is separate as stated in the limiting conditions of quotation LML/QTN/1126. The quotation also notes the price may differ if an NOC is required from the building management.",
+      },
+      {
+        question: "Does the quotation commit to a fixed completion timeline?",
+        answer:
+          "No. Quotation LML/QTN/1126 does not state a completion window, so the programme depends on the documents supplied, the building management NOC position and the DDA and DCD approval process.",
+      },
+      {
+        question: "What is the payment schedule for this DDA & DCD approval quotation?",
+        answer:
+          "Payment is 50% in advance before starting the work, 40% during work progress and 10% after completion of the work, as stated in quotation LML/QTN/1126.",
+      },
+      {
+        question: "What is the project status of this case study?",
+        answer:
+          "This case study reflects a quotation issued on 24 June 2026 for AED 10,000; the approval scope is engaged and the final approval is not yet claimed.",
+      },
+    ],
+    images: [
+      {
+        src: "/images/case-studies/dda-dcd-approval-regional-hub-office-dubai/hero.webp",
+        alt: "Blueprint drawing for a DDA & DCD approval for offices in Dubai",
+        width: 1600,
+        height: 900,
+        placement: "hero",
+      },
+      {
+        src: "/images/case-studies/dda-dcd-approval-regional-hub-office-dubai/documents.webp",
+        alt: "Blueprint document checklist for a DDA & DCD approval for offices in Dubai",
+        width: 1200,
+        height: 900,
+        placement: "documents",
+      },
+      {
+        src: "/images/interior-fit-out-approval-consultants-in-dubai.webp",
+        alt: "Interior fit-out approval consultants in Dubai reviewing drawings for a DDA & DCD approval for offices",
+        caption: "Preparing a DDA & DCD approval submission for regional hub offices in Dubai",
+        width: 2336,
+        height: 1760,
+        placement: "photo",
+      },
+    ],
+    relatedApprovalSlugs: [
+      "dubai-civil-defense-approval",
+      "interior-fit-out-approval",
+      "dubai-municipality-completion-certificate",
+    ],
+    relatedGuideSlugs: [
+      "dcd-fire-safety-approval-documents",
+      "interior-fit-out-permit-process",
+      "cad-drawing-standards-dubai-guide",
+    ],
+    relatedServiceSlugs: ["2d-drawings", "approval-management", "document-clearing"],
+    relatedCaseStudySlugs: [
+      "dda-dcd-approval-business-bay",
+      "business-center-dda-dcd-approval",
+      "dcd-approval-burlington-tower-3",
+    ],
+    author: {
+      name: "Jamsheed Khalid",
+      credential: "Senior Fit-Out Consultant & Structural Engineer",
+      url: "https://www.linkedin.com/in/jamsheed-khalid-343148b6",
+    },
+    reviewedBy: {
+      name: "Kavya Ramachandran",
+      credential: "Interior Designer",
+    },
+    publishedAt: "2026-06-24",
+    lastUpdated: "2026-09-07",
+    publishStatus: "live",
+  },
+  {
+    slug: "dda-damac-approval-dubai",
+    projectTitle: "DDA & Damac Approval for a Residential Property in Dubai",
+    seoTitle: "DDA & Damac Approval in Dubai",
+    description:
+      "AED 17,000 DDA & Damac approval quote for a property in Dubai: documents and drawings, DDA NOC, work permit and inspection. Get a free quote today.",
+    sourceRef: "LML/QTN/1135",
+    consentGranted: false,
+    clientLabel: "Confidential client — Residential property owner in a Damac-managed community",
+    projectStatus: "quoted",
+    authorities: ["DDA"],
+    primaryApprovalSlug: "dda-approval",
+    projectType: "DDA & Damac approval",
+    location: "DAMAC, Dubai",
+    sector: "Residential",
+    directAnswer:
+      "This case study covers the quoted DDA & Damac approval for a residential property in a Damac-managed community in Dubai. The AED 17,000 quotation, LML/QTN/1135 issued on 2 July 2026, covers preparing and submitting documents and drawings to Damac and to the Dubai Development Authority (DDA), obtaining the DDA NOC and work permit, and conducting the final inspection from the DDA.",
+    stats: [
+      { label: "Authorities", value: "DDA & Damac" },
+      { label: "Quoted fee", value: "AED 17,000" },
+      { label: "Scope", value: "Drawings, NOC, permit & inspection" },
+      { label: "Status", value: "Quotation issued" },
+    ],
+    challenge:
+      "This quotation covers the DDA & Damac approval path a residential property in a Damac-managed community in Dubai needs before the works can be certified. The subject is DDA & Damac approval, so the work is split into two document sets: the documents and drawings are prepared and submitted to Damac, the community manager for the property, and a separate set is prepared and submitted to the Dubai Development Authority (DDA), which then issues the NOC, the work permit and the final inspection.\nThe AED 17,000 fee is defined around inputs the client controls. The client supplies all existing drawings, documents and green files; exceptional approval requirements, an inspection failure or a design revision each carry an additional charge; and VAT is separate. The quotation does not commit to a fixed completion timeline, so confirming the existing documents up front is what keeps the programme and the quoted price realistic.",
+    solutionSteps: [
+      {
+        step: 1,
+        title: "Site visit and document review",
+        description:
+          "Review the existing drawings, documents and green files supplied by the client, and confirm the current condition of the residential property in the Damac-managed community in Dubai.",
+      },
+      {
+        step: 2,
+        title: "Prepare and submit documents and drawings to Damac",
+        description:
+          "Prepare the document and drawing set for Damac, the community manager for the property, and submit it as the first part of the DDA & Damac approval.",
+      },
+      {
+        step: 3,
+        title: "Obtain the NOC from DDA",
+        description:
+          "Obtain the NOC from the Dubai Development Authority (DDA) required for the property's DDA & Damac approval path.",
+      },
+      {
+        step: 4,
+        title: "Prepare and submit documents and drawings to DDA",
+        description:
+          "Prepare the document and drawing set for the Dubai Development Authority and submit it with the supporting documents.",
+      },
+      {
+        step: 5,
+        title: "Obtain the work permit from DDA",
+        description:
+          "Obtain the work permit from the Dubai Development Authority so the works at the residential property can proceed.",
+      },
+      {
+        step: 6,
+        title: "Conduct the final inspection with DDA",
+        description:
+          "Once the works are complete, arrange and attend the final inspection with the Dubai Development Authority, and resolve any findings so the inspection passes.",
+      },
+    ],
+    timeline: [
+      {
+        title: "Quotation issued",
+        detail:
+          "Quotation LML/QTN/1135 issued on 2 July 2026 for the DDA & Damac approval at AED 17,000.",
+        state: "approved",
+        date: "2026-07-02",
+      },
+      {
+        title: "Damac documents & drawings",
+        detail:
+          "Prepare and submit the documents and drawings to Damac, the community manager for the property.",
+        state: "pending",
+      },
+      {
+        title: "DDA NOC",
+        detail:
+          "Obtain the NOC from the Dubai Development Authority required for the approval path.",
+        state: "pending",
+      },
+      {
+        title: "DDA documents & drawings",
+        detail:
+          "Prepare and submit the documents and drawings to the Dubai Development Authority.",
+        state: "pending",
+      },
+      {
+        title: "Work permit",
+        detail:
+          "Obtain the work permit from the Dubai Development Authority for the works.",
+        state: "pending",
+      },
+      {
+        title: "Final inspection",
+        detail:
+          "Conduct the final inspection from the DDA once the works are complete.",
+        state: "pending",
+      },
+    ],
+    documentsTable: [
+      {
+        document: "Trade licence",
+        description: "Client's valid trade licence.",
+        providedBy: "client",
+      },
+      {
+        document: "Title deed or tenancy",
+        description:
+          "Title deed or tenancy evidence for the residential property in the Damac-managed community in Dubai.",
+        providedBy: "client",
+      },
+      {
+        document: "Existing drawings and green files",
+        description:
+          "Existing drawings, documents and green files required for the DDA & Damac approval, supplied by the client per the limiting conditions.",
+        providedBy: "client",
+      },
+      {
+        document: "Damac documents and drawings",
+        description:
+          "The document and drawing set prepared and submitted to Damac as the community manager for the property.",
+        providedBy: "wasleen",
+      },
+      {
+        document: "DDA documents and drawings",
+        description:
+          "The document and drawing set prepared and submitted to the Dubai Development Authority.",
+        providedBy: "wasleen",
+      },
+      {
+        document: "DDA applications",
+        description:
+          "The NOC, work permit and final inspection applications handled with the Dubai Development Authority.",
+        providedBy: "wasleen",
+      },
+    ],
+    timelineTable: [
+      {
+        stage: "Quotation issued",
+        planned: "—",
+        actual: "2 July 2026",
+      },
+      {
+        stage: "Damac documents & drawings submission",
+        planned: "To be confirmed",
+        actual: "—",
+        note: "No timeline commitment is stated in quotation LML/QTN/1135",
+      },
+      {
+        stage: "DDA NOC and work permit",
+        planned: "To be confirmed",
+        actual: "—",
+        note: "Indicative — typical DDA timelines",
+      },
+      {
+        stage: "Final inspection (DDA)",
+        planned: "To be confirmed",
+        actual: "—",
+        note: "Indicative — typical DDA timelines",
+      },
+    ],
+    quotedFee: "AED 17,000",
+    feeAmountAED: 17000,
+    feeIncluded: [
+      "Preparing documents and drawings for Damac",
+      "Submitting documents and drawings to Damac",
+      "Obtaining the NOC from the Dubai Development Authority (DDA)",
+      "Preparing documents and drawings for the DDA",
+      "Submitting documents and drawings to the DDA",
+      "Obtaining the work permit from the DDA",
+      "Conducting the final inspection from the DDA",
+    ],
+    proTips: [
+      {
+        title: "Prepare the Damac and DDA document sets to match the quoted scope",
+        body: "The DDA & Damac approval is split into two document sets in quotation LML/QTN/1135: documents and drawings are prepared and submitted to Damac and to the Dubai Development Authority, which then issues the NOC, the work permit and the final inspection. Confirming which existing drawings and green files the client can supply up front keeps the process aligned to the quoted AED 17,000 scope.",
+      },
+      {
+        title: "Supply the complete existing documents to protect the AED 17,000 fee",
+        body: "The limiting conditions charge extra for exceptional approval requirements, an inspection failure or a design revision, with VAT separate. Handing over the full existing drawings, documents and green files up front keeps the quoted AED 17,000 price final.",
+      },
+    ],
+    outcome: [
+      { label: "Quoted fee", value: "AED 17,000" },
+      { label: "Approval authority", value: "Dubai Development Authority (DDA) & Damac" },
+      {
+        label: "Scope",
+        value: "Damac and DDA documents & drawings, DDA NOC, work permit & final inspection",
+      },
+    ],
+    faqs: [
+      {
+        question: "What does the AED 17,000 DDA & Damac approval quotation include?",
+        answer:
+          "The quotation covers preparing and submitting documents and drawings to Damac and to the Dubai Development Authority (DDA), obtaining the DDA NOC and work permit, and conducting the final inspection from the DDA.",
+      },
+      {
+        question: "Which authorities are involved in this Dubai property approval?",
+        answer:
+          "Damac is the community manager for the residential property and receives the Damac documents and drawings, while the Dubai Development Authority (DDA) issues the NOC, the work permit and the final inspection, as stated in quotation LML/QTN/1135.",
+      },
+      {
+        question: "Why does this approval require both Damac and DDA?",
+        answer:
+          "The property is in a Damac-managed community, so Damac reviews the community document and drawing submission, while the Dubai Development Authority (DDA) issues the NOC, the work permit and the final inspection for the works. Quotation LML/QTN/1135 handles both as a single DDA & Damac scope.",
+      },
+      {
+        question: "What does the client need to provide for this approval?",
+        answer:
+          "The client provides the existing drawings, documents and green files, as set out in the limiting conditions. Wasleen prepares and submits the Damac and DDA document and drawing sets and handles the DDA NOC, work permit and final inspection applications.",
+      },
+      {
+        question: "When could additional charges apply to this quotation?",
+        answer:
+          "Additional charges apply for exceptional approval requirements, an inspection failure or a design revision, and VAT is separate as stated in the limiting conditions of quotation LML/QTN/1135.",
+      },
+      {
+        question: "Does the quotation commit to a fixed completion timeline?",
+        answer:
+          "No. Quotation LML/QTN/1135 does not state a completion window, so the programme depends on the documents supplied and the Damac and DDA approval process, which runs through to the final inspection from the DDA.",
+      },
+      {
+        question: "What is the payment schedule for this DDA & Damac approval quotation?",
+        answer:
+          "Payment is 50% in advance before starting the work, 40% during work progress and 10% after completion of the work, as stated in quotation LML/QTN/1135.",
+      },
+      {
+        question: "What is the project status of this case study?",
+        answer:
+          "This case study reflects a quotation issued on 2 July 2026 for AED 17,000; the approval scope is engaged and the final approval is not yet claimed.",
+      },
+    ],
+    images: [
+      {
+        src: "/images/case-studies/dda-damac-approval-dubai/hero.webp",
+        alt: "Blueprint drawing for a DDA & Damac approval in Dubai",
+        width: 1600,
+        height: 900,
+        placement: "hero",
+      },
+      {
+        src: "/images/case-studies/dda-damac-approval-dubai/documents.webp",
+        alt: "Blueprint document checklist for a DDA & Damac approval in Dubai",
+        width: 1200,
+        height: 900,
+        placement: "documents",
+      },
+      {
+        src: "/images/villa-renovation-approval-dubai.webp",
+        alt: "Villa approval process for a residential DDA & Damac approval in Dubai",
+        caption: "DDA & Damac approval for a residential property in a Damac-managed community in Dubai",
+        width: 1376,
+        height: 768,
+        placement: "photo",
+      },
+    ],
+    relatedApprovalSlugs: [
+      "damac-properties-approval",
+      "interior-fit-out-approval",
+      "dubai-municipality-completion-certificate",
+    ],
+    relatedGuideSlugs: [
+      "interior-fit-out-permit-process",
+      "cad-drawing-standards-dubai-guide",
+      "dcd-fire-safety-approval-documents",
+    ],
+    relatedServiceSlugs: ["2d-drawings", "approval-management", "document-clearing"],
+    relatedCaseStudySlugs: [
+      "dda-emaar-approval-arabian-ranches",
+      "dda-approval-dubai-contracting-renovation",
+      "dda-approval-arabian-ranches-interior-modification",
+    ],
+    author: {
+      name: "Jamsheed Khalid",
+      credential: "Senior Fit-Out Consultant & Structural Engineer",
+      url: "https://www.linkedin.com/in/jamsheed-khalid-343148b6",
+    },
+    reviewedBy: {
+      name: "Kavya Ramachandran",
+      credential: "Interior Designer",
+    },
+    publishedAt: "2026-07-02",
+    lastUpdated: "2026-09-07",
+    publishStatus: "live",
+  },
 ];

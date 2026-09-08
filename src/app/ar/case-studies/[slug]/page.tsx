@@ -142,21 +142,13 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 
   const canonical = caseStudyUrl(study.slug, "ar");
 
-  // OG image — the case-study hero placeholder shared with the EN twin.
-  const heroImage = study.images[0];
-  const ogImage = heroImage
-    ? {
-        url: heroImage.src,
-        width: heroImage.width,
-        height: heroImage.height,
-        alt: heroImage.alt,
-      }
-    : {
-        url: "/images/OG%20Image%202.jpg",
-        width: 1200,
-        height: 630,
-        alt: ar.arTitle,
-      };
+  // OG image — same brand image as the Arabic Home page (share-card consistency).
+  const ogImage = {
+    url: "/logos/og.jpg",
+    width: 1200,
+    height: 630,
+    alt: "وسلين ليمينال لاستشارات الموافقات — خبراء موافقات دبي",
+  };
 
   return {
     title: { absolute: seoTitle },

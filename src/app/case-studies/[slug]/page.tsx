@@ -74,21 +74,13 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 
   const canonical = caseStudyUrl(study.slug, "en");
 
-  // OG image — the case-study hero placeholder (blueprint-style WebP)
-  const heroImage = study.images[0];
-  const ogImage = heroImage
-    ? {
-        url: heroImage.src,
-        width: heroImage.width,
-        height: heroImage.height,
-        alt: heroImage.alt,
-      }
-    : {
-        url: "/images/OG%20Image%202.jpg",
-        width: 1200,
-        height: 630,
-        alt: study.projectTitle,
-      };
+  // OG image — same brand image as the Home page (share-card consistency).
+  const ogImage = {
+    url: "/logos/og.jpg",
+    width: 1200,
+    height: 630,
+    alt: "Wasleen Liminal Approval Consultants — Dubai Approvals Expert",
+  };
 
   return {
     title: { absolute: seoTitle },
