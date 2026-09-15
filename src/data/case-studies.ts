@@ -18,6 +18,14 @@
  * MUST be added as `publishStatus: "draft"` and only flipped to `"live"` after
  * explicit owner approval (daily-by-request cadence per Part 17.4).
  *
+ * 2026-09-15 OWNER DECISION (publication): the 5 quotation case studies added
+ * 2026-09-14 (LML/QTN/1119, 1139, 1145, 1156, 1159) were approved for
+ * publication and flipped to `publishStatus: "live"`, so sitemap.xml, llms.txt
+ * and llms-full.txt now carry all 27 pages plus the /case-studies hub, and each
+ * EN page ships as an en/ar hreflang pair with its approved Arabic twin.
+ * `lastUpdated` stays 2026-09-14 for those 5 entries: the flip changes the
+ * publication state only, not the content, so no date is artificially bumped.
+ *
  * PILOT: LML/QTN/1114R1 — ARABIANSEA BUSINESS CENTER, DUBAI INTERNET CITY
  *   SUBJECT: QUOTATION FOR DDA & DCD APPROVAL
  *   AMOUNT: FOURTEEN THOUSAND AED ONLY (AED 14,000)
@@ -6158,6 +6166,1541 @@ export const caseStudies: ApprovalCaseStudy[] = [
     },
     publishedAt: "2026-07-02",
     lastUpdated: "2026-09-07",
+    publishStatus: "live",
+  },
+  /* ============================================================
+     LML/QTN/1119 — Trakhees & DCD approval, Business Bay
+     Source: WORK QUOTATION ref LML/QTN/1119 dated 18/06/2026
+     (subject "QUOTATION FOR TRAKHEES & DCD APPROVAL"), location
+     Business Bay, AED 10,000. projectStatus "quoted" (quotation
+     only — no completion claim). publishStatus "live" — owner
+     approved publication 2026-09-15 (Part 17.4 policy — same
+     discipline as `dda-damac-approval-dubai`).
+     Images: existing site library assets (no per-slug binaries),
+     dims verified with scripts/get-webp-dims.mjs.
+     ============================================================ */
+  {
+    slug: "trakhees-dcd-approval-business-bay",
+    projectTitle: "Trakhees & DCD Approval for a Business Bay Commercial Unit",
+    seoTitle: "Trakhees & DCD Approval in Business Bay",
+    description:
+      "AED 10,000 Trakhees & DCD approval quote for a Business Bay commercial unit: drawings, design approval and completion certificate. Get a free quote today.",
+    sourceRef: "LML/QTN/1119",
+    consentGranted: false,
+    clientLabel: "Confidential client — Commercial unit in Business Bay, Dubai",
+    projectStatus: "quoted",
+    authorities: ["Trakhees", "Dubai Civil Defence"],
+    primaryApprovalSlug: "dubai-civil-defense-approval",
+    projectType: "Trakhees & DCD approval",
+    location: "Business Bay, Dubai",
+    sector: "Commercial",
+    directAnswer:
+      "This case study covers the quoted Trakhees & DCD approval for a commercial unit in Business Bay, Dubai. The AED 10,000 quotation, LML/QTN/1119 issued on 18 June 2026, covers preparing the drawings as per Trakhees and Dubai Civil Defence (DCD) regulation, obtaining design approval from both authorities, and conducting the inspection that releases the completion certificate.",
+    stats: [
+      { label: "Authorities", value: "Trakhees & DCD" },
+      { label: "Quoted fee", value: "AED 10,000" },
+      { label: "Scope", value: "Drawings, approval & inspection" },
+      { label: "Status", value: "Quotation issued" },
+    ],
+    challenge:
+      "This quotation covers the Trakhees & DCD approval path a commercial unit in Business Bay needs before the fit-out can be certified. The subject combines Trakhees, the Department of Planning and Development that issues planning and development approvals in the zones it governs, with Dubai Civil Defence (DCD), which reviews the fire and life-safety aspects of the design, so a single drawing set has to satisfy both regulators and be followed by an inspection that releases the completion certificate.\nThe AED 10,000 fee is defined around inputs the client controls. The client supplies all other existing drawings, documents and green files; exceptional approval requirements, an inspection failure or a design revision each carry an additional charge; and VAT is separate. Quotation LML/QTN/1119 also notes that where an NOC is required from the building management the price may differ, so confirming the building management position early is what keeps the quoted AED 10,000 realistic. No completion timeline is committed in the quotation.",
+    solutionSteps: [
+      {
+        step: 1,
+        title: "Site visit and document review",
+        description:
+          "Review the existing drawings, documents and green files supplied by the client, and confirm the current condition of the commercial unit in Business Bay.",
+      },
+      {
+        step: 2,
+        title: "Confirm building management requirements",
+        description:
+          "Confirm whether an NOC from the building management is required, since quotation LML/QTN/1119 states the price may differ if it is.",
+      },
+      {
+        step: 3,
+        title: "Prepare drawings as per Trakhees and DCD regulation",
+        description:
+          "Prepare the drawing set so it meets both Trakhees and Dubai Civil Defence regulation for the commercial unit.",
+      },
+      {
+        step: 4,
+        title: "Obtain design approval from Trakhees and DCD",
+        description:
+          "Submit the drawing set and supporting documents, and follow up until design approval is obtained from Trakhees and the Dubai Civil Defence.",
+      },
+      {
+        step: 5,
+        title: "Conduct inspection with Trakhees & DCD",
+        description:
+          "Arrange and attend the inspection with Trakhees and the Dubai Civil Defence, and resolve any findings so the inspection passes.",
+      },
+      {
+        step: 6,
+        title: "Release the completion certificate",
+        description:
+          "Once the inspection passes, finalise the Trakhees & DCD documentation and release the completion certificate.",
+      },
+    ],
+    timeline: [
+      {
+        title: "Quotation issued",
+        detail:
+          "Quotation LML/QTN/1119 issued on 18 June 2026 for the Trakhees & DCD approval at AED 10,000.",
+        state: "approved",
+        date: "2026-06-18",
+      },
+      {
+        title: "Document & drawing review",
+        detail:
+          "Review the existing drawings, documents and green files supplied by the client.",
+        state: "pending",
+      },
+      {
+        title: "Building management requirements",
+        detail:
+          "Confirm whether an NOC from the building management is required for the commercial unit in Business Bay.",
+        state: "pending",
+      },
+      {
+        title: "Drawings prepared",
+        detail: "Drawing set prepared as per Trakhees and DCD regulation.",
+        state: "pending",
+      },
+      {
+        title: "Design approval",
+        detail:
+          "Design approval to be obtained from Trakhees and the Dubai Civil Defence.",
+        state: "pending",
+      },
+      {
+        title: "Inspection",
+        detail:
+          "Trakhees & DCD inspection to be conducted once the drawings are approved.",
+        state: "pending",
+      },
+      {
+        title: "Completion",
+        detail: "Completion certificate to be released after the inspection passes.",
+        state: "pending",
+      },
+    ],
+    documentsTable: [
+      {
+        document: "Trade licence",
+        description:
+          "Client's valid trade licence for the business occupying the commercial unit in Business Bay.",
+        providedBy: "client",
+      },
+      {
+        document: "Title deed or tenancy",
+        description:
+          "Title deed or tenancy evidence for the commercial unit in Business Bay.",
+        providedBy: "client",
+      },
+      {
+        document: "Existing drawings and green files",
+        description:
+          "Existing drawings, documents and green files required for the Trakhees & DCD approval.",
+        providedBy: "client",
+      },
+      {
+        document: "Building management NOC",
+        description:
+          "If required by the building management, the NOC is confirmed up front — quotation LML/QTN/1119 notes the price may differ where it is needed.",
+        providedBy: "client",
+      },
+      {
+        document: "Drawing set as per Trakhees and DCD regulation",
+        description:
+          "Drawings prepared to meet both Trakhees and Dubai Civil Defence regulation for the commercial unit.",
+        providedBy: "wasleen",
+      },
+      {
+        document: "Trakhees & DCD applications",
+        description:
+          "Design approval and inspection applications submitted to Trakhees and the Dubai Civil Defence.",
+        providedBy: "wasleen",
+      },
+    ],
+    timelineTable: [
+      {
+        stage: "Quotation issued",
+        planned: "—",
+        actual: "18 June 2026",
+      },
+      {
+        stage: "Drawings preparation",
+        planned: "To be confirmed",
+        actual: "—",
+        note: "No timeline commitment is stated in quotation LML/QTN/1119",
+      },
+      {
+        stage: "Design approval (Trakhees & DCD)",
+        planned: "To be confirmed",
+        actual: "—",
+        note: "Indicative — typical Trakhees & DCD timelines",
+      },
+      {
+        stage: "Inspection (Trakhees & DCD)",
+        planned: "To be confirmed",
+        actual: "—",
+        note: "Indicative — typical Trakhees & DCD timelines",
+      },
+      {
+        stage: "Completion certificate",
+        planned: "To be confirmed",
+        actual: "—",
+        note: "Indicative — typical Trakhees & DCD timelines",
+      },
+    ],
+    quotedFee: "AED 10,000",
+    feeAmountAED: 10000,
+    feeIncluded: [
+      "Preparing drawings as per TRAKHEES and DCD regulation",
+      "Obtaining design approval from TRAKHEES and DCD",
+      "Conducting inspection from TRAKHEES & DCD, releasing completion certificate",
+    ],
+    proTips: [
+      {
+        title: "Prepare one drawing set to both Trakhees and DCD regulation",
+        body: "The approval subject is Trakhees & DCD, so the same drawing set must satisfy the Trakhees planning and development requirements and the Dubai Civil Defence fire and life-safety requirements. Aligning the drawings to both regulations before submission avoids a design revision and the additional charge that follows it.",
+      },
+      {
+        title: "Confirm the building management NOC before committing",
+        body: "Quotation LML/QTN/1119 states the price may differ if an NOC is required from the building management. Handing over the full existing drawings, documents and green files and confirming the NOC position up front keeps the quoted AED 10,000 fee as close to final as possible.",
+      },
+    ],
+    outcome: [
+      { label: "Quoted fee", value: "AED 10,000" },
+      {
+        label: "Approval authority",
+        value: "Trakhees & Dubai Civil Defence (DCD)",
+      },
+      {
+        label: "Scope",
+        value: "Drawings, Trakhees & DCD design approval & inspection",
+      },
+    ],
+    faqs: [
+      {
+        question: "What does the AED 10,000 Trakhees & DCD approval quotation include?",
+        answer:
+          "The quotation covers preparing the drawings as per Trakhees and DCD regulation, obtaining design approval from Trakhees and the Dubai Civil Defence (DCD), and conducting the inspection that releases the completion certificate.",
+      },
+      {
+        question: "Which authorities are involved in this Business Bay approval?",
+        answer:
+          "Trakhees reviews the planning and development submission for the commercial unit while the Dubai Civil Defence (DCD) reviews the fire and life-safety aspects of the design, and both authorities carry out the inspection that releases the completion certificate, as stated in quotation LML/QTN/1119.",
+      },
+      {
+        question: "What is Trakhees and why is it part of this approval?",
+        answer:
+          "Trakhees is the Department of Planning and Development that issues planning and development approvals in the zones it governs in Dubai. The subject of quotation LML/QTN/1119 is a Trakhees & DCD approval, so the submission has to satisfy both the Trakhees requirements and the Dubai Civil Defence fire and life-safety requirements.",
+      },
+      {
+        question: "What does the client need to provide for this approval?",
+        answer:
+          "The client provides the existing drawings, documents and green files and, where the building management requires it, the building management NOC. Wasleen prepares the drawing set as per Trakhees and DCD regulation and handles the applications with both authorities.",
+      },
+      {
+        question: "When could additional charges apply to this quotation?",
+        answer:
+          "Additional charges apply for exceptional approval requirements, an inspection failure or a design revision, and VAT is separate as stated in the limiting conditions of quotation LML/QTN/1119. The quotation also notes the price may differ if an NOC is required from the building management.",
+      },
+      {
+        question: "Does the quotation commit to a fixed completion timeline?",
+        answer:
+          "No. Quotation LML/QTN/1119 does not state a completion window, so the programme depends on the documents supplied, the building management NOC position and the Trakhees and DCD review and inspection.",
+      },
+      {
+        question: "What is the payment schedule for this Trakhees & DCD approval quotation?",
+        answer:
+          "Payment is 50% in advance before starting the work, 40% during work progress and 10% after completion of the work, as stated in quotation LML/QTN/1119.",
+      },
+      {
+        question: "What is the project status of this case study?",
+        answer:
+          "This case study reflects a quotation issued on 18 June 2026 for AED 10,000; the approval scope is engaged and the final approval is not yet claimed.",
+      },
+    ],
+    images: [
+      {
+        src: "/images/blueprint-drawing-submission-approval-dubai.webp",
+        alt: "Blueprint drawing for a Trakhees & DCD approval for a commercial unit in Business Bay, Dubai",
+        width: 1376,
+        height: 768,
+        placement: "hero",
+      },
+      {
+        src: "/images/dcd-fire-safety-noc-dubai-civil-defense.webp",
+        alt: "DCD fire and safety document checklist for a Trakhees & DCD approval in Business Bay",
+        width: 1584,
+        height: 672,
+        placement: "documents",
+      },
+      {
+        src: "/images/commercial-office-fit-out-approval-dubai.webp",
+        alt: "Commercial unit approval in Business Bay processed for Trakhees and Dubai Civil Defence",
+        caption: "Trakhees & DCD approval for a commercial unit in Business Bay, Dubai",
+        width: 1376,
+        height: 768,
+        placement: "photo",
+      },
+    ],
+    relatedApprovalSlugs: [
+      "dubai-civil-defense-approval",
+      "interior-fit-out-approval",
+      "jebel-ali-free-zone-approval",
+    ],
+    relatedGuideSlugs: [
+      "dcd-fire-safety-approval-documents",
+      "interior-fit-out-permit-process",
+      "cad-drawing-standards-dubai-guide",
+    ],
+    relatedServiceSlugs: ["2d-drawings", "approval-management", "document-clearing"],
+    relatedCaseStudySlugs: [
+      "nakheel-trakhees-approval-palm-jumeirah",
+      "dda-dcd-approval-business-bay",
+      "dcd-approval-burlington-tower-3",
+    ],
+    author: {
+      name: "Jamsheed Khalid",
+      credential: "Senior Fit-Out Consultant & Structural Engineer",
+      url: "https://www.linkedin.com/in/jamsheed-khalid-343148b6",
+    },
+    reviewedBy: {
+      name: "Kavya Ramachandran",
+      credential: "Interior Designer",
+    },
+    publishedAt: "2026-06-18",
+    lastUpdated: "2026-09-14",
+    publishStatus: "live",
+  },
+  /* ============================================================
+     LML/QTN/1139 — DEWA, Trakhees, DCD, NOC & Food Safety
+     approval, JVC
+     Source: WORK QUOTATION ref LML/QTN/1139 dated 06/07/2026
+     (subject "QUOTATION FOR APPROVALS", body "QUOTATION FOR
+     DEWA,TRAKHEES,DCD,NOC,FOOD & SAFETY APPROVALS"), location
+     JVC, Dubai, UAE, AED 13,500. projectStatus "quoted"
+     (quotation only — no completion claim). publishStatus
+     "live" after owner approval 2026-09-15 (Part 17.4 policy).
+     Images: existing site library assets (no per-slug binaries),
+     dims verified with scripts/get-webp-dims.mjs.
+     ============================================================ */
+  {
+    slug: "dewa-trakhees-dcd-food-safety-approval-jvc",
+    projectTitle:
+      "DEWA, Trakhees, DCD, NOC & Food Safety Approval for a JVC Commercial Unit",
+    seoTitle: "DEWA, Trakhees, DCD & Food Safety in JVC",
+    description:
+      "AED 13,500 DEWA, Trakhees, DCD, NOC and food safety approval quote for a JVC commercial unit: drawings, approvals and inspections. Get a free quote today.",
+    sourceRef: "LML/QTN/1139",
+    consentGranted: false,
+    clientLabel: "Confidential client — Commercial unit in JVC, Dubai",
+    projectStatus: "quoted",
+    authorities: [
+      "DEWA",
+      "Trakhees",
+      "Dubai Civil Defence",
+      "Dubai Municipality",
+    ],
+    primaryApprovalSlug: "dewa-approval",
+    projectType: "DEWA, Trakhees, DCD, NOC & food safety approval",
+    location: "JVC, Dubai",
+    sector: "Commercial",
+    directAnswer:
+      "This case study covers the quoted multi-authority approval for a commercial unit in JVC, Dubai, combining DEWA, Trakhees, Dubai Civil Defence (DCD), food and safety certification and the building management NOC. The AED 13,500 quotation, LML/QTN/1139 issued on 6 July 2026, covers preparing the drawings as per each authority's regulation, obtaining the design approvals, installing the DEWA meter, and completing the inspections that release the completion certificates and the NOC. Quotation LML/QTN/1139 does not state a completion timeline.",
+    stats: [
+      { label: "Authorities", value: "DEWA, Trakhees, DCD & Food Safety" },
+      { label: "Quoted fee", value: "AED 13,500" },
+      { label: "Scope", value: "Five approvals in one submission" },
+      { label: "Status", value: "Quotation issued" },
+    ],
+    challenge:
+      "This quotation covers five linked approvals for a single commercial unit in JVC: DEWA for the electrical supply and meter, Trakhees for the planning and development submission, the Dubai Civil Defence (DCD) for fire and life-safety, food and safety certification, and the building management NOC. Each authority reviews the same premises against its own regulation, so the drawing set has to be coordinated across all of them rather than produced authority by authority — a set prepared only against one checklist typically comes back for revision from the next.\nThe AED 13,500 fee is defined around inputs the client controls. The client supplies all other existing drawings, documents and green files; exceptional approval requirements, an inspection failure or a design revision each carry an additional charge; government charges are paid by the client; and VAT is separate, as stated in the limiting conditions of quotation LML/QTN/1139. Because the fee is quoted across five submissions including the meter installation, locking the client-supplied drawings and green files early is what keeps the quoted AED 13,500 realistic.",
+    solutionSteps: [
+      {
+        step: 1,
+        title: "Site visit and document review",
+        description:
+          "Review the existing drawings, documents and green files supplied by the client, and confirm the current condition of the commercial unit in JVC.",
+      },
+      {
+        step: 2,
+        title: "Prepare one coordinated drawing set",
+        description:
+          "Prepare the drawing set as per DEWA, Trakhees, DCD, food and safety and building management regulation so a single coordinated submission serves all five approvals.",
+      },
+      {
+        step: 3,
+        title: "DEWA drawing, inspection and meter",
+        description:
+          "Prepare the drawing as per DEWA regulation, conduct the DEWA inspection and complete the DEWA meter installation.",
+      },
+      {
+        step: 4,
+        title: "Trakhees and DCD design approval",
+        description:
+          "Submit the drawings and supporting documents, and follow up until design approval is obtained from Trakhees and the Dubai Civil Defence.",
+      },
+      {
+        step: 5,
+        title: "Inspections and certificates",
+        description:
+          "Conduct the Trakhees and DCD inspections that release the completion certificates, and prepare the drawing as per food and safety regulation to release the certificate.",
+      },
+      {
+        step: 6,
+        title: "Building management NOC",
+        description:
+          "Prepare the drawing as per the building management requirement and follow up until the NOC is released.",
+      },
+    ],
+    timeline: [
+      {
+        title: "Quotation issued",
+        detail:
+          "Quotation LML/QTN/1139 issued on 6 July 2026 for the multi-authority approval at AED 13,500.",
+        state: "approved",
+        date: "2026-07-06",
+      },
+      {
+        title: "Document & drawing review",
+        detail:
+          "Review the existing drawings, documents and green files supplied by the client.",
+        state: "pending",
+      },
+      {
+        title: "Drawings prepared",
+        detail:
+          "Coordinated drawing set prepared as per DEWA, Trakhees, DCD, food and safety and building management regulation.",
+        state: "pending",
+      },
+      {
+        title: "DEWA drawing & inspection",
+        detail:
+          "DEWA drawing submitted and the DEWA inspection conducted ahead of the meter installation.",
+        state: "pending",
+      },
+      {
+        title: "DEWA meter installation",
+        detail: "DEWA meter installation to be completed.",
+        state: "pending",
+      },
+      {
+        title: "Trakhees & DCD design approval",
+        detail:
+          "Design approval to be obtained from Trakhees and the Dubai Civil Defence.",
+        state: "pending",
+      },
+      {
+        title: "Inspections, certificate & NOC",
+        detail:
+          "Trakhees, DCD and food and safety inspections and certificates, followed by the building management NOC.",
+        state: "pending",
+      },
+    ],
+    documentsTable: [
+      {
+        document: "Trade licence",
+        description:
+          "Client's valid trade licence for the business occupying the commercial unit in JVC.",
+        providedBy: "client",
+      },
+      {
+        document: "Title deed or tenancy",
+        description:
+          "Title deed or tenancy evidence for the commercial unit in JVC.",
+        providedBy: "client",
+      },
+      {
+        document: "Existing drawings and green files",
+        description:
+          "Existing drawings, documents and green files required for the DEWA, Trakhees, DCD, food and safety and building management submissions.",
+        providedBy: "client",
+      },
+      {
+        document: "Building management requirements",
+        description:
+          "The building management requirements and standards the unit must comply with for the NOC submission.",
+        providedBy: "client",
+      },
+      {
+        document:
+          "Drawing set as per DEWA, Trakhees, DCD, food and safety and building management regulation",
+        description:
+          "Coordinated drawings prepared to meet each authority's regulation for the commercial unit.",
+        providedBy: "wasleen",
+      },
+      {
+        document: "Authority applications and inspections",
+        description:
+          "Submissions, follow-up and inspections with DEWA, Trakhees, the Dubai Civil Defence, food and safety and the building management.",
+        providedBy: "wasleen",
+      },
+    ],
+    timelineTable: [
+      {
+        stage: "Quotation issued",
+        planned: "—",
+        actual: "6 July 2026",
+      },
+      {
+        stage: "Drawings preparation",
+        planned: "To be confirmed",
+        actual: "—",
+        note: "No timeline commitment is stated in quotation LML/QTN/1139",
+      },
+      {
+        stage: "DEWA drawing, inspection & meter installation",
+        planned: "To be confirmed",
+        actual: "—",
+        note: "Indicative — typical DEWA timelines",
+      },
+      {
+        stage: "Trakhees & DCD design approval",
+        planned: "To be confirmed",
+        actual: "—",
+        note: "Indicative — typical Trakhees and DCD timelines",
+      },
+      {
+        stage: "Trakhees, DCD & food and safety inspections",
+        planned: "To be confirmed",
+        actual: "—",
+        note: "Indicative — typical authority inspection timelines",
+      },
+      {
+        stage: "Building management NOC",
+        planned: "To be confirmed",
+        actual: "—",
+        note: "Indicative — depends on the building management review",
+      },
+    ],
+    quotedFee: "AED 13,500",
+    feeAmountAED: 13500,
+    feeIncluded: [
+      "Prepare Drawing as per DEWA, Conducting Inspection from DEWA & installing DEWA meter",
+      "Prepare Drawing as per TRAKHEES, Conducting Inspection from TRAKHEES and releasing completion certificate",
+      "Prepare Drawing as per DCD, Conducting inspection from DCD and releasing completion certificate",
+      "Prepare Drawing as per FOOD & SAFETY and releasing certificate",
+      "Prepare Drawing as per Building management and releasing NOC",
+    ],
+    proTips: [
+      {
+        title: "Coordinate the drawing set across all five approvals first",
+        body: "The quotation covers DEWA, Trakhees, DCD, food and safety and the building management NOC on the same premises, so a drawing set that is prepared once and reviewed against every authority's checklist avoids the design revision that carries an additional charge under the limiting conditions of quotation LML/QTN/1139.",
+      },
+      {
+        title: "Hand over every green file and existing drawing before work starts",
+        body: "The client supplies all other existing drawings, documents and green files, government charges are paid by the client and VAT is separate. Handing the full set over up front keeps the quoted AED 13,500 fee as close to final as possible and avoids a second round of authority comments.",
+      },
+    ],
+    outcome: [
+      { label: "Quoted fee", value: "AED 13,500" },
+      {
+        label: "Approval authority",
+        value:
+          "DEWA, Trakhees, Dubai Civil Defence (DCD), food and safety & building management",
+      },
+      {
+        label: "Scope",
+        value:
+          "Drawings, design approvals, inspections, DEWA meter, certificates & NOC",
+      },
+    ],
+    faqs: [
+      {
+        question: "What does the AED 13,500 quotation include?",
+        answer:
+          "Quotation LML/QTN/1139 covers preparing the drawings as per DEWA, Trakhees, DCD, food and safety and building management regulation, obtaining design approval from Trakhees and the Dubai Civil Defence, conducting the inspections that release the completion certificates, installing the DEWA meter, and releasing the food and safety certificate and the building management NOC.",
+      },
+      {
+        question: "Which authorities are involved in this JVC approval?",
+        answer:
+          "DEWA handles the electrical drawing, inspection and meter installation, Trakhees reviews the planning and development submission, the Dubai Civil Defence (DCD) reviews the fire and life-safety aspects of the design, the food and safety approval is processed through Dubai Municipality, and the building management releases the NOC, as stated in quotation LML/QTN/1139.",
+      },
+      {
+        question: "What does the DEWA element of the quotation cover?",
+        answer:
+          "The DEWA element covers preparing the drawing as per DEWA regulation, conducting the DEWA inspection and installing the DEWA meter, as stated in quotation LML/QTN/1139. Government charges are paid by the client.",
+      },
+      {
+        question: "What does the food and safety approval cover?",
+        answer:
+          "The food and safety element covers preparing the drawing as per food and safety regulation and releasing the certificate, as stated in quotation LML/QTN/1139. In Dubai this food safety certification is administered through Dubai Municipality's food control function.",
+      },
+      {
+        question: "What does the client need to provide for this approval?",
+        answer:
+          "The client provides all other existing drawings, documents and green files and the building management requirements. Wasleen prepares the drawing set as per DEWA, Trakhees, DCD, food and safety and building management regulation and handles the applications and inspections with each authority.",
+      },
+      {
+        question: "When could additional charges apply to this quotation?",
+        answer:
+          "Additional charges apply for exceptional approval requirements, an inspection failure or a design revision, government charges are paid by the client and VAT is separate, as stated in the limiting conditions of quotation LML/QTN/1139.",
+      },
+      {
+        question: "Does the quotation commit to a fixed completion timeline?",
+        answer:
+          "No. Quotation LML/QTN/1139 does not state a completion window, so the programme depends on the drawings and green files supplied, the government charges being settled, and the DEWA, Trakhees, DCD, food and safety and building management review and inspection timelines.",
+      },
+      {
+        question: "What is the payment schedule for this quotation?",
+        answer:
+          "Payment is 50% in advance before starting the work, 40% during work progress and 10% after completion of the work, as stated in quotation LML/QTN/1139.",
+      },
+    ],
+    images: [
+      {
+        src: "/images/mep-electrical-mechanical-approval-dubai.webp",
+        alt: "MEP and electrical drawings for a DEWA, Trakhees and DCD approval for a commercial unit in JVC, Dubai",
+        width: 1376,
+        height: 768,
+        placement: "hero",
+      },
+      {
+        src: "/images/dewa-electricity-connection-approval.webp",
+        alt: "DEWA electricity connection and meter installation documentation for a JVC commercial unit approval",
+        width: 1376,
+        height: 768,
+        placement: "documents",
+      },
+      {
+        src: "/images/restaurant-food-business-approval-dubai.webp",
+        alt: "Food and safety approval documentation for a commercial unit in JVC processed alongside DEWA, Trakhees and DCD approvals",
+        caption:
+          "DEWA, Trakhees, DCD, food and safety and NOC approval for a commercial unit in JVC, Dubai",
+        width: 1376,
+        height: 768,
+        placement: "photo",
+      },
+    ],
+    relatedApprovalSlugs: [
+      "dewa-approval",
+      "dewa-meter-installation",
+      "food-control-department-approval",
+      "interior-fit-out-approval",
+      "dubai-municipality-noc",
+    ],
+    relatedGuideSlugs: [
+      "dewa-connection-process-guide",
+      "dewa-meter-installation-steps",
+      "dubai-food-control-approval-guide",
+      "interior-fit-out-permit-process",
+    ],
+    relatedServiceSlugs: ["2d-drawings", "approval-management", "document-clearing"],
+    relatedCaseStudySlugs: [
+      "dda-dcd-food-safety-approval-cafe",
+      "dewa-load-schedule-request-dubai",
+      "trakhees-dcd-approval-business-bay",
+    ],
+    author: {
+      name: "Jamsheed Khalid",
+      credential: "Senior Fit-Out Consultant & Structural Engineer",
+      url: "https://www.linkedin.com/in/jamsheed-khalid-343148b6",
+    },
+    reviewedBy: {
+      name: "Kavya Ramachandran",
+      credential: "Interior Designer",
+    },
+    publishedAt: "2026-07-06",
+    lastUpdated: "2026-09-14",
+    publishStatus: "live",
+  },
+  /* ============================================================
+     LML/QTN/1145 — DDA approval, Mudon
+     Source: WORK QUOTATION ref LML/QTN/1145 dated 13/07/2026
+     (subject "QUOTATION FOR DDA APPROVAL"), location Mudon,
+     Dubai, AED 4,500. projectStatus "quoted" (quotation only —
+     no completion claim). publishStatus "live" — owner approved
+     publication 2026-09-15 (Part 17.4 policy).
+     Images: existing site library assets (no per-slug binaries),
+     dims verified with scripts/get-webp-dims.mjs.
+     ============================================================ */
+  {
+    slug: "dda-approval-mudon-dubai",
+    projectTitle: "DDA Approval for a Property in Mudon, Dubai",
+    seoTitle: "DDA Design Approval in Mudon, Dubai",
+    description:
+      "AED 4,500 DDA approval quote for a property in Mudon, Dubai: drawing preparation, DDA design approval and the completion inspection. Get a free quote today.",
+    sourceRef: "LML/QTN/1145",
+    consentGranted: false,
+    clientLabel: "Confidential client — Property in Mudon, Dubai",
+    projectStatus: "quoted",
+    authorities: ["DDA"],
+    primaryApprovalSlug: "dda-approval",
+    projectType: "DDA approval",
+    location: "Mudon, Dubai",
+    sector: "Residential",
+    directAnswer:
+      "This case study covers the quoted DDA approval for a property in Mudon, Dubai. The AED 4,500 quotation, LML/QTN/1145 issued on 13 July 2026, covers preparing the drawings as per DDA regulation, obtaining design approval from the Dubai Development Authority (DDA), and conducting the DDA inspection that releases the completion certificate. The quotation does not state a completion timeline.",
+    stats: [
+      { label: "Authority", value: "Dubai Development Authority (DDA)" },
+      { label: "Quoted fee", value: "AED 4,500" },
+      { label: "Scope", value: "Drawings, design approval & inspection" },
+      { label: "Status", value: "Quotation issued" },
+    ],
+    challenge:
+      "This quotation covers the DDA approval path a property in Mudon requires. The Dubai Development Authority (DDA) is the planning and development authority that issues approvals for the communities within its jurisdiction, and quotation LML/QTN/1145 confirms the DDA approval route for this property. The drawing set has to be prepared to DDA regulation, submitted for design approval, and then verified on site by a DDA inspection that releases the completion certificate — three stages that follow each other, since the inspection can only be conducted once the design approval is in place.\nThe AED 4,500 fee is defined around inputs the client controls. The client supplies all other existing drawings, documents and green files; exceptional approval requirements, an inspection failure or a design revision each carry an additional charge; government charges are paid by the client; and VAT is separate, as stated in the limiting conditions of quotation LML/QTN/1145. No completion timeline is committed in the quotation.",
+    solutionSteps: [
+      {
+        step: 1,
+        title: "Site visit and document review",
+        description:
+          "Review the existing drawings, documents and green files supplied by the client, and confirm the current condition of the property in Mudon.",
+      },
+      {
+        step: 2,
+        title: "Prepare drawings as per DDA regulation",
+        description:
+          "Prepare the drawing set so it meets the Dubai Development Authority regulation for the property.",
+      },
+      {
+        step: 3,
+        title: "Submit and obtain DDA design approval",
+        description:
+          "Submit the drawings and supporting documents and follow up until design approval is obtained from the DDA.",
+      },
+      {
+        step: 4,
+        title: "Resolve any DDA design comments",
+        description:
+          "Address any DDA comments on the design so the revision is closed out before the inspection stage.",
+      },
+      {
+        step: 5,
+        title: "Conduct the DDA inspection",
+        description:
+          "Arrange and attend the DDA inspection and resolve any findings so the inspection passes.",
+      },
+      {
+        step: 6,
+        title: "Release the completion certificate",
+        description:
+          "Once the inspection passes, finalise the DDA documentation and release the completion certificate.",
+      },
+    ],
+    timeline: [
+      {
+        title: "Quotation issued",
+        detail:
+          "Quotation LML/QTN/1145 issued on 13 July 2026 for the DDA approval at AED 4,500.",
+        state: "approved",
+        date: "2026-07-13",
+      },
+      {
+        title: "Document & drawing review",
+        detail:
+          "Review the existing drawings, documents and green files supplied by the client.",
+        state: "pending",
+      },
+      {
+        title: "Drawings prepared",
+        detail: "Drawing set prepared as per DDA regulation.",
+        state: "pending",
+      },
+      {
+        title: "DDA design approval",
+        detail: "Design approval to be obtained from the DDA.",
+        state: "pending",
+      },
+      {
+        title: "DDA inspection",
+        detail: "DDA inspection to be conducted once the design is approved.",
+        state: "pending",
+      },
+      {
+        title: "Completion certificate",
+        detail: "Completion certificate to be released after the inspection passes.",
+        state: "pending",
+      },
+      {
+        title: "Documentation closure",
+        detail:
+          "Final file documentation assembled for the client after the certificate is released.",
+        state: "pending",
+      },
+    ],
+    documentsTable: [
+      {
+        document: "Title deed or tenancy contract",
+        description:
+          "Title deed or tenancy evidence for the property in Mudon, Dubai.",
+        providedBy: "client",
+      },
+      {
+        document: "Existing drawings and green files",
+        description:
+          "Existing drawings, documents and green files required for the DDA approval of the property.",
+        providedBy: "client",
+      },
+      {
+        document: "Drawing set as per DDA regulation",
+        description:
+          "Drawings prepared to meet the Dubai Development Authority regulation for the property.",
+        providedBy: "wasleen",
+      },
+      {
+        document: "DDA design approval application",
+        description:
+          "Application and supporting documents submitted to the DDA for design approval.",
+        providedBy: "wasleen",
+      },
+      {
+        document: "DDA inspection request",
+        description:
+          "Inspection request and site documentation prepared for the DDA inspection that releases the completion certificate.",
+        providedBy: "wasleen",
+      },
+      {
+        document: "Completion certificate documentation",
+        description:
+          "Final documentation assembled so the DDA completion certificate can be released.",
+        providedBy: "wasleen",
+      },
+    ],
+    timelineTable: [
+      {
+        stage: "Quotation issued",
+        planned: "—",
+        actual: "13 July 2026",
+      },
+      {
+        stage: "Drawings preparation",
+        planned: "To be confirmed",
+        actual: "—",
+        note: "No timeline commitment is stated in quotation LML/QTN/1145",
+      },
+      {
+        stage: "DDA design approval",
+        planned: "To be confirmed",
+        actual: "—",
+        note: "Indicative — typical DDA timelines",
+      },
+      {
+        stage: "DDA inspection",
+        planned: "To be confirmed",
+        actual: "—",
+        note: "Indicative — typical DDA timelines",
+      },
+      {
+        stage: "Completion certificate",
+        planned: "To be confirmed",
+        actual: "—",
+        note: "Indicative — typical DDA timelines",
+      },
+    ],
+    quotedFee: "AED 4,500",
+    feeAmountAED: 4500,
+    feeIncluded: [
+      "Preparing drawings as per DDA regulation",
+      "Obtaining design approval from DDA",
+      "Conducting inspection from DDA, releasing completion certificate",
+    ],
+    proTips: [
+      {
+        title: "Prepare the drawing set to DDA regulation before submitting",
+        body: "The DDA path runs in sequence — drawings, design approval, then the inspection that releases the completion certificate. A design revision carries an additional charge under the limiting conditions of quotation LML/QTN/1145, so aligning the drawings to DDA regulation before submission protects the quoted AED 4,500 and keeps the inspection slot available.",
+      },
+      {
+        title: "Hand over the existing drawings and green files up front",
+        body: "The client supplies all other existing drawings, documents and green files, government charges are paid by the client and VAT is separate. Supplying the full set at the start keeps the quoted AED 4,500 fee as close to final as possible and avoids a second round of DDA review comments.",
+      },
+    ],
+    outcome: [
+      { label: "Quoted fee", value: "AED 4,500" },
+      { label: "Approval authority", value: "Dubai Development Authority (DDA)" },
+      {
+        label: "Scope",
+        value: "Drawings, DDA design approval & completion inspection",
+      },
+    ],
+    faqs: [
+      {
+        question: "What does the AED 4,500 DDA approval quotation include?",
+        answer:
+          "Quotation LML/QTN/1145 covers preparing the drawings as per DDA regulation, obtaining design approval from the Dubai Development Authority (DDA), and conducting the DDA inspection that releases the completion certificate.",
+      },
+      {
+        question: "Which authority issues this Mudon approval?",
+        answer:
+          "The Dubai Development Authority (DDA) is the authority named on quotation LML/QTN/1145 for the property in Mudon, and the scope covers the DDA design approval and the DDA inspection that releases the completion certificate.",
+      },
+      {
+        question: "What is the Dubai Development Authority (DDA)?",
+        answer:
+          "The Dubai Development Authority (DDA) is the planning and development authority that issues approvals for the communities within its jurisdiction in Dubai. Quotation LML/QTN/1145 confirms the DDA approval route for this property in Mudon.",
+      },
+      {
+        question: "What does the client need to provide for this DDA approval?",
+        answer:
+          "The client provides all other existing drawings, documents and green files, and the title deed or tenancy evidence for the property. Wasleen prepares the drawing set as per DDA regulation and handles the design approval application and the inspection with the DDA.",
+      },
+      {
+        question: "When could additional charges apply to this quotation?",
+        answer:
+          "Additional charges apply for exceptional approval requirements, an inspection failure or a design revision, government charges are paid by the client and VAT is separate, as stated in the limiting conditions of quotation LML/QTN/1145.",
+      },
+      {
+        question: "Does the quotation commit to a fixed completion timeline?",
+        answer:
+          "No. Quotation LML/QTN/1145 does not state a completion window, so the programme depends on the drawings and green files supplied, the government charges being settled, and the DDA design review and inspection timelines.",
+      },
+      {
+        question: "What is the payment schedule for this quotation?",
+        answer:
+          "Payment is 50% in advance before starting the work, 40% during work progress and 10% after completion of the work, as stated in quotation LML/QTN/1145.",
+      },
+      {
+        question: "What is the project status of this case study?",
+        answer:
+          "This case study reflects a quotation issued on 13 July 2026 for AED 4,500; the approval scope is engaged and the final approval is not yet claimed.",
+      },
+    ],
+    images: [
+      {
+        src: "/images/dda-fit-out-approval-engineering.webp",
+        alt: "DDA approval drawings and engineering documentation for a property in Mudon, Dubai",
+        width: 1376,
+        height: 768,
+        placement: "hero",
+      },
+      {
+        src: "/images/interior-approvals-dubai-muncipality-consultants.webp",
+        alt: "Approval submission documentation for a DDA approval in Mudon, Dubai",
+        width: 2336,
+        height: 1760,
+        placement: "documents",
+      },
+      {
+        src: "/images/villa-renovation-approval-dubai.webp",
+        alt: "Property approval works processed for a DDA approval in Mudon, Dubai",
+        caption: "DDA approval for a property in Mudon, Dubai",
+        width: 1376,
+        height: 768,
+        placement: "photo",
+      },
+    ],
+    relatedApprovalSlugs: [
+      "dda-approval",
+      "interior-fit-out-approval",
+      "dubai-municipality-completion-certificate",
+      "dubai-municipality-noc",
+    ],
+    relatedGuideSlugs: [
+      "cad-drawing-standards-dubai-guide",
+      "dm-completion-certificate-steps",
+      "interior-fit-out-permit-process",
+    ],
+    relatedServiceSlugs: ["2d-drawings", "approval-management", "document-clearing"],
+    relatedCaseStudySlugs: [
+      "dda-damac-approval-dubai",
+      "dda-approval-alma-arabian-ranches",
+      "dda-emaar-approval-arabian-ranches",
+    ],
+    author: {
+      name: "Jamsheed Khalid",
+      credential: "Senior Fit-Out Consultant & Structural Engineer",
+      url: "https://www.linkedin.com/in/jamsheed-khalid-343148b6",
+    },
+    reviewedBy: {
+      name: "Kavya Ramachandran",
+      credential: "Interior Designer",
+    },
+    publishedAt: "2026-07-13",
+    lastUpdated: "2026-09-14",
+    publishStatus: "live",
+  },
+  /* ============================================================
+     LML/QTN/1156 — DCD Final Approval (DCD design approval),
+     Dubai
+     Source: WORK QUOTATION ref LML/QTN/1156 dated 22/07/2026
+     (addressed to ENG HASHEM; SUBJECT "QUOTATION FOR DCD FINAL
+     APPROVAL", body heading "QUOTATION FOR DCD DESIGN APPROVAL
+     (FINAL APPROVAL)"), LOCATION Dubai, UAE. Price AED 1,800 with
+     VAT 5% AED 90.00 and GRAND TOTAL AED 1,890.00.
+     The quotation records no premises type, unit or area, so
+     `sector` is recorded as "Not specified" instead of being
+     inferred. feeAmountAED records the AED 1,800 scope price
+     (VAT is shown separately on the quotation), matching the
+     pre-VAT basis used by the other entries. projectStatus
+     "quoted" (quotation only — no completion claim). The
+     quotation states no completion timeline. publishStatus
+     "live" — owner approved publication 2026-09-15.
+     Images: existing site library assets (no per-slug binaries),
+     dims verified with sharp.
+     ============================================================ */
+  {
+    slug: "dcd-final-approval-dubai",
+    projectTitle: "DCD Final Approval for a Dubai Project",
+    seoTitle: "DCD Final Approval Quotation, Dubai",
+    description:
+      "AED 1,800 plus 5% VAT DCD final approval quote for a Dubai project: drawings to DCD regulation and the DCD final design approval. Get a free quote today.",
+    sourceRef: "LML/QTN/1156",
+    consentGranted: false,
+    clientLabel: "Confidential client — DCD final approval project in Dubai",
+    projectStatus: "quoted",
+    authorities: ["Dubai Civil Defence"],
+    primaryApprovalSlug: "dubai-civil-defense-approval",
+    projectType: "DCD design approval (final approval)",
+    location: "Dubai",
+    sector: "Not specified",
+    directAnswer:
+      "This case study documents quotation LML/QTN/1156 for Dubai Civil Defence (DCD) final approval — the DCD design approval (final approval) stage — for a project in Dubai. Issued on 22 July 2026 at AED 1,800 plus 5% VAT (grand total AED 1,890.00), the quote covers preparing drawings as per DCD regulation and obtaining the DCD final approval. The quotation records the location only as Dubai, UAE and states no completion timeline.",
+    stats: [
+      { label: "Authority", value: "Dubai Civil Defence (DCD)" },
+      { label: "Quoted fee", value: "AED 1,800 + 5% VAT" },
+      { label: "Scope", value: "DCD-regulation drawings & final approval" },
+      { label: "Status", value: "Quotation issued" },
+    ],
+    challenge:
+      "This quotation covers the DCD final approval stage for a project in Dubai. Dubai Civil Defence (DCD) reviews the fire and life-safety design of a submission, and quotation LML/QTN/1156 confirms the DCD design approval (final approval) route at AED 1,800 plus 5% VAT, a grand total of AED 1,890.00. The quotation records the location only as Dubai, UAE and states no premises type, unit or area.\nThe limiting conditions show where the client controls the outcome. The client supplies all other existing drawings, documents and green files; an additional price applies for exceptional approval requirements; an additional charge applies for inspection failure or design revision; government charges are paid by the client; and VAT is charged separately, as set out in the limiting conditions of quotation LML/QTN/1156. Because the quotation states no completion window, the programme depends on the drawings and green files the client provides, the government charges being settled and DCD's own review times.",
+    solutionSteps: [
+      {
+        step: 1,
+        title: "Document review",
+        description:
+          "We review the existing drawings, documents and green files supplied by the client and confirm the scope of the DCD final approval submission.",
+      },
+      {
+        step: 2,
+        title: "Drawings prepared as per DCD regulation",
+        description:
+          "We prepare the drawing set so that it satisfies DCD regulation, as included in quotation LML/QTN/1156.",
+      },
+      {
+        step: 3,
+        title: "Submission to Dubai Civil Defence",
+        description:
+          "We submit the drawing set and supporting documents to Dubai Civil Defence and track the application.",
+      },
+      {
+        step: 4,
+        title: "DCD comments resolved",
+        description:
+          "We respond to DCD comments on the submission and revise the drawings until they are accepted.",
+      },
+      {
+        step: 5,
+        title: "DCD final approval obtained",
+        description:
+          "We obtain the DCD final approval and hand over the approved documentation.",
+      },
+    ],
+    timeline: [
+      {
+        title: "Quotation issued",
+        detail:
+          "Quotation LML/QTN/1156 issued on 22 July 2026 for DCD final approval at AED 1,800 plus 5% VAT (grand total AED 1,890.00).",
+        state: "approved",
+        date: "2026-07-22",
+      },
+      {
+        title: "Document review",
+        detail:
+          "Review of the existing drawings, documents and green files supplied by the client.",
+        state: "pending",
+      },
+      {
+        title: "Drawings prepared as per DCD regulation",
+        detail: "Preparation of the drawing set to satisfy DCD regulation.",
+        state: "pending",
+      },
+      {
+        title: "Submission to DCD",
+        detail:
+          "Submission of the drawing set and supporting documents to Dubai Civil Defence.",
+        state: "pending",
+      },
+      {
+        title: "DCD comments resolved",
+        detail:
+          "Response to DCD comments and revision of the drawings until accepted.",
+        state: "pending",
+      },
+      {
+        title: "DCD final approval obtained",
+        detail:
+          "Receipt of the DCD final approval and handover of the approved documentation.",
+        state: "pending",
+      },
+    ],
+    documentsTable: [
+      {
+        document: "Existing drawings, documents and green files",
+        description:
+          "All other existing drawings, documents and green files, which the quotation requires the client to provide.",
+        providedBy: "client",
+      },
+      {
+        document: "Premises and project details for the DCD submission",
+        description:
+          "The premises and project details the DCD final approval submission is prepared from.",
+        providedBy: "client",
+      },
+      {
+        document: "Drawing set prepared as per DCD regulation",
+        description:
+          "Drawings prepared to satisfy DCD regulation, as included in quotation LML/QTN/1156.",
+        providedBy: "wasleen",
+      },
+      {
+        document: "DCD final approval application",
+        description:
+          "Submission and tracking of the DCD design approval (final approval) application.",
+        providedBy: "wasleen",
+      },
+      {
+        document: "Approved DCD documentation",
+        description:
+          "The approved drawings and DCD final approval documentation handed to the client.",
+        providedBy: "wasleen",
+      },
+    ],
+    timelineTable: [
+      {
+        stage: "Quotation issued",
+        planned: "—",
+        actual: "22 July 2026",
+      },
+      {
+        stage: "Drawings as per DCD regulation",
+        planned: "To be confirmed",
+        actual: "—",
+        note: "The quotation states no completion window",
+      },
+      {
+        stage: "DCD final approval",
+        planned: "To be confirmed",
+        actual: "—",
+        note: "Indicative — typical DCD design review periods",
+      },
+      {
+        stage: "Approved documentation handed over",
+        planned: "To be confirmed",
+        actual: "—",
+        note: "Depends on DCD closing its review",
+      },
+    ],
+    quotedFee: "AED 1,800 + 5% VAT",
+    feeAmountAED: 1800,
+    feeIncluded: [
+      "Preparing drawings as per DCD regulation",
+      "Obtaining DCD Final Approval",
+    ],
+    proTips: [
+      {
+        title: "Align the drawings to DCD regulation before submitting",
+        body: "The quotation prices two things only — drawings as per DCD regulation and the DCD final approval. A design revision carries an additional charge under the limiting conditions of quotation LML/QTN/1156, so aligning the drawing set to DCD regulation before submission protects the quoted AED 1,800 and avoids a second round of review.",
+      },
+      {
+        title: "Hand over the existing drawings and green files up front",
+        body: "The client supplies all other existing drawings, documents and green files, government charges are paid by the client and VAT is separate. Supplying the full set at the start keeps the quoted AED 1,800 as close to final as possible and stops avoidable DCD review comments.",
+      },
+    ],
+    outcome: [
+      { label: "Quoted fee", value: "AED 1,800 + 5% VAT" },
+      { label: "Approval authority", value: "Dubai Civil Defence (DCD)" },
+      {
+        label: "Scope",
+        value: "DCD-regulation drawings & DCD final approval",
+      },
+    ],
+    faqs: [
+      {
+        question: "What does the AED 1,800 DCD final approval quotation include?",
+        answer:
+          "Quotation LML/QTN/1156 covers two items: preparing drawings as per DCD regulation and obtaining the DCD Final Approval from Dubai Civil Defence (DCD). The AED 1,800 is quoted plus 5% VAT of AED 90.00, giving a grand total of AED 1,890.00.",
+      },
+      {
+        question: "Which authority issues this approval?",
+        answer:
+          "Dubai Civil Defence (DCD) is the authority named on quotation LML/QTN/1156, which covers the DCD design approval stage — described on the quotation as the DCD Final Approval — for a project in Dubai.",
+      },
+      {
+        question: "What is DCD final approval?",
+        answer:
+          "DCD final approval is the Dubai Civil Defence (DCD) design approval stage in which the fire and life-safety design of a submission is reviewed and approved. Quotation LML/QTN/1156 prices the drawings as per DCD regulation and the DCD final approval for a project in Dubai.",
+      },
+      {
+        question: "What does the client need to provide for this DCD approval?",
+        answer:
+          "The client provides all other existing drawings, documents and green files, as stated in the limiting conditions of quotation LML/QTN/1156. Wasleen prepares the drawing set as per DCD regulation and handles the DCD final approval application.",
+      },
+      {
+        question: "When could additional charges apply to this quotation?",
+        answer:
+          "Additional charges apply for exceptional approval requirements and for an inspection failure or a design revision, government charges are paid by the client and VAT is separate, as stated in the limiting conditions of quotation LML/QTN/1156.",
+      },
+      {
+        question: "Does the quotation commit to a fixed completion timeline?",
+        answer:
+          "No. Quotation LML/QTN/1156 states no completion window, so the programme depends on the drawings and green files supplied, the government charges being settled and the DCD review timeline.",
+      },
+      {
+        question: "What is the payment schedule for this quotation?",
+        answer:
+          "Payment is 50% in advance before starting the work, 40% during work progress and 10% after completion of the work, as stated in quotation LML/QTN/1156.",
+      },
+      {
+        question: "What is the project status of this case study?",
+        answer:
+          "This case study reflects a quotation issued on 22 July 2026 for AED 1,800 plus VAT; the DCD final approval scope is engaged and the approval is not yet claimed.",
+      },
+    ],
+    images: [
+      {
+        src: "/images/dcd-approval-consultants-in-dubai.webp",
+        alt: "Dubai Civil Defence approval drawings and documentation for a DCD final approval project in Dubai",
+        width: 2336,
+        height: 1760,
+        placement: "hero",
+      },
+      {
+        src: "/images/fire-and-safety-approvals-in-dubai-dcd-consultants.webp",
+        alt: "Fire and life-safety approval documents prepared for a DCD final approval in Dubai",
+        width: 2336,
+        height: 1760,
+        placement: "documents",
+      },
+      {
+        src: "/images/project-completion-handover-approval-dubai.webp",
+        alt: "Approval documentation handed over for a DCD final approval project in Dubai",
+        caption: "DCD final approval for a project in Dubai",
+        width: 1424,
+        height: 752,
+        placement: "photo",
+      },
+    ],
+    relatedApprovalSlugs: [
+      "dubai-civil-defense-approval",
+      "interior-fit-out-approval",
+      "dubai-municipality-civil-defense-noc",
+      "dubai-municipality-noc",
+    ],
+    relatedGuideSlugs: [
+      "cad-drawing-standards-dubai-guide",
+      "interior-fit-out-permit-process",
+      "how-to-avoid-approval-rejection-dubai",
+    ],
+    relatedServiceSlugs: ["2d-drawings", "approval-management", "document-clearing"],
+    relatedCaseStudySlugs: [
+      "dcd-approval-burlington-tower-3",
+      "fire-fighting-dcd-approval-jebel-ali",
+      "dcd-as-built-drawings-showroom-dubai-design-district",
+    ],
+    author: {
+      name: "Jamsheed Khalid",
+      credential: "Senior Fit-Out Consultant & Structural Engineer",
+      url: "https://www.linkedin.com/in/jamsheed-khalid-343148b6",
+    },
+    reviewedBy: {
+      name: "Kavya Ramachandran",
+      credential: "Interior Designer",
+    },
+    publishedAt: "2026-07-22",
+    lastUpdated: "2026-09-14",
+    publishStatus: "live",
+  },
+  /* ============================================================
+     LML/QTN/1159 — DDA & DCD approval, Business Bay, Dubai
+     Source: WORK QUOTATION ref LML/QTN/1159 dated 23/07/2026
+     (addressed to INSTANTFAZ; LOCATION "Business bay"; SUBJECT
+     "QUOTATION FOR DDA & DCD APPROVAL", body heading "QUOTATION
+     FOR DDA & DCD APPROVAL"). Price AED 7,500 ("SEVEN THOUSAND
+     FIVE HUNDRED AED ONLY"). The quotation carries no VAT figure
+     because VAT is listed as a separate limiting condition.
+     The quotation records no premises type, unit or area, so
+     `sector` is recorded as "Not specified" instead of being
+     inferred. projectStatus "quoted" (quotation only — no
+     completion claim). The quotation states no completion
+     timeline. Limiting condition 5 notes that if an NOC is
+     required from the building management the price may differ.
+     publishStatus "live" — owner approved publication
+     2026-09-15 (Part 17.4 policy). Images: existing site
+     library assets (no per-slug binaries), dims verified with
+     sharp.
+     ============================================================ */
+  {
+    slug: "dda-dcd-approval-instantfaz-business-bay",
+    projectTitle: "DDA & DCD Approval for a Property in Business Bay, Dubai",
+    seoTitle: "DDA & DCD Approval Quote, Business Bay",
+    description:
+      "AED 7,500 DDA & DCD approval quote for a Business Bay property: drawings, design approval, inspection and completion certificate. Get a free quote today.",
+    sourceRef: "LML/QTN/1159",
+    consentGranted: false,
+    clientLabel: "Confidential client — DDA & DCD approval in Business Bay, Dubai",
+    projectStatus: "quoted",
+    authorities: ["DDA", "Dubai Civil Defence"],
+    primaryApprovalSlug: "dda-approval",
+    projectType: "DDA & DCD approval",
+    location: "Business Bay, Dubai",
+    sector: "Not specified",
+    directAnswer:
+      "This case study documents quotation LML/QTN/1159 for the DDA & DCD approval of a property in Business Bay, Dubai. Issued on 23 July 2026 at AED 7,500, the quote covers preparing drawings as per DDA and Dubai Civil Defence (DCD) regulation, obtaining design approval from the Dubai Development Authority (DDA) and Dubai Civil Defence (DCD), and conducting the inspection from DDA and DCD that releases the completion certificate. The quotation records the location only as Business Bay and states no completion timeline.",
+    stats: [
+      { label: "Authorities", value: "DDA & DCD" },
+      { label: "Quoted fee", value: "AED 7,500" },
+      { label: "Scope", value: "Drawings, approval & inspection" },
+      { label: "Status", value: "Quotation issued" },
+    ],
+    challenge:
+      "Business Bay is a DDA master community of high-rise towers in central Dubai, and this quotation covers the DDA & DCD approval path a property there needs before the fit-out can be certified. The approval subject pairs the Dubai Development Authority (DDA), which governs design approval within the community, with Dubai Civil Defence (DCD), which reviews the fire and life-safety aspects of the design, so one drawing set has to satisfy both regulators and then pass the inspection from DDA and DCD that releases the completion certificate.\nThe AED 7,500 fee is defined around inputs the client controls. The client supplies all other existing drawings, documents and green files; exceptional approval requirements, an inspection failure or a design revision each carry an additional charge; VAT is separate; and government charges are paid by the client. Quotation LML/QTN/1159 also notes that if an NOC is required from the building management the price may differ — so confirming the building-management position early is what keeps the quoted AED 7,500 realistic. No completion timeline is committed in the quotation.",
+    solutionSteps: [
+      {
+        step: 1,
+        title: "Site visit and document review",
+        description:
+          "We review the property's existing drawings, documents and green files and confirm what the DDA and DCD submission will need before any drawings are prepared.",
+      },
+      {
+        step: 2,
+        title: "Drawings prepared as per DDA and DCD regulation",
+        description:
+          "We prepare the drawing set so that it satisfies DDA and DCD regulation, as included in quotation LML/QTN/1159.",
+      },
+      {
+        step: 3,
+        title: "Submission to DDA and DCD",
+        description:
+          "We submit the drawing set to the Dubai Development Authority (DDA) for design approval and to Dubai Civil Defence (DCD) for the fire and life-safety review, and track both applications.",
+      },
+      {
+        step: 4,
+        title: "DDA and DCD comments resolved",
+        description:
+          "We respond to the comments raised by either authority and revise the drawings until design approval is granted.",
+      },
+      {
+        step: 5,
+        title: "Inspection and completion certificate",
+        description:
+          "We arrange the inspection from DDA and DCD and, on a successful inspection, the completion certificate is released.",
+      },
+    ],
+    timeline: [
+      {
+        title: "Quotation issued",
+        detail:
+          "Quotation LML/QTN/1159 issued on 23 July 2026 for DDA & DCD approval at AED 7,500.",
+        state: "approved",
+        date: "2026-07-23",
+      },
+      {
+        title: "Site visit and document review",
+        detail:
+          "Review of the existing drawings, documents and green files supplied by the client.",
+        state: "pending",
+      },
+      {
+        title: "Drawings prepared as per DDA and DCD regulation",
+        detail:
+          "Preparation of the drawing set to satisfy DDA and DCD regulation.",
+        state: "pending",
+      },
+      {
+        title: "Submission to DDA and DCD",
+        detail:
+          "Submission of the drawing set to the Dubai Development Authority (DDA) and Dubai Civil Defence (DCD).",
+        state: "pending",
+      },
+      {
+        title: "DDA and DCD comments resolved",
+        detail:
+          "Response to the comments raised by either authority and revision of the drawings until design approval is granted.",
+        state: "pending",
+      },
+      {
+        title: "Inspection and completion certificate",
+        detail:
+          "Inspection from DDA and DCD and release of the completion certificate.",
+        state: "pending",
+      },
+    ],
+    documentsTable: [
+      {
+        document: "Existing drawings, documents and green files",
+        description:
+          "All other existing drawings, documents and green files, which the quotation requires the client to provide.",
+        providedBy: "client",
+      },
+      {
+        document: "Property details for the DDA and DCD submissions",
+        description:
+          "The property and project details the DDA and DCD applications are prepared from.",
+        providedBy: "client",
+      },
+      {
+        document: "Drawing set prepared as per DDA and DCD regulation",
+        description:
+          "Drawings prepared to satisfy DDA and DCD regulation, as included in quotation LML/QTN/1159.",
+        providedBy: "wasleen",
+      },
+      {
+        document: "DDA and DCD approval applications",
+        description:
+          "Submission and tracking of the design approval applications with the Dubai Development Authority (DDA) and Dubai Civil Defence (DCD).",
+        providedBy: "wasleen",
+      },
+      {
+        document: "Inspection and completion certificate",
+        description:
+          "Coordination of the DDA and DCD inspection and release of the completion certificate on a successful inspection.",
+        providedBy: "wasleen",
+      },
+    ],
+    timelineTable: [
+      {
+        stage: "Quotation issued",
+        planned: "—",
+        actual: "23 July 2026",
+      },
+      {
+        stage: "Drawings as per DDA and DCD regulation",
+        planned: "To be confirmed",
+        actual: "—",
+        note: "The quotation states no completion window",
+      },
+      {
+        stage: "DDA and DCD design approval",
+        planned: "To be confirmed",
+        actual: "—",
+        note: "Indicative — typical DDA and DCD review periods",
+      },
+      {
+        stage: "Inspection from DDA and DCD",
+        planned: "To be confirmed",
+        actual: "—",
+        note: "Depends on design approval being granted first",
+      },
+      {
+        stage: "Completion certificate released",
+        planned: "To be confirmed",
+        actual: "—",
+        note: "Depends on a successful inspection",
+      },
+    ],
+    quotedFee: "AED 7,500",
+    feeAmountAED: 7500,
+    feeIncluded: [
+      "Preparing drawings as per DDA and DCD regulation",
+      "Obtaining design approval from DDA and DCD",
+      "Conducting inspection from DDA & DCD, releasing completion certificate",
+    ],
+    proTips: [
+      {
+        title: "Confirm the building-management NOC position first",
+        body: "Quotation LML/QTN/1159 states that if an NOC is required from the building management the price may differ. Checking that position with the tower's management before the drawings are prepared is what keeps the quoted AED 7,500 realistic in a Business Bay tower.",
+      },
+      {
+        title: "Align one drawing set to both DDA and DCD regulation",
+        body: "The quotation prices a single scope covering drawings as per DDA and DCD regulation, the design approval from both authorities and the inspection. An inspection failure or a design revision carries an additional charge under the limiting conditions, so aligning the drawing set to both regulators before submission protects the quoted AED 7,500.",
+      },
+    ],
+    outcome: [
+      { label: "Quoted fee", value: "AED 7,500" },
+      { label: "Approval authorities", value: "DDA & Dubai Civil Defence (DCD)" },
+      {
+        label: "Scope",
+        value: "Drawings, DDA & DCD approval, inspection & completion certificate",
+      },
+    ],
+    faqs: [
+      {
+        question: "What does the AED 7,500 DDA & DCD approval quotation include?",
+        answer:
+          "Quotation LML/QTN/1159 covers three items: preparing drawings as per DDA and DCD regulation, obtaining design approval from the Dubai Development Authority (DDA) and Dubai Civil Defence (DCD), and conducting the inspection from DDA and DCD that releases the completion certificate. The total quoted is AED 7,500, with VAT separate.",
+      },
+      {
+        question: "Which authorities issue this approval?",
+        answer:
+          "The Dubai Development Authority (DDA) and Dubai Civil Defence (DCD) are the authorities named on quotation LML/QTN/1159 for a property in Business Bay, Dubai.",
+      },
+      {
+        question: "What is DDA approval?",
+        answer:
+          "DDA approval is the design approval issued by the Dubai Development Authority (DDA), which governs development and design within the communities it administers. Quotation LML/QTN/1159 prices the DDA design approval alongside the Dubai Civil Defence (DCD) approval for a property in Business Bay.",
+      },
+      {
+        question: "What does the client need to provide for this DDA & DCD approval?",
+        answer:
+          "The client provides all other existing drawings, documents and green files, as stated in the limiting conditions of quotation LML/QTN/1159. Wasleen prepares the drawing set as per DDA and DCD regulation and handles both the DDA and the DCD applications and the inspection.",
+      },
+      {
+        question: "When could additional charges apply to this quotation?",
+        answer:
+          "Additional charges apply for exceptional approval requirements and for an inspection failure or a design revision, government charges are paid by the client and VAT is separate, as stated in the limiting conditions of quotation LML/QTN/1159.",
+      },
+      {
+        question: "Could the price differ if an NOC is required?",
+        answer:
+          "Yes. Quotation LML/QTN/1159 notes in its limiting conditions that if an NOC is required from the building management the price may differ, so the building-management position should be confirmed before the scope is fixed.",
+      },
+      {
+        question: "Does the quotation commit to a fixed completion timeline?",
+        answer:
+          "No. Quotation LML/QTN/1159 states no completion window, so the programme depends on the drawings and green files supplied, the government charges being settled and the DDA and DCD review and inspection timelines.",
+      },
+      {
+        question: "What is the payment schedule for this quotation?",
+        answer:
+          "Payment is 50% in advance before starting the work, 40% during work progress and 10% after completion of the work, as stated in quotation LML/QTN/1159.",
+      },
+    ],
+    images: [
+      {
+        src: "/images/interior-fit-out-approval-consultants-in-dubai.webp",
+        alt: "DDA and DCD approval consultancy for a property in Business Bay, Dubai",
+        width: 2336,
+        height: 1760,
+        placement: "hero",
+      },
+      {
+        src: "/images/2d-drawings-for-dcd-approvals-in-dubai.webp",
+        alt: "2D drawings prepared as per DDA and DCD regulation for a Business Bay property in Dubai",
+        width: 2336,
+        height: 1760,
+        placement: "documents",
+      },
+      {
+        src: "/images/blueprint-drawing-submission-approval-dubai.webp",
+        alt: "Blueprint drawing submission prepared for DDA and DCD approval in Business Bay, Dubai",
+        caption: "DDA & DCD approval for a property in Business Bay, Dubai",
+        width: 1376,
+        height: 768,
+        placement: "photo",
+      },
+    ],
+    relatedApprovalSlugs: [
+      "dda-approval",
+      "dubai-civil-defense-approval",
+      "interior-fit-out-approval",
+      "dubai-municipality-completion-certificate",
+    ],
+    relatedGuideSlugs: [
+      "cad-drawing-standards-dubai-guide",
+      "interior-fit-out-permit-process",
+      "how-to-avoid-approval-rejection-dubai",
+    ],
+    relatedServiceSlugs: ["2d-drawings", "approval-management", "document-clearing"],
+    relatedCaseStudySlugs: [
+      "dda-dcd-approval-business-bay",
+      "trakhees-dcd-approval-business-bay",
+      "dda-damac-approval-dubai",
+    ],
+    author: {
+      name: "Jamsheed Khalid",
+      credential: "Senior Fit-Out Consultant & Structural Engineer",
+      url: "https://www.linkedin.com/in/jamsheed-khalid-343148b6",
+    },
+    reviewedBy: {
+      name: "Kavya Ramachandran",
+      credential: "Interior Designer",
+    },
+    publishedAt: "2026-07-23",
+    lastUpdated: "2026-09-14",
     publishStatus: "live",
   },
 ];
