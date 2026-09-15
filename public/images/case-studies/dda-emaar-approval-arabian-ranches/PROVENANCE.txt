@@ -1,0 +1,69 @@
+PROVENANCE — dda-emaar-approval-arabian-ranches
+================================================================
+Case-study slug:  dda-emaar-approval-arabian-ranches
+Source document:  LML/QTN/1115 (Liminal quotation PDF)
+Quotation date:   09/06/2026
+Source folder:    ../approval calculator page/Quotations from Liminal/LML-QTN-1115.pdf
+
+SOURCE OF TRUTH
+---------------
+The page content (fee, scope lines, limiting conditions, payment schedule,
+quotation date) is derived ONLY from the LML/QTN/1115 PDF. No figures,
+locations, client names or timelines were invented.
+
+- Client ("To") line on the quotation reads literally: "ARABIAN RANCHES".
+  No specific client company is stated on the quotation. The project is
+  therefore attributed to the Arabian Ranches community/location only, and
+  the page uses an anonymised clientLabel.
+- Subject: QUOTATION FOR DDA & EMAAR APPROVAL.
+- Scope:
+    1. Preparing drawings as per DDA & EMAAR regulation — AED 22,000
+    2. Obtaining design approval from DDA & EMAAR
+    3. Conducting inspection from DDA, releasing completion certificate
+- Amount: AED 22,000 (TWENTY TWO THOUSAND AED ONLY).
+- Limiting conditions (verbatim basis):
+    1. All other existing drawings, documents, and green files are to be
+       given by the client.
+    2. Additional price will be charged for exceptional approval requirements.
+    3. Additional charge for inspection failure or design revision.
+    4. VAT will be separate.
+  NOTE: LML/QTN/1115 does NOT contain the Emaar NOC / "5-10 days" timeline
+  clause present in LML/QTN/1105 and LML/QTN/1106. No completion-time claim
+  is made on this page.
+- Payment: 50% advance before starting work / 40% during work progress /
+  10% after completion of work.
+
+CONSENT & ANONYMISATION
+-----------------------
+- consentGranted: false. No consent to name the client exists on the
+  quotation or in the project files.
+- No client company name is shown anywhere on the page or in this folder.
+  The clientLabel is "Confidential client — Residential property owner".
+- projectStatus: "quoted" (honest — this is a quotation, not a claimed
+  completed approval). publishStatus: "live" (owner standing directive:
+  live after gates pass).
+
+RELATIONSHIP TO OTHER CASE STUDIES (FLAG FOR OWNER)
+---------------------------------------------------
+- dda-approval-alma-arabian-ranches (LML/QTN/1049),
+  dda-approval-arabian-ranches-interior-modification (LML/QTN/1105) and
+  dda-approval-arabian-ranches-swimming-pool-works (LML/QTN/1106) are also
+  Arabian Ranches quotations. LML/QTN/1115 (09/06/2026, AED 22,000,
+  DDA & Emaar approval) was issued later than 1105/1106 (20/05/2026).
+- The PDFs cannot confirm whether 1115 describes the SAME engagement (a
+  later, re-priced scope for the same property) or a DIFFERENT property
+  within Arabian Ranches.
+- DECISION TAKEN: build LML/QTN/1115 as its own distinct case-study page
+  (each quotation is a real, distinct source document). It is NOT
+  cross-linked from/to the other Arabian Ranches case studies as a
+  "related case study" to avoid implying a completed project or a specific
+  villa works type that the PDF does not state.
+
+IMAGERY
+-------
+- hero.webp / documents.webp are blueprint-style placeholder imagery
+  (final-sized per plan Part 17.2 Image rule), identical generic files to
+  those used across all case-study folders (sanctioned placeholder
+  exception; no stock, no unredacted project photos).
+- The in-article "photo" image reuses the existing site library file
+  /images/villa-renovation-approval-dubai.webp (1376x768).

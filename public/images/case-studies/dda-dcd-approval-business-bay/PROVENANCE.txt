@@ -1,0 +1,74 @@
+PROVENANCE — dda-dcd-approval-business-bay
+================================================================
+Case-study slug:  dda-dcd-approval-business-bay
+Source document:  LML/QTN/1118 (Liminal quotation PDF)
+Quotation date:   18/06/2026
+Source folder:    ../approval calculator page/Quotations from Liminal/LML-QTN-1118.pdf
+
+SOURCE OF TRUTH
+---------------
+The page content (fee, scope lines, limiting conditions, payment schedule,
+quotation date) is derived ONLY from the LML/QTN/1118 PDF. No figures,
+locations, client names or timelines were invented.
+
+- Client ("To") line on the quotation reads literally: "Hasthag line".
+  This is treated as a business brand, not evidence of consent to publish.
+  The project is therefore attributed to its stated location only, and the
+  page uses an anonymised clientLabel.
+- Location on the quotation reads literally: "Business bay".
+- Subject: QUOTATION FOR DDA & DCD APPROVAL.
+- Scope:
+    1. Preparing drawings as per DDA and DCD regulation — AED 7,000
+    2. Obtaining design approval from DDA and DCD
+    3. Conducting inspection from DDA & DCD, releasing completion certificate
+- Amount: AED 7,000 (SEVEN THOUSAND AED ONLY).
+- Limiting conditions (verbatim basis):
+    1. All other existing drawings, documents, and green files are to be
+       given by the client.
+    2. Additional price will be charged for exceptional approval requirements.
+    3. Additional charge for inspection failure or design revision.
+    4. VAT will be separate.
+    5. "If NOC require from building management price may differ."
+  NOTE: LML/QTN/1118 does NOT state any completion-time claim. No fixed
+  timeline is committed on this page; the timeline table marks future steps
+  "To be confirmed" / "Indicative — typical DDA & DCD timelines".
+- Payment: 50% advance before starting work / 40% during work progress /
+  10% after completion of work.
+
+CONSENT & ANONYMISATION
+-----------------------
+- consentGranted: false. No consent to name the client exists on the
+  quotation or in the project files.
+- No client company name is shown anywhere on the page or in this folder.
+  The clientLabel is "Confidential client — Commercial property".
+- projectStatus: "quoted" (honest — this is a quotation, not a claimed
+  completed approval). publishStatus: "live" (owner standing directive:
+  live after gates pass).
+- Sector is stated as "Commercial" based on the Business Bay context (a DDA
+  commercial high-rise district), DCD fire/life-safety involvement, and the
+  building-management NOC clause. The page never names a specific works
+  type (office/cafe/retail) because the PDF does not state one.
+
+RELATIONSHIP TO OTHER CASE STUDIES (FLAG FOR OWNER)
+---------------------------------------------------
+- LML/QTN/1119 (Trakhees & DCD, "Hasthag line", Business Bay, AED 10,000)
+  also names "Hasthag line" at Business Bay. The PDFs cannot confirm whether
+  1118 and 1119 describe the SAME engagement (different authorities /
+  different scope) or two separate engagements for the same client.
+- DECISION TAKEN: build LML/QTN/1118 as its own distinct case-study page
+  (each quotation is a real, distinct source document). It is NOT
+  cross-linked from/to LML/QTN/1119 as a "related case study" (sibling
+  ambiguity — same rule as the Arabian Ranches 1105/1106 pair). It DOES
+  safely relate to dcd-approval-burlington-tower-3 (LML/QTN/1104, a
+  DCD-only office fit-out in Business Bay — clearly a different engagement
+  and authority scope).
+
+IMAGERY
+-------
+- hero.webp / documents.webp are blueprint-style placeholder imagery
+  (final-sized per plan Part 17.2 Image rule), identical generic files to
+  those used across all case-study folders (sanctioned placeholder
+  exception; no stock, no unredacted project photos).
+- The in-article "photo" image reuses the existing site library file
+  /images/interior-fit-out-approval-consultants-in-dubai.webp (2336x1760),
+  the DDA & DCD commercial photo used by the business-center pilot.

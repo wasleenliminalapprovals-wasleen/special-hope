@@ -1,0 +1,82 @@
+PROVENANCE — dcd-as-built-drawings-showroom-dubai-design-district
+================================================================
+Case-study slug:  dcd-as-built-drawings-showroom-dubai-design-district
+Source document:  LML/QTN/1119-26 (Liminal quotation PDF)
+Quotation date:   18/06/2026
+Source folder:    ../approval calculator page/Quotations from Liminal/LML-QTN-1119-26.pdf
+
+SOURCE OF TRUTH
+---------------
+The page content (fee, scope lines, limiting conditions, payment schedule,
+quotation date) is derived ONLY from the LML-QTN-1119-26 PDF. No figures,
+locations, client names or timelines were invented.
+
+- Client ("To") line on the quotation reads literally:
+  "Ms. SAVLEEN KAUR / SICIS FZ-LLC / Dubai, United Arab, Emirates".
+  This is treated as a business/client name, not evidence of consent to
+  publish. The project is therefore attributed to its stated location only,
+  and the page uses an anonymised clientLabel.
+- Unit/location on the quotation reads literally:
+  "UNIT GF 01 / LOCATION BUILDING 5, D3, DUBAI, UAE".
+- Subject: SHOWROOM AS-BUILT DRAWINGS FOR DCD APPROVAL.
+- Quotation title: QUOTATION FOR PREPARATION OF DCD DRAWINGS.
+- Scope (verbatim basis):
+    1. Conducting site visit.
+    2. Collecting site as-built and existing drawings & details.
+    3. Preparation of DCD drawings as per the regulations.
+       "(Any revision required, included)"
+- Amount: AED 4,500 (FOUR THOUSAND FIVE HUNDRED ONLY).
+- Limiting conditions (verbatim basis):
+    1. All other existing drawings, documents, and green files are to be
+       given by the client.
+    2. Additional price will be charged for exceptional approval requirements.
+    3. Additional charge for inspection failure or design revision.
+    4. VAT will be separate.
+    5. "If NOC require from building management price may differ."
+  NOTE: LML-QTN-1119-26 is a DRAWINGS-ONLY quotation (preparation of DCD
+  drawings for DCD approval). It does NOT include obtaining the final DCD
+  approval or inspection, and it states no completion-time claim. No fixed
+  timeline is committed on this page; the timeline table marks future steps
+  "To be confirmed" / "Indicative — typical DCD timeline".
+- Payment: >50% advance upon confirmation / >40% progressive payments upon
+  drawing handover / >10% final payments upon receiving final approval.
+
+CONSENT & ANONYMISATION
+-----------------------
+- consentGranted: false. No consent to name the client exists on the
+  quotation or in the project files.
+- No client company name is shown anywhere on the page or in this folder.
+  The clientLabel is "Confidential client — Showroom in D3".
+- projectStatus: "quoted" (honest — this is a quotation, not a claimed
+  completed approval). publishStatus: "live" (owner standing directive:
+  live after gates pass).
+- Sector is stated as "Commercial" based on the showroom use at Dubai
+  Design District (D3) and the DCD fire/life-safety drawing scope. The
+  page never claims the works were already approved.
+
+RELATIONSHIP TO OTHER CASE STUDIES (FLAG FOR OWNER)
+---------------------------------------------------
+- LML/QTN/1118 (dda-dcd-approval-business-bay) is a separate quotation for
+  a different client/engagement at Business Bay (DDA & DCD full approval).
+- LML/QTN/1119 (Business Bay, "Hasthag line", AED 10,000) was judged a
+  near-duplicate of LML/QTN/1118 (same client/location/date/scope, only fee
+  and "TRAKHEES" label differ) and was NOT built as a separate page.
+- LML-QTN-1119-26 is DIFFERENT from both 1118 and 1119: a drawings-only DCD
+  quotation for SICIS FZ-LLC at Building 5, D3. Per the mega-plan register,
+  1119 and 1119-26 must NOT be merged. This page uses sourceRef
+  "LML/QTN/1119-26" (the body of the PDF reads "LML/QTN/1119", but the file
+  name and plan register use the 1119-26 revision suffix, which is unique).
+- It safely relates to dcd-approval-burlington-tower-3 (LML/QTN/1104, a
+  DCD-only office fit-out in Business Bay — clearly a different engagement
+  and building) and to fire-fighting-dcd-approval-jebel-ali (a DCD-only
+  fire-fighting scope at Jebel Ali — clearly a different engagement).
+
+IMAGERY
+-------
+- hero.webp / documents.webp are blueprint-style placeholder imagery
+  (final-sized per plan Part 17.2 Image rule), identical generic files to
+  those used across all case-study folders (sanctioned placeholder
+  exception; no stock, no unredacted project photos).
+- The in-article "photo" image reuses the existing site library file
+  /images/2d-drawings-for-dcd-approvals-in-dubai.webp (2336x1760), which is
+  unused elsewhere and matches the drawings-for-DCD theme of this quotation.

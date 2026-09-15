@@ -1,0 +1,81 @@
+PROVENANCE — dda-dcd-approval-regional-hub-office-dubai
+================================================================
+Case-study slug:  dda-dcd-approval-regional-hub-office-dubai
+Source document:  LML/QTN/1126 (Liminal quotation PDF)
+Quotation date:   24/06/2026
+Source folder:    ../approval calculator page/Quotations from Liminal/
+Source file:      LML-QTN-1125.pdf  (see FILENAME NOTE below)
+
+FILENAME NOTE
+-------------
+The PDF file on disk is named LML-QTN-1125.pdf, but its internal header
+reads "Ref: LML/QTN/1126" with date 24/06/2026. This mismatch was flagged
+to the owner rather than guessed. Owner decision: PUBLISH AS LML/QTN/1126 —
+the PDF's internal Ref is authoritative. Sitemap/llms bookkeeping lists
+this page under 1126 accordingly.
+
+SOURCE OF TRUTH
+---------------
+The page content (fee, scope lines, limiting conditions, payment schedule,
+quotation date) is derived ONLY from the LML/QTN/1126 PDF. No figures,
+locations, client names or timelines were invented.
+
+- Client ("To") line reads literally: "F N TECHNICAL SAEVICES" [sic — the
+  PDF contains the misspelling "SAEVICES"]. Treated as a business brand, not
+  evidence of consent to publish. The page therefore uses an anonymised
+  clientLabel and never repeats the client spelling.
+- Location on the quotation reads literally: "MIDDLE EAST REGIONAL HUB:
+  DUBAI". The page therefore states location "Dubai" ONLY. No specific DDA
+  master community is named anywhere on this page because the PDF does not
+  name one (contrast LML/QTN/1118 which named Business Bay).
+- Subject: QUOTATION FOR DDA & DCD APPROVAL.
+- Scope (verbatim basis, single flat fee — no per-line prices on the PDF):
+    1. Preparing drawings as per DDA and DCD regulation
+    2. Obtaining design approval from DDA and DCD
+       (PDF parenthetical: "(Obtaining NOC from Building Management)")
+    3. Conducting inspection from DDA & DCD, releasing completion certificate
+- Amount: AED 10,000 (TEN THOUSAND AED ONLY), a single flat fee.
+- Limiting conditions (verbatim basis):
+    1. All other existing drawings, documents, and green files are to be
+       given by the client.
+    2. Additional price will be charged for exceptional approval requirements.
+    3. Additional charge for inspection failure or design revision.
+    4. VAT will be separate.
+    5. "If NOC require from building management price may differ."
+  NOTE: LML/QTN/1126 does NOT state any completion-time claim. No fixed
+  timeline is committed on this page; the timeline table marks future steps
+  "To be confirmed" / "Indicative — typical DDA & DCD timelines".
+- Payment: 50% advance before starting work / 40% during work progress /
+  10% after completion of work.
+- Quotation issued by LIMINAL ARC INTERIORS L.L.C.
+
+CONSENT & ANONYMISATION
+-----------------------
+- consentGranted: false. No consent to name the client exists on the
+  quotation or in the project files.
+- No client company name is shown anywhere on the page or in this folder.
+  The clientLabel is "Confidential client — Regional hub offices in Dubai".
+- projectStatus: "quoted" (honest — this is a quotation, not a claimed
+  completed approval). publishStatus: "live" (owner standing directive:
+  live after gates pass).
+- Sector is stated as "Commercial" based on the regional-hub-office context
+  (a technical services company establishing office premises) and DDA/DCD
+  design-approval involvement. The page does not state a specific DDA master
+  community or works type because the PDF does not.
+
+RELATIONSHIP TO OTHER CASE STUDIES
+----------------------------------
+- This is a distinct, verified Dubai reference (LML/QTN/1126), separate from
+  LML/QTN/1118 (dda-dcd-approval-business-bay) and LML/QTN/1119-26
+  (dcd-as-built-drawings-showroom-dubai-design-district). It safely relates
+  to the other DDA & DCD commercial case studies as siblings.
+
+IMAGERY
+-------
+- hero.webp / documents.webp are blueprint-style placeholder imagery
+  (final-sized per plan Part 17.2 Image rule), identical generic files to
+  those used across all case-study folders (sanctioned placeholder
+  exception; no stock, no unredacted project photos).
+- The in-article "photo" image reuses the existing site library file
+  /images/interior-fit-out-approval-consultants-in-dubai.webp (2336x1760),
+  the DDA & DCD commercial photo used by the other DDA & DCD case studies.
