@@ -1,6 +1,6 @@
-# pSEO Weekly Review — 2026-11-08
+# pSEO Weekly Review — 2026-11-15
 
-Generated 2026-11-08T10:54:11.891Z (UTC). Cadence: **once per week**, ~15-20 minutes.
+Generated 2026-11-15T11:39:41.371Z (UTC). Cadence: **once per week**, ~15-20 minutes.
 
 ## 1. Summary
 
