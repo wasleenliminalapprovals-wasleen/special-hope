@@ -7703,4 +7703,1321 @@ export const caseStudies: ApprovalCaseStudy[] = [
     lastUpdated: "2026-09-14",
     publishStatus: "live",
   },
+
+  /* ============================================================
+     LML/QTN/1161 — Boundary wall construction, Dubai (DM)
+     Source: "LML-QTN-1161.pdf" — Consultant proposal for
+     construction of boundary wall. Order date 24/07/2026.
+     AMOUNT: 32,000.00 AED + VAT.
+     Scope: design & drawings per DM; submission, follow-up and
+     DM approval; authority meetings; site visits & supervision.
+     projectStatus "quoted" — the PDF is a quotation, so no
+     approval or completion is claimed anywhere on this page.
+     ============================================================ */
+  {
+    slug: "boundary-wall-dm-approval-dubai",
+    projectTitle: "DM Approval for Boundary Wall Construction in Dubai",
+    seoTitle: "DM Approval Case Study: Boundary Wall in Dubai",
+    description:
+      "AED 32,000 plus VAT DM approval for boundary wall construction in Dubai: drawings, submission, follow-up and site supervision. Get a free quote today.",
+    sourceRef: "LML/QTN/1161",
+    consentGranted: false,
+    clientLabel: "Confidential client — Private property",
+    projectStatus: "quoted",
+    authorities: ["Dubai Municipality"],
+    primaryApprovalSlug: "dubai-municipality-building-permit",
+    projectType: "Boundary wall construction",
+    location: "Dubai",
+    sector: "Construction",
+    directAnswer:
+      "This case study covers a Dubai boundary wall construction project quoted at AED 32,000 plus VAT for Dubai Municipality (DM) approval. The scope covers designing and preparing the drawings to DM requirements, submitting them, following up until approval, attending the required authority meetings and supervising site visits. The quotation was issued on 24 July 2026 and the approval scope is engaged.",
+    stats: [
+      { label: "Authority", value: "Dubai Municipality" },
+      { label: "Quoted fee", value: "AED 32,000 + VAT" },
+      { label: "Scope", value: "Drawings, submission & supervision" },
+      { label: "Status", value: "Quotation issued" },
+    ],
+    challenge:
+      "A boundary wall is a permanent structure on the plot, so Dubai Municipality (DM) reviews it as construction work with its own drawing set before the wall can be built. The approval only moves once the drawings match DM requirements and the submission is followed up through review, which is why the quotation pairs drawing design with submission, follow-up, authority meetings and site supervision rather than selling the drawings alone.\n\nThe quotation is a consultant proposal, and its assumptions and exclusions define the real boundary of the fee. The client provides all required documents and existing approved drawings, while authority submission payments, special approval fees, third-party services, insurance and the G+1 steel contractor sit outside the AED 32,000. Any previous violation fine or authority deposit is also settled by the client, and a design revision after the first approval is charged separately.",
+    solutionSteps: [
+      {
+        step: 1,
+        title: "Review the existing approved drawings",
+        description:
+          "Collect the documents, data and existing approved drawings supplied by the client, and confirm the wall alignment against the approved plot information.",
+      },
+      {
+        step: 2,
+        title: "Design and prepare drawings to DM requirements",
+        description:
+          "Design the boundary wall and prepare the drawing set to Dubai Municipality requirements so it can be submitted without a technical rejection.",
+      },
+      {
+        step: 3,
+        title: "Submit to DM and follow up",
+        description:
+          "Submit the drawing set to Dubai Municipality, follow the review, and incorporate authority comments until approval is obtained.",
+      },
+      {
+        step: 4,
+        title: "Attend authority meetings and site visits",
+        description:
+          "Attend the required meetings with the local authority and carry out site visits and supervision for authority reasons.",
+      },
+      {
+        step: 5,
+        title: "Secure the DM approval and work permit",
+        description:
+          "Close the approval cycle, with the second payment instalment falling due after the approval or work permit is obtained.",
+      },
+    ],
+    timeline: [
+      {
+        title: "Quotation issued",
+        detail:
+          "Quotation LML/QTN/1161 issued on 24 July 2026 for AED 32,000 plus VAT covering DM approval for the boundary wall.",
+        state: "approved",
+        date: "2026-07-24",
+      },
+      {
+        title: "Documents & drawings",
+        detail:
+          "Client-supplied documents and existing approved drawings reviewed; no date is stated in the quotation.",
+        state: "pending",
+      },
+      {
+        title: "DM drawings",
+        detail: "Boundary wall drawings prepared to DM requirements.",
+        state: "pending",
+      },
+      {
+        title: "Submission & follow-up",
+        detail:
+          "Drawing set submitted to Dubai Municipality and followed through review.",
+        state: "pending",
+      },
+      {
+        title: "DM approval",
+        detail:
+          "Approval or work permit obtained from Dubai Municipality; the quotation states no fixed approval window.",
+        state: "pending",
+      },
+    ],
+    documentsTable: [
+      {
+        document: "Existing approved drawings",
+        description:
+          "The approved drawings for the plot, supplied by the client as a stated assumption of the quotation.",
+        providedBy: "client",
+      },
+      {
+        document: "Project documents and data",
+        description:
+          "All required documents and any specific project information needed for the DM submission.",
+        providedBy: "client",
+      },
+      {
+        document: "Boundary wall drawing set",
+        description:
+          "Wall design and drawings prepared to Dubai Municipality requirements.",
+        providedBy: "wasleen",
+      },
+      {
+        document: "DM submission and follow-up",
+        description:
+          "Submission of the drawing set to Dubai Municipality, plus the follow-up that carries it to approval.",
+        providedBy: "wasleen",
+      },
+      {
+        document: "Site supervision record",
+        description:
+          "Site visits and supervision carried out for authority reasons.",
+        providedBy: "wasleen",
+      },
+    ],
+    timelineTable: [
+      {
+        stage: "Quotation issued",
+        planned: "—",
+        actual: "24 July 2026",
+      },
+      {
+        stage: "Drawings prepared",
+        planned: "Weeks 1–2",
+        actual: "—",
+        note: "Indicative — the quotation states no programme for this stage",
+      },
+      {
+        stage: "DM submission",
+        planned: "Week 2",
+        actual: "—",
+        note: "Indicative — submission follows the drawing sign-off",
+      },
+      {
+        stage: "DM review and comments",
+        planned: "Weeks 3–5",
+        actual: "—",
+        note: "Indicative — authority review time is not stated in the quotation",
+      },
+      {
+        stage: "DM approval / work permit",
+        planned: "—",
+        actual: "—",
+        note: "The quotation states no approval window; the second payment falls due on approval",
+      },
+    ],
+    quotedFee: "AED 32,000 + VAT",
+    feeAmountAED: 32000,
+    feeIncluded: [
+      "Design and preparation of drawings as per DM",
+      "Submission, follow-up and obtaining approval from DM",
+      "Required meetings with the local authority for approvals",
+      "Site visits and supervision as required for authority reasons",
+      "Technical advice provided as and when required",
+    ],
+    proTips: [
+      {
+        title: "Sign off the drawing set before the 10-day validity ends",
+        body: "The quotation is valid for 10 days. Because any design revision after the first approval is charged separately, agreeing the wall alignment and gate positions while the quote is still valid removes the most common source of extra fees.",
+      },
+      {
+        title: "Budget the authority fees outside the consultant fee",
+        body: "Authority submission payments, special approval fees, third-party services, insurance and the G+1 steel contractor are excluded from the AED 32,000. Any previous violation fine or deposit is also paid by the client, so those amounts belong in a separate line of the budget.",
+      },
+    ],
+    outcome: [
+      { label: "Quoted fee", value: "AED 32,000 + VAT" },
+      { label: "Authority", value: "Dubai Municipality" },
+      { label: "Payment terms", value: "50% advance / 50% on approval" },
+      { label: "Quotation validity", value: "10 days" },
+    ],
+    faqs: [
+      {
+        question:
+          "What does the AED 32,000 quotation cover for this boundary wall project?",
+        answer:
+          "It covers designing and preparing the drawings to Dubai Municipality requirements, submitting them and following up until DM approval, the required authority meetings, site visits and supervision for authority reasons, and technical advice during the process.",
+      },
+      {
+        question: "Which authority approves a boundary wall in Dubai?",
+        answer:
+          "Dubai Municipality approves the boundary wall, because a wall built on the plot is construction work that needs a drawing set prepared to DM requirements before work starts.",
+      },
+      {
+        question: "What is excluded from this boundary wall quotation?",
+        answer:
+          "Authority submission payments, special approval fees, third-party services, insurance fees and the G+1 steel contractor are excluded, and VAT is charged separately. Any previous violation fine or deposit required by an authority is also paid by the client.",
+      },
+      {
+        question: "How long is this quotation valid?",
+        answer:
+          "The quotation terms state that it is valid for 10 days, and that any previous violation fine or deposit required by an authority is settled by the client.",
+      },
+      {
+        question: "What is the payment schedule for this quotation?",
+        answer:
+          "Payment is 50% as an advance and 50% after getting the approval or work permit, with VAT at 5% added at each stage, as stated in quotation LML/QTN/1161.",
+      },
+      {
+        question: "What is the project status of this case study?",
+        answer:
+          "This case study reflects a quotation issued on 24 July 2026 for AED 32,000 plus VAT. The DM approval scope is engaged at quotation stage, so no approval, inspection or completion outcome is claimed.",
+      },
+    ],
+    images: [
+      {
+        src: "/images/structural-approval-engineering-dubai.webp",
+        alt: "Boundary wall construction drawings prepared for Dubai Municipality approval",
+        width: 2336,
+        height: 1760,
+        placement: "hero",
+      },
+      {
+        src: "/images/blueprint-drawing-submission-approval-dubai.webp",
+        alt: "Boundary wall drawing set submitted to Dubai Municipality for approval",
+        width: 2336,
+        height: 1760,
+        placement: "documents",
+      },
+    ],
+    relatedApprovalSlugs: [
+      "dubai-municipality-building-permit",
+      "dubai-municipality-noc",
+      "dubai-municipality-completion-certificate",
+    ],
+    relatedGuideSlugs: [
+      "how-long-does-dm-building-permit-take",
+      "cad-drawing-standards-dubai-guide",
+      "structural-modification-approval-guide",
+    ],
+    relatedServiceSlugs: ["2d-drawings", "approval-management", "document-clearing"],
+    relatedCaseStudySlugs: [
+      "dm-approval-dubai-real-estate-company",
+      "dm-dcd-approval-dubai-investment-park",
+    ],
+    author: {
+      name: "Jamsheed Khalid",
+      credential: "Senior Fit-Out Consultant & Structural Engineer",
+      url: "https://www.linkedin.com/in/jamsheed-khalid-343148b6",
+    },
+    reviewedBy: {
+      name: "Kavya Ramachandran",
+      credential: "Interior Designer",
+    },
+    publishedAt: "2026-07-24",
+    lastUpdated: "2026-11-16",
+    publishStatus: "live",
+  },
+
+  /* ============================================================
+     LML/QTN/1169 — Chai café, Bur Dubai (DM + Food Safety + RTA)
+     Source: "LML-QTN-1169.pdf" — dated 01/08/2026.
+     Headline items: DM 3,000 AED + Food & Safety 2,000 AED +
+     Outdoor Dining (RTA) 1,500 AED = TOTAL 6,500 AED.
+     Stated approval duration: approximately 7–10 working days.
+     ============================================================ */
+  {
+    slug: "chai-cafe-dm-food-safety-outdoor-dining-approval-bur-dubai",
+    projectTitle: "DM, Food Safety & RTA Outdoor Dining Approval in Bur Dubai",
+    seoTitle: "DM, Food Safety & Outdoor Dining Approval in Bur Dubai",
+    description:
+      "AED 6,500 for a Bur Dubai chai café: DM design approval, food safety clearance and RTA outdoor dining NOC in a 7–10 working day window. Get a free quote today.",
+    sourceRef: "LML/QTN/1169",
+    consentGranted: false,
+    clientLabel: "Confidential client — Food & Beverage",
+    projectStatus: "quoted",
+    authorities: ["Dubai Municipality", "Food Safety", "RTA"],
+    primaryApprovalSlug: "food-control-department-approval",
+    projectType: "Chai café fit-out with outdoor dining",
+    location: "Bur Dubai",
+    sector: "Hospitality",
+    directAnswer:
+      "This case study covers a Bur Dubai chai café quoted at AED 6,500 for a three-part approval package: AED 3,000 for Dubai Municipality (DM) design approval and completion certificate, AED 2,000 for food safety approval, and AED 1,500 for the RTA outdoor dining NOC. The quotation states an approval duration of approximately 7–10 working days, subject to authority review, and was issued on 1 August 2026.",
+    stats: [
+      { label: "Authorities", value: "DM + Food Safety + RTA" },
+      { label: "Quoted fee", value: "AED 6,500" },
+      { label: "Stated duration", value: "7–10 working days" },
+      { label: "Status", value: "Quotation issued" },
+    ],
+    challenge:
+      "A chai café in Bur Dubai needs three separate clearances before it can trade: Dubai Municipality (DM) for the shop drawings and completion certificate, food safety for the food handling operation, and the RTA for the outdoor dining area that uses public realm. Each authority issues its own comments, and a comment from one can force a drawing change that has to be re-submitted to the others, so the three workstreams have to be sequenced rather than run as isolated applications.\n\nThe quotation splits the fee along exactly those three lines, which makes the cost of each clearance visible: AED 3,000 for DM, AED 2,000 for food safety and AED 1,500 for outdoor dining. Its limiting conditions show where the package can move — design changes requested by the authorities, a failed inspection or major drawing revisions are charged additionally, the advance payment is non-refundable, VAT is not included, all government fees are paid by the client, and the NOC and supporting documents come from the client.",
+    solutionSteps: [
+      {
+        step: 1,
+        title: "Prepare DM drawings and documentation",
+        description:
+          "Prepare the café drawings to DM regulation and submit them to Dubai Municipality to obtain design approval.",
+      },
+      {
+        step: 2,
+        title: "Obtain DM design approval and completion certificate",
+        description:
+          "Follow up the DM inspection and approval, prepare the as-built drawings from the site inspection, and obtain the completion certificate.",
+      },
+      {
+        step: 3,
+        title: "Prepare food safety drawings and documentation",
+        description:
+          "Prepare the food safety drawings and documentation required for the food handling operation, then submit them through the relevant authority portal.",
+      },
+      {
+        step: 4,
+        title: "Coordinate food safety review and comments",
+        description:
+          "Coordinate with the authority officials during the review, incorporate their comments, and obtain the final food safety approval or NOC.",
+      },
+      {
+        step: 5,
+        title: "Prepare RTA outdoor dining submission",
+        description:
+          "Prepare the outdoor dining drawings to RTA requirements together with the supporting documents, and submit them through the RTA portal.",
+      },
+      {
+        step: 6,
+        title: "Obtain the RTA outdoor dining NOC",
+        description:
+          "Follow up with the RTA until approval, resubmit where RTA comments require it, and obtain the final RTA approval or NOC.",
+      },
+    ],
+    timeline: [
+      {
+        title: "Quotation issued",
+        detail:
+          "Quotation LML/QTN/1169 issued on 1 August 2026 for AED 6,500 covering DM, food safety and outdoor dining approval.",
+        state: "approved",
+        date: "2026-08-01",
+      },
+      {
+        title: "DM design approval",
+        detail:
+          "Café drawings prepared to DM regulation and submitted for design approval.",
+        state: "pending",
+      },
+      {
+        title: "Food safety approval",
+        detail:
+          "Food safety drawings and documentation submitted through the authority portal and followed through review.",
+        state: "pending",
+      },
+      {
+        title: "RTA outdoor dining NOC",
+        detail:
+          "Outdoor dining drawings prepared to RTA requirements and followed until the NOC is issued.",
+        state: "pending",
+      },
+      {
+        title: "Completion certificate",
+        detail:
+          "As-built drawings prepared from the site inspection and the DM completion certificate obtained.",
+        state: "pending",
+      },
+    ],
+    documentsTable: [
+      {
+        document: "NOC and supporting documents",
+        description:
+          "The quotation places the NOC and supporting documents on the client; the outdoor dining file also needs client-supplied supporting documents.",
+        providedBy: "client",
+      },
+      {
+        document: "Client documentation for DM submission",
+        description:
+          "Trade and tenancy documentation needed to lodge the cafe's DM design approval file.",
+        providedBy: "client",
+      },
+      {
+        document: "DM drawing set",
+        description:
+          "Café drawings prepared to DM regulation, plus the as-built drawings produced after the site inspection.",
+        providedBy: "wasleen",
+      },
+      {
+        document: "Food safety documentation",
+        description:
+          "Food safety drawings and documentation submitted through the relevant authority portal.",
+        providedBy: "wasleen",
+      },
+      {
+        document: "RTA outdoor dining submission",
+        description:
+          "Outdoor dining drawings prepared to RTA requirements with the supporting documents, submitted through the RTA portal.",
+        providedBy: "wasleen",
+      },
+    ],
+    timelineTable: [
+      {
+        stage: "Quotation issued",
+        planned: "—",
+        actual: "1 August 2026",
+      },
+      {
+        stage: "DM design approval",
+        planned: "Within 7–10 working days",
+        actual: "—",
+        note: "Duration stated in the quotation, subject to authority review",
+      },
+      {
+        stage: "Food safety approval",
+        planned: "Within 7–10 working days",
+        actual: "—",
+        note: "Runs alongside the DM file",
+      },
+      {
+        stage: "RTA outdoor dining NOC",
+        planned: "Within 7–10 working days",
+        actual: "—",
+        note: "Resubmission may be needed after RTA comments",
+      },
+      {
+        stage: "DM completion certificate",
+        planned: "—",
+        actual: "—",
+        note: "Released after the inspection and as-built drawings",
+      },
+    ],
+    quotedFee: "AED 6,500",
+    feeAmountAED: 6500,
+    feeIncluded: [
+      "DM: drawings to DM regulation, submission, design approval, inspection follow-up, as-built drawings and completion certificate (AED 3,000)",
+      "Food safety: drawings and documentation, portal submission, coordination with authority officials, comment incorporation and final approval/NOC (AED 2,000)",
+      "Outdoor dining: drawings to RTA requirements, supporting documents, RTA portal submission, follow-up and resubmission based on comments (AED 1,500)",
+    ],
+    proTips: [
+      {
+        title: "Sequence the three files so one set of comments does not restart the others",
+        body: "DM drawings, food safety documentation and the RTA outdoor dining submission all describe the same shop. Because any design change requested by an authority is charged extra, settling the layout, the kitchen and the outdoor seating footprint before the first submission keeps the AED 6,500 fee intact.",
+      },
+      {
+        title: "Plan the outdoor seating around RTA comments, not around opening day",
+        body: "The quotation allows for resubmission after RTA comments, and the stated 7–10 working day window is subject to authority review. Allowing for one comment cycle on the outdoor dining file protects the café's target opening date.",
+      },
+    ],
+    outcome: [
+      { label: "Quoted fee", value: "AED 6,500" },
+      { label: "DM element", value: "AED 3,000" },
+      { label: "Food safety element", value: "AED 2,000" },
+      { label: "Outdoor dining element", value: "AED 1,500" },
+    ],
+    faqs: [
+      {
+        question: "What does the AED 6,500 quotation cover for this chai café?",
+        answer:
+          "It covers three approvals: Dubai Municipality design approval with inspection follow-up, as-built drawings and the completion certificate at AED 3,000; food safety approval at AED 2,000; and the RTA outdoor dining approval or NOC at AED 1,500.",
+      },
+      {
+        question: "How long does this café approval take?",
+        answer:
+          "The quotation states an approval duration of approximately 7–10 working days, subject to authority review. Any design change requested by an authority can extend that window because it has to be re-submitted.",
+      },
+      {
+        question: "Which authorities are involved in the Bur Dubai café approval?",
+        answer:
+          "Three are involved: Dubai Municipality (DM) for the café drawings, design approval and completion certificate; the food safety authority for the food handling operation; and the RTA for the outdoor dining area.",
+      },
+      {
+        question: "Why does the outdoor dining area need an RTA approval?",
+        answer:
+          "Because the outdoor seating uses public realm, so the outdoor dining drawings have to be prepared to RTA requirements and submitted through the RTA portal before the area can be approved.",
+      },
+      {
+        question: "What can add to the AED 6,500 fee?",
+        answer:
+          "Additional charges apply for design changes requested by authorities, inspection failure or major drawing revisions, and VAT is not included. All government fees are paid by the client, the NOC and supporting documents are client-supplied, and the advance payment is non-refundable.",
+      },
+      {
+        question: "What is the project status of this case study?",
+        answer:
+          "This case study reflects a quotation issued on 1 August 2026 for AED 6,500. All three approval scopes are engaged at quotation stage, so no design approval, NOC or completion certificate is claimed.",
+      },
+    ],
+    images: [
+      {
+        src: "/images/restaurant-food-business-approval-dubai.webp",
+        alt: "Chai café drawings prepared for Dubai Municipality design approval and food safety clearance in Bur Dubai",
+        width: 2336,
+        height: 1760,
+        placement: "hero",
+      },
+      {
+        src: "/images/interior-approvals-dubai-muncipality-consultants.webp",
+        alt: "Café interior and outdoor dining drawings prepared for DM and RTA approval in Bur Dubai",
+        width: 2336,
+        height: 1760,
+        placement: "documents",
+      },
+    ],
+    relatedApprovalSlugs: [
+      "food-control-department-approval",
+      "dubai-municipality-health-safety-approval",
+      "rta-approval",
+      "dubai-municipality-completion-certificate",
+    ],
+    relatedGuideSlugs: [
+      "dubai-food-control-approval-guide",
+      "rta-approval-commercial-projects",
+      "dm-completion-certificate-steps",
+    ],
+    relatedServiceSlugs: ["2d-drawings", "approval-management", "document-clearing"],
+    relatedCaseStudySlugs: [
+      "dda-dcd-food-safety-approval-cafe",
+      "dewa-trakhees-dcd-food-safety-approval-jvc",
+    ],
+    author: {
+      name: "Jamsheed Khalid",
+      credential: "Senior Fit-Out Consultant & Structural Engineer",
+      url: "https://www.linkedin.com/in/jamsheed-khalid-343148b6",
+    },
+    reviewedBy: {
+      name: "Kavya Ramachandran",
+      credential: "Interior Designer",
+    },
+    publishedAt: "2026-08-01",
+    lastUpdated: "2026-11-16",
+    publishStatus: "live",
+  },
+
+  /* ============================================================
+     LML/QTN/1170 — DDA approval (private property), Dubai
+     Source: "LML-QTN-1170.pdf" — dated 01/08/2026.
+     AMOUNT: EIGHT THOUSAND AED ONLY (AED 8,000).
+     Scope: drawings per DDA regulation; obtaining work permit
+     from DDA; inspection from DDA releasing completion certificate.
+     ============================================================ */
+  {
+    slug: "dda-work-permit-approval-dubai",
+    projectTitle: "DDA Approval & Work Permit for a Property in Dubai",
+    seoTitle: "DDA Approval & Work Permit Case Study in Dubai",
+    description:
+      "AED 8,000 DDA approval and work permit for a Dubai property: drawings to DDA regulation, permit issuance, inspection and completion certificate. Get a free quote today.",
+    sourceRef: "LML/QTN/1170",
+    consentGranted: false,
+    clientLabel: "Confidential client — Private property",
+    projectStatus: "quoted",
+    authorities: ["DDA"],
+    primaryApprovalSlug: "dda-approval",
+    projectType: "DDA approval and work permit",
+    location: "Dubai",
+    sector: "Private client",
+    directAnswer:
+      "This case study covers a Dubai property quoted at AED 8,000 for Dubai Development Authority (DDA) approval. The package includes preparing the drawings to DDA regulation, obtaining the work permit from the DDA, conducting the DDA inspection and releasing the completion certificate. The quotation was issued on 1 August 2026 and the approval scope is engaged.",
+    stats: [
+      { label: "Authority", value: "DDA" },
+      { label: "Quoted fee", value: "AED 8,000" },
+      { label: "Scope", value: "Drawings, permit & inspection" },
+      { label: "Status", value: "Quotation issued" },
+    ],
+    challenge:
+      "Properties inside a Dubai Development Authority (DDA) zone do not follow the Dubai Municipality route: the drawings have to satisfy DDA regulation, the authority issues the work permit that allows the works to proceed, and its own inspection releases the completion certificate. The permit is the gate in the middle of that sequence, so a drawing set that does not meet DDA regulation stalls the works before the inspection stage is ever reached.\n\nThe quotation's limiting conditions set out what the AED 8,000 depends on. The client supplies the existing drawings, documents and green files; exceptional approval requirements, a design revision or a failed inspection are charged extra; all government charges are paid by the client; VAT is separate; and if the DDA requires the submission to go through a contracting company licence, the price may differ.",
+    solutionSteps: [
+      {
+        step: 1,
+        title: "Review the client's drawings and documents",
+        description:
+          "Review the existing drawings, documents and green files supplied by the client and confirm what the DDA file needs before submission.",
+      },
+      {
+        step: 2,
+        title: "Prepare drawings to DDA regulation",
+        description:
+          "Prepare the drawing set to DDA regulation so the submission is technically complete on the first pass.",
+      },
+      {
+        step: 3,
+        title: "Obtain the work permit from the DDA",
+        description:
+          "Lodge the submission and follow it until the DDA issues the work permit that allows the works to proceed.",
+      },
+      {
+        step: 4,
+        title: "Conduct the DDA inspection",
+        description:
+          "Arrange and attend the DDA inspection, and resolve any findings raised against the approved drawings.",
+      },
+      {
+        step: 5,
+        title: "Release the completion certificate",
+        description:
+          "Close the DDA file once the inspection passes, releasing the completion certificate.",
+      },
+    ],
+    timeline: [
+      {
+        title: "Quotation issued",
+        detail:
+          "Quotation LML/QTN/1170 issued on 1 August 2026 for AED 8,000 covering DDA approval and work permit.",
+        state: "approved",
+        date: "2026-08-01",
+      },
+      {
+        title: "Drawings to DDA regulation",
+        detail:
+          "Drawing set prepared from the client-supplied drawings, documents and green files.",
+        state: "pending",
+      },
+      {
+        title: "DDA work permit",
+        detail: "Work permit obtained from the Dubai Development Authority.",
+        state: "pending",
+      },
+      {
+        title: "DDA inspection",
+        detail:
+          "Inspection conducted by the DDA; any findings have to be closed before completion.",
+        state: "pending",
+      },
+      {
+        title: "Completion certificate",
+        detail: "Completion certificate released after the inspection passes.",
+        state: "pending",
+      },
+    ],
+    documentsTable: [
+      {
+        document: "Existing drawings and documents",
+        description:
+          "The drawings, documents and green files the quotation requires the client to provide.",
+        providedBy: "client",
+      },
+      {
+        document: "Government charge receipts",
+        description:
+          "All DDA government charges are paid by the client, as stated in the limiting conditions.",
+        providedBy: "client",
+      },
+      {
+        document: "DDA drawing set",
+        description: "Drawings prepared to DDA regulation for the permit submission.",
+        providedBy: "wasleen",
+      },
+      {
+        document: "DDA work permit application",
+        description:
+          "Submission and follow-up that carries the file to work permit issuance.",
+        providedBy: "wasleen",
+      },
+      {
+        document: "Inspection and completion file",
+        description:
+          "DDA inspection attendance and the file closure that releases the completion certificate.",
+        providedBy: "wasleen",
+      },
+    ],
+    timelineTable: [
+      {
+        stage: "Quotation issued",
+        planned: "—",
+        actual: "1 August 2026",
+      },
+      {
+        stage: "Drawings to DDA regulation",
+        planned: "Weeks 1–2",
+        actual: "—",
+        note: "Indicative — the quotation states no programme",
+      },
+      {
+        stage: "DDA work permit",
+        planned: "Weeks 2–5",
+        actual: "—",
+        note: "Indicative — permit review time is set by the DDA",
+      },
+      {
+        stage: "DDA inspection",
+        planned: "After the works",
+        actual: "—",
+        note: "Scheduled once the permitted works are complete",
+      },
+      {
+        stage: "Completion certificate",
+        planned: "After inspection",
+        actual: "—",
+        note: "Released only after the inspection passes",
+      },
+    ],
+    quotedFee: "AED 8,000",
+    feeAmountAED: 8000,
+    feeIncluded: [
+      "Preparing drawings as per DDA regulation",
+      "Obtaining the work permit from DDA",
+      "Conducting inspection from DDA, releasing completion certificate",
+    ],
+    proTips: [
+      {
+        title: "Confirm the licence route before pricing the submission",
+        body: "The quotation states that if the DDA requires the submission to be made through a contracting company licence, the price may differ. Confirming that requirement at the start prevents the AED 8,000 fee from being renegotiated mid-submission.",
+      },
+      {
+        title: "Treat the work permit as the mid-project gate",
+        body: "The fee covers the permit and the inspection as one scope, but the inspection can only follow permitted works. Booking the drawing review and the permit submission back-to-back is what keeps the completion certificate inside the expected programme.",
+      },
+    ],
+    outcome: [
+      { label: "Quoted fee", value: "AED 8,000" },
+      { label: "Authority", value: "DDA" },
+      { label: "Work permit", value: "Included" },
+      { label: "Completion certificate", value: "Included" },
+    ],
+    faqs: [
+      {
+        question: "What does the AED 8,000 DDA quotation cover?",
+        answer:
+          "It covers preparing the drawings to DDA regulation, obtaining the work permit from the Dubai Development Authority, and conducting the DDA inspection that releases the completion certificate.",
+      },
+      {
+        question: "Why does this property need DDA approval rather than Dubai Municipality approval?",
+        answer:
+          "The property sits in a Dubai Development Authority zone, so the DDA regulates its drawings and issues the work permit, and the DDA inspection releases the completion certificate.",
+      },
+      {
+        question: "When would the DDA fee change from AED 8,000?",
+        answer:
+          "The quotation states that the price may differ if the DDA requires submission through a contracting company licence. Exceptional approval requirements, a design revision or a failed inspection are also charged additionally.",
+      },
+      {
+        question: "What must the client provide for the DDA submission?",
+        answer:
+          "The client provides the existing drawings, documents and green files. All government charges are paid by the client, and VAT is charged separately.",
+      },
+      {
+        question: "Is the DDA inspection included in the same fee?",
+        answer:
+          "Yes. The AED 8,000 covers the drawings, the work permit and the DDA inspection, with the completion certificate released once the inspection passes.",
+      },
+      {
+        question: "What is the project status of this case study?",
+        answer:
+          "This case study reflects a quotation issued on 1 August 2026 for AED 8,000. The DDA approval scope is engaged at quotation stage, so no work permit, inspection result or completion certificate is claimed.",
+      },
+    ],
+    images: [
+      {
+        src: "/images/dda-fit-out-approval-engineering.webp",
+        alt: "DDA approval drawings and work permit documentation for a property in Dubai",
+        width: 2336,
+        height: 1760,
+        placement: "hero",
+      },
+      {
+        src: "/images/blueprint-drawing-submission-approval-dubai.webp",
+        alt: "Drawings prepared to DDA regulation for a work permit submission in Dubai",
+        width: 2336,
+        height: 1760,
+        placement: "documents",
+      },
+    ],
+    relatedApprovalSlugs: [
+      "dda-approval",
+      "dubai-municipality-completion-certificate",
+      "dubai-municipality-noc",
+    ],
+    relatedGuideSlugs: [
+      "cad-drawing-standards-dubai-guide",
+      "approval-timelines-dubai-guide",
+      "as-built-drawing-requirements",
+    ],
+    relatedServiceSlugs: ["2d-drawings", "approval-management", "document-clearing"],
+    relatedCaseStudySlugs: [
+      "business-center-dda-dcd-approval",
+      "dda-approval-alma-arabian-ranches",
+      "dda-approval-mudon-dubai",
+    ],
+    author: {
+      name: "Jamsheed Khalid",
+      credential: "Senior Fit-Out Consultant & Structural Engineer",
+      url: "https://www.linkedin.com/in/jamsheed-khalid-343148b6",
+    },
+    reviewedBy: {
+      name: "Kavya Ramachandran",
+      credential: "Interior Designer",
+    },
+    publishedAt: "2026-08-01",
+    lastUpdated: "2026-11-16",
+    publishStatus: "live",
+  },
+
+  /* ============================================================
+     LML/QTN/1171 — Warehouse to sports facility conversion,
+     Al Quoz Industrial 2, Dubai (DM + DCD)
+     Source: "LML-QTN-1171.pdf" — sales quotation, order date
+     4/8/2026, total 35,000.00 AED + VAT.
+     Scope: design & preparation of drawings per DM and DCD;
+     submission, follow-up and obtaining approval from DM and DCD;
+     authority meetings; site visits and supervision; technical
+     advice. Payment: 50% advance + VAT, 50% on approval + VAT.
+     projectStatus "quoted" — the PDF is a quotation, so no
+     approval or completion is claimed anywhere on this page.
+     ============================================================ */
+  {
+    slug: "warehouse-to-sports-conversion-dm-dcd-approval-al-quoz",
+    projectTitle: "DM & DCD Approval: Warehouse to Sports Conversion",
+    seoTitle: "DM & DCD Approval Case Study: Al Quoz Warehouse",
+    description:
+      "AED 35,000 plus VAT for DM and DCD approval of a warehouse to sports conversion in Al Quoz, covering drawings and submissions. Get a free quote today.",
+    sourceRef: "LML/QTN/1171",
+    consentGranted: false,
+    clientLabel: "Confidential client — Al Quoz Industrial 2 warehouse",
+    projectStatus: "quoted",
+    authorities: ["Dubai Municipality", "Dubai Civil Defence"],
+    primaryApprovalSlug: "dubai-civil-defense-approval",
+    projectType: "Warehouse to sports facility conversion",
+    location: "Al Quoz Industrial 2, Dubai",
+    sector: "Sports facility",
+    directAnswer:
+      "This case study covers a warehouse to sports facility conversion in Al Quoz Industrial 2, Dubai, quoted at AED 35,000 plus VAT for Dubai Municipality (DM) and Dubai Civil Defence (DCD) approval. The scope covers designing and preparing the drawings to DM and DCD requirements, submitting them, following up until both authorities approve, attending the required authority meetings, supervising site visits and providing technical advice. The quotation was issued on 4 August 2026, states no fixed approval window, and the approval scope is engaged.",
+    stats: [
+      { label: "Authorities", value: "DM & DCD" },
+      { label: "Quoted fee", value: "AED 35,000 + VAT" },
+      { label: "Scope", value: "Drawings, submissions & supervision" },
+      { label: "Status", value: "Quotation issued" },
+    ],
+    challenge:
+      "Converting a warehouse into a sports facility changes how the building is used and occupied, so the drawing set has to satisfy two authorities at once: Dubai Municipality on the design and use, and Dubai Civil Defence on life safety. The quotation reflects that by naming DM and DCD together in the design scope, in the submission and approval scope, in the authority meetings and in the site visits, rather than treating civil defence as a later add-on.\n\nThe quotation is a consultant proposal, and its basis defines the real boundary of the fee. The client provides all required documents, the existing approved drawings and any specific project information or data needed for the submission, while VAT at 5% is charged on each instalment. The quotation also states no fixed approval window, so the AED 35,000 buys the scope of work rather than a guaranteed date — payment falls 50% in advance and 50% after the approval or work permit is obtained.",
+    solutionSteps: [
+      {
+        step: 1,
+        title: "Collect client documents and approved drawings",
+        description:
+          "Take the required documents, the existing approved drawings and any specific project data the client supplies, and use them as the basis for the conversion drawings.",
+      },
+      {
+        step: 2,
+        title: "Design and prepare drawings to DM and DCD rules",
+        description:
+          "Design the warehouse to sports facility conversion and prepare the drawing set to both Dubai Municipality and Dubai Civil Defence requirements.",
+      },
+      {
+        step: 3,
+        title: "Submit and follow up with both authorities",
+        description:
+          "Submit the drawing set, follow the review with DM and DCD, and respond to authority comments until the design approval is obtained.",
+      },
+      {
+        step: 4,
+        title: "Attend authority meetings and supervise site visits",
+        description:
+          "Attend the meetings the authorities require for the approval, and carry out site visits and supervision for authority reasons.",
+      },
+      {
+        step: 5,
+        title: "Provide technical advice through the approval",
+        description:
+          "Advise the client on technical points as they arise during the approval, with the second 50% instalment falling due after the approval or work permit is obtained.",
+      },
+    ],
+    timeline: [
+      {
+        title: "Quotation issued",
+        detail:
+          "Quotation LML/QTN/1171 issued on 4 August 2026 for AED 35,000 plus VAT covering DM and DCD approval for the warehouse to sports conversion.",
+        state: "approved",
+        date: "2026-08-04",
+      },
+      {
+        title: "Documents & drawings",
+        detail:
+          "Client provides the required documents, existing approved drawings and project data; the quotation states no date.",
+        state: "pending",
+      },
+      {
+        title: "DM & DCD drawings",
+        detail:
+          "Conversion drawings prepared to Dubai Municipality and Dubai Civil Defence requirements.",
+        state: "pending",
+      },
+      {
+        title: "Submission & approval",
+        detail:
+          "Submissions made to DM and DCD and followed through review; the quotation states no fixed approval window.",
+        state: "pending",
+      },
+      {
+        title: "Meetings & site supervision",
+        detail:
+          "Authority meetings attended and site visits supervised for authority reasons.",
+        state: "pending",
+      },
+    ],
+    documentsTable: [
+      {
+        document: "Existing approved drawings",
+        description:
+          "The approved drawings for the warehouse, supplied by the client under the basis and assumptions of the quotation.",
+        providedBy: "client",
+      },
+      {
+        document: "Project documents and data",
+        description:
+          "All required documents and any specific information or data needed for the conversion submission.",
+        providedBy: "client",
+      },
+      {
+        document: "DM and DCD drawing set",
+        description:
+          "Conversion drawings designed and prepared to Dubai Municipality and Dubai Civil Defence requirements.",
+        providedBy: "wasleen",
+      },
+      {
+        document: "DM and DCD submissions",
+        description:
+          "Submission of the drawing set to both authorities, plus the follow-up that carries it to design approval.",
+        providedBy: "wasleen",
+      },
+      {
+        document: "Authority meetings and site supervision",
+        description:
+          "Attendance at the meetings the local authority requires and site visits and supervision for authority reasons.",
+        providedBy: "wasleen",
+      },
+    ],
+    timelineTable: [
+      {
+        stage: "Client documents and approved drawings",
+        planned: "Client-supplied; no date stated in the quotation",
+        actual: "Awaiting client documents",
+        note: "Basis and assumptions of the quotation",
+      },
+      {
+        stage: "DM and DCD drawing set",
+        planned: "No fixed duration stated in the quotation",
+        actual: "Quotation stage",
+      },
+      {
+        stage: "Submission and follow-up",
+        planned: "No fixed duration stated in the quotation",
+        actual: "Quotation stage",
+      },
+      {
+        stage: "Design approval from DM and DCD",
+        planned: "No fixed approval window stated in the quotation",
+        actual: "Quotation stage",
+      },
+      {
+        stage: "Authority meetings and site supervision",
+        planned: "As required by the authorities",
+        actual: "Quotation stage",
+      },
+    ],
+    quotedFee: "AED 35,000 + VAT",
+    feeAmountAED: 35000,
+    feeIncluded: [
+      "Design and preparation of drawings to DM and DCD requirements",
+      "Submission, follow-up and obtaining approval from DM and DCD",
+      "Required meetings with the local authority for approvals",
+      "Site visits and supervision as required for authority reasons",
+      "Technical advice provided as and when required",
+    ],
+    proTips: [
+      {
+        title: "Price the change of use, not just the drawings",
+        body: "A warehouse becoming a sports facility is judged on how the building is used and occupied, so the drawing set has to answer Dubai Municipality on design and Dubai Civil Defence on life safety in the same submission. Buying drawings that satisfy only one authority usually means paying twice.",
+      },
+      {
+        title: "Ask for the invoice in two parts",
+        body: "The quotation splits payment 50% in advance and 50% after the approval or work permit, with VAT at 5% on each. Matching the invoice to those two milestones keeps the cash flow aligned with the approval risk instead of paying the whole fee before DM and DCD have reviewed anything.",
+      },
+    ],
+    outcome: [
+      { label: "Quoted fee", value: "AED 35,000 + VAT" },
+      { label: "Authorities", value: "DM & DCD" },
+      { label: "Payment terms", value: "50% advance, 50% on approval" },
+      { label: "Status", value: "Quotation issued" },
+    ],
+    faqs: [
+      {
+        question: "What does the AED 35,000 quotation cover?",
+        answer:
+          "It covers designing and preparing the drawings to Dubai Municipality and Dubai Civil Defence requirements, submitting them and following up until approval from both authorities, attending the required authority meetings, site visits and supervision for authority reasons, and technical advice as required.",
+      },
+      {
+        question: "Why are both DM and DCD involved in a warehouse to sports conversion?",
+        answer:
+          "Converting a warehouse into a sports facility changes how the building is used and occupied, so the quotation names both Dubai Municipality and Dubai Civil Defence in the design, submission, approval, meeting and site supervision scope rather than separating civil defence into a second job.",
+      },
+      {
+        question: "Does the quotation state how long the approval takes?",
+        answer:
+          "No. The quotation states no fixed approval window, so the AED 35,000 prices the scope of work rather than a guaranteed date. Approval duration depends on the authority review and how quickly client comments and authority requirements are closed.",
+      },
+      {
+        question: "What must the client provide for this submission?",
+        answer:
+          "The client provides all required documents, the existing approved drawings and any specific information or data needed for the project. VAT at 5% is charged in addition to the AED 35,000 and applies to both instalments.",
+      },
+      {
+        question: "How are the AED 35,000 payments structured?",
+        answer:
+          "The quotation sets 50% as an advance payment plus VAT, and 50% after obtaining the approval or work permit plus VAT, so the second half is tied to the DM and DCD approval actually being issued.",
+      },
+      {
+        question: "What is the project status of this case study?",
+        answer:
+          "This case study reflects a quotation issued on 4 August 2026 for AED 35,000 plus VAT. The approval scope is engaged at quotation stage, so no DM or DCD approval, work permit or completion is claimed.",
+      },
+    ],
+    images: [
+      {
+        src: "/images/structural-approval-engineering-dubai.webp",
+        alt: "Warehouse to sports facility conversion drawings prepared for DM and DCD approval in Al Quoz, Dubai",
+        width: 2336,
+        height: 1760,
+        placement: "hero",
+      },
+      {
+        src: "/images/blueprint-drawing-submission-approval-dubai.webp",
+        alt: "Drawing set prepared to Dubai Municipality and Dubai Civil Defence requirements for an Al Quoz conversion",
+        width: 2336,
+        height: 1760,
+        placement: "documents",
+      },
+    ],
+    relatedApprovalSlugs: [
+      "dubai-civil-defense-approval",
+      "dubai-municipality-building-permit",
+      "dubai-municipality-health-safety-approval",
+      "dubai-municipality-noc",
+    ],
+    relatedGuideSlugs: [
+      "structural-modification-approval-guide",
+      "approval-timelines-dubai-guide",
+      "cad-drawing-standards-dubai-guide",
+      "how-long-does-dm-building-permit-take",
+    ],
+    relatedServiceSlugs: ["2d-drawings", "approval-management", "document-clearing"],
+    relatedCaseStudySlugs: [
+      "boundary-wall-dm-approval-dubai",
+      "dda-work-permit-approval-dubai",
+      "business-center-dda-dcd-approval",
+    ],
+    author: {
+      name: "Jamsheed Khalid",
+      credential: "Senior Fit-Out Consultant & Structural Engineer",
+      url: "https://www.linkedin.com/in/jamsheed-khalid-343148b6",
+    },
+    reviewedBy: {
+      name: "Kavya Ramachandran",
+      credential: "Interior Designer",
+    },
+    publishedAt: "2026-08-04",
+    lastUpdated: "2026-11-16",
+    publishStatus: "live",
+  },
+
+  /* ============================================================
+     LML/QTN/1173 — DM & DCD approval, Dubai Investment Park
+     Source: "LML-QTN-1173.pdf" — work quotation, ref
+     LML/QTN/1173, date 05/08/2026, project "DUBAI INVESTMENT
+     PARK", subject "QUOTATION FOR DM & DCD APPROVAL".
+     Amount AED 8,000 (eight thousand only) covering drawings per
+     DM and DCD regulation, design approval from DM and DCD, and
+     inspection from DM and DCD releasing the completion
+     certificate.
+     projectStatus "quoted" — the PDF is a quotation, so no
+     approval, inspection or completion is claimed anywhere on
+     this page. The quotation does not state the building use.
+     ============================================================ */
+  {
+    slug: "dm-dcd-approval-dubai-investment-park",
+    projectTitle: "DM & DCD Approval for a Project in Dubai Investment Park",
+    seoTitle: "DM & DCD Approval Case Study: Dubai Investment Park",
+    description:
+      "AED 8,000 for DM and DCD approval in Dubai Investment Park, covering drawings, design approval, inspections and the completion certificate. Get a free quote today.",
+    sourceRef: "LML/QTN/1173",
+    consentGranted: false,
+    clientLabel: "Confidential client — Dubai Investment Park project",
+    projectStatus: "quoted",
+    authorities: ["Dubai Municipality", "Dubai Civil Defence"],
+    primaryApprovalSlug: "dubai-municipality-building-permit",
+    projectType: "DM & DCD approval and completion",
+    location: "Dubai Investment Park, Dubai",
+    sector: "Project use not stated",
+    directAnswer:
+      "This case study covers Dubai Municipality (DM) and Dubai Civil Defence (DCD) approval for a project in Dubai Investment Park, quoted at AED 8,000. The scope covers preparing drawings to DM and DCD regulation, obtaining design approval from both authorities, and conducting the DM and DCD inspections that release the completion certificate. The quotation was issued on 5 August 2026, does not state the building use or a fixed approval window, and the approval scope is engaged.",
+    stats: [
+      { label: "Authorities", value: "DM & DCD" },
+      { label: "Quoted fee", value: "AED 8,000" },
+      { label: "Scope", value: "Drawings, approval & inspection" },
+      { label: "Status", value: "Quotation issued" },
+    ],
+    challenge:
+      "The quotation is deliberately narrow: it is headed quotation for DM and DCD approval and prices exactly three things — preparing drawings to DM and DCD regulation, obtaining design approval from both authorities, and conducting the DM and DCD inspections that release the completion certificate. It does not state the building use, the plot details, a drawing count or a fixed approval window, so AED 8,000 is the price of the approval scope rather than a fixed programme.\n\nBecause the same fee spans design approval and completion, the inspection is the second half of the job rather than an extra. A client who reads the AED 8,000 as drawings only would be budgeting for half of what the scope promises, since the completion certificate in a Dubai Investment Park project depends on the DM and DCD inspections actually being conducted and closed.",
+    solutionSteps: [
+      {
+        step: 1,
+        title: "Confirm the project information",
+        description:
+          "Establish the project details required to lodge the file, since the quotation itself states only the project name and the approval scope.",
+      },
+      {
+        step: 2,
+        title: "Prepare drawings to DM and DCD regulation",
+        description:
+          "Prepare the drawing set so it meets both Dubai Municipality and Dubai Civil Defence regulation before any submission is made.",
+      },
+      {
+        step: 3,
+        title: "Obtain design approval from DM and DCD",
+        description:
+          "Submit for design approval and follow the review through both authorities until the design approval is issued.",
+      },
+      {
+        step: 4,
+        title: "Conduct the DM and DCD inspections",
+        description:
+          "Arrange the inspections required by Dubai Municipality and Dubai Civil Defence and close any findings raised on site.",
+      },
+      {
+        step: 5,
+        title: "Release the completion certificate",
+        description:
+          "Close the file with the completion certificate released after the DM and DCD inspections are satisfied.",
+      },
+    ],
+    timeline: [
+      {
+        title: "Quotation issued",
+        detail:
+          "Quotation LML/QTN/1173 issued on 5 August 2026 for AED 8,000 covering DM and DCD approval in Dubai Investment Park.",
+        state: "approved",
+        date: "2026-08-05",
+      },
+      {
+        title: "DM & DCD drawings",
+        detail:
+          "Drawings prepared to Dubai Municipality and Dubai Civil Defence regulation.",
+        state: "pending",
+      },
+      {
+        title: "Design approval",
+        detail:
+          "Design approval obtained from DM and DCD; the quotation states no fixed approval window.",
+        state: "pending",
+      },
+      {
+        title: "Inspections",
+        detail: "DM and DCD inspections conducted for the project.",
+        state: "pending",
+      },
+      {
+        title: "Completion certificate",
+        detail: "Completion certificate released after the inspections.",
+        state: "pending",
+      },
+    ],
+    documentsTable: [
+      {
+        document: "Existing approved drawings",
+        description:
+          "The approved drawings for the project that the submission is built from.",
+        providedBy: "client",
+      },
+      {
+        document: "Project information",
+        description:
+          "Project details needed for the DM and DCD file, which the quotation does not itself record.",
+        providedBy: "client",
+      },
+      {
+        document: "DM and DCD drawing set",
+        description:
+          "Drawings prepared to Dubai Municipality and Dubai Civil Defence regulation for the submission.",
+        providedBy: "wasleen",
+      },
+      {
+        document: "Design approval submission",
+        description:
+          "Submission and follow-up that carries the file to design approval from DM and DCD.",
+        providedBy: "wasleen",
+      },
+      {
+        document: "Inspection and completion file",
+        description:
+          "DM and DCD inspection arrangements and the closing of the file to release the completion certificate.",
+        providedBy: "wasleen",
+      },
+    ],
+    timelineTable: [
+      {
+        stage: "Drawings to DM and DCD regulation",
+        planned: "Included in the AED 8,000 scope",
+        actual: "Quotation stage",
+        note: "No duration stated in the quotation",
+      },
+      {
+        stage: "Design approval from DM and DCD",
+        planned: "No approval window stated in the quotation",
+        actual: "Quotation stage",
+      },
+      {
+        stage: "DM and DCD inspections",
+        planned: "Included in the AED 8,000 scope",
+        actual: "Quotation stage",
+      },
+      {
+        stage: "Completion certificate",
+        planned: "Released after the inspections",
+        actual: "Quotation stage",
+      },
+    ],
+    quotedFee: "AED 8,000",
+    feeAmountAED: 8000,
+    feeIncluded: [
+      "Preparing drawings as per DM and DCD regulation",
+      "Obtaining design approval from DM and DCD",
+      "Conducting inspections from DM and DCD",
+      "Releasing the completion certificate",
+    ],
+    proTips: [
+      {
+        title: "Read the completion certificate into the fee",
+        body: "The AED 8,000 is not a drawings fee. It runs from regulation-compliant drawings through design approval to the DM and DCD inspections that release the completion certificate, so scope a project programme that reserves time for the inspection stage rather than stopping at approval.",
+      },
+      {
+        title: "Fix the project information before submission",
+        body: "This quotation names the project but not the building use, plot data or drawing count. Confirming those details up front prevents a submission being returned for missing information and keeps the fee from being renegotiated mid-file.",
+      },
+    ],
+    outcome: [
+      { label: "Quoted fee", value: "AED 8,000" },
+      { label: "Authorities", value: "DM & DCD" },
+      { label: "Design approval", value: "Included" },
+      { label: "Completion certificate", value: "Included" },
+    ],
+    faqs: [
+      {
+        question: "What does the AED 8,000 DM and DCD quotation cover?",
+        answer:
+          "It covers preparing drawings as per Dubai Municipality and Dubai Civil Defence regulation, obtaining design approval from both authorities, conducting the inspections from DM and DCD, and releasing the completion certificate.",
+      },
+      {
+        question: "Does the fee include the completion certificate?",
+        answer:
+          "Yes. The quotation's scope runs to conducting the DM and DCD inspections and releasing the completion certificate, so the certificate is part of the AED 8,000 rather than a separate stage to budget for later.",
+      },
+      {
+        question: "Does the quotation state a timeline for approval?",
+        answer:
+          "No. The quotation sets out the scope and the price only, with no approval window and no inspection timeframe, so the AED 8,000 prices the work rather than a delivery date.",
+      },
+      {
+        question: "What building use does this Dubai Investment Park project have?",
+        answer:
+          "The quotation does not state the building use, the plot details or the drawing count; it identifies the project as Dubai Investment Park and the subject as a quotation for DM and DCD approval. Those details are confirmed with the client before submission.",
+      },
+      {
+        question: "Why does a Dubai Investment Park project need both DM and DCD approval?",
+        answer:
+          "The quotation places the file with both authorities from the outset: drawings are prepared to DM and DCD regulation, design approval is obtained from both, and both conduct the inspections that release the completion certificate.",
+      },
+      {
+        question: "What is the project status of this case study?",
+        answer:
+          "This case study reflects a work quotation issued on 5 August 2026 for AED 8,000. The approval scope is engaged at quotation stage, so no design approval, inspection result or completion certificate is claimed.",
+      },
+    ],
+    images: [
+      {
+        src: "/images/blueprint-drawing-submission-approval-dubai.webp",
+        alt: "Drawings prepared to DM and DCD regulation for a project in Dubai Investment Park",
+        width: 2336,
+        height: 1760,
+        placement: "hero",
+      },
+      {
+        src: "/images/interior-approvals-dubai-muncipality-consultants.webp",
+        alt: "DM and DCD approval file for a Dubai Investment Park project, including inspections and completion certificate",
+        width: 2336,
+        height: 1760,
+        placement: "documents",
+      },
+    ],
+    relatedApprovalSlugs: [
+      "dubai-municipality-building-permit",
+      "dubai-civil-defense-approval",
+      "dubai-municipality-completion-certificate",
+      "dubai-municipality-noc",
+    ],
+    relatedGuideSlugs: [
+      "how-long-does-dm-building-permit-take",
+      "dm-completion-certificate-steps",
+      "approval-timelines-dubai-guide",
+      "cad-drawing-standards-dubai-guide",
+    ],
+    relatedServiceSlugs: ["2d-drawings", "approval-management", "document-clearing"],
+    relatedCaseStudySlugs: [
+      "warehouse-to-sports-conversion-dm-dcd-approval-al-quoz",
+      "boundary-wall-dm-approval-dubai",
+      "business-center-dda-dcd-approval",
+    ],
+    author: {
+      name: "Jamsheed Khalid",
+      credential: "Senior Fit-Out Consultant & Structural Engineer",
+      url: "https://www.linkedin.com/in/jamsheed-khalid-343148b6",
+    },
+    reviewedBy: {
+      name: "Kavya Ramachandran",
+      credential: "Interior Designer",
+    },
+    publishedAt: "2026-08-05",
+    lastUpdated: "2026-11-16",
+    publishStatus: "live",
+  },
 ];
